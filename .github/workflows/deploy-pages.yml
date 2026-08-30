@@ -31,10 +31,17 @@ jobs:
         with:
           enablement: true
 
+      # 只部署網站本體：手冊全文 docs/ 與 repo 管理檔案不對外發布
+      - name: Assemble site (exclude docs/)
+        run: |
+          mkdir _site
+          rsync -a --exclude='docs' --exclude='.git' --exclude='.github' \
+                --exclude='_site' --exclude='README.md' ./ _site/
+
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
         with:
-          path: .
+          path: _site
 
       - name: Deploy to GitHub Pages
         id: deployment
