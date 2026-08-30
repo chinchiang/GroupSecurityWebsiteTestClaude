@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第 III 部・分層設計 | 資安防護網設計手冊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html">
+      <span class="mark">🛡</span>
+      <span>資安防護網設計手冊<small>GSMD-RPT-2026-0830-01</small></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="開啟選單">選單 ☰</button>
+    <nav class="site-nav">
+      <a href="index.html">首頁</a>
+      <a href="methodology.html">方法論</a>
+      <a href="part-1.html">第 I 部・背景</a>
+      <a href="part-2.html">第 II 部・設計</a>
+      <a href="part-3.html">第 III 部・分層</a>
+      <a href="part-4.html">第 IV 部・落地</a>
+      <a href="appendix.html">附錄</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero page-hero">
+  <div class="hero-inner">
+    <p class="kicker">Part III・第 11 – 23 章</p>
+    <h1>分層設計：L0–L9 十層與三個橫切面</h1>
+    <p class="subtitle">每一層均含「本層要解決的問題、必備控制清單、分區差異、市場與選型、常見失敗模式、本層可稽核產出」六個固定小節。</p>
+  </div>
+</section>
+
+<main class="container">
+
+  <section class="section">
+    <div class="section-head">
+      <p class="kicker">Layer Stack</p>
+      <h2>九層 ＋ 產品安全層 ＋ 三橫切</h2>
+      <p>縱向十層由治理至產品安全；三個橫切面貫穿所有層。點擊任一層可跳至章節簡介。</p>
+    </div>
+    <div class="layer-stack">
+      <div class="layer"><span class="tag">L0</span><strong><a href="#ch11">治理層</a></strong><span class="ch">第 11 章</span></div>
+      <div class="layer"><span class="tag">L1</span><strong><a href="#ch12">身分與存取層</a></strong><span class="ch">第 12 章</span></div>
+      <div class="layer"><span class="tag">L2</span><strong><a href="#ch13">網路與邊緣層</a></strong><span class="ch">第 13 章</span></div>
+      <div class="layer"><span class="tag">L3</span><strong><a href="#ch14">端點與工作負載層</a></strong><span class="ch">第 14 章</span></div>
+      <div class="layer"><span class="tag">L4</span><strong><a href="#ch15">應用與雲端層</a></strong><span class="ch">第 15 章</span></div>
+      <div class="layer"><span class="tag">L5</span><strong><a href="#ch16">資料層</a></strong><span class="ch">第 16 章</span></div>
+      <div class="layer"><span class="tag">L6</span><strong><a href="#ch17">偵測與應變層</a></strong><span class="ch">第 17 章</span></div>
+      <div class="layer"><span class="tag">L7</span><strong><a href="#ch18">暴露面與驗證層</a></strong><span class="ch">第 18 章</span></div>
+      <div class="layer"><span class="tag">L8</span><strong><a href="#ch19">OT 與廠務層</a></strong><span class="ch">第 19 章</span></div>
+      <div class="layer"><span class="tag">L9</span><strong><a href="#ch20">產品安全層（PSIRT／SBOM／CRA）</a></strong><span class="ch">第 20 章</span></div>
+      <div class="layer crosscut"><span class="tag">X1</span><strong><a href="#ch21">供應鏈與第三方（橫切）</a></strong><span class="ch">第 21 章</span></div>
+      <div class="layer crosscut"><span class="tag">X2</span><strong><a href="#ch22">韌性與營運持續（橫切）</a></strong><span class="ch">第 22 章</span></div>
+      <div class="layer crosscut"><span class="tag">X3</span><strong><a href="#ch23">人員與 AI 治理（橫切）</a></strong><span class="ch">第 23 章</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <p class="kicker">Chapters</p>
+      <h2>章節簡介</h2>
+    </div>
+    <div class="chapter-list">
+
+      <article class="chapter" id="ch11">
+        <div class="num">11<small>L0</small></div>
+        <div>
+          <h3>L0 治理層</h3>
+          <p>三層式政策架構；CSF 2.0 GOVERN function 的對應；董事會報告的頻率與內容；以控制項為中心（而非以法規為中心）的法遵管理。</p>
+          <div class="topics"><span>政策架構</span><span>GOVERN</span><span>董事會報告</span></div>
+          <div class="placeholder">章節內容待填入 — 對應手冊 §11.1–§11.8</div>
+        </div>
+      </article>
+
+      <article class="chapter" id="ch12">
+        <div class="num">12<small>L1</small></div>
+        <div>
+          <h3>L1 身分與存取層</h3>
+          <p>防釣魚 MFA、特權存取管理、非人身分（NHI）治理；必備控制清單、分區差異、市場與選型、常見失敗模式。</p>
+          <div class="topics"><span>MFA</span><span>PAM</span><span>NHI</span></div>
+          <div class="placeholder">章節內容待填入 — 對應手冊 §12.1–§12.6</div>
+        </div>
+      </article>
+
+      <article class="chapter" id="ch13">
+        <div class="num">13<small>L2</small></div>
+        <div>
+          <h3>L2 網路與邊緣層</h3>
+          <p>假設邊界裝置已被入侵的網路設計；必備控制清單、分區差異、市場與選型、常見失敗模式。</p>
+          <div class="topics"><span>邊界裝置</span><span>微分段</span><span>ZTNA</span></div>
+          <div class="placeholder">章節內容待填入 — 對應手冊 §13.1–§13.6</div>
+        </div>
+      </article>
+
+      <article class="chapter" id="ch14">
+        <div class="num">14<small>L3</small></div>
+        <div>
+          <h3>L3 端點與工作負載層</h3>
+          <p>設備入網管制——從 TSMC 2018 學到的流程；多 EDR 並存的現實問題；市場與選型。</p>
+          <div class="topics"><span>EDR</span><span>入網管制</span><span>多 EDR 並存</span></div>
+          <div class="placeholder">章節內容待填入 — 對應手冊 §14.1–§14.7</div>
+        </div>
+      </article>
+
+      <article class="chapter" id="ch15">
+        <div class="num">15<small>L4</small></div>
+        <div>
+          <h3>L4 應用與雲端層</h3>
+          <p>雲端安全（CNAPP 與雲端態勢）；自建應用安全以 SSDF 為骨幹；SaaS 治理——分析師覆蓋的空白區；API 與對外服務。</p>
+          <div class="topics"><span>CNAPP</span><span>SSDF</span><span>SaaS 治理</span><span>API</span></div>
+          <div class="placeholder">章節內容待填入 — 對應手冊 §15.1–§15.7</div>
+        </div>
+      </article>
+
+      <article class="chapter" id="ch16">
+        <div class="num">16<small>L5</small></div>
+        <div>
+          <h3>L5 資料層</h3>
+          <p>ODM 的四維資料分類模型（含「專案 × 客戶」正交維度）；DSPM 導入的實務順序建議；DLP／EDRM 選型。</p>
+          <div class="topics"><span>四維分類</span><span>DSPM</span><span>DLP/EDRM</span></div>
+          <div class="placeholder">章節內容待填入 — 對應手冊 §16.1–§16.8</div>
+        </div>
+      </article>
+
+      <article class="chapter" id="ch17">
+        <div class="num">17<small>L6</small></div>
+        <div>
+          <h3>L6 偵測與應變層</h3>
+          <p>遙測策略——優先序而非全收；遙測管線；SIEM／SOAR 與自動化；MDR 外包的判斷；AI SOC 的證據空白區；單一通報決策樹。</p>
+          <div class="topics"><span>SIEM</span><span>SOAR</span><span>MDR</span><span>通報決策樹</span></div>
+          <div class="placeholder">章節內容待填入 — 對應手冊 §17.1–§17.10</div>
+        </div>
+      </article>
+
+      <article class="chapter" id="ch18">
+        <div class="num">18<small>L7</small></div>
+        <div>
+          <h3>L7 暴露面與驗證層</h3>
+          <p>CTEM 框架；EPSS v4 的弱點優先排序實務價值；EASM 與資產發現；對抗式暴露驗證（AEV）；紅隊與滲透測試。</p>
+          <div class="topics"><span>CTEM</span><span>EPSS v4</span><span>EASM</span><span>AEV</span></div>
+          <div class="placeholder">章節內容待填入 — 對應手冊 §18.1–§18.9</div>
+        </div>
+      </article>
+
+      <article class="chapter" id="ch19">
+        <div class="num">19<small>L8</small></div>
+        <div>
+          <h3>L8 OT 與廠務層</h3>
+          <p>策略前提——先做邊界，後做深度；IEC 62443 的正確用法；Purdue 模型疊加而非取代；分區內的 OT 差異。</p>
+          <div class="topics"><span>IEC 62443</span><span>Purdue</span><span>邊界優先</span></div>
+          <div class="placeholder">章節內容待填入 — 對應手冊 §19.1–§19.8</div>
+        </div>
+      </article>
+
+      <article class="chapter" id="ch20">
+        <div class="num">20<small>L9</small></div>
+        <div>
+          <h3>L9 產品安全層（PSIRT／SBOM／CRA）</h3>
+          <p>為什麼 ODM 必須有這一層；PSIRT 組織與流程；SBOM（SPDX／CycloneDX 現況）；漏洞情報基礎設施的變局；CRA 落地的十二個月行動清單。</p>
+          <div class="topics"><span>PSIRT</span><span>SBOM</span><span>CRA 行動清單</span></div>
+          <div class="placeholder">章節內容待填入 — 對應手冊 §20.1–§20.8</div>
+        </div>
+      </article>
+
+      <article class="chapter" id="ch21">
+        <div class="num">21<small>X1</small></div>
+        <div>
+          <h3>X1 供應鏈與第三方（橫切）</h3>
+          <p>供應商分級以影響而非金額；供應商資安問卷；「RBA VAP 不涵蓋資安」的必要澄清；第三方存取的技術控制；客戶端稽核的應對。</p>
+          <div class="topics"><span>供應商分級</span><span>第三方存取</span><span>客戶稽核</span></div>
+          <div class="placeholder">章節內容待填入 — 對應手冊 §21.1–§21.9</div>
+        </div>
+      </article>
+
+      <article class="chapter" id="ch22">
+        <div class="num">22<small>X2</small></div>
+        <div>
+          <h3>X2 韌性與營運持續（橫切）</h3>
+          <p>韌性以「出貨」為單位；3-2-1-1-0 備份；降級作業手冊（Degraded Mode Operations Manual）；BIA 與 RTO/RPO；已驗證的財務衝擊數字；網路保險。</p>
+          <div class="topics"><span>3-2-1-1-0</span><span>降級作業</span><span>BIA</span><span>網路保險</span></div>
+          <div class="placeholder">章節內容待填入 — 對應手冊 §22.1–§22.9</div>
+        </div>
+      </article>
+
+      <article class="chapter" id="ch23">
+        <div class="num">23<small>X3</small></div>
+        <div>
+          <h3>X3 人員與 AI 治理（橫切）</h3>
+          <p>從意識訓練到人員風險管理；Arup 案的正確歸類；內部威脅的人員面；AI 治理的雙重角色（用 AI 防守、也防守 AI）。</p>
+          <div class="topics"><span>人員風險</span><span>內部威脅</span><span>AI 治理</span></div>
+          <div class="placeholder">章節內容待填入 — 對應手冊 §23.1–§23.6</div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <nav class="pager">
+    <a href="part-2.html"><small>← 上一頁</small>第 II 部・設計</a>
+    <a class="next" href="part-4.html"><small>下一頁 →</small>第 IV 部・落地</a>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© 2026 GSMD Security Fabric・文件編號 GSMD-RPT-2026-0830-01・查證基準日 2026-08-30</div>
+    <div><a href="methodology.html">證據分級方法論</a>・<a href="appendix.html">引用來源總表</a></div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

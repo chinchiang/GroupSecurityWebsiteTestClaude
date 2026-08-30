@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第 II 部・設計 | 資安防護網設計手冊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html">
+      <span class="mark">🛡</span>
+      <span>資安防護網設計手冊<small>GSMD-RPT-2026-0830-01</small></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="開啟選單">選單 ☰</button>
+    <nav class="site-nav">
+      <a href="index.html">首頁</a>
+      <a href="methodology.html">方法論</a>
+      <a href="part-1.html">第 I 部・背景</a>
+      <a href="part-2.html">第 II 部・設計</a>
+      <a href="part-3.html">第 III 部・分層</a>
+      <a href="part-4.html">第 IV 部・落地</a>
+      <a href="appendix.html">附錄</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero page-hero">
+  <div class="hero-inner">
+    <p class="kicker">Part II・第 7 – 10 章</p>
+    <h1>設計：框架選擇與總體架構</h1>
+    <p class="subtitle">為什麼不能只用一個框架、十條設計原則，以及「九層 × 三橫切 × 五分區」的三維總體架構與信任分區落地方法。</p>
+  </div>
+</section>
+
+<main class="container">
+
+  <section class="section">
+    <div class="chapter-list">
+
+      <article class="chapter">
+        <div class="num">07<small>CHAPTER</small></div>
+        <div>
+          <h3>框架骨幹的選擇與理由</h3>
+          <p>為什麼不能只用一個框架；建議的四層框架堆疊；各框架的 2026 年現況（必須用對版本）；一項關鍵的負面發現——<strong>不存在官方的 CSF 2.0 ↔ IEC 62443 對映</strong>。</p>
+          <div class="topics"><span>CSF 2.0</span><span>ISO 27001</span><span>IEC 62443</span><span>框架堆疊</span></div>
+          <div class="placeholder">章節內容待填入 — 對應手冊 §7.1–§7.5</div>
+        </div>
+      </article>
+
+      <article class="chapter">
+        <div class="num">08<small>CHAPTER</small></div>
+        <div>
+          <h3>設計十原則</h3>
+          <p>每一條原則都可回溯至第 I 部的證據錨點，是後續所有分層設計的決策依據。</p>
+          <div class="topics"><span>十原則</span><span>證據錨點</span></div>
+          <div class="placeholder">章節內容待填入 — 對應手冊第 8 章</div>
+        </div>
+      </article>
+
+      <article class="chapter">
+        <div class="num">09<small>CHAPTER</small></div>
+        <div>
+          <h3>總體架構：九層 × 三橫切 × 五分區</h3>
+          <p>三維設計模型；九層架構總覽；三個橫切主題；五個信任分區（Z1 全球企業、Z2 中國、Z3 客戶專區、Z4 產品、Z5 OT）；「分區 × 層」矩陣是架構決策的核心表格。</p>
+          <div class="topics"><span>三維模型</span><span>九層</span><span>五分區</span><span>核心矩陣</span></div>
+          <div class="placeholder">章節內容待填入 — 對應手冊 §9.1–§9.7</div>
+        </div>
+      </article>
+
+      <article class="chapter">
+        <div class="num">10<small>CHAPTER</small></div>
+        <div>
+          <h3>信任分區與邊界設計的落地方法</h3>
+          <p>分區的判定準則；conduit（受控通道）的設計原則；Purdue 模型的處理——不取代，而是疊加；分區設計的常見錯誤。</p>
+          <div class="topics"><span>分區判定</span><span>Conduit</span><span>Purdue 疊加</span><span>常見錯誤</span></div>
+          <div class="placeholder">章節內容待填入 — 對應手冊 §10.1–§10.5</div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <p class="kicker">Ten Principles</p>
+      <h2>設計十原則速覽</h2>
+    </div>
+    <div class="grid grid-2">
+      <div class="card"><span class="chip">原則一</span><p style="color:var(--text);">以「出貨」為最高可用性目標，而非以「系統」。</p></div>
+      <div class="card"><span class="chip">原則二</span><p style="color:var(--text);">客戶信任是交付物，資安投資的商業論證來自訂單。</p></div>
+      <div class="card"><span class="chip">原則三</span><p style="color:var(--text);">假設邊界裝置已被入侵。</p></div>
+      <div class="card"><span class="chip">原則四</span><p style="color:var(--text);">身分是新的邊界，非人身分（NHI）是最大的盲區。</p></div>
+      <div class="card"><span class="chip">原則五</span><p style="color:var(--text);">偵測與應變的設計目標是 29 分鐘。</p></div>
+      <div class="card"><span class="chip">原則六</span><p style="color:var(--text);">日誌保存期是偵測能力的硬上限。</p></div>
+      <div class="card"><span class="chip">原則七</span><p style="color:var(--text);">資料分類必須以「專案 × 客戶」為正交維度。</p></div>
+      <div class="card"><span class="chip">原則八</span><p style="color:var(--text);">供應鏈治理是主要曝險，不是合規項目。</p></div>
+      <div class="card"><span class="chip">原則九</span><p style="color:var(--text);">多法域的隔離是架構決策，可稽核性不等於可存取原始資料。</p></div>
+      <div class="card"><span class="chip">原則十</span><p style="color:var(--text);">所有對外的資安宣稱都必須可回溯至證據。</p></div>
+    </div>
+  </section>
+
+  <nav class="pager">
+    <a href="part-1.html"><small>← 上一頁</small>第 I 部・背景</a>
+    <a class="next" href="part-3.html"><small>下一頁 →</small>第 III 部・分層設計</a>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© 2026 GSMD Security Fabric・文件編號 GSMD-RPT-2026-0830-01・查證基準日 2026-08-30</div>
+    <div><a href="methodology.html">證據分級方法論</a>・<a href="appendix.html">引用來源總表</a></div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

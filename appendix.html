@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>附錄 A–H | 資安防護網設計手冊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html">
+      <span class="mark">🛡</span>
+      <span>資安防護網設計手冊<small>GSMD-RPT-2026-0830-01</small></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="開啟選單">選單 ☰</button>
+    <nav class="site-nav">
+      <a href="index.html">首頁</a>
+      <a href="methodology.html">方法論</a>
+      <a href="part-1.html">第 I 部・背景</a>
+      <a href="part-2.html">第 II 部・設計</a>
+      <a href="part-3.html">第 III 部・分層</a>
+      <a href="part-4.html">第 IV 部・落地</a>
+      <a href="appendix.html">附錄</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero page-hero">
+  <div class="hero-inner">
+    <p class="kicker">Appendices A – H</p>
+    <h1>附錄：總表、問卷與工具套件</h1>
+    <p class="subtitle">手冊的可操作資產——標準與合規總表、事件與控制項庫、自評問卷，以及把手冊 repo 化的 Claude Code + GitHub Prompt 套件。</p>
+  </div>
+</section>
+
+<main class="container">
+  <section class="section">
+    <div class="grid grid-2">
+
+      <div class="card">
+        <span class="chip">附錄 A</span>
+        <h3>主標準總表（版本 × 日期 × 發行機構）</h3>
+        <p>ISO/IEC、IEC 62443、NIST、MITRE 等所有引用標準的現行版本與檢視日期；對應 <code>registry/standards.yml</code>。</p>
+        <div class="placeholder">內容待填入</div>
+      </div>
+
+      <div class="card">
+        <span class="chip">附錄 B</span>
+        <h3>主合規總表</h3>
+        <p>CRA、NIS2、RED、GDPR、CMMC、台灣法規等的適用範圍、生效時程與通報時限；對應 <code>registry/regulations.yml</code>。</p>
+        <div class="placeholder">內容待填入</div>
+      </div>
+
+      <div class="card">
+        <span class="chip">附錄 C</span>
+        <h3>已驗證事件總表</h3>
+        <p>電子製造與跨產業重大事件，每筆均可回溯至一手來源；對應 <code>registry/incidents.yml</code>，標記 <code>verified: true</code> 者非有新一手來源不得修改。</p>
+        <div class="placeholder">內容待填入</div>
+      </div>
+
+      <div class="card">
+        <span class="chip">附錄 D</span>
+        <h3>控制項庫與多框架對映矩陣</h3>
+        <p>各層控制項與 CSF 2.0／ISO 27001／IEC 62443 等框架的對映。<strong>本矩陣為手冊自行編製，非官方對映</strong>（<code>mapping_source: self-authored</code>）。</p>
+        <div class="placeholder">內容待填入</div>
+      </div>
+
+      <div class="card">
+        <span class="chip">附錄 E</span>
+        <h3>成熟度自評問卷（60 題）</h3>
+        <p>0–3 分（對應 C2M2 MIL），Z1–Z5 五個分區獨立評分；沒有證據的自評分數一律以低一級記錄。</p>
+        <div class="placeholder">內容待填入</div>
+      </div>
+
+      <div class="card">
+        <span class="chip">附錄 F</span>
+        <h3>Claude Code + GitHub Prompt 套件</h3>
+        <p>手冊 repo 化與持續維護、落地評估、控制項與政策文件即程式碼的完整 Prompt 與設定檔；含 CLAUDE.md 專案指令與 SHA 釘選的 CI workflow。</p>
+        <div class="placeholder">內容待填入</div>
+      </div>
+
+      <div class="card">
+        <span class="chip">附錄 G</span>
+        <h3>查證缺口清單</h3>
+        <p>廣為流傳但無法回溯至可靠來源的事件與數字——依「無來源不列入」紀律移出正文者，皆記錄於此。</p>
+        <div class="placeholder">內容待填入</div>
+      </div>
+
+      <div class="card">
+        <span class="chip">附錄 H</span>
+        <h3>引用來源總表</h3>
+        <p>全手冊引用之一手／官方來源、廠商報告與第三方評論的完整清單，含 URL 與查證日期。</p>
+        <div class="placeholder">內容待填入</div>
+      </div>
+
+    </div>
+
+    <div class="notice">
+      <strong>安全前提：</strong>本手冊 repo 應設為 private——它包含集團的控制項現況與缺口，這本身就是高價值的攻擊情報。所有 GitHub Actions workflow 一律以 commit SHA 釘選、宣告最小 <code>permissions</code>、不輸出環境變數、不對 fork PR 提供機密。
+    </div>
+  </section>
+
+  <nav class="pager">
+    <a href="part-4.html"><small>← 上一頁</small>第 IV 部・落地</a>
+    <a class="next" href="index.html"><small>回到 →</small>首頁</a>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© 2026 GSMD Security Fabric・文件編號 GSMD-RPT-2026-0830-01・查證基準日 2026-08-30</div>
+    <div><a href="methodology.html">證據分級方法論</a>・<a href="appendix.html">引用來源總表</a></div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

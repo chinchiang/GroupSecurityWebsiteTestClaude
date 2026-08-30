@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>方法論：證據分級與時效性警示 | 資安防護網設計手冊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html">
+      <span class="mark">🛡</span>
+      <span>資安防護網設計手冊<small>GSMD-RPT-2026-0830-01</small></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="開啟選單">選單 ☰</button>
+    <nav class="site-nav">
+      <a href="index.html">首頁</a>
+      <a href="methodology.html">方法論</a>
+      <a href="part-1.html">第 I 部・背景</a>
+      <a href="part-2.html">第 II 部・設計</a>
+      <a href="part-3.html">第 III 部・分層</a>
+      <a href="part-4.html">第 IV 部・落地</a>
+      <a href="appendix.html">附錄</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero page-hero">
+  <div class="hero-inner">
+    <p class="kicker">前言・0.2 – 0.4</p>
+    <h1>方法論：證據分級與 2026 時效性警示</h1>
+    <p class="subtitle">資安領域充斥著「被重複一千次就變成事實」的數字。採購決策與董事會報告若建立在無法回溯至一手來源的數字上，一旦被質疑，整份文件的可信度會一併崩塌。</p>
+  </div>
+</section>
+
+<main class="container">
+
+  <section class="section">
+    <div class="section-head">
+      <p class="kicker">Evidence Grading</p>
+      <h2>四級證據分級</h2>
+      <p>本手冊所有事實性陳述均標註證據等級。<strong>未標註等級的事實性陳述，視為錯誤，必須修正。</strong></p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>等級</th><th>定義</th><th>判定標準（節錄）</th><th>使用限制</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="ev ev-verified">【已證實】</span></td>
+            <td>可回溯至一手／官方來源並經交叉比對</td>
+            <td>標準機構官方頁面、法規正式文本、主管機關新聞稿、SEC 申報、法院判決、受害組織官方聲明</td>
+            <td>可直接引用於對外文件與董事會報告</td>
+          </tr>
+          <tr>
+            <td><span class="ev ev-vendor">【廠商主張】</span></td>
+            <td>具名廠商自行發布之研究或行銷數據，未經獨立驗證</td>
+            <td>資安廠商年度報告（IBM、Verizon、Dragos、CrowdStrike…）、產品白皮書</td>
+            <td>須具名廠商與報告版本；<strong>不可作為採購決策的唯一依據</strong></td>
+          </tr>
+          <tr>
+            <td><span class="ev ev-third">【第三方評論】</span></td>
+            <td>具名分析機構、測試機構或主流媒體之評論與整理</td>
+            <td>Gartner／Forrester／IDC 之第三方轉述、MITRE Evaluations 結果、主流媒體具名報導</td>
+            <td>須註明機構與日期；「Leader」定位不等同於適合本集團</td>
+          </tr>
+          <tr>
+            <td><span class="ev ev-unverified">【尚未證實】</span></td>
+            <td>廣泛流傳但無法回溯至可靠來源，或來源互相矛盾</td>
+            <td>攻擊者單方面宣稱、無出處的市場數字、來源間日期／數值衝突</td>
+            <td><strong>不得寫入對外文件</strong>；列出僅為警示讀者不要引用</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <p class="kicker">Verification Discipline</p>
+      <h2>三條查證紀律</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card">
+        <span class="chip">紀律一</span>
+        <h3>無來源不列入</h3>
+        <p>無法取得受害方聲明或權威具名來源的事件，即使廣為流傳亦不列入正文，僅於附錄 G「查證缺口清單」記錄。</p>
+      </div>
+      <div class="card">
+        <span class="chip">紀律二</span>
+        <h3>口徑一致才可比較</h3>
+        <p>Clorox 事件有 US$49M（SEC 申報增量費用）與 US$356M（媒體含營收損失估計）兩個數字，不可互換；一律使用申報數字並註明口徑。</p>
+      </div>
+      <div class="card">
+        <span class="chip">紀律三</span>
+        <h3>方法一致才可畫趨勢</h3>
+        <p>跨年度調查若樣本數或題目定義改變且來源未說明，只引用單一年度數字並標註樣本數 n，不畫趨勢線。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <p class="kicker">2026 Freshness Alerts</p>
+      <h2>十六項必須更新的認知</h2>
+      <p>多數現有中文資料仍在使用過時版本。若沿用舊資料，文件會在專業稽核或客戶技術審查時被指出錯誤。查證基準日：2026-08-30。</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>常見的過時認知</th><th>2026-08-30 的正確狀態</th><th>等級</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>ISO/IEC 27017:2015 為雲端安全控制標準</td><td>27017:2026 Ed.2 已於 2026-07-27 發行，2015 版同日撤銷</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>2</td><td>ISO/IEC 27018:2019、27701:2019</td><td>27018 已改版為 Ed.3（2025-08）；27701 已改版為 Ed.2（2025-10-14）</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>3</td><td>ISO/IEC 27001:2013 證書仍可接受</td><td>轉版期已於 2025-10-31 屆滿；仍持 2013 版證書者，證書已無效</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>4</td><td>IEC 62443-2-1 為 2010 年版</td><td>Ed. 2.0 於 2024-08-07 發行，以 8 個 Security Program Elements 重構</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>5</td><td>IEC 62443-2-4 為 2018 年版</td><td>IEC 版已是 Ed. 2.0（2023-12-15）；ANSI/ISA 版仍為 2018，引用須註明版本</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>6</td><td>MITRE ATT&amp;CK 的 Defense Evasion 是單一戰術</td><td>自 v19 起拆分為 Stealth 與 Defense Impairment；現行版本 v19.2（2026-08-06）</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>7</td><td>NIST SP 800-61 Rev.2 的四階段事故應變生命週期</td><td>Rev.3（2025-04）已改寫為 CSF 2.0 Community Profile</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>8</td><td>NIST SP 1800-35 仍是草案</td><td>已於 2025-06-10 定稿，含 24 家夥伴的 19 套 ZTA 範例實作</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>9</td><td>NIST SP 800-53 Rev.5（2020）</td><td>Release 5.2.0（2025-08-27）已新增並修訂控制項</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>10</td><td>CMMC Phase II 將於 2026-11-10 生效</td><td>美國 DoW 於 2026-07-13 宣布立即暫停 Phase II；Phase I 自評仍有效</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>11</td><td>中國網路安全法為 2017 年版</td><td>2025-10-28 修正通過、2026-01-01 生效；罰鍰上限 RMB 1,000 萬</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>12</td><td>SPDX 3.0 已是 ISO 標準</td><td>錯誤。ISO/IEC 5962:2021 對應 SPDX 2.2.1；SPDX 3.0 僅在 DIS 階段</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>13</td><td>ECMA-424 = CycloneDX 1.6</td><td>ECMA-424 2nd edition（2025-12）＝ CycloneDX v1.7</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>14</td><td>OWASP Top 10 for LLM Applications 2025 為最新</td><td>2026 版已於 2026-08 初發布；Excessive Agency 升至 #3</td><td><span class="ev ev-third">第三方評論</span></td></tr>
+          <tr><td>15</td><td>MITRE ATT&amp;CK Evaluations 最新輪次為 Round 6</td><td>Enterprise Round 7（2025-12-10）已公布，模擬 Scattered Spider＋Mustang Panda</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>16</td><td>Gartner 有 CNAPP／DSPM／IGA／MDR／SOAR 的 Magic Quadrant</td><td>均不存在，只有 Market Guide；廠商常把 "Representative Vendor" 說成 "Leader"</td><td><span class="ev ev-verified">已證實</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="notice">
+      <strong>採購紀律建議：</strong>任何寫入 RFP 或簽核文件的分析師定位，都必須註明「報告正式名稱＋發布日期＋分析師姓名」。無法提供這三項者，一律視為【廠商主張】處理。
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <p class="kicker">Definition</p>
+      <h2>什麼是「資安防護網」</h2>
+    </div>
+    <div class="card" style="border-left:5px solid var(--gold); font-size:16px; line-height:1.9;">
+      <p style="color:var(--text); font-size:inherit;"><strong>資安防護網（Enterprise Cybersecurity Fabric）＝ 治理制度＋技術控制＋營運流程＋人員能力＋供應鏈約束</strong>，五者以一致的風險語言互相對齊，並能對內產出可稽核證據、對外產出可信任承諾的整體系統。用「網」（fabric）而非「堆疊」（stack），因為 ODM 的資安必須同時滿足縱向（技術層）與橫向（法域、客戶、產品線）兩個維度的編織結構。</p>
+    </div>
+  </section>
+
+  <nav class="pager">
+    <a href="index.html"><small>← 上一頁</small>首頁・執行摘要</a>
+    <a class="next" href="part-1.html"><small>下一頁 →</small>第 I 部・背景</a>
+  </nav>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© 2026 GSMD Security Fabric・文件編號 GSMD-RPT-2026-0830-01・查證基準日 2026-08-30</div>
+    <div><a href="methodology.html">證據分級方法論</a>・<a href="appendix.html">引用來源總表</a></div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
