@@ -29,7 +29,12 @@ python3 -m http.server 8000
 
 ## 部署（GitHub Pages）
 
-Repo Settings → Pages → Source 選擇分支根目錄即可，無需 workflow。
+Repo Settings → Pages → Build and deployment → Source 選 **GitHub Actions**。
+`.github/workflows/deploy-pages.yml` 會在 push 到 `main` 時組裝站台並部署，
+且刻意排除 `docs/`（手冊全文）、`README.md` 與 `.github/`。
+
+> **不要**改選「Deploy from a branch」：那會把整個分支根目錄（含 `docs/` 手冊全文）
+> 原樣公開到 Pages。
 
 > **注意**：依手冊附錄 F 的安全前提，若後續在本 repo 填入集團的控制項現況、
 > 評估結果或缺口資料，repo 應設為 **private**——這些內容本身就是高價值的攻擊情報。
