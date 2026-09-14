@@ -17,8 +17,9 @@
 
 共用資產在 `assets/css/main.css`（含深色模式支援）與 `assets/js/main.js`。
 
-內文回填進度：`index.html`、`methodology.html`、`part-1.html`（第 1–6 章）已完成；
-`part-2.html`、`part-3.html`、`part-4.html`、`appendix.html` 仍為骨架狀態
+內文回填進度：`index.html`、`methodology.html`、`part-1.html`（第 1–6 章）、
+`part-2.html`（第 7–10 章）、`part-3.html`（第 11–23 章）已完成；
+`part-4.html`、`appendix.html` 仍為骨架狀態
 （標題、簡介與主題標籤已就位，內文標示「待填入」）。
 完整內容來源為 `docs/GSMDRPT2026083001.md`。
 
