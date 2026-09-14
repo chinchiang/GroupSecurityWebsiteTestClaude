@@ -17,8 +17,15 @@
 
 共用資產在 `assets/css/main.css`（含深色模式支援）與 `assets/js/main.js`。
 
-各章節目前為骨架狀態（標題、簡介與主題標籤已就位，內文標示「待填入」），
+內文回填進度：`index.html`、`methodology.html`、`part-1.html`（第 1–6 章）已完成；
+`part-2.html`、`part-3.html`、`part-4.html`、`appendix.html` 仍為骨架狀態
+（標題、簡介與主題標籤已就位，內文標示「待填入」）。
 完整內容來源為 `docs/GSMDRPT2026083001.md`。
+
+`part-1.html` 為內文頁的**版型範本**：頁內目錄 `.toc`、章節標題 `.chapter-head`、
+內文容器 `.section.prose`、來源註記 `.src-note`、推論方塊 `.notice.accent`（青）、
+警示方塊 `.notice`（金）、章末產出清單 `.deliverables`、回目錄 `.to-top`。
+其餘各部回填時直接沿用這組 class，不要另寫 inline style。
 
 ## 本機預覽
 
