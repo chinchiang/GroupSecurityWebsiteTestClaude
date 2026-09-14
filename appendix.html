@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="附錄 A–H：主標準總表、主合規總表、已驗證事件總表、控制項庫與多框架對映矩陣、60 題成熟度自評問卷、Claude Code + GitHub Prompt 套件、查證缺口清單、引用來源總表。">
 <title>附錄 A–H | 資安防護網設計手冊</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,70 +40,1799 @@
 </section>
 
 <main class="container">
-  <section class="section">
-    <div class="grid grid-2">
+  <nav class="toc" id="toc">
+    <h2>附錄目錄</h2>
+    <ol>
+      <li><a href="#appendix-a"><b>A</b><span>主標準總表</span></a></li>
+      <li><a href="#appendix-b"><b>B</b><span>主合規總表</span></a></li>
+      <li><a href="#appendix-c"><b>C</b><span>已驗證事件總表</span></a></li>
+      <li><a href="#appendix-d"><b>D</b><span>控制項庫與多框架對映矩陣</span></a></li>
+      <li><a href="#appendix-e"><b>E</b><span>成熟度自評問卷（60 題）</span></a></li>
+      <li><a href="#appendix-f"><b>F</b><span>Claude Code + GitHub Prompt 套件</span></a></li>
+      <li><a href="#appendix-g"><b>G</b><span>查證缺口清單</span></a></li>
+      <li><a href="#appendix-h"><b>H</b><span>引用來源總表</span></a></li>
+    </ol>
+  </nav>
 
-      <div class="card">
-        <span class="chip">附錄 A</span>
-        <h3>主標準總表（版本 × 日期 × 發行機構）</h3>
-        <p>ISO/IEC、IEC 62443、NIST、MITRE 等所有引用標準的現行版本與檢視日期；對應 <code>registry/standards.yml</code>。</p>
-        <div class="placeholder">內容待填入</div>
-      </div>
+  <div class="notice">
+    <p><strong>安全前提：</strong>本手冊 repo 應設為 private——它包含集團的控制項現況與缺口，這本身就是高價值的攻擊情報。所有 GitHub Actions workflow 一律以 commit SHA 釘選、宣告最小 <code>permissions</code>、不輸出環境變數、不對 fork PR 提供機密。</p>
+  </div>
 
-      <div class="card">
-        <span class="chip">附錄 B</span>
-        <h3>主合規總表</h3>
-        <p>CRA、NIS2、RED、GDPR、CMMC、台灣法規等的適用範圍、生效時程與通報時限；對應 <code>registry/regulations.yml</code>。</p>
-        <div class="placeholder">內容待填入</div>
-      </div>
+  <!-- ============================== 附錄 A ============================== -->
+  <section class="section prose" id="appendix-a">
+    <div class="chapter-head">
+      <p class="kicker">Appendix A</p>
+      <h2>主標準總表（版本 × 日期 × 發行機構）</h2>
+      <p class="lead">全手冊引用之標準與框架的現行版本、發布日期與發行機構。<strong>查證基準日：2026-08-30。</strong>對應 <code>registry/standards.yml</code>。</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>標準／框架</th><th>現行版本</th><th>發布／更新日期</th><th>發行機構</th><th>等級</th></tr></thead>
+        <tbody>
+          <tr><td>NIST Cybersecurity Framework</td><td><strong>CSF 2.0</strong>（NIST CSWP 29）</td><td><strong>2024-02-26</strong></td><td>NIST</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>↳ Resource &amp; Overview Guide</td><td>NIST SP 1299</td><td>—</td><td>NIST</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>↳ Organizational Profiles</td><td>NIST SP 1301</td><td>—</td><td>NIST</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>↳ Tiers</td><td>NIST SP 1302</td><td>—</td><td>NIST</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>↳ C-SCRM Quick-Start</td><td>NIST SP 1305</td><td>—</td><td>NIST</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>↳ Informative References</td><td>NIST SP 1347</td><td>—</td><td>NIST</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>CSF 2.0 Manufacturing Profile</strong></td><td><strong>NIST IR 8183 Rev. 2（草案 ipd）</strong></td><td><strong>2025-09-29</strong></td><td>NIST</td><td><span class="ev ev-verified">已證實 — 仍為草案</span></td></tr>
+          <tr><td>CSF v1.1 Manufacturing Profile</td><td>NIST IR 8183 Rev. 1（定稿）</td><td>2020-10-07</td><td>NIST</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>CSF 2.0 Semiconductor Manufacturing Profile</strong></td><td><strong>NIST IR 8546（草案 ipd）</strong></td><td><strong>2025-02-27</strong></td><td>NIST</td><td><span class="ev ev-verified">已證實 — 仍為草案</span></td></tr>
+          <tr><td>ISO/IEC 27001</td><td>2022（Ed. 3）</td><td>2022-10-25</td><td>ISO/IEC</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>ISO/IEC 27001 Amd 1</td><td>Amd 1:2024「Climate action changes」</td><td>2024-02-23</td><td>ISO/IEC</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>ISO/IEC 27002</td><td>2022（Ed. 3）</td><td>2022-02-15</td><td>ISO/IEC</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>ISO/IEC 27005</td><td>2022（Ed. 4）</td><td>2022-10-25</td><td>ISO/IEC</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>ISO/IEC 27017</strong> ⚠️</td><td><strong>2026（Ed. 2）</strong>；2015 版已撤銷</td><td><strong>2026-07-27</strong></td><td>ISO/IEC</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>ISO/IEC 27018</strong> ⚠️</td><td><strong>2025（Ed. 3）</strong></td><td><strong>2025-08</strong></td><td>ISO/IEC</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>ISO/IEC 27701</strong> ⚠️</td><td><strong>2025（Ed. 2）</strong></td><td><strong>2025-10-14</strong></td><td>ISO/IEC</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>ISO/IEC 27036-1</td><td>2021（Ed. 2）</td><td>2021-09</td><td>ISO/IEC</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>ISO/IEC 27036-2</strong></td><td>2022（Ed. 2）— <strong>供應商關係要求型標準</strong></td><td>2022-06-15</td><td>ISO/IEC</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>ISO/IEC 27036-3</td><td>2023 — 硬體/軟體/服務供應鏈</td><td>2023</td><td>ISO/IEC</td><td><span class="ev ev-third">第三方評論</span></td></tr>
+          <tr><td>ISO 22301</td><td>2019（Ed. 2）+ Amd 1:2024</td><td>2019-10</td><td>ISO/TC 292</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>ISO/IEC 29147</td><td>2018（Ed. 2）— 漏洞揭露</td><td>2018</td><td>ISO/IEC</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>ISO/IEC 30111</td><td>2019 — 漏洞處理流程</td><td>2019</td><td>ISO/IEC</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>ISO/IEC 42001</td><td>2023 — AI 管理系統</td><td>2023</td><td>ISO/IEC</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>ISO/IEC 20153</strong></td><td><strong>2025 — 即 CSAF v2.0</strong></td><td>2025</td><td>ISO/IEC</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>ISO/SAE 21434</td><td>2021（Ed. 1）— 車輛資安工程</td><td>2021-08-31</td><td>ISO/SAE</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>IEC TS 62443-1-1</td><td>Ed. 1.0</td><td>2009-07-30</td><td>IEC TC65</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>IEC PAS 62443-1-6</strong></td><td>Ed. 1.0（IIoT）</td><td><strong>2025-12-19</strong></td><td>IEC</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>IEC 62443-2-1</strong></td><td><strong>Ed. 2.0</strong>（8 個 SPE，消除與 ISMS 重複）</td><td><strong>2024-08-07</strong></td><td>IEC</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>IEC 62443-2-4</strong></td><td><strong>Ed. 2.0</strong></td><td><strong>2023-12-15</strong></td><td>IEC</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>IEC 62443-3-2</td><td>Ed. 1.0（zones &amp; conduits）</td><td>2020-06-24</td><td>IEC</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>IEC 62443-3-3</td><td>Ed. 1.0（SL、7 FRs）</td><td>2013-08-07</td><td>IEC</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>IEC 62443-4-1</td><td>Ed. 1.0（SDL）</td><td>2018-01-15</td><td>IEC</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>IEC 62443-4-2</td><td>Ed. 1.0</td><td>2019-02-27</td><td>IEC</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>IEC TS 62443-6-1</td><td>Ed. 1.0（2-4 評估法）</td><td>2024-03</td><td>IEC</td><td><span class="ev ev-third">第三方評論</span></td></tr>
+          <tr><td><strong>IEC TS 62443-6-2</strong></td><td>Ed. 1.0（4-2 評估法）</td><td><strong>2025-01-21</strong></td><td>IEC</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>ANSI/ISA-62443-2-1</td><td><strong>2024</strong></td><td>2024</td><td>ISA</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>ISA-TR62443-2-2</strong></td><td><strong>2025</strong>（新出技術報告，IEC 對應版本未檢索到）</td><td>2025</td><td>ISA</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>ANSI/ISA-62443-2-4</td><td><strong>2018</strong> ⚠️（與 IEC Ed.2/2023 不同步）</td><td>2018</td><td>ISA</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>ANSI/ISA-62443-4-2</td><td><strong>2018</strong> ⚠️（與 IEC 2019 不同步）</td><td>2018</td><td>ISA</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>NIST SP 800-207</td><td>初版（無 Rev.1）</td><td>2020-08-11</td><td>NIST</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>NIST SP 800-207A</td><td>初版</td><td>2023-09-13</td><td>NIST</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>NIST SP 1800-35</strong></td><td><strong>Final（Vol. A–E）</strong></td><td><strong>2025-06-10</strong></td><td>NIST NCCoE</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>CISA Zero Trust Maturity Model</td><td>v2.0（5 支柱 + 3 跨領域能力；4 階段）</td><td>2023-04</td><td>CISA</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>DoD Zero Trust Reference Architecture</td><td>v2.0（<strong>7 支柱</strong>）</td><td>2022-07</td><td>DoD CIO</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>CIS Critical Security Controls</td><td><strong>v8.1</strong>（18 Controls / <strong>153</strong> Safeguards；無 v9）</td><td>2024（月份未證）</td><td>CIS</td><td><span class="ev ev-verified">已證實</span> / 日期 <span class="ev ev-third">第三方</span></td></tr>
+          <tr><td>CIS Community Defense Model</td><td>v2.0（<strong>基準為 v8 時期</strong>）</td><td>2021-09-29</td><td>CIS</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>NIST SP 800-53</strong></td><td>Rev. 5, <strong>Release 5.2.0</strong></td><td><strong>2025-08-27</strong></td><td>NIST</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>NIST SP 800-161</td><td>Rev. 1 upd1（無 Rev.2 進行中）</td><td>2022-05；更新 <strong>2024-11-01</strong></td><td>NIST</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>NIST SP 800-61</strong></td><td><strong>Rev. 3</strong>（CSF 2.0 Community Profile）</td><td><strong>2025-04</strong></td><td>NIST</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>NIST SP 800-171</td><td>Rev. 3（<strong>CMMC 仍用 Rev 2</strong>）</td><td>2024-05-14</td><td>NIST</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>NIST SP 800-172</strong></td><td><strong>Rev. 3（2026 年新出）</strong></td><td><strong>2026-05-13</strong></td><td>NIST</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>NIST SP 800-218 (SSDF)</td><td>v1.1（無 v1.2/Rev.2）</td><td>2022-02-03</td><td>NIST</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>NIST SP 800-218A</td><td>Final（GenAI SSDF Profile）</td><td>2024-07-26</td><td>NIST</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>NIST SP 800-63</td><td><strong>Rev. 4</strong></td><td><strong>2025-08-01</strong></td><td>NIST</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>NIST AI RMF</td><td>1.0</td><td>2023-01</td><td>NIST</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>NIST AI 600-1</td><td>GenAI Profile（12 風險類別）</td><td>2024-07</td><td>NIST</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>DOE C2M2</td><td><strong>v2.1</strong>（10 domains、350+ practices、MIL1–3）</td><td>2022-06</td><td>US DOE</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>MITRE ATT&amp;CK</strong></td><td><strong>v19.2</strong>（首個 Agile release）；v19 拆分 Defense Evasion → Stealth + Defense Impairment</td><td><strong>2026-08-06</strong>（v19: 2026-04-28）</td><td>MITRE</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>MITRE D3FEND</td><td>1.5.0（7 類戰術）</td><td>日期未載明</td><td>MITRE</td><td>版本 <span class="ev ev-verified">已證實</span> / 日期 <span class="ev ev-unverified">尚未證實</span></td></tr>
+          <tr><td><strong>MITRE ATLAS</strong></td><td>data <strong>v2026.05</strong></td><td><strong>2026-05-27</strong></td><td>MITRE</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>SLSA</strong></td><td><strong>v1.2</strong>（新增 Source Track）</td><td><strong>2025-11-24</strong></td><td>OpenSSF</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>SPDX</td><td><strong>3.0.1</strong>（3.1-RC1 測試中）</td><td>3.0.1：2024-12-17</td><td>Linux Foundation</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>ISO/IEC 5962</td><td>2021（<strong>= SPDX 2.2.1</strong>，Stage 90.92 待改版）</td><td>2021-08</td><td>ISO/IEC</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>CycloneDX</strong></td><td><strong>v1.7</strong></td><td>規格 2025-10-21；發布 2025-12-10</td><td>OWASP / Ecma</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>ECMA-424</strong></td><td><strong>2nd edition（= CycloneDX 1.7）</strong></td><td><strong>2025-12</strong></td><td>Ecma International</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>CVSS</strong></td><td>v4.0</td><td>2023-11-01</td><td>FIRST</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>EPSS</strong></td><td><strong>v4</strong></td><td><strong>2025-03-16</strong></td><td>FIRST EPSS SIG / Empirical Security</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>FIRST PSIRT Services Framework</td><td><strong>v1.1</strong>（6 服務領域）</td><td>日期未載明</td><td>FIRST</td><td>版本 <span class="ev ev-verified">已證實</span> / 日期 <span class="ev ev-unverified">尚未證實</span></td></tr>
+          <tr><td>CSAF</td><td>v2.0（= ISO/IEC 20153:2025）</td><td>OASIS 公告 2025-05-20</td><td>OASIS</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>CISA Minimum Requirements for VEX</td><td>—</td><td>2023-04</td><td>CISA</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>SEMI E187</td><td>Cybersecurity of Fab Equipment</td><td>2022-01</td><td>SEMI</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>SEMI E188</td><td>Malware Free Equipment Integration</td><td>2022-02</td><td>SEMI</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>SEMI E191</strong></td><td>Computing Device Cybersecurity Status Reporting</td><td><strong>2024-10</strong></td><td>SEMI</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>OWASP Top 10 for LLM Applications</strong></td><td><strong>2026 版</strong></td><td><strong>2026 年 8 月初</strong>（來源日期歧異）</td><td>OWASP</td><td><span class="ev ev-verified">已證實但有歧異</span></td></tr>
+          <tr><td><strong>OWASP Top 10 for Agentic Applications</strong></td><td>2026 版</td><td><strong>2025-12-09</strong></td><td>OWASP</td><td><span class="ev ev-verified">已證實 — 發布日</span></td></tr>
+          <tr><td>OWASP Non-Human Identities Top 10</td><td>2025</td><td>日期未載明</td><td>OWASP</td><td>清單 <span class="ev ev-verified">已證實</span> / 日期 <span class="ev ev-unverified">尚未證實</span></td></tr>
+          <tr><td>RBA Code of Conduct</td><td><strong>8.0</strong></td><td><strong>2024-01-01 生效</strong></td><td>RBA</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>RBA VAP Standard</td><td>8.0.2（<strong>範圍不含資安</strong>）</td><td>2025-04</td><td>RBA</td><td><span class="ev ev-third">第三方評論</span></td></tr>
+          <tr><td>VDA ISA / TISAX</td><td><strong>6.0.3</strong>（2026 現行）→ <strong>ISA 2027</strong>（2026 年中發布，2027 起強制）</td><td>—</td><td>ENX</td><td><span class="ev ev-third">第三方評論</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="to-top"><a href="#toc">↑ 回附錄目錄</a></p>
+  </section>
 
-      <div class="card">
-        <span class="chip">附錄 C</span>
-        <h3>已驗證事件總表</h3>
-        <p>電子製造與跨產業重大事件，每筆均可回溯至一手來源；對應 <code>registry/incidents.yml</code>，標記 <code>verified: true</code> 者非有新一手來源不得修改。</p>
-        <div class="placeholder">內容待填入</div>
-      </div>
+  <!-- ============================== 附錄 B ============================== -->
+  <section class="section prose" id="appendix-b">
+    <div class="chapter-head">
+      <p class="kicker">Appendix B</p>
+      <h2>主合規總表</h2>
+      <p class="lead">各法規／標準的適用地區、生效時程、對 ODM/OEM 的核心義務與通報時限。對應 <code>registry/regulations.yml</code>。</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>法規／標準</th><th>適用地區</th><th>生效／適用日期</th><th>對 ODM/OEM 的核心義務</th><th>等級</th></tr></thead>
+        <tbody>
+          <tr><td><strong>EU CRA — Reg (EU) 2024/2847</strong></td><td>EU（產品投放市場）</td><td>生效 2024-12-10；<strong>Art.14 通報 2026-09-11</strong>；Ch.IV 2026-06-11；<strong>全面 2027-12-11</strong></td><td>產品資安 by design（Annex I Part I）；漏洞處理與 <strong>SBOM</strong>（Part II）；<strong>24h/72h/14d 或 1 個月</strong>通報至 CSIRT+ENISA；支援期 ≥5 年；CVD 政策；技術文件與 CE</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>CRA 調和標準 M/606</td><td>EU</td><td>Type A/B 交付 2026-08-30；Type C 2026-10-30；<strong>截至 2026-08 尚無 OJ 引用</strong></td><td><strong>無符合推定</strong> → 重要/關鍵類產品須 Notified Body</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>ENISA Single Reporting Platform</td><td>EU</td><td>目標 2026-09-11 上線，<strong>尚未 live</strong></td><td>須先完成 <strong>EU Login 註冊</strong>並向國家 CSIRT 驗證</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>NIS2 — Dir (EU) 2022/2555</strong></td><td>EU（各國轉換）</td><td>轉換期限 2024-10-17；<strong>IE/ES/FR/NL 於 2026-06-19 遭移送 CJEU</strong></td><td>Art.21(2) 十項措施（含供應鏈、漏洞處理、MFA）；Art.23 <strong>24h/72h/1 個月</strong>；管理層責任</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>捷克 Act 264/2025 Sb.</strong> + Vyhláška 408/2025 Sb.</td><td>捷克廠</td><td><strong>2025-11-01 生效</strong>；60 日內登記；登記後 12 個月完成措施</td><td>高/低階雙軌；<strong>所有事件均須通報</strong>；高階 24h/72h/30d；<strong>明示 ISO 27001 不足</strong>；罰鍰上限 CZK 2.5 億。<strong>電子製造是否納管待確認</strong></td><td><span class="ev ev-verified">已證實</span> / 納管範圍 <span class="ev ev-unverified">尚未證實</span></td></tr>
+          <tr><td><strong>EU RED DA (EU) 2022/30</strong></td><td>EU（無線產品）</td><td><strong>2025-08-01 適用</strong>（依 2023/2444 延期）</td><td>Art.3(3)(d)(e)(f)；依 EN 18031-1/-2/-3 或 NB 型式審查</td><td><span class="ev ev-third">第三方評論</span></td></tr>
+          <tr><td><strong>Impl. Decision (EU) 2025/138</strong></td><td>EU</td><td>2025-01-28 決定，2025-01-30 OJ</td><td>EN 18031 之 OJ 引用<strong>附限制</strong>：<strong>允許使用者不設密碼即失去符合推定</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>GDPR (EU) 2016/679</strong></td><td>EU + 處理歐盟個資</td><td>2018-05-25</td><td>Art.32 技術組織措施；<strong>Art.33 72h 通報</strong>；Art.35 DPIA；Art.44-49 + SCC 2021/914</td><td><span class="ev ev-verified">公知</span></td></tr>
+          <tr><td><strong>Data Act (EU) 2023/2854</strong></td><td>EU</td><td>生效 2024-01-11；<strong>適用 2025-09-12</strong></td><td>連網產品資料可取用性 by design；使用者/第三方存取；營業秘密保護配套</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>AI Act (EU) 2024/1689 + Digital Omnibus</strong></td><td>EU</td><td>Omnibus 2026-06-29 通過；<strong>Annex III 延至 2027-12-02</strong>；<strong>Annex I 延至 2028-08-02</strong>；合成內容標示 2026-12-02</td><td>高風險 AI 之風險管理、資料治理、紀錄、人為監督；<strong>招募/員工管理 AI 屬 Annex III 第 4 類</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>CMMC — 32 CFR Part 170</strong></td><td>美國（DoD 供應鏈）</td><td>刊登 2024-10-15；<strong>生效 2024-12-16</strong></td><td>L1 FAR 52.204-21 十五項；<strong>L2 NIST SP 800-171 Rev 2 一百一十項</strong>；L3 SP 800-172 二十四項</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>CMMC — 48 CFR DFARS 2019-D041</strong></td><td>美國</td><td>刊登 2025-09-10；<strong>生效 2025-11-10</strong></td><td>DFARS 252.204-7021/-7025；SPRS 登錄與 CMMC UID；<strong>流下至處理 FCI/CUI 之分包商</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>🚩 <strong>CMMC Phase II 暫停</strong></td><td>美國</td><td><strong>2026-07-13 起立即暫停</strong></td><td>Phase I 自評與 DFARS 252.204-7012 仍有效；Task Force 60 日內提報告</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>DFARS 252.204-7012</strong></td><td>美國</td><td>現行</td><td><strong>72 小時</strong>內報 DIBNet；媒體保存 <strong>90 天</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>EAR — 15 CFR 730-774</strong></td><td>美國/全球</td><td>持續</td><td>ECCN 分類、國別管制、<strong>deemed export</strong>、Entity List 篩查</td><td><span class="ev ev-verified">已證實 — 部號</span></td></tr>
+          <tr><td><strong>ITAR — 22 CFR 120-130</strong></td><td>美國</td><td>持續</td><td>DDTC 註冊；USML 技術資料依國籍圍籬；120.54(a)(5) 端對端加密安全港</td><td><span class="ev ev-unverified">尚未證實 — 條號依公知</span></td></tr>
+          <tr><td><strong>中國 CSL（2025 修正）</strong></td><td>中國廠</td><td>原法 2017-06-01；<strong>修正 2026-01-01 生效</strong></td><td>等保、CIIO、事件應急與通報；<strong>罰鍰上限 RMB 1,000 萬、個人 RMB 100 萬</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>中國 DSL</strong></td><td>中國廠</td><td>2021-09-01</td><td>資料分級分類；<strong>Art.36 未經批准不得向境外司法/執法提供資料</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>中國 PIPL</strong></td><td>中國廠</td><td>2021-11-01</td><td>Art.38 跨境三軌；Art.51 安全措施；<strong>Art.41 境外執法請求須批准</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>網路數據安全管理條例（790 號令）</strong></td><td>中國廠</td><td><strong>2025-01-01</strong></td><td>Art.9 技術措施；<strong>Art.10 危害國安者 24h 報告</strong>；<strong>Art.33 重要資料年度風險評估報省級</strong>；Art.37 重要資料出境須 CAC 評估</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>CAC 跨境資料流動規定</strong></td><td>中國廠</td><td><strong>2024-03-22 公布即生效</strong></td><td>&lt;10 萬人豁免；10 萬–100 萬人或敏感 &lt;1 萬人→標準合約/認證；&gt;100 萬人或敏感 &gt;1 萬人或 CIIO→<strong>CAC 安全評估</strong>；<strong>HR 管理豁免（須有合法勞動規章制度）</strong></td><td><span class="ev ev-third">第三方評論</span></td></tr>
+          <tr><td>MLPS 2.0（GB/T 22239-2019）</td><td>中國廠</td><td>2019-12-01（待覆核）</td><td>系統定級、公安備案、等保測評</td><td><span class="ev ev-unverified">尚未證實</span></td></tr>
+          <tr><td><strong>台灣 資通安全管理法（2025 修正）</strong></td><td>台灣</td><td>現行法 2019-01-01；<strong>修正三讀 2025-08-29</strong></td><td>適用公務機關與<strong>特定非公務機關</strong>；禁用危害國安資通產品；<strong>通報罰鍰上限提高至 1,000 萬元</strong>。<strong>一般民營 ODM 原則不納管</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>台灣 個資法（2025 修正）</strong></td><td>台灣</td><td>三讀 2025-10-17；公布 2025-11-11；🚩<strong>施行日待行政院定</strong></td><td>知悉即通知當事人＋通報個資會；子法 2026-01-22 預告；<strong>72 小時</strong>通報（特種個資／&gt;1 萬筆／&gt;100 人）；非公務機關罰鍰上限 1,500 萬元</td><td><span class="ev ev-third">第三方評論</span></td></tr>
+          <tr><td><strong>金管會 上市櫃資安人力</strong></td><td>台灣上市櫃</td><td>第一級 2022 年底（<strong>115 家</strong>）；第二級 2023 年底（<strong>1,387 家</strong>）</td><td>第一級：<strong>資安長＋資安專責主管＋專責人員 ≥2 人</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>金管會 年報揭露</strong></td><td>台灣上市櫃</td><td>2022 年度起</td><td>揭露資安風險管理架構、政策、方案、<strong>投入資源</strong>、重大事件損失與因應</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>公司治理評鑑指標 2.24</strong></td><td>台灣上市櫃</td><td>第 12 屆（114 年）</td><td>要件 1–3 須全符合方得基本分；<strong>要件 3 量化揭露保險金額、人力數、會議頻率</strong>；要件 4 ISO 27001 驗證<strong>加 1 分</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>TWSE 重大訊息（資安）</strong></td><td>台灣上市</td><td>現行</td><td>第 4 條第 1 項<strong>第 26 款</strong>；核心系統無法營運／個資有外洩之虞／罰鍰累計 100 萬元；<strong>回應媒體報導 2 小時內</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>國家核心關鍵技術／國安法第 3 條</strong></td><td>台灣</td><td>22 項 2023-12-05；現 32 項；🚩42 項預告至 2025-12-08</td><td>經濟間諜罪加重；人員赴陸審查；營業秘密高強度保護</td><td><span class="ev ev-third">第三方評論</span>／預告 <span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>SEC 資安揭露規則</strong></td><td>美國上市客戶（間接）</td><td>事件揭露自 2023-12-18</td><td><strong>Item 1.05 Form 8-K 4 個營業日</strong>；Item 106 年度揭露 → <strong>供應商合約通知 SLA 24–48h</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>TISAX / VDA ISA</strong></td><td>車用客戶（全球）</td><td>2026 現行 <strong>ISA 6.0.3</strong>；<strong>ISA 2027 於 2027 年起強制</strong></td><td>資訊安全＋原型保護（Basic AL2／Facilities AL3）＋資料保護</td><td><span class="ev ev-third">第三方評論</span></td></tr>
+          <tr><td><strong>RBA CoC 8.0 / VAP 8.0.2</strong></td><td>電子業客戶</td><td>CoC 8.0 <strong>2024-01-01</strong></td><td>Ethics（檢舉人身分保護、隱私、智財）＋Management Systems；<strong>VAP 稽核範圍不含資安</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>ISO/SAE 21434</strong></td><td>車用電子</td><td>2021-08-31</td><td>資安工程生命週期、TARA、<strong>Cybersecurity Interface Agreement（ODM 須簽署）</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>IEC 62443-4-1</strong></td><td>工控／OT 產品</td><td>2018-01-15</td><td>SDL：需求、設計、編碼、V&amp;V、缺陷與修補管理、EOL</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>SEMI E187/E188/E191</strong></td><td>半導體設備供應鏈</td><td>2022-01 / 2022-02 / 2024-10</td><td>設備 by-design 資安；出貨免惡意程式；運算裝置資安狀態回報</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>Microsoft SSPA / DPR v12</strong></td><td>Microsoft 供應商</td><td>FY26 現行</td><td><strong>未完成 SSPA 前不得開始工作</strong>；年度合規循環；<strong>AI Systems 為新增觸發分類</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>Apple SCoC v5 §6.5–6.8</strong></td><td>Apple 供應商</td><td>2025-11-11 生效</td><td>隱私與資料保護；<strong>Information Security（併入引用不公開之技術要求）</strong>；保密；智財保護</td><td>框架 <span class="ev ev-verified">已證實</span> / 內容 <span class="ev ev-unverified">尚未證實</span></td></tr>
+          <tr><td><strong>EU AEO</strong></td><td>EU 據點</td><td>2008-01-01 起</td><td>UCC Art.38-39；Art.39(e) 安全保安標準；<strong>AEO Guidelines 明訂 IT 安全措施</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>US CTPAT MSC</strong></td><td>美國進口</td><td>2019 公布，2020-03 起分階段</td><td><strong>Cybersecurity 為獨立 criteria 類別</strong>：政策、訓練、密碼/2FA、<strong>異地備份</strong>、媒體與個人裝置管控</td><td><span class="ev ev-unverified">尚未證實 — CBP 網站 403</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="to-top"><a href="#toc">↑ 回附錄目錄</a></p>
+  </section>
 
-      <div class="card">
-        <span class="chip">附錄 D</span>
-        <h3>控制項庫與多框架對映矩陣</h3>
-        <p>各層控制項與 CSF 2.0／ISO 27001／IEC 62443 等框架的對映。<strong>本矩陣為手冊自行編製，非官方對映</strong>（<code>mapping_source: self-authored</code>）。</p>
-        <div class="placeholder">內容待填入</div>
-      </div>
+  <!-- ============================== 附錄 C ============================== -->
+  <section class="section prose" id="appendix-c">
+    <div class="chapter-head">
+      <p class="kicker">Appendix C</p>
+      <h2>已驗證事件總表</h2>
+      <p class="lead">完整表格見 <a href="part-1.html#ch3">第 3 章 §3.1、§3.3、§3.4、§3.5</a>。以下為<strong>依教訓類型重新索引</strong>的速查表。對應 <code>registry/incidents.yml</code>，標記 <code>verified: true</code> 者非有新一手來源不得修改。</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>教訓類型</th><th>案例</th><th>關鍵事實</th><th>對應章節</th></tr></thead>
+        <tbody>
+          <tr><td><strong>作業程序失效導致病毒擴散</strong></td><td>TSMC 2018</td><td>新機台軟體安裝操作失誤；Q3 營收影響 3%</td><td><a href="part-3.html#ch14">§14.3 設備入網管制</a></td></tr>
+          <tr><td><strong>供應商事件出現在下游財測</strong></td><td>MKS → Applied Materials</td><td>US$200M → US$250M</td><td><a href="part-3.html#ch21">§21.3 供應商分級</a></td></tr>
+          <tr><td><strong>供應商測試環境是攻擊面</strong></td><td>TSMC / Kinmax</td><td>「內部特定測試環境」；台積電終止資料交換</td><td><a href="part-3.html#ch21">§21.4 問卷補充題 1</a></td></tr>
+          <tr><td><strong>一家供應商停掉整國產能</strong></td><td>Kojima → Toyota</td><td>日本 14 廠停產一日；<strong>紙本看板維持運作</strong></td><td><a href="part-3.html#ch22">§22.4 降級作業手冊</a></td></tr>
+          <tr><td><strong>外包服務台是身分驗證邊界</strong></td><td>Clorox → Cognizant</td><td>US$49M（SEC）；「該專員在所有通話中均未曾驗證來電者確為該員工」</td><td><a href="part-3.html#ch12">§12.2 服務台驗證</a></td></tr>
+          <tr><td><strong>IT 事件停掉產線</strong></td><td>Asahi / JLR / Foxconn 2026</td><td>6 廠 / 5 週 / 單班無生產</td><td><a href="part-3.html#ch19">§19.1 OT 策略前提</a></td></tr>
+          <tr><td><strong>下游供應鏈的外溢損失</strong></td><td>JLR</td><td>£19 億、<strong>逾 5,000 家組織</strong></td><td><a href="part-3.html#ch21">§21.2 曝險規模</a></td></tr>
+          <tr><td><strong>內部威脅：合法帳號 + 螢幕拍攝</strong></td><td>台積電 2nm 案（2026-04-27 判決）</td><td>在職員工 10 年/6 年徒刑；<strong>外商子公司罰金 1.5 億</strong></td><td><a href="part-3.html#ch16">§16.3 資料層控制</a></td></tr>
+          <tr><td><strong>流程失效而非技術失效</strong></td><td>Arup 深偽</td><td>US$25.6M；<strong>「none of our internal systems were compromised」</strong></td><td><a href="part-3.html#ch23">§23.2 付款流程</a></td></tr>
+          <tr><td><strong>CI/CD 供應鏈污染</strong></td><td>tj-actions（CVE-2025-30066）</td><td>KEV 收錄 2025-03-18；機密傾印至公開日誌</td><td><a href="part-3.html#ch15">§15.3 釘選政策</a></td></tr>
+          <tr><td><strong>npm 自我複製蠕蟲</strong></td><td>Shai-Hulud 兩波</td><td>逾 500 套件（第一波）；25,000+ 惡意 repo（第二波）</td><td><a href="part-3.html#ch15">§15.3 開源治理</a></td></tr>
+          <tr><td><strong>邊界裝置 ROM 級持久化</strong></td><td>Cisco ASA（ED 25-03）</td><td>可竄改 ROM 於重開機與升級後持存；<strong>48 小時修補要求</strong></td><td><a href="part-2.html#ch8">原則三</a></td></tr>
+          <tr><td><strong>國家級鎖定台灣半導體供應鏈</strong></td><td>Proofpoint 2025-07-11</td><td>三個集群；<strong>冒用大學電郵</strong>、鎖定<strong>法務人員</strong></td><td><a href="part-1.html#ch4">§4.2</a></td></tr>
+          <tr><td><strong>五年潛伏、不用惡意程式</strong></td><td>Volt Typhoon（AA24-038A）</td><td>「至少五年」；living-off-the-land</td><td><a href="part-2.html#ch8">原則六</a> 日誌保存期</td></tr>
+          <tr><td><strong>策略轉向入侵 IT 供應商</strong></td><td>Silk Typhoon（2025-03-05）</td><td>濫用 API 金鑰；於 GitHub 蒐集外洩密碼</td><td><a href="part-3.html#ch21">§21.6 第三方存取</a></td></tr>
+          <tr><td><strong>硬體製造商是明確的 APT 目標</strong></td><td>APT41 起訴書（DOJ 2020-09-16）</td><td>逾 100 個受害組織，明列「電腦硬體製造商」，受害地含台灣</td><td><a href="part-1.html#ch4">§4.5</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="to-top"><a href="#toc">↑ 回附錄目錄</a></p>
+  </section>
 
-      <div class="card">
-        <span class="chip">附錄 E</span>
-        <h3>成熟度自評問卷（60 題）</h3>
-        <p>0–3 分（對應 C2M2 MIL），Z1–Z5 五個分區獨立評分；沒有證據的自評分數一律以低一級記錄。</p>
-        <div class="placeholder">內容待填入</div>
-      </div>
-
-      <div class="card">
-        <span class="chip">附錄 F</span>
-        <h3>Claude Code + GitHub Prompt 套件</h3>
-        <p>手冊 repo 化與持續維護、落地評估、控制項與政策文件即程式碼的完整 Prompt 與設定檔；含 CLAUDE.md 專案指令與 SHA 釘選的 CI workflow。</p>
-        <div class="placeholder">內容待填入</div>
-      </div>
-
-      <div class="card">
-        <span class="chip">附錄 G</span>
-        <h3>查證缺口清單</h3>
-        <p>廣為流傳但無法回溯至可靠來源的事件與數字——依「無來源不列入」紀律移出正文者，皆記錄於此。</p>
-        <div class="placeholder">內容待填入</div>
-      </div>
-
-      <div class="card">
-        <span class="chip">附錄 H</span>
-        <h3>引用來源總表</h3>
-        <p>全手冊引用之一手／官方來源、廠商報告與第三方評論的完整清單，含 URL 與查證日期。</p>
-        <div class="placeholder">內容待填入</div>
-      </div>
-
+  <!-- ============================== 附錄 D ============================== -->
+  <section class="section prose" id="appendix-d">
+    <div class="chapter-head">
+      <p class="kicker">Appendix D</p>
+      <h2>控制項庫與多框架對映矩陣</h2>
+      <p class="lead">節錄 60 項核心控制（實際列出 <strong>104</strong> 列），每一列同時對映 ISO 27001:2022、CIS v8.1、CSF 2.0 與 NIS2 Art.21，使一份證據可回應多個框架。</p>
     </div>
 
     <div class="notice">
-      <strong>安全前提：</strong>本手冊 repo 應設為 private——它包含集團的控制項現況與缺口，這本身就是高價值的攻擊情報。所有 GitHub Actions workflow 一律以 commit SHA 釘選、宣告最小 <code>permissions</code>、不輸出環境變數、不對 fork PR 提供機密。
+      <p><strong>⚠️ 重要聲明：</strong>本矩陣為<strong>本手冊自行編製</strong>，非任何標準機構的官方對映。特別注意：<strong>目前不存在 NIST 官方發行、經 OLIR 驗證的「CSF 2.0 ↔ IEC 62443」對映表</strong> <span class="ev ev-verified">已證實（負面確認）</span>。集團在對外文件中提供類似對照時，必須做相同標示（<code>mapping_source: self-authored</code>）。</p>
     </div>
+
+    <h3>D.1 使用方式</h3>
+    <p>每個控制項的欄位設計，使一份證據可回應多個框架（見 <a href="part-3.html#ch11">§11.6</a>）。建議以 YAML 或資料庫維護（見 <a href="#appendix-f">附錄 F</a> 的 repo 結構）。</p>
+
+    <h3>D.2 控制項庫（節錄 60 項核心控制）</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>ID</th><th>控制項</th><th>層</th><th>ISO 27001:2022</th><th>CIS v8.1</th><th>CSF 2.0</th><th>NIS2 Art.21</th><th>其他</th></tr></thead>
+        <tbody>
+          <tr><td><strong>GOV-01</strong></td><td>資訊安全政策經最高管理階層核准並年度檢視</td><td>L0</td><td>A.5.1</td><td>14.1</td><td>GV.PO-01</td><td>(a)</td><td>評鑑 2.24 要件 2</td></tr>
+          <tr><td><strong>GOV-02</strong></td><td>指派資安長並設資安專責單位</td><td>L0</td><td>A.5.2</td><td>—</td><td>GV.RR-02</td><td>—</td><td><strong>金管會第一級</strong></td></tr>
+          <tr><td><strong>GOV-03</strong></td><td>定期向董事會報告資安狀況</td><td>L0</td><td>A.5.4</td><td>—</td><td>GV.OV-01</td><td>管理層責任</td><td><strong>評鑑 2.24 要件 1</strong></td></tr>
+          <tr><td><strong>GOV-04</strong></td><td>量化揭露資安投入資源（人力、保險、會議）</td><td>L0</td><td>—</td><td>—</td><td>GV.RR-03</td><td>—</td><td><strong>評鑑 2.24 要件 3</strong></td></tr>
+          <tr><td><strong>GOV-05</strong></td><td>單一控制項庫與多框架對映維護</td><td>L0</td><td>A.5.31</td><td>—</td><td>GV.OC-03</td><td>—</td><td>—</td></tr>
+          <tr><td><strong>GOV-06</strong></td><td>例外管理（到期日、補償控制、風險承擔者）</td><td>L0</td><td>A.5.36</td><td>—</td><td>GV.RM-04</td><td>—</td><td>—</td></tr>
+          <tr><td><strong>GOV-07</strong></td><td>取得 ISO/IEC 27001:2022 第三方驗證</td><td>L0</td><td>全部</td><td>—</td><td>—</td><td>—</td><td><strong>評鑑 2.24 要件 4（加分）</strong></td></tr>
+          <tr><td><strong>IAM-01</strong></td><td>全體使用者、全部應用啟用 MFA</td><td>L1</td><td>A.5.17, A.8.5</td><td>6.3, 6.4, 6.5</td><td>PR.AA-03</td><td><strong>(j)</strong></td><td>CMMC IA.L2-3.5.3</td></tr>
+          <tr><td><strong>IAM-02</strong></td><td>遠端存取使用防釣魚 MFA（FIDO2/憑證）</td><td>L1</td><td>A.8.5</td><td>6.4</td><td>PR.AA-03</td><td>(j)</td><td>—</td></tr>
+          <tr><td><strong>IAM-03</strong></td><td>所有特權存取經 PAM，session 錄影</td><td>L1</td><td>A.8.2</td><td>5.4, 6.8</td><td>PR.AA-05</td><td>(i)</td><td>—</td></tr>
+          <tr><td><strong>IAM-04</strong></td><td>AD 依 Microsoft Enterprise Access Model 分層</td><td>L1</td><td>A.8.2</td><td>5.4</td><td>PR.AA-05</td><td>(i)</td><td>—</td></tr>
+          <tr><td><strong>IAM-05</strong></td><td>高敏感存取每半年再認證</td><td>L1</td><td>A.5.18</td><td>6.1, 6.2</td><td>PR.AA-05</td><td>(i)</td><td>—</td></tr>
+          <tr><td><strong>IAM-06</strong></td><td>離職當日撤銷全部存取</td><td>L1</td><td>A.5.11, A.6.5</td><td>5.3, 6.2</td><td>PR.AA-01</td><td>(i)</td><td>CTPAT</td></tr>
+          <tr><td><strong>IAM-07</strong></td><td><strong>服務台密碼/MFA 重設須帶外驗證</strong></td><td>L1</td><td>A.5.17</td><td>6.3</td><td>PR.AA-01</td><td>(i)</td><td>—</td></tr>
+          <tr><td><strong>IAM-08</strong></td><td><strong>NHI 清冊（擁有者、用途、輪換週期、下線）</strong></td><td>L1</td><td>A.5.16, A.8.2</td><td>5.2, 5.6</td><td>PR.AA-01</td><td>(i)</td><td>OWASP NHI1/NHI7</td></tr>
+          <tr><td><strong>IAM-09</strong></td><td><strong>禁止長期有效 API 金鑰，改用短期憑證</strong></td><td>L1</td><td>A.8.5</td><td>5.2</td><td>PR.AA-03</td><td>(i)</td><td>OWASP NHI7</td></tr>
+          <tr><td><strong>IAM-10</strong></td><td>人不得使用服務帳號登入（違反須告警）</td><td>L1</td><td>A.8.2</td><td>5.4</td><td>DE.CM-03</td><td>(i)</td><td>OWASP NHI10</td></tr>
+          <tr><td><strong>IAM-11</strong></td><td>第三方帳號經 PAM/ZTNA，有效期 ≤90 天</td><td>L1</td><td>A.5.19, A.8.2</td><td>6.2, 15.4</td><td>GV.SC-07</td><td>(d)</td><td>—</td></tr>
+          <tr><td><strong>IAM-12</strong></td><td>ABAC：專案、客戶、國籍屬性驅動授權</td><td>L1</td><td>A.5.15, A.8.3</td><td>6.8</td><td>PR.AA-05</td><td>(i)</td><td>ITAR/EAR</td></tr>
+          <tr><td><strong>IAM-13</strong></td><td>專案結案自動觸發權限回收</td><td>L1</td><td>A.5.18</td><td>6.2</td><td>PR.AA-05</td><td>(i)</td><td>—</td></tr>
+          <tr><td><strong>NET-01</strong></td><td>對外資產清冊與持續 EASM 發現</td><td>L2</td><td>A.5.9, A.8.16</td><td>1.1, 1.2, 12.1</td><td>ID.AM-01, ID.RA-01</td><td>(a)</td><td>CTEM Discovery</td></tr>
+          <tr><td><strong>NET-02</strong></td><td><strong>KEV 且 known ransomware：24h 內修補或隔離</strong></td><td>L2/L7</td><td>A.8.8</td><td>7.3, 7.4</td><td>ID.RA-01, PR.PS-02</td><td>(e)</td><td>CISA ED 25-03</td></tr>
+          <tr><td><strong>NET-03</strong></td><td>EOL 邊界裝置有明確下線期限</td><td>L2</td><td>A.8.8, A.5.9</td><td>2.2, 12.1</td><td>PR.PS-02</td><td>(e)</td><td>—</td></tr>
+          <tr><td><strong>NET-04</strong></td><td>ZTNA 取代 VPN；VPN 有下線計畫</td><td>L2</td><td>A.8.20, A.8.21</td><td>12.7</td><td>PR.AA-06</td><td>(i)</td><td>SP 800-207</td></tr>
+          <tr><td><strong>NET-05</strong></td><td>微分段（伺服器/使用者、管理平面、產線、專案）</td><td>L2</td><td>A.8.22</td><td>12.2</td><td>PR.IR-01</td><td>(a)</td><td>—</td></tr>
+          <tr><td><strong>NET-06</strong></td><td><strong>conduit 清冊含業務目的、法遵依據、可切斷性</strong></td><td>L2</td><td>A.8.21, A.8.22</td><td>12.4</td><td>ID.AM-03, PR.IR-01</td><td>(a)(d)</td><td>IEC 62443-3-2</td></tr>
+          <tr><td><strong>NET-07</strong></td><td>NDR 東西向異常偵測</td><td>L2/L6</td><td>A.8.16</td><td>13.1, 13.3</td><td>DE.CM-01</td><td>(b)</td><td>—</td></tr>
+          <tr><td><strong>NET-08</strong></td><td>遞迴 DNS 集中、記錄、過濾</td><td>L2</td><td>A.8.20</td><td>4.9, 9.2</td><td>DE.CM-01</td><td>(a)</td><td>—</td></tr>
+          <tr><td><strong>NET-09</strong></td><td>對外服務置於 WAF/DDoS 防護後</td><td>L2</td><td>A.8.23</td><td>13.10</td><td>PR.IR-01</td><td>(a)</td><td>—</td></tr>
+          <tr><td><strong>EPP-01</strong></td><td>EDR/XDR 覆蓋率報表（以 CMDB/AD 為分母）</td><td>L3</td><td>A.8.7</td><td>10.1, 10.7</td><td>DE.CM-01</td><td>(g)</td><td>—</td></tr>
+          <tr><td><strong>EPP-02</strong></td><td>產線/設備電腦以差異化控制納入 ISMS</td><td>L3/L8</td><td>A.8.7, A.8.9</td><td>10.1, 12.2</td><td>PR.PS-01</td><td>(a)</td><td>SEMI E187</td></tr>
+          <tr><td><strong>EPP-03</strong></td><td><strong>設備入網管制（quarantine → 掃描 → 基線 → 核准）</strong></td><td>L3/L8</td><td>A.8.9, A.5.19</td><td>1.1, 4.1</td><td>ID.AM-01, PR.PS-01</td><td>(d)</td><td><strong>SEMI E188</strong></td></tr>
+          <tr><td><strong>EPP-04</strong></td><td>移除本機管理員權限；工程機以 JIT 提權</td><td>L3</td><td>A.8.2</td><td>5.4</td><td>PR.AA-05</td><td>(i)</td><td>—</td></tr>
+          <tr><td><strong>EPP-05</strong></td><td>磁碟加密全面覆蓋</td><td>L3</td><td>A.8.24</td><td>3.6</td><td>PR.DS-01</td><td>(h)</td><td>—</td></tr>
+          <tr><td><strong>EPP-06</strong></td><td>USB 管制與例外流程</td><td>L3</td><td>A.7.10, A.8.7</td><td>10.3</td><td>PR.PS-01</td><td>(i)</td><td>CTPAT</td></tr>
+          <tr><td><strong>EPP-07</strong></td><td><strong>對高信心告警自動隔離主機（白名單管理例外）</strong></td><td>L3/L6</td><td>A.5.26</td><td>13.7</td><td>RS.MI-01</td><td>(b)</td><td>—</td></tr>
+          <tr><td><strong>APP-01</strong></td><td>CSPM 持續組態合規檢查</td><td>L4</td><td>A.5.23, A.8.9</td><td>4.1, 4.2</td><td>PR.PS-01</td><td>(e)</td><td>ISO 27017:2026</td></tr>
+          <tr><td><strong>APP-02</strong></td><td>IaC 於 PR 階段掃描</td><td>L4</td><td>A.8.28</td><td>16.1</td><td>PR.PS-06</td><td>(e)</td><td>SSDF PW</td></tr>
+          <tr><td><strong>APP-03</strong></td><td><strong>Secret 掃描（pre-commit + repo 全歷史）</strong></td><td>L4</td><td>A.8.28, A.5.16</td><td>16.9</td><td>PR.DS-01</td><td>(e)</td><td>SSDF PS</td></tr>
+          <tr><td><strong>APP-04</strong></td><td>SAST 於 PR 階段執行</td><td>L4</td><td>A.8.28</td><td>16.12</td><td>PR.PS-06</td><td>(e)</td><td>SSDF PW</td></tr>
+          <tr><td><strong>APP-05</strong></td><td>SCA 掃描並<strong>產出 SBOM</strong></td><td>L4/L9</td><td>A.8.28, A.5.21</td><td>16.4, 16.11</td><td>ID.AM-08, GV.SC-04</td><td>(e)</td><td><strong>CRA Annex I Part II §1</strong></td></tr>
+          <tr><td><strong>APP-06</strong></td><td><strong>建置與簽章環境與開發環境分離</strong></td><td>L4</td><td>A.8.31</td><td>16.1</td><td>PR.PS-01</td><td>(e)</td><td>SSDF PS</td></tr>
+          <tr><td><strong>APP-07</strong></td><td><strong>GitHub Actions 以 commit SHA 釘選</strong></td><td>L4</td><td>A.8.28, A.5.21</td><td>16.4</td><td>GV.SC-04</td><td>(e)</td><td>CVE-2025-30066</td></tr>
+          <tr><td><strong>APP-08</strong></td><td>建置機密使用 OIDC 短期憑證</td><td>L4</td><td>A.8.5</td><td>5.2, 16.4</td><td>PR.AA-03</td><td>(e)</td><td>—</td></tr>
+          <tr><td><strong>APP-09</strong></td><td>簽章金鑰置於 HSM，雙人授權</td><td>L4/L9</td><td>A.8.24</td><td>3.11</td><td>PR.DS-01</td><td>(h)</td><td>IEC 62443-4-1</td></tr>
+          <tr><td><strong>APP-10</strong></td><td>SaaS 清冊與影子 IT 發現</td><td>L4</td><td>A.5.23</td><td>2.1, 2.3</td><td>ID.AM-02</td><td>(a)</td><td>—</td></tr>
+          <tr><td><strong>APP-11</strong></td><td><strong>OAuth 第三方應用須管理員審核</strong></td><td>L4</td><td>A.5.23, A.8.2</td><td>2.3, 6.8</td><td>PR.AA-05</td><td>(i)</td><td>Silk Typhoon</td></tr>
+          <tr><td><strong>DAT-01</strong></td><td>四維資料分類（敏感度/所有權/法域/生命週期）</td><td>L5</td><td>A.5.12, A.5.13</td><td>3.2, 3.7</td><td>ID.AM-07</td><td>(i)</td><td>—</td></tr>
+          <tr><td><strong>DAT-02</strong></td><td>DSPM 資料發現與清冊</td><td>L5</td><td>A.5.12</td><td>3.1, 3.2</td><td>ID.AM-07</td><td>(i)</td><td>—</td></tr>
+          <tr><td><strong>DAT-03</strong></td><td>DLP（郵件/Web/端點/雲端）</td><td>L5</td><td>A.8.12</td><td>3.13</td><td>PR.DS-05</td><td>(i)</td><td>ISO 27002 8.12（新增）</td></tr>
+          <tr><td><strong>DAT-04</strong></td><td>EDRM/IRM 保護客戶 IP 與極機密文件</td><td>L5</td><td>A.5.13, A.8.12</td><td>3.13</td><td>PR.DS-05</td><td>(i)</td><td>客戶合約</td></tr>
+          <tr><td><strong>DAT-05</strong></td><td>靜態與傳輸加密；金鑰置於 KMS/HSM</td><td>L5</td><td>A.8.24</td><td>3.11</td><td>PR.DS-01, PR.DS-02</td><td><strong>(h)</strong></td><td>GDPR Art.32；CSL 790 號令 Art.9</td></tr>
+          <tr><td><strong>DAT-06</strong></td><td><strong>高敏感資料庫活動監控 + UEBA</strong></td><td>L5/L6</td><td>A.8.16</td><td>8.11, 13.5</td><td>DE.CM-03, DE.AE-03</td><td>(b)</td><td>台積電 2nm 案</td></tr>
+          <tr><td><strong>DAT-07</strong></td><td><strong>動態浮水印</strong></td><td>L5</td><td>A.5.13</td><td>3.13</td><td>PR.DS-05</td><td>(i)</td><td>台積電 2nm 案</td></tr>
+          <tr><td><strong>DAT-08</strong></td><td>保存期政策與到期自動刪除</td><td>L5</td><td>A.8.10</td><td>3.5</td><td>PR.DS-01</td><td>(i)</td><td>ISO 27002 8.10（新增）</td></tr>
+          <tr><td><strong>DAT-09</strong></td><td>中國區重要資料年度風險評估報省級</td><td>L5</td><td>A.5.31</td><td>—</td><td>GV.OC-03</td><td>—</td><td><strong>790 號令 Art.33</strong></td></tr>
+          <tr><td><strong>SOC-01</strong></td><td>P1 遙測來源全部接入 SIEM</td><td>L6</td><td>A.8.15, A.8.16</td><td>8.2, 8.5, 8.9</td><td>DE.CM-01, DE.AE-03</td><td>(b)</td><td>ISO 27002 8.16（新增）</td></tr>
+          <tr><td><strong>SOC-02</strong></td><td><strong>日誌保存：熱 ≥90 天；身分/網路 ≥24 個月</strong></td><td>L6</td><td>A.8.15</td><td>8.3, 8.10</td><td>DE.AE-03</td><td>(b)</td><td>Volt Typhoon</td></tr>
+          <tr><td><strong>SOC-03</strong></td><td><strong>單一通報決策樹（六路徑同時判定）</strong></td><td>L6/L0</td><td>A.5.24, A.5.25</td><td>17.4</td><td>RS.CO-02, RS.MA-01</td><td><strong>(b)</strong></td><td>TWSE 2h / CRA 24h / GDPR 72h</td></tr>
+          <tr><td><strong>SOC-04</strong></td><td>事件分級標準（P0–P4）與通報層級</td><td>L6</td><td>A.5.25</td><td>17.4</td><td>RS.MA-02</td><td>(b)</td><td>SP 800-61r3</td></tr>
+          <tr><td><strong>SOC-05</strong></td><td><strong>預擬重訊草稿（三情境）</strong></td><td>L6/L0</td><td>A.5.24</td><td>17.5</td><td>RS.CO-02</td><td>—</td><td><strong>TWSE 2 小時</strong></td></tr>
+          <tr><td><strong>SOC-06</strong></td><td>桌上演練（含法務與公關），年度至少一次</td><td>L6</td><td>A.5.24</td><td>17.8</td><td>ID.IM-02</td><td>(b)</td><td>—</td></tr>
+          <tr><td><strong>SOC-07</strong></td><td>威脅獵捕，每月至少一次</td><td>L6</td><td>A.5.7</td><td>13.1</td><td>DE.AE-07</td><td>(b)</td><td>ISO 27002 5.7（新增）</td></tr>
+          <tr><td><strong>EXP-01</strong></td><td>弱點優先序以 KEV + EPSS + 可達性</td><td>L7</td><td>A.8.8</td><td>7.1–7.7</td><td>ID.RA-01</td><td>(e)</td><td>EPSS v4</td></tr>
+          <tr><td><strong>EXP-02</strong></td><td>CTEM 每輪產出進入工單系統的待辦</td><td>L7</td><td>A.8.8</td><td>7.2</td><td>ID.RA-06</td><td>(e)</td><td>—</td></tr>
+          <tr><td><strong>EXP-03</strong></td><td>EASM 與 CMDB 季度差異報告</td><td>L7</td><td>A.5.9</td><td>1.1, 1.5</td><td>ID.AM-01</td><td>(a)</td><td>—</td></tr>
+          <tr><td><strong>EXP-04</strong></td><td>AEV 驗證微分段、備份不可變性、EDR 攔阻、權限提升路徑</td><td>L7</td><td>A.8.8, A.5.35</td><td>18.1–18.5</td><td>ID.IM-01</td><td>(f)</td><td>—</td></tr>
+          <tr><td><strong>EXP-05</strong></td><td><strong>紅隊涵蓋服務台 vishing、HR 履歷、供應商冒充</strong></td><td>L7/X3</td><td>A.5.35, A.6.3</td><td>18.3</td><td>ID.IM-02</td><td>(g)</td><td>Clorox / UNK_FistBump</td></tr>
+          <tr><td><strong>EXP-06</strong></td><td><strong>產線降級演練（IT 全斷）</strong></td><td>L7/X2</td><td>A.5.30</td><td>11.5</td><td>ID.IM-02, RC.RP-01</td><td>(c)</td><td>Kojima / Asahi</td></tr>
+          <tr><td><strong>OT-01</strong></td><td>OT 資產清冊（被動發現為主）</td><td>L8</td><td>A.5.9</td><td>1.1, 1.2</td><td>ID.AM-01</td><td>(a)</td><td>IEC 62443-2-1 CM</td></tr>
+          <tr><td><strong>OT-02</strong></td><td>Level 3.5 DMZ 為唯一 IT↔OT 跨越點</td><td>L8</td><td>A.8.22</td><td>12.2</td><td>PR.IR-01</td><td>(a)</td><td>IEC 62443-3-2</td></tr>
+          <tr><td><strong>OT-03</strong></td><td>堡壘機為 OT 遠端存取唯一入口，session 錄影</td><td>L8</td><td>A.8.2, A.8.21</td><td>6.8, 12.7</td><td>PR.AA-05</td><td>(i)</td><td>IEC 62443-2-1 USER</td></tr>
+          <tr><td><strong>OT-04</strong></td><td>供應商遠端維運：事前申請 + 時窗 + 錄影 + PAM</td><td>L8/X1</td><td>A.5.19, A.8.2</td><td>15.4, 6.8</td><td>GV.SC-07</td><td>(d)</td><td>IEC 62443-2-4</td></tr>
+          <tr><td><strong>OT-05</strong></td><td><strong>OT 備份（PLC 程式、組態、recipe）年度還原測試</strong></td><td>L8/X2</td><td>A.8.13</td><td>11.5</td><td>RC.RP-01</td><td>(c)</td><td>IEC 62443-2-1 AVAIL</td></tr>
+          <tr><td><strong>SUP-01</strong></td><td>供應商雙軸分級（營運依賴 × 資料存取）</td><td>X1</td><td>A.5.19, A.5.21</td><td>15.1, 15.2</td><td><strong>GV.SC-04</strong></td><td><strong>(d)</strong></td><td>SP 800-161r1</td></tr>
+          <tr><td><strong>SUP-02</strong></td><td>T1/T2 供應商完整問卷（含非生產環境）</td><td>X1</td><td>A.5.19, A.5.22</td><td>15.3</td><td>GV.SC-06</td><td>(d)</td><td>Kinmax 案</td></tr>
+          <tr><td><strong>SUP-03</strong></td><td><strong>關鍵供應商 24h 事件通知條款</strong></td><td>X1</td><td>A.5.20, A.5.22</td><td>15.4</td><td><strong>GV.SC-08</strong></td><td>(d)</td><td>SEC Item 1.05 下壓</td></tr>
+          <tr><td><strong>SUP-04</strong></td><td>T1 供應商第二來源與退場計畫</td><td>X1</td><td>A.5.30</td><td>15.5</td><td>GV.SC-10</td><td>(c)(d)</td><td>MKS 案</td></tr>
+          <tr><td><strong>SUP-05</strong></td><td>供應商 ISO 27001 證書須為 <strong>:2022 版</strong></td><td>X1</td><td>A.5.21</td><td>15.2</td><td>GV.SC-06</td><td>(d)</td><td><strong>IAF MD 26 轉版期已屆滿</strong></td></tr>
+          <tr><td><strong>RES-01</strong></td><td>3-2-1-1-0；至少一份不可變備份</td><td>X2</td><td>A.8.13</td><td>11.1–11.4</td><td>PR.DS-11</td><td><strong>(c)</strong></td><td>—</td></tr>
+          <tr><td><strong>RES-02</strong></td><td><strong>備份系統身分與網域完全隔離</strong></td><td>X2</td><td>A.8.13, A.8.2</td><td>11.3</td><td>PR.DS-11</td><td>(c)</td><td>—</td></tr>
+          <tr><td><strong>RES-03</strong></td><td>還原測試：關鍵系統每季、其餘每年</td><td>X2</td><td>A.8.13</td><td>11.5</td><td>RC.RP-01</td><td>(c)</td><td>—</td></tr>
+          <tr><td><strong>RES-04</strong></td><td><strong>以出貨鏈為單位的 RTO/RPO</strong></td><td>X2</td><td>A.5.29, A.5.30</td><td>11.1</td><td>RC.RP-02</td><td>(c)</td><td>ISO 22301</td></tr>
+          <tr><td><strong>RES-05</strong></td><td><strong>降級作業手冊 + 離線資料副本</strong></td><td>X2</td><td>A.5.30</td><td>11.1</td><td>RC.RP-01</td><td>(c)</td><td>ISO 27002 5.30（新增）</td></tr>
+          <tr><td><strong>RES-06</strong></td><td>SaaS 資料獨立備份</td><td>X2</td><td>A.8.13, A.5.23</td><td>11.2</td><td>PR.DS-11</td><td>(c)</td><td>—</td></tr>
+          <tr><td><strong>HUM-01</strong></td><td>資安意識訓練（含高風險族群強化）</td><td>X3</td><td>A.6.3</td><td>14.1–14.9</td><td>PR.AT-01</td><td><strong>(g)</strong></td><td>—</td></tr>
+          <tr><td><strong>HUM-02</strong></td><td>釣魚演練（以<strong>回報率</strong>為主指標）</td><td>X3</td><td>A.6.3</td><td>14.2</td><td>PR.AT-01</td><td>(g)</td><td>—</td></tr>
+          <tr><td><strong>HUM-03</strong></td><td><strong>付款雙人覆核與帶外驗證</strong></td><td>X3</td><td>A.5.14</td><td>—</td><td>PR.AA-05</td><td>—</td><td><strong>Arup 案</strong></td></tr>
+          <tr><td><strong>HUM-04</strong></td><td>新進/離職營業秘密程序</td><td>X3</td><td>A.6.1, A.6.5, A.6.6</td><td>6.2</td><td>GV.RR-04</td><td>(i)</td><td>台積電 2nm 案</td></tr>
+          <tr><td><strong>HUM-05</strong></td><td>離職前 90 天回溯 + 前瞻高敏感存取稽核</td><td>X3/L5</td><td>A.5.18, A.8.16</td><td>6.2, 8.11</td><td>DE.CM-03</td><td>(i)</td><td>台積電 2nm 案</td></tr>
+          <tr><td><strong>AI-01</strong></td><td>AI 使用政策與技術強制</td><td>X3</td><td>A.5.1, A.8.23</td><td>2.3</td><td>GV.PO-01</td><td>—</td><td>ISO/IEC 42001</td></tr>
+          <tr><td><strong>AI-02</strong></td><td>AI 清冊（服務、自建應用、擁有者、資料流）</td><td>X3</td><td>A.5.9</td><td>2.1</td><td>ID.AM-02</td><td>(a)</td><td>NIST AI RMF</td></tr>
+          <tr><td><strong>AI-03</strong></td><td>Gateway 層資料分類、DLP、去識別化</td><td>X3/L5</td><td>A.8.12</td><td>3.13</td><td>PR.DS-05</td><td>(i)</td><td>—</td></tr>
+          <tr><td><strong>AI-04</strong></td><td>Agentic AI 納入 NHI 治理，最小權限，動作審計</td><td>X3/L1</td><td>A.8.2</td><td>5.4, 8.5</td><td>PR.AA-05</td><td>(i)</td><td><strong>OWASP LLM03 2026</strong></td></tr>
+          <tr><td><strong>AI-05</strong></td><td>HR 系統 AI 功能盤點（AI Act Annex III 第 4 類）</td><td>X3</td><td>A.5.31</td><td>—</td><td>GV.OC-03</td><td>—</td><td><strong>EU AI Act 2027-12-02</strong></td></tr>
+          <tr><td><strong>PSI-01</strong></td><td>PSIRT 章程、值班、24h 通報能力</td><td>L9</td><td>A.5.24, A.5.26</td><td>17.1</td><td>RS.MA-01</td><td>(e)</td><td>FIRST PSIRT SF v1.1</td></tr>
+          <tr><td><strong>PSI-02</strong></td><td>公開的 CVD 政策（security.txt + 網頁）</td><td>L9</td><td>A.5.5, A.6.8</td><td>17.2</td><td>RS.CO-02</td><td><strong>(e)</strong></td><td><strong>CRA Annex I Part II §5</strong></td></tr>
+          <tr><td><strong>PSI-03</strong></td><td>SBOM 自動產出（雙格式，每個發行版本）</td><td>L9</td><td>A.5.21</td><td>16.11</td><td>ID.AM-08</td><td>(e)</td><td><strong>CRA Annex I Part II §1</strong></td></tr>
+          <tr><td><strong>PSI-04</strong></td><td><strong>元件 → 產品 → 客戶反向對映資料庫</strong></td><td>L9</td><td>A.5.9, A.5.21</td><td>1.1, 16.11</td><td>ID.AM-08</td><td>(e)</td><td>—</td></tr>
+          <tr><td><strong>PSI-05</strong></td><td>VEX 產出流程（CSAF 2.0 或 OpenVEX）</td><td>L9</td><td>A.5.26</td><td>7.2</td><td>RS.AN-06</td><td>(e)</td><td>ISO/IEC 20153:2025</td></tr>
+          <tr><td><strong>PSI-06</strong></td><td>依 IEC 62443-4-1 建立 SDL</td><td>L9</td><td>A.8.25–8.31</td><td>16.1–16.14</td><td>PR.PS-06</td><td>(e)</td><td><strong>CRA 過渡策略</strong></td></tr>
+          <tr><td><strong>PSI-07</strong></td><td>上游供應商漏洞通知與修補承諾條款</td><td>L9/X1</td><td>A.5.20, A.5.21</td><td>15.4</td><td>GV.SC-05</td><td>(d)</td><td>—</td></tr>
+          <tr><td><strong>PSI-08</strong></td><td>支援期承諾（≥5 年）與成本模型</td><td>L9</td><td>A.5.20</td><td>—</td><td>GV.SC-09</td><td>—</td><td><strong>CRA Annex I Part II</strong></td></tr>
+          <tr><td><strong>PSI-09</strong></td><td>PSIRT 資料庫預留 EUVD ID 欄位</td><td>L9</td><td>—</td><td>—</td><td>—</td><td>—</td><td>識別碼分裂風險</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="src-note">（完整版建議以 YAML 維護，見 <a href="#appendix-f">附錄 F</a> 的 <code>controls/</code> 目錄結構。）</p>
+
+    <p class="to-top"><a href="#toc">↑ 回附錄目錄</a></p>
+  </section>
+
+  <!-- ============================== 附錄 E ============================== -->
+  <section class="section prose" id="appendix-e">
+    <div class="chapter-head">
+      <p class="kicker">Appendix E</p>
+      <h2>成熟度自評問卷（60 題）</h2>
+      <p class="lead">每題以 0–3 分評分，依 <a href="part-4.html#ch26">§26.1</a> 的 C2M2 MIL 對應；<strong>每一個分區（Z1–Z5）分別評分</strong>，不要以集團平均掩蓋分區落差。</p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>分數</th><th>對應 MIL</th><th>判準</th></tr></thead>
+        <tbody>
+          <tr><td><strong>0 分</strong></td><td>—</td><td>未執行</td></tr>
+          <tr><td><strong>1 分</strong></td><td>≈MIL1 Initiated</td><td>有做，但臨時性、無文件、依賴個人</td></tr>
+          <tr><td><strong>2 分</strong></td><td>≈MIL2 Performed</td><td>有文件化程序，一致執行，有紀錄</td></tr>
+          <tr><td><strong>3 分</strong></td><td>≈MIL3 Managed</td><td>有指派負責人、有資源、有績效衡量、定期檢視改善</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>E.1 治理（GOV，6 題）</h3>
+    <ol>
+      <li>資訊安全政策是否經最高管理階層核准，並於過去 12 個月內檢視？</li>
+      <li>是否指派資安長並設有專責單位（非兼任）？</li>
+      <li>是否定期（至少每年）向董事會報告資安狀況，且有正式紀錄？</li>
+      <li>是否維護單一控制項庫並對映至所有適用的外部框架？</li>
+      <li>資安例外是否全部有到期日、補償控制與具名的風險承擔者？</li>
+      <li>對外揭露的資安資訊（年報、客戶回覆）是否可逐項回溯至內部證據？</li>
+    </ol>
+
+    <h3>E.2 身分與存取（IAM，8 題）</h3>
+    <ol start="7">
+      <li>MFA 覆蓋率是否可以「應用清單」為分母精確計算，且 ≥95%？</li>
+      <li>遠端存取是否使用防釣魚 MFA（FIDO2/憑證），而非簡訊 OTP？</li>
+      <li>所有管理員存取是否經 PAM，且無網路層旁路？</li>
+      <li>高敏感系統的存取名單是否每半年由用人主管重新確認？</li>
+      <li><strong>服務台的密碼/MFA 重設是否要求帶外驗證，且過去 12 個月做過 vishing 演練？</strong></li>
+      <li>是否有完整的 NHI 清冊（含擁有者、用途、輪換週期）？</li>
+      <li>是否已禁止長期有效的 API 金鑰？</li>
+      <li>專案結案是否自動觸發存取權限回收？</li>
+    </ol>
+
+    <h3>E.3 網路與邊緣（NET，6 題）</h3>
+    <ol start="15">
+      <li>是否有持續更新的對外資產清冊，且每季與 EASM 結果比對？</li>
+      <li><strong>KEV 收錄且標記 known ransomware use 的漏洞，是否於 24 小時內完成修補或隔離？</strong></li>
+      <li>EOL 邊界裝置是否有明確且被追蹤的下線期限？</li>
+      <li>是否有完整的 conduit 清冊，含法遵依據與可切斷性？</li>
+      <li>微分段的有效性是否經<strong>實測</strong>驗證（而非僅有設計文件）？</li>
+      <li>第三方遠端存取是否全部經 PAM/ZTNA，且有效期 ≤90 天？</li>
+    </ol>
+
+    <h3>E.4 端點與工作負載（EPP，5 題）</h3>
+    <ol start="21">
+      <li>EDR/XDR 覆蓋率是否以 CMDB/AD 為分母精確計算，並分三類資產統計？</li>
+      <li><strong>產線與設備電腦是否正式納入 ISMS 範圍（以差異化控制而非豁免處理）？</strong></li>
+      <li><strong>是否有設備入網管制流程（quarantine → 掃描 → 基線 → 核准），且有執行紀錄？</strong></li>
+      <li>對高信心告警是否已啟用自動隔離（不等待人工確認）？</li>
+      <li>EDR 例外是否全部有到期日與補償控制？</li>
+    </ol>
+
+    <h3>E.5 應用與雲端（APP，6 題）</h3>
+    <ol start="26">
+      <li>CSPM 告警是否以「可從網際網路達到 + 高權限」分級，而非全部同級？</li>
+      <li>是否對所有 repo 執行 Secret 掃描（含全歷史）？</li>
+      <li><strong>GitHub Actions 是否以 commit SHA 而非版本標籤釘選？</strong></li>
+      <li>建置與簽章環境是否與開發環境分離，且開發者無法直接登入？</li>
+      <li>是否有 SaaS 清冊與影子 IT 發現機制？</li>
+      <li><strong>OAuth 第三方應用是否需管理員審核（而非使用者自助授權）？</strong></li>
+    </ol>
+
+    <h3>E.6 資料（DAT，6 題）</h3>
+    <ol start="32">
+      <li>資料分類是否包含所有權與法域兩個維度（而非僅敏感度）？</li>
+      <li>DSPM 掃描是否產出「可執行的處理清單」（含負責人與期限）？</li>
+      <li>DLP 是否已有部分政策進入阻擋模式（而非全部僅監控）？</li>
+      <li><strong>高敏感資料庫是否有活動監控與 UEBA 異常偵測？</strong></li>
+      <li><strong>是否對高敏感文件實施動態浮水印？</strong></li>
+      <li>加密金鑰是否置於 KMS/HSM 且與資料分離？</li>
+    </ol>
+
+    <h3>E.7 偵測與應變（SOC，7 題）</h3>
+    <ol start="38">
+      <li>P1 遙測來源是否全部接入 SIEM？</li>
+      <li><strong>身分與網路日誌保存期是否 ≥24 個月？</strong></li>
+      <li><strong>是否有單一通報決策樹，可在 2 小時內同時完成六條路徑的判定？</strong></li>
+      <li>是否有預擬的重大訊息草稿範本？</li>
+      <li><strong>MTTC（偵測到圍堵）是否 &lt;30 分鐘？</strong></li>
+      <li>過去 12 個月是否舉行過包含法務與公關的桌上演練？</li>
+      <li>是否每月至少進行一次主動威脅獵捕？</li>
+    </ol>
+
+    <h3>E.8 暴露面與驗證（EXP，5 題）</h3>
+    <ol start="45">
+      <li><strong>弱點優先序是否採用 KEV + EPSS + 可達性（而非 CVSS 排序）？</strong></li>
+      <li>CTEM 的發現是否進入正式工單系統並追蹤關閉率？</li>
+      <li>是否以 AEV/BAS 驗證微分段、備份不可變性與 EDR 攔阻能力？</li>
+      <li>紅隊/演練是否涵蓋服務台 vishing、HR 履歷、供應商冒充？</li>
+      <li><strong>過去 12 個月是否執行過產線降級演練（IT 全斷情境）？</strong></li>
+    </ol>
+
+    <h3>E.9 OT（OT，5 題）</h3>
+    <ol start="50">
+      <li>是否有 OT 資產清冊（型號、韌體、協定、供應商、連線關係）？</li>
+      <li>Level 3.5 DMZ 是否為 IT↔OT 的唯一跨越點（無直接穿越）？</li>
+      <li>OT 遠端存取是否全部經堡壘機且 session 錄影？</li>
+      <li>OT 帳號是否個別化（而非共用帳號）？</li>
+      <li><strong>PLC 程式、設備組態與 recipe 是否於過去 12 個月做過還原測試？</strong></li>
+    </ol>
+
+    <h3>E.10 供應鏈（SUP，4 題）</h3>
+    <ol start="55">
+      <li>供應商分級是否依「營運依賴 × 資料存取」雙軸（而非採購金額）？</li>
+      <li><strong>T1 供應商是否全部簽署 24 小時事件通知條款？</strong></li>
+      <li>供應商問卷是否涵蓋非生產環境（測試、開發、Demo）？</li>
+      <li>T1 供應商是否有第二來源或退場計畫？</li>
+    </ol>
+
+    <h3>E.11 韌性與人員（RES/HUM，2 題）</h3>
+    <ol start="59">
+      <li><strong>備份系統的管理帳號是否與網域帳號完全隔離？</strong></li>
+      <li><strong>超過門檻的付款是否要求雙人覆核與帶外驗證？</strong></li>
+    </ol>
+
+    <h3>E.12 評分解讀</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>平均分</th><th>對應</th><th>說明</th></tr></thead>
+        <tbody>
+          <tr><td>&lt; 1.0</td><td>前 MIL1</td><td>多數控制未建立；優先處理粗體題（高風險缺口）</td></tr>
+          <tr><td>1.0–1.9</td><td>MIL1</td><td>有做但不一致；重點在文件化與一致執行</td></tr>
+          <tr><td>2.0–2.4</td><td>MIL2</td><td>已文件化執行；重點在負責人指派與績效衡量</td></tr>
+          <tr><td>2.5–3.0</td><td>MIL3</td><td>已管理；重點在持續改善與跨分區一致性</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="notice accent">
+      <p><strong>特別注意：</strong>本問卷中的<strong>粗體題（共 20 題）</strong>對應本手冊「常見失敗模式」中影響最大的項目。若這 20 題平均低於 2.0，建議優先處理，其投資報酬率高於整體平均提升。</p>
+    </div>
+
+    <p class="to-top"><a href="#toc">↑ 回附錄目錄</a></p>
+  </section>
+
+  <!-- ============================== 附錄 F ============================== -->
+  <section class="section prose" id="appendix-f">
+    <div class="chapter-head">
+      <p class="kicker">Appendix F</p>
+      <h2>Claude Code + GitHub Prompt 套件</h2>
+      <p class="lead">把手冊本身變成可持續維護的 repo：repo 結構、CLAUDE.md 專案指令、九組可直接複製的 Prompt、四個 GitHub Actions workflow、控制項 JSON schema 與 YAML 範例、兩個 Issue 範本。</p>
+    </div>
+    <p>本附錄提供一套<strong>可直接複製使用</strong>的 Prompt 與設定檔，涵蓋三種用途：</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>用途</th><th>說明</th><th>對應章節</th></tr></thead>
+        <tbody>
+          <tr><td><strong>F.1 手冊 repo 化與持續維護</strong></td><td>把本手冊放進 GitHub repo，用 Claude Code 做版本更新、法規追蹤、引用查證、CI 自動檢查</td><td>F.3 – F.6</td></tr>
+          <tr><td><strong>F.2 資安防護網落地評估</strong></td><td>用 Claude Code 對集團現況做 gap assessment，產出成熟度評分與改善待辦，可對接 GitHub Issues/Projects</td><td>F.7</td></tr>
+          <tr><td><strong>F.3 控制項＋政策文件即程式碼</strong></td><td>以 YAML/Markdown 管理控制項、政策、KPI，Claude Code 自動產生政策文件、對應矩陣與稽核證據包</td><td>F.8 – F.9</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="notice">
+      <p><strong>安全前提（務必先讀）</strong>：本套件建立在 GitHub 之上，而 GitHub Actions 本身是已證實的供應鏈攻擊面（<strong>CVE-2025-30066 / tj-actions，CISA 2025-03-18 列入 KEV</strong><span class="ev ev-verified">已證實</span>）。因此本套件的所有 workflow 一律：</p>
+      <ul>
+        <li>以 <strong>commit SHA</strong> 而非版本標籤釘選 Action</li>
+        <li>明確宣告最小 <code>permissions</code></li>
+        <li>不在 workflow 中輸出環境變數</li>
+        <li>對 fork 的 PR 不提供任何機密</li>
+      </ul>
+      <p>此外，<strong>本手冊 repo 應設為 private</strong>，因為它包含集團的控制項現況與缺口——這本身就是高價值的攻擊情報。</p>
+    </div>
+    <h3>F.1 建議的 Repository 結構</h3>
+    <pre class="ascii">gsmd-security-fabric/
+├── CLAUDE.md                     # Claude Code 的專案指令（見 F.2）
+├── README.md
+├── .github/
+│   ├── workflows/
+│   │   ├── link-check.yml        # 引用連結有效性檢查
+│   │   ├── evidence-check.yml    # 證據分級標註完整性檢查
+│   │   ├── control-lint.yml      # 控制項 YAML schema 驗證
+│   │   ├── freshness-check.yml   # 標準/法規版本時效性檢查
+│   │   └── build-docs.yml        # Markdown → HTML/PDF
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── gap.yml               # 落地缺口
+│   │   ├── regulatory-change.yml # 法規變更
+│   │   └── citation-issue.yml    # 引用查證問題
+│   └── CODEOWNERS
+├── manual/                       # 手冊本體
+│   ├── 00-front.md
+│   ├── 01-part1-background.md
+│   ├── ...
+│   └── 99-sources.md
+├── controls/                     # 控制項即程式碼
+│   ├── _schema.json              # JSON Schema
+│   ├── gov.yml                   # 治理層控制項
+│   ├── iam.yml
+│   ├── net.yml
+│   ├── epp.yml
+│   ├── app.yml
+│   ├── dat.yml
+│   ├── soc.yml
+│   ├── exp.yml
+│   ├── ot.yml
+│   ├── sup.yml
+│   ├── res.yml
+│   ├── hum.yml
+│   ├── ai.yml
+│   └── psi.yml
+├── policies/                     # 政策文件（由控制項自動產生 + 人工補述）
+│   ├── _templates/
+│   └── generated/
+├── assessments/                  # 落地評估
+│   ├── _questionnaire.yml        # 60 題自評問卷（附錄 E）
+│   ├── 2026-Q3/
+│   │   ├── z1-global.yml
+│   │   ├── z2-china.yml
+│   │   ├── z3-customer.yml
+│   │   ├── z4-product.yml
+│   │   └── z5-ot.yml
+│   └── reports/
+├── registry/                     # 追蹤註冊表
+│   ├── standards.yml             # 標準版本與檢視日期（附錄 A）
+│   ├── regulations.yml           # 法規時程（附錄 B）
+│   ├── incidents.yml             # 已驗證事件（附錄 C）
+│   ├── analyst-reports.yml       # 分析師報告市場結構（§28.3）
+│   └── verification-gaps.yml     # 查證缺口（附錄 G）
+├── evidence/                     # 證據索引（不放實際證據，只放索引）
+│   └── index.yml
+└── scripts/
+    ├── check_links.py
+    ├── check_evidence_tags.py
+    ├── check_freshness.py
+    ├── render_matrix.py          # 產生多框架對映矩陣
+    └── render_policy.py          # 由控制項產生政策文件</pre>
+    <h3>F.2 CLAUDE.md（專案指令檔）</h3>
+    <p>將以下內容存為 repo 根目錄的 <code>CLAUDE.md</code>。Claude Code 每次啟動會自動讀取。</p>
+    <pre class="ascii"># 專案：跨國 ODM/OEM 製造業集團 IT 資安防護網手冊
+
+## 專案性質
+
+這是一份**企業內部的資安治理文件庫**，同時是**控制項與政策的單一真實來源（single source of truth）**。
+文件編號 GSMD-RPT-2026-0830-01。讀者為資安治理決策層與技術落地層。
+
+## 不可違反的規則
+
+### 1. 證據分級是強制的
+每一個事實性陳述都必須標註以下四種等級之一：
+- 【已證實】= 一手/官方來源（標準機構官方頁、法規正式文本、主管機關新聞稿、上市公司財報或 SEC 申報、法院判決、受害組織官方聲明）
+- 【廠商主張】= 具名廠商自行發布的研究或行銷數據，未經獨立驗證
+- 【第三方評論】= 具名分析機構、測試機構或主流媒體的評論與整理
+- 【尚未證實】= 廣泛流傳但無法回溯至可靠來源，或來源互相矛盾
+
+**未標註等級的事實性陳述，視為錯誤，必須修正。**
+
+### 2. 無來源不列入
+若無法取得可靠來源，**不要寫入正文**。改為記錄在 `registry/verification-gaps.yml`。
+絕不使用「據報導」「一般認為」「業界普遍」等模糊歸因來規避查證。
+
+### 3. 口徑一致才可比較
+不同來源的數字若口徑不同（例如 SEC 申報的增量費用 vs 媒體含營收損失的估計），
+**不可放在同一張表或同一句話中比較**。必須註明口徑差異。
+
+### 4. 方法一致才可畫趨勢
+若跨年度調查的樣本數或題目定義改變（且來源未說明），**只引用單一年度數字並註明 n**，不畫趨勢線。
+
+### 5. 分析師報告的引用紀律
+- 任何分析師定位必須註明：**報告正式名稱 + 發布日期 + 分析師姓名**
+- **Market Guide 沒有 Leader**，只有 "Representative Vendor"
+- **Gartner Peer Insights 是客戶評分，不是分析師評測**
+- 以下市場目前**沒有 Magic Quadrant**：CNAPP、DSPM、Data Security Platforms、IGA、MDR、SOAR、SSPM、EASM、API Protection、微分段、SD-WAN（現行）、AI Gateway / AI SOC
+- 現行市場結構請查 `registry/analyst-reports.yml`
+
+### 6. 語言與術語
+- 正體中文，臺灣慣用語
+- 英文專業術語、標準編號、法規名稱一律保留原文（不翻譯 CRA、NIS2、SBOM、ZTNA 等）
+- 標準引用必須含版本與日期，且註明是 IEC 版或 ANSI/ISA 版（兩者編號不同步）
+
+### 7. 不得聲稱不存在的官方對映
+**不存在 NIST 官方發行、經 OLIR 驗證的「CSF 2.0 ↔ IEC 62443」對映表。**
+本 repo 的 `controls/*.yml` 中的 62443 對映欄位一律標示為 `mapping_source: self-authored`。
+
+## 資料模型
+
+### controls/*.yml
+每個控制項的必要欄位見 `controls/_schema.json`。修改控制項時：
+1. 必須同時更新 `frameworks` 對映
+2. 必須指定 `owner`（組織功能，非個人姓名）
+3. 必須指定 `evidence`（可稽核產出）
+4. 若新增外部框架，必須同時更新所有相關控制項的該欄位
+
+### assessments/*/*.yml
+自評結果。評分為 0–3（對應 C2M2 MIL）。每個分區（Z1–Z5）獨立評分。
+評分變更時**必須填寫 `justification` 與 `evidence_ref`**。
+
+### registry/standards.yml 與 registry/regulations.yml
+標準與法規的版本追蹤。每筆必須有 `next_review` 日期。
+`freshness-check.yml` workflow 會在 `next_review` 到期時開 Issue。
+
+## 常用任務
+
+當我要求以下事情時，請這樣做：
+
+### 「更新某個標準的版本」
+1. 用 WebFetch 存取該標準的**官方頁面**（ISO、IEC、NIST CSRC、EUR-Lex 等），不要用二手來源
+2. 更新 `registry/standards.yml`
+3. 用 grep 找出手冊中所有引用該標準的位置並更新
+4. 若版本變更影響控制項對映，同步更新 `controls/*.yml`
+5. 在 commit message 中列出所有變更的檔案與變更理由
+
+### 「查證某個引用」
+1. 用 WebFetch 存取原始 URL
+2. 確認引述內容與來源一致（逐字比對關鍵數字與日期）
+3. 若不一致，**不要自行修正數字**，而是在 `registry/verification-gaps.yml` 記錄矛盾並回報給我
+4. 若 URL 失效，尋找官方的替代 URL；找不到則標記為 `[dead-link]` 並降級為【尚未證實】
+
+### 「做落地評估」
+見 `assessments/_questionnaire.yml`。逐題詢問，每題必須取得 `evidence_ref`（證據文件、系統截圖位置、報表名稱）。
+**沒有證據的自評分數一律以低一級記錄，並在 `justification` 中註明「自評無證據」。**
+
+### 「產生政策文件」
+執行 `scripts/render_policy.py`，由 `controls/*.yml` 產生 `policies/generated/`。
+產生的檔案不可手動編輯（會被覆寫）；人工補述放在 `policies/_templates/` 的對應區塊。
+
+### 「產生對映矩陣」
+執行 `scripts/render_matrix.py`，產出 `manual/appendix-d-matrix.md`。
+矩陣頂端必須自動加上「本矩陣為本手冊自行編製，非官方對映」的聲明。
+
+## 絕對不要做的事
+
+1. 不要為了讓文件看起來完整而編造來源或 URL
+2. 不要把【廠商主張】的數字寫成【已證實】
+3. 不要在 GitHub Actions 中使用版本標籤（`@v4`）釘選 Action，一律用 commit SHA
+4. 不要在 workflow 或 script 中輸出環境變數或 secrets
+5. 不要把實際的稽核證據（截圖、日誌、報表）提交到 repo；`evidence/index.yml` 只放索引
+6. 不要修改 `registry/incidents.yml` 中已標記 `verified: true` 的事件，除非有新的一手來源
+7. 不要在沒有我明確確認的情況下 push 到 main 分支
+
+## 提交規範
+
+Commit message 格式：
+```
+&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;
+
+&lt;body：說明變更理由與證據來源&gt;
+
+Refs: &lt;相關 Issue 編號&gt;
+```
+
+type: `manual`（手冊內容）、`control`（控制項）、`registry`（追蹤表）、`assessment`（評估）、`ci`（workflow）、`fix`（修正錯誤）
+
+**若變更涉及事實性陳述，body 中必須列出來源 URL 與查證日期。**</pre>
+    <h3>F.3 用途一：手冊 repo 化與持續維護的 Prompt</h3>
+    <h4>F.3.1 初始化 Prompt（一次性）</h4>
+    <pre class="ascii">請把這份資安防護網手冊初始化為一個可持續維護的 GitHub repo。
+
+輸入：manual/ 目錄下的 Markdown 檔案（GSMD-RPT-2026-0830-01）
+
+請執行以下步驟，每完成一步先讓我確認再繼續：
+
+步驟 1：解析並建立 registry
+從手冊中萃取出所有被引用的「標準」「法規」「分析師報告」「已驗證事件」，
+分別建立 registry/standards.yml、registry/regulations.yml、
+registry/analyst-reports.yml、registry/incidents.yml。
+
+每筆記錄必須包含：
+- id（穩定識別碼）
+- name（正式名稱，保留原文）
+- version（版本或編號）
+- date（發布/生效日期）
+- issuer（發行機構）
+- url（官方來源 URL）
+- evidence_level（已證實/廠商主張/第三方評論/尚未證實）
+- cited_in（手冊中引用的章節清單）
+- next_review（下次檢視日期：標準每 6 個月、法規每 3 個月、分析師報告每 6 個月）
+
+步驟 2：建立控制項庫
+從手冊附錄 D 萃取控制項，依前綴（GOV/IAM/NET/EPP/APP/DAT/SOC/EXP/OT/SUP/RES/HUM/AI/PSI）
+拆成 controls/*.yml，並建立 controls/_schema.json。
+
+每個控制項必須包含：
+id, title, layer, zone_applicability[], owner, frameworks{}, evidence[],
+failure_modes[], references[], mapping_source
+
+frameworks 欄位包含：iso27001_2022, cis_v81, csf_20, nis2_art21, cra_annex_i,
+cmmc_l2, iec62443, semi, other
+
+mapping_source 對 IEC 62443 一律填 "self-authored"。
+
+步驟 3：建立查證缺口表
+從手冊附錄 G 萃取所有【尚未證實】項目，建立 registry/verification-gaps.yml，
+每筆包含：id, description, why_unverified, impact, suggested_action, owner, target_date
+
+步驟 4：建立 CI workflows
+依 F.5 的範例建立四個 workflow，所有 Action 以 commit SHA 釘選。
+
+步驟 5：建立 CLAUDE.md
+使用 F.2 的內容。
+
+完成後產出一份 SETUP-REPORT.md，說明：
+- 萃取出多少筆標準/法規/報告/事件/控制項/缺口
+- 哪些項目因資訊不完整而需要人工補齊
+- 建議的第一批待辦</pre>
+    <h4>F.3.2 定期維護 Prompt（建議每月執行）</h4>
+    <pre class="ascii">執行本 repo 的月度維護。今天是 {DATE}。
+
+任務 1：時效性檢查
+讀取 registry/standards.yml 與 registry/regulations.yml，
+找出 next_review 已到期或即將到期（30 天內）的項目。
+對每一筆：
+- 用 WebFetch 存取其 official url
+- 確認版本號與日期是否仍為現行
+- 若已改版，記錄新版本、新日期，並用 grep 找出手冊中所有引用位置
+- 若官方頁面無法存取，記錄為 [fetch-failed] 並保留原資料，不要猜測
+
+任務 2：法規時程檢查
+讀取 registry/regulations.yml，找出未來 90 天內有里程碑的法規。
+產出一份「即將到期的合規義務」清單，包含：法規、里程碑、日期、
+本集團的準備狀態（從 assessments/ 讀取）、負責人。
+
+任務 3：新增威脅情報檢查
+搜尋以下項目自上次維護以來的更新：
+- CISA KEV 新增項目中，涉及本 repo registry/vendors.yml 所列廠商者
+- MITRE ATT&amp;CK 是否有新版本（目前記錄為 v19.2 / 2026-08-06）
+- 製造業重大資安事件（須有受害方聲明或權威具名來源才列入）
+
+任務 4：連結健康檢查
+執行 scripts/check_links.py，回報失效連結。
+對每個失效連結，嘗試尋找官方替代 URL；找不到則標記 [dead-link]。
+
+輸出：
+1. 一份 MAINTENANCE-{YYYY-MM}.md 報告
+2. 為每個需要人工處理的項目建立 GitHub Issue（使用對應的 ISSUE_TEMPLATE）
+3. 對可自動更新的項目（純版本號變更）建立一個 PR
+
+不要直接 push 到 main。</pre>
+    <h4>F.3.3 引用查證 Prompt（在 PR review 時使用）</h4>
+    <pre class="ascii">請對這個 PR 中所有新增或修改的事實性陳述執行查證。
+
+對每一項陳述：
+1. 確認是否有證據等級標註。沒有的話，標記為必須修正。
+2. 若標註為【已證實】，用 WebFetch 存取來源 URL，逐字比對關鍵數字與日期。
+   不一致時，指出差異，並建議正確的等級或正確的數字。
+3. 若標註為【廠商主張】或【第三方評論】，確認來源是否具名（廠商名/機構名/報告名/日期）。
+   不具名者，要求補齊或降級。
+4. 檢查是否有口徑混用（例如把不同定義的兩個數字並列比較）。
+5. 檢查是否有跨年度趨勢線但方法可能不一致的情況。
+6. 檢查分析師報告的引用是否含「報告正式名稱 + 日期 + 分析師姓名」，
+   以及是否誤把 Market Guide 的 Representative Vendor 說成 Leader。
+
+輸出格式：對每一項問題，給出
+- 檔案與行號
+- 問題類型（缺少等級 / 等級錯誤 / 數字不符 / 來源不具名 / 口徑混用 / 假象限 / 死連結）
+- 建議的修正文字
+
+不要自行修改檔案，只提出 review comments。</pre>
+    <h3>F.4 用途二：資安防護網落地評估的 Prompt</h3>
+    <h4>F.4.1 分區評估 Prompt</h4>
+    <pre class="ascii">請對 {ZONE}（Z1 全球區 / Z2 中國區 / Z3 客戶專案區 / Z4 產品開發區 / Z5 廠務 OT 區）
+執行資安防護網落地評估。
+
+使用 assessments/_questionnaire.yml 的 60 題問卷。
+
+執行規則：
+1. 一次問一題，等我回答後再問下一題。不要一次列出所有問題。
+2. 每題除了 0–3 的評分外，必須追問「證據是什麼」——
+   具體的文件名稱、系統報表、設定截圖位置或稽核紀錄。
+3. 若我無法提供證據，該題評分自動降一級（最低 0），
+   並在 justification 中記錄「自評 N 分但無證據，降級記錄」。
+4. 若我的回答顯示該題對本分區不適用，記為 N/A 並要求說明理由。
+5. 對粗體題（高風險缺口項），若評分 ≤1，立即追問「是否有補償控制」。
+
+問卷完成後，產出：
+
+A. assessments/{PERIOD}/{ZONE}.yml
+   包含每題的：score, evidence_ref, justification, gaps[], compensating_controls[]
+
+B. 一份評估報告 assessments/reports/{PERIOD}-{ZONE}.md，包含：
+   - 各領域（GOV/IAM/NET/EPP/APP/DAT/SOC/EXP/OT/SUP/RES/HUM）的平均分與 MIL 對應
+   - 與目標成熟度（見手冊 §26.2）的差距
+   - 依「風險 × 改善難度」排序的前 10 項改善建議
+   - 每項改善建議對應到手冊的哪一章、哪個控制項 ID
+
+C. GitHub Issues：
+   對評分 ≤1 且無補償控制的項目，各建立一個 Issue，使用 gap.yml 範本，
+   標題格式：[GAP][{ZONE}][{CONTROL_ID}] {簡述}
+   內容包含：目前狀態、目標狀態、對應控制項、手冊章節、建議行動、預估工作量
+   標籤：gap, zone/{zone}, layer/{layer}, priority/{p1|p2|p3}
+
+不要在我沒有回答完所有問題前就產出報告。</pre>
+    <h4>F.4.2 缺口優先排序 Prompt</h4>
+    <pre class="ascii">讀取 assessments/{PERIOD}/ 下所有分區的評估結果，
+產出一份跨分區的整合改善計畫。
+
+排序邏輯（依序）：
+1. 有外部截止日的合規項（讀取 registry/regulations.yml）— 最優先，不可延後
+2. 對應到手冊「常見失敗模式」中影響最大的十項者
+3. 依「風險降低量 ÷ 改善工作量」排序
+
+風險降低量的評估依據（必須在輸出中說明引用了哪一項）：
+- 手冊第 2 章的威脅統計（哪個入侵途徑佔比高）
+- 手冊第 3 章的已驗證事件（該缺口是否為某個實際事件的成因）
+- 該控制項覆蓋的框架數（覆蓋越多，一次改善的合規效益越高）
+
+輸出 assessments/reports/{PERIOD}-roadmap.md，包含：
+1. 立即行動（30 天內，通常是合規截止日與高風險無補償控制項）
+2. 短期（Q1–Q2）
+3. 中期（Q3–Q4）
+4. 長期（次年以後）
+
+每一項包含：控制項 ID、分區、目前分數、目標分數、負責組織功能、
+預估工作量（人天）、依賴項、驗收標準（引用手冊的「可稽核產出」）。
+
+同時產出一個 GitHub Projects 的匯入用 CSV。</pre>
+    <h3>F.5 GitHub Actions Workflow 範例</h3>
+    <div class="notice">
+      <p><strong>所有範例均以 commit SHA 釘選 Action，並宣告最小 permissions。</strong> 使用時請自行確認 SHA 對應的版本（以下 SHA 為示意，<strong>必須替換為你自己驗證過的 SHA</strong>）。</p>
+    </div>
+    <h4>F.5.1 <code>.github/workflows/link-check.yml</code></h4>
+    <pre class="ascii">name: Link Check
+
+on:
+  schedule:
+    - cron: '0 2 * * 1'   # 每週一 02:00 UTC
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'manual/**'
+      - 'registry/**'
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    steps:
+      # 請以你驗證過的 commit SHA 取代（不要用 @v4）
+      - name: Checkout
+        uses: actions/checkout@&lt;COMMIT_SHA_FOR_ACTIONS_CHECKOUT&gt;
+
+      - name: Setup Python
+        uses: actions/setup-python@&lt;COMMIT_SHA_FOR_ACTIONS_SETUP_PYTHON&gt;
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install --require-hashes -r scripts/requirements.txt
+
+      - name: Run link check
+        run: python scripts/check_links.py --input manual registry --output link-report.json
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@&lt;COMMIT_SHA_FOR_ACTIONS_UPLOAD_ARTIFACT&gt;
+        with:
+          name: link-report
+          path: link-report.json
+
+      - name: Fail on dead links in verified citations
+        run: python scripts/check_links.py --assert-verified-alive --input link-report.json</pre>
+    <h4>F.5.2 <code>.github/workflows/evidence-check.yml</code></h4>
+    <pre class="ascii">name: Evidence Tag Check
+
+on:
+  pull_request:
+    paths:
+      - 'manual/**'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  evidence-tags:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@&lt;COMMIT_SHA_FOR_ACTIONS_CHECKOUT&gt;
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@&lt;COMMIT_SHA_FOR_ACTIONS_SETUP_PYTHON&gt;
+        with:
+          python-version: '3.12'
+
+      # 檢查新增/修改的行中，含有數字、日期或標準編號的事實性陳述
+      # 是否帶有【已證實】/【廠商主張】/【第三方評論】/【尚未證實】標註
+      - name: Check evidence tags on changed lines
+        run: |
+          git diff --unified=0 origin/${{ github.base_ref }}...HEAD -- 'manual/*.md' \
+            &gt; changed.diff
+          python scripts/check_evidence_tags.py --diff changed.diff --strict
+
+      # 檢查是否有「假象限」用語
+      - name: Check for false Magic Quadrant claims
+        run: python scripts/check_evidence_tags.py --check-analyst-claims --input manual/</pre>
+    <h4>F.5.3 <code>.github/workflows/control-lint.yml</code></h4>
+    <pre class="ascii">name: Control Schema Lint
+
+on:
+  pull_request:
+    paths:
+      - 'controls/**'
+  push:
+    branches: [main]
+    paths:
+      - 'controls/**'
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@&lt;COMMIT_SHA_FOR_ACTIONS_CHECKOUT&gt;
+
+      - name: Setup Python
+        uses: actions/setup-python@&lt;COMMIT_SHA_FOR_ACTIONS_SETUP_PYTHON&gt;
+        with:
+          python-version: '3.12'
+
+      - run: pip install --require-hashes -r scripts/requirements.txt
+
+      - name: Validate control YAML against schema
+        run: |
+          python - &lt;&lt;'PY'
+          import json, sys, glob
+          import yaml
+          from jsonschema import Draft202012Validator
+
+          schema = json.load(open('controls/_schema.json'))
+          validator = Draft202012Validator(schema)
+          errors = 0
+          ids = set()
+          for path in glob.glob('controls/*.yml'):
+              data = yaml.safe_load(open(path))
+              for ctrl in data.get('controls', []):
+                  for e in validator.iter_errors(ctrl):
+                      print(f"{path}:{ctrl.get('id','?')}: {e.message}")
+                      errors += 1
+                  cid = ctrl.get('id')
+                  if cid in ids:
+                      print(f"{path}: duplicate control id {cid}")
+                      errors += 1
+                  ids.add(cid)
+                  # IEC 62443 對映必須標示為自行編製
+                  fw = ctrl.get('frameworks', {})
+                  if fw.get('iec62443') and ctrl.get('mapping_source') != 'self-authored':
+                      print(f"{path}:{cid}: IEC 62443 mapping must set mapping_source: self-authored")
+                      errors += 1
+          sys.exit(1 if errors else 0)
+          PY</pre>
+    <h4>F.5.4 <code>.github/workflows/freshness-check.yml</code></h4>
+    <pre class="ascii">name: Standards &amp; Regulations Freshness
+
+on:
+  schedule:
+    - cron: '0 1 1 * *'   # 每月 1 日
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  freshness:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@&lt;COMMIT_SHA_FOR_ACTIONS_CHECKOUT&gt;
+
+      - name: Setup Python
+        uses: actions/setup-python@&lt;COMMIT_SHA_FOR_ACTIONS_SETUP_PYTHON&gt;
+        with:
+          python-version: '3.12'
+
+      - run: pip install --require-hashes -r scripts/requirements.txt
+
+      # 找出 next_review 到期者，並為每一筆建立 Issue
+      - name: Find items due for review
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/check_freshness.py --create-issues</pre>
+    <div class="notice">
+      <p><strong>注意</strong>：<code>--require-hashes</code> 要求 <code>scripts/requirements.txt</code> 中每個套件都釘選雜湊值。這是對應 §3.4 中 npm/PyPI 供應鏈攻擊（Shai-Hulud 兩波）的直接控制。</p>
+    </div>
+    <h3>F.6 控制項 YAML 範例與 Schema</h3>
+    <h4>F.6.1 <code>controls/_schema.json</code>（節錄）</h4>
+    <pre class="ascii">{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["id", "title", "layer", "owner", "frameworks", "evidence"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^(GOV|IAM|NET|EPP|APP|DAT|SOC|EXP|OT|SUP|RES|HUM|AI|PSI)-[0-9]{2}$"
+    },
+    "title": { "type": "string", "minLength": 5 },
+    "layer": {
+      "type": "string",
+      "enum": ["L0","L1","L2","L3","L4","L5","L6","L7","L8","L9","X1","X2","X3"]
+    },
+    "zone_applicability": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["Z1","Z2","Z3","Z4","Z5"] },
+      "minItems": 1
+    },
+    "owner": { "type": "string" },
+    "frameworks": {
+      "type": "object",
+      "properties": {
+        "iso27001_2022": { "type": "array", "items": { "type": "string" } },
+        "cis_v81":       { "type": "array", "items": { "type": "string" } },
+        "csf_20":        { "type": "array", "items": { "type": "string" } },
+        "nis2_art21":    { "type": "array", "items": { "type": "string" } },
+        "cra_annex_i":   { "type": "array", "items": { "type": "string" } },
+        "cmmc_l2":       { "type": "array", "items": { "type": "string" } },
+        "iec62443":      { "type": "array", "items": { "type": "string" } },
+        "semi":          { "type": "array", "items": { "type": "string" } },
+        "other":         { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "mapping_source": {
+      "type": "string",
+      "enum": ["nist-olir", "issuer-official", "self-authored"]
+    },
+    "evidence": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1,
+      "description": "可稽核產出：具體的文件、報表或系統設定"
+    },
+    "failure_modes": { "type": "array", "items": { "type": "string" } },
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["text", "evidence_level"],
+        "properties": {
+          "text": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "date": { "type": "string" },
+          "evidence_level": {
+            "type": "string",
+            "enum": ["已證實", "廠商主張", "第三方評論", "尚未證實"]
+          }
+        }
+      }
+    },
+    "target_mil": {
+      "type": "object",
+      "patternProperties": {
+        "^Z[1-5]$": { "type": "integer", "minimum": 0, "maximum": 3 }
+      }
+    }
+  }
+}</pre>
+    <h4>F.6.2 <code>controls/net.yml</code>（範例，兩個控制項）</h4>
+    <pre class="ascii">metadata:
+  domain: Network and Edge
+  layer: L2
+  last_updated: 2026-08-30
+  owner: Security Architecture
+
+controls:
+  - id: NET-02
+    title: KEV 收錄且標記 known ransomware use 的漏洞於 24 小時內完成修補或隔離
+    layer: L2
+    zone_applicability: [Z1, Z2, Z3, Z4, Z5]
+    owner: SecOps / Vulnerability Management
+    frameworks:
+      iso27001_2022: ["A.8.8"]
+      cis_v81: ["7.3", "7.4"]
+      csf_20: ["ID.RA-01", "PR.PS-02"]
+      nis2_art21: ["(e)"]
+      cmmc_l2: ["RA.L2-3.11.2"]
+      other: ["CISA ED 25-03"]
+    mapping_source: self-authored
+    target_mil:
+      Z1: 3
+      Z2: 2
+      Z3: 2
+      Z4: 3
+      Z5: 2
+    evidence:
+      - 邊界裝置清冊（型號、韌體版本、EOL 日期、對外服務、負責人）
+      - KEV 緊急修補 SLA 執行紀錄（發現時間、完成時間、逾期原因）
+      - 無法修補項目的隔離措施證據
+    failure_modes:
+      - 修補 SLA 以「工作日」計算，實際超過 24 小時
+      - 邊界裝置清冊不完整，KEV 比對有遺漏
+      - 修補後未輪換該裝置經手的憑證
+    references:
+      - text: "CISA ED 25-03 要求 Cisco 更新於釋出後 48 小時內套用；並指出攻擊者可竄改 ROM 於重開機與升級後持續存在"
+        url: "https://www.cisa.gov/news-events/directives/ed-25-03-identify-and-mitigate-potential-compromise-cisco-devices"
+        date: "2025-09-25"
+        evidence_level: "已證實"
+      - text: "IBM X-Force 2026：製造業初始入侵 32% 為對外服務應用程式漏洞利用"
+        date: "2026-02"
+        evidence_level: "廠商主張"
+
+  - id: NET-06
+    title: conduit 清冊須含業務目的、法遵依據與可切斷性
+    layer: L2
+    zone_applicability: [Z1, Z2, Z3, Z4, Z5]
+    owner: Security Architecture
+    frameworks:
+      iso27001_2022: ["A.8.21", "A.8.22"]
+      cis_v81: ["12.4"]
+      csf_20: ["ID.AM-03", "PR.IR-01"]
+      nis2_art21: ["(a)", "(d)"]
+      iec62443: ["3-2 zones and conduits"]
+    mapping_source: self-authored
+    target_mil:
+      Z1: 3
+      Z2: 3
+      Z3: 2
+      Z4: 2
+      Z5: 2
+    evidence:
+      - conduit 清冊（含 conduit ID、來源/目的分區、業務目的、協定與埠、資料類型、法遵依據、認證方式、監控點、可切斷性、擁有者、檢視週期）
+      - 每年度的 conduit 複審紀錄
+    failure_modes:
+      - 只記錄「有什麼連線」，未記錄「怎麼關」
+      - 第三方連線未納入清冊
+      - 跨境 conduit 未記錄法遵依據
+    references:
+      - text: "台積電於 Kinmax 供應商事件中的處置為終止與該供應商的資料交換"
+        date: "2023-06"
+        evidence_level: "已證實"</pre>
+    <h3>F.7 用途三：政策文件即程式碼</h3>
+    <h4>F.7.1 產生政策文件的 Prompt</h4>
+    <pre class="ascii">請由 controls/*.yml 產生政策文件。
+
+規則：
+1. 依 layer 分組，每個 layer 產生一份標準文件（Standard），
+   放在 policies/generated/{layer}-standard.md
+2. 每份文件的結構：
+   - 目的與範圍（含適用的分區）
+   - 規範性要求（逐條列出該 layer 的控制項 title，以「應」開頭改寫為規範語氣）
+   - 分區差異（依 zone_applicability 與 target_mil 產生）
+   - 例外處理（統一引用集團例外管理程序）
+   - 稽核證據（列出所有 evidence 欄位）
+   - 外部依據（列出 frameworks 對映，並在 IEC 62443 欄位加註「本對映為自行編製」）
+3. 每份文件頂端加上自動產生標記：
+   「本文件由 controls/*.yml 自動產生，請勿直接編輯。人工補述請寫在 policies/_templates/ 對應區塊。」
+4. 版本號取自 git 的最新 commit SHA 前 7 碼與日期。
+
+另外產生一份 policies/generated/_coverage.md，說明：
+- 每個外部框架的覆蓋率（該框架有多少條款被至少一個控制項對映到）
+- 未被任何控制項覆蓋的框架條款清單（這就是控制缺口）</pre>
+    <h4>F.7.2 產生稽核證據包的 Prompt</h4>
+    <pre class="ascii">客戶 {CUSTOMER} 要對我們做資安稽核，稽核範圍是 {SCOPE}。
+請產生一份稽核準備包。
+
+步驟：
+1. 從 controls/*.yml 篩選出與稽核範圍相關的控制項
+2. 從 evidence/index.yml 找出每個控制項對應的實際證據文件位置
+3. 從 assessments/ 最新一期讀取這些控制項的自評分數
+4. 產出 audit-prep/{CUSTOMER}-{DATE}.md，包含：
+
+   A. 控制項對照表：控制項 ID | 控制項描述 | 我方實作說明 | 證據文件 | 自評分數
+   B. 已知缺口與補償控制（自評 ≤1 者）
+   C. 預期問題與建議回覆（依據過去稽核紀錄中的重複問題）
+   D. 證據文件清單（哪些可直接提供、哪些需遮蔽、哪些不可提供及理由）
+
+5. 特別檢查：
+   - 若稽核涉及 Z2 中國區，標示出因 DSL 第 36 條／PIPL 第 41 條而不可提供原始資料的項目，
+     並提供替代方案（匯總指標、境內執行的稽核報告、現場檢視不帶走）
+   - 若我方文件中有任何以「通過 RBA VAP」回應資安問題的內容，標記為必須修正
+     （RBA VAP 官方範圍不含資安）
+   - 若引用了任何分析師定位，檢查是否符合引用紀律（報告名稱+日期+分析師）
+
+6. 稽核結束後，請我提供稽核發現，你負責：
+   - 更新 registry/audit-findings.yml
+   - 比對是否為重複發現（同一控制項在不同客戶稽核中重複出現）
+   - 為每個發現建立 GitHub Issue 並連結到對應控制項</pre>
+    <h3>F.8 Issue 範本</h3>
+    <h4><code>.github/ISSUE_TEMPLATE/gap.yml</code></h4>
+    <pre class="ascii">name: 落地缺口 (Gap)
+description: 由評估或稽核發現的控制項缺口
+title: "[GAP][ZONE][CONTROL-ID] "
+labels: ["gap"]
+body:
+  - type: input
+    id: control_id
+    attributes:
+      label: 控制項 ID
+      placeholder: NET-02
+    validations:
+      required: true
+  - type: dropdown
+    id: zone
+    attributes:
+      label: 分區
+      options: ["Z1 全球", "Z2 中國", "Z3 客戶專案", "Z4 產品開發", "Z5 廠務 OT"]
+    validations:
+      required: true
+  - type: dropdown
+    id: current_score
+    attributes:
+      label: 目前自評分數
+      options: ["0 未執行", "1 臨時性", "2 已文件化執行", "3 已管理"]
+    validations:
+      required: true
+  - type: input
+    id: target_score
+    attributes:
+      label: 目標分數
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 現況證據
+      description: 目前有什麼文件/報表/設定可以證明現況？沒有的話請寫「無」
+    validations:
+      required: true
+  - type: textarea
+    id: compensating
+    attributes:
+      label: 補償控制
+      description: 在缺口未關閉前，有什麼替代措施降低風險？
+  - type: dropdown
+    id: driver
+    attributes:
+      label: 驅動因素
+      options:
+        - 法規截止日（不可延後）
+        - 客戶要求
+        - 常見失敗模式前十項
+        - 風險降低
+    validations:
+      required: true
+  - type: input
+    id: deadline
+    attributes:
+      label: 外部截止日（若有）
+      placeholder: 2026-09-11
+  - type: input
+    id: effort
+    attributes:
+      label: 預估工作量（人天）
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 驗收標準
+      description: 引用手冊該章的「可稽核產出」
+    validations:
+      required: true</pre>
+    <h4><code>.github/ISSUE_TEMPLATE/regulatory-change.yml</code></h4>
+    <pre class="ascii">name: 法規變更 (Regulatory Change)
+description: 追蹤外部法規或標準的變更及其影響
+title: "[REG] "
+labels: ["regulatory"]
+body:
+  - type: input
+    id: regulation
+    attributes:
+      label: 法規/標準名稱（保留原文）
+      placeholder: EU Cyber Resilience Act — Regulation (EU) 2024/2847
+    validations:
+      required: true
+  - type: input
+    id: change_date
+    attributes:
+      label: 變更/生效日期
+    validations:
+      required: true
+  - type: input
+    id: source_url
+    attributes:
+      label: 官方來源 URL
+    validations:
+      required: true
+  - type: dropdown
+    id: evidence_level
+    attributes:
+      label: 證據等級
+      options: ["已證實", "廠商主張", "第三方評論", "尚未證實"]
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: 對本集團的影響
+      description: 影響哪些分區、哪些控制項、哪些產品線
+    validations:
+      required: true
+  - type: textarea
+    id: affected_controls
+    attributes:
+      label: 受影響的控制項 ID
+  - type: textarea
+    id: manual_sections
+    attributes:
+      label: 需更新的手冊章節</pre>
+    <h3>F.9 使用本套件的三個注意事項</h3>
+    <ol>
+      <li><strong>repo 必須是 private</strong>。它包含集團的控制項現況、自評分數與缺口清單——這對攻擊者是高價值情報。建議另設 branch protection、required reviews 與 CODEOWNERS。</li>
+      <li><strong>不要把實際證據提交到 repo</strong>。<code>evidence/index.yml</code> 只放索引（文件名稱、存放系統、負責人、更新日期）。實際的截圖、日誌、稽核報告放在文件管理系統中，並依第 16 章的資料分類保護。</li>
+      <li><strong>CI 本身是攻擊面</strong>。除了本附錄已納入的 SHA 釘選、最小 permissions、<code>--require-hashes</code> 之外，建議：
+        <ul>
+          <li>定期檢視 repo 的 Actions 使用清單，移除不再需要的</li>
+          <li>對 self-hosted runner 特別謹慎（Shai-Hulud 2.0 即建立 workflow 作為 self-hosted runner 持久化）</li>
+          <li>監控 repo 中新增的 workflow 檔案</li>
+        </ul>
+      </li>
+    </ol>
+
+    <p class="to-top"><a href="#toc">↑ 回附錄目錄</a></p>
+  </section>
+
+  <!-- ============================== 附錄 G ============================== -->
+  <section class="section prose" id="appendix-g">
+    <div class="chapter-head">
+      <p class="kicker">Appendix G</p>
+      <h2>查證缺口清單（本次研究無法證實的項目）</h2>
+      <p class="lead">誠實列出 62 項無法回溯至可靠一手來源、或來源互相矛盾的項目——列出它們，是為了避免它們在未來被誤當成已證實資訊使用。</p>
+    </div>
+    <p>本清單記錄本次研究中<strong>無法回溯至可靠一手來源、或來源互相矛盾</strong>的項目。列出它們是為了避免它們在未來被誤當成已證實資訊使用。</p>
+    <h3>G.1 標準與框架（20 項）</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>項目</th><th>原因</th><th>建議處置</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>CSF 2.0 之 Category / Subcategory 精確數量</td><td>NIST 官方文件未列總數；抓取結果與業界數字（22/106）衝突</td><td>手冊避免引用數量，或標示為業界統計</td></tr>
+          <tr><td>2</td><td>ISO/IEC 27002:2022 之 11 項新增控制逐條清單</td><td>ISO 付費牆；OBP 需 JavaScript</td><td>購買正本核對 Annex B</td></tr>
+          <tr><td>3</td><td>ISO/IEC 27002:2022 之 93 控制 / 4 主題分布（37/8/14/34）</td><td>僅第三方來源；ISO 官網未載明</td><td>同上</td></tr>
+          <tr><td>4</td><td>IEC 62443 <strong>SL 1–SL 4 逐字定義</strong></td><td>IEC 付費牆</td><td>購買 IEC 62443-3-3 正本</td></tr>
+          <tr><td>5</td><td>IEC 62443 <strong>七項 FR（FR1–FR7）名稱</strong></td><td>免費摘要僅確認「seven FRs」存在，未列名</td><td>同上</td></tr>
+          <tr><td>6</td><td><strong>Zones &amp; Conduits 定義文字</strong></td><td>IEC 62443-3-2 付費牆</td><td>購買 IEC 62443-3-2 正本</td></tr>
+          <tr><td>7</td><td>IEC 62443-2-1:2024 之 ML（成熟度）等級定義</td><td>預覽本截斷</td><td>購買正本</td></tr>
+          <tr><td>8</td><td>CIS Controls v8.1 精確發布日</td><td>cisecurity.org 未於可存取頁面標示</td><td>寫「v8.1（2024 年）」或標第三方</td></tr>
+          <tr><td>9</td><td>CIS Safeguards 數：<strong>153 vs 171</strong></td><td>兩次抓取衝突</td><td><strong>採用 153</strong>（官方 IG 頁一手來源）</td></tr>
+          <tr><td>10</td><td>CISA ZTMM v2.0 五支柱／三跨領域能力逐字名稱</td><td>cisa.gov PDF 回傳 403</td><td>人工下載 PDF 核對</td></tr>
+          <tr><td>11</td><td><strong>CISA Secure by Design Pledge 2026 現況</strong></td><td>CISA 頁面已無相關內容</td><td><strong>勿引用為現行機制</strong>；供應商評估表移除相關評分項</td></tr>
+          <tr><td>12</td><td>"Shifting the Balance of Cybersecurity Risk" 發布日</td><td>CISA 頁未載</td><td>人工查證</td></tr>
+          <tr><td>13</td><td>MITRE D3FEND 1.5.0 發布日</td><td>官網未標示</td><td>查 GitHub d3fend release</td></tr>
+          <tr><td>14</td><td>MITRE ATLAS 戰術／技法計數</td><td>atlas.mitre.org 為 JS 應用</td><td>由 atlas-data v2026.05 YAML 統計</td></tr>
+          <tr><td>15</td><td><strong>SPDX 3.1-RC1 日期</strong>（2025-01-24 vs 2026-01-26）</td><td>兩一手來源衝突</td><td>以 spdx.dev/news 為準並人工確認</td></tr>
+          <tr><td>16</td><td>SLSA v1.2 <strong>Source Track 各等級名稱</strong></td><td>slsa.dev/spec/v1.2/levels 404</td><td>人工瀏覽 slsa.dev 規格導覽</td></tr>
+          <tr><td>17</td><td>ISO/IEC 27036-3 與 -4 之 ISO 標準頁編號</td><td>未能直接抓取，編號由搜尋推得</td><td>送印前人工確認</td></tr>
+          <tr><td>18</td><td>ISAGCA 是否有官方 62443↔CSF/27001 對映白皮書</td><td>子頁面 404</td><td>人工瀏覽 isagca.org Technical Resources</td></tr>
+          <tr><td>19</td><td>ISA-TR62443-2-2-2025 對應之 IEC 版本</td><td>IEC Webstore 未檢索到</td><td>查 IEC TC65 WG10 進度</td></tr>
+          <tr><td>20</td><td>NIST SSDF 四大實務群組（PO/PS/PW/RV）逐字定義</td><td>未自 PDF 逐字取證</td><td>人工核對 SP 800-218 PDF</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3>G.2 法規（11 項）</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>項目</th><th>原因</th><th>影響與建議處置</th></tr></thead>
+        <tbody>
+          <tr><td>21</td><td><strong>CRA Annex I 與 Art. 14/16 官方逐字條文</strong></td><td>EUR-Lex 僅回傳前言</td><td><strong>出版前以 EUR-Lex PDF 覆核中譯</strong></td></tr>
+          <tr><td>22</td><td><strong>捷克 vyhláška 408/2025 Sb. 是否涵蓋 CZ-NACE 26 電子製造</strong></td><td>證據互相矛盾</td><td>🚩 <strong>影響捷克廠是否納管之根本判斷；由捷克廠透過 NÚKIB 入口正式自我識別並取得法律意見書</strong></td></tr>
+          <tr><td>23</td><td><strong>台灣個資法 2025 修正之施行日期</strong></td><td>由行政院另定，尚未確定</td><td>追蹤行政院公報</td></tr>
+          <tr><td>24</td><td><strong>國家核心關鍵技術 42 項清單是否已正式公告</strong></td><td>預告期已於 2025-12-08 屆滿，最終公告未查得</td><td>查行政院公報／國科會法規查詢系統</td></tr>
+          <tr><td>25</td><td><strong>VDA ISA 是否存在 AI 模組</strong></td><td>查得事實為 6.0.3 → ISA 2027，未見 6.1 或獨立 AI 模組</td><td>自 ENX Portal 下載目錄確認</td></tr>
+          <tr><td>26</td><td><strong>BIS Entity List Affiliates Rule（50% 規則）最新版本</strong></td><td>Federal Register 受 robots 限制</td><td>向法務／貿易合規確認</td></tr>
+          <tr><td>27</td><td><strong>CTPAT MSC 現行條文</strong></td><td>CBP 網站回傳 403</td><td><strong>出版前自 CBP 下載最新 MSC PDF 逐條核對</strong></td></tr>
+          <tr><td>28</td><td><strong>MLPS 2.0 / GB/T 22239-2019</strong> 一手來源與日期</td><td>未取得 TC260／公安部一手來源</td><td>由中國區合規確認</td></tr>
+          <tr><td>29</td><td><strong>AS9100D 與 NAS9933 現行版次</strong></td><td>未取得 IAQG/SAE 一手來源</td><td>若有航太客戶，須向 IAQG/SAE 覆核</td></tr>
+          <tr><td>30</td><td><strong>Data Act Article 50</strong> 關於 Art.3(1) 之 2026-09-12 適用範圍</td><td>未取得一手條文</td><td>以 EUR-Lex 覆核後再寫入正式文件</td></tr>
+          <tr><td>31</td><td><strong>ITAR 22 CFR 條號</strong>（120–130、120.54(a)(5)、Part 122）</td><td>DDTC 官網為 JS 動態頁</td><td>以 eCFR 覆核</td></tr>
+          <tr><td>32</td><td><strong>RBA Code of Conduct 8.0 逐字條文</strong>（Ethics 章節之資安相關條款）</td><td>未取得 Code 8.0 全文</td><td>下載 RBACodeofConduct8.0_English.pdf 覆核</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3>G.3 市場與分析師報告（12 項）</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>項目</th><th>查證結論</th></tr></thead>
+        <tbody>
+          <tr><td>33</td><td>Gartner MQ for SIEM 2025 版<strong>完整象限名單與各家 Cautions</strong></td><td>僅確認 Microsoft、Splunk、Exabeam、Gurucul、Google 為 Leader；完整名單未取得</td></tr>
+          <tr><td>34</td><td>Gartner MQ for SASE Platforms <strong>2026 版完整名單</strong></td><td>僅確認 Cato、Netskope 為 Leader</td></tr>
+          <tr><td>35</td><td>Gartner MQ for SSE <strong>2026 版完整名單</strong></td><td>各廠商各自宣告 Leader，完整象限未取得</td></tr>
+          <tr><td>36</td><td>Gartner MQ for NDR <strong>2026 版完整名單</strong></td><td>僅確認 Darktrace、Vectra AI 宣告 Leader</td></tr>
+          <tr><td>37</td><td>Gartner MQ for CPS Protection Platforms 2026 之<strong>第 4 家 Leader</strong></td><td>已確認 Claroty、Armis、Nozomi；第 4 家未確認</td></tr>
+          <tr><td>38</td><td>Gartner MQ for EAP 2025 各家 <strong>Cautions</strong></td><td>僅確認 Tenable、Rapid7、Qualys 為 Leader</td></tr>
+          <tr><td>39</td><td>Gartner MQ for Email Security 2025 完整象限</td><td>僅確認 Microsoft 為 Leader</td></tr>
+          <tr><td>40</td><td><strong>Gartner 是否曾發行過 SOAR MQ</strong></td><td>現況確定無 SOAR MQ；但「曾存在過」此前提本身無法查證</td></tr>
+          <tr><td>41</td><td><strong>Gartner Market Guide for SSPM 是否存在</strong></td><td><strong>未能確認任何版本或日期</strong>；市面「SSPM 排名」多為 SEO 部落格</td></tr>
+          <tr><td>42</td><td>Gartner Market Guide for DSPM <strong>2025 版之確切月份</strong></td><td>存在已確認，月份未確認</td></tr>
+          <tr><td>43</td><td>Gartner <strong>AI TRiSM Market Guide</strong> 之出版日與作者</td><td>內容經第三方引述，報告本身資訊未取得</td></tr>
+          <tr><td>44</td><td><strong>AI SOC agents 的獨立效能評測</strong></td><td><strong>不存在任何公開獨立評測</strong>（無 MITRE/SE Labs/AV-C 對應項目）——證據空白區</td></tr>
+          <tr><td>45</td><td>Dragos <strong>CHERNOVITE/PIPEDREAM</strong> 在 2025/2026 年報中的具體引述</td><td>新聞稿未提及；需取得報告全文</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3>G.4 數據與 benchmark（8 項）</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>常見說法</th><th>查證結論</th></tr></thead>
+        <tbody>
+          <tr><td>46</td><td>「資安預算應佔營收 0.5%–1%」</td><td><strong>IANS/Artico 公開材料未提供任何「% of revenue」數字</strong>。僅 % of IT spend（2025: 10.9%）可查證</td></tr>
+          <tr><td>47</td><td>「製造業資安預算 benchmark 為 X%」</td><td>IANS 公開產業拆分<strong>不含製造業</strong></td></tr>
+          <tr><td>48</td><td>「每 1,000 員工需 X 名資安人員」</td><td>Avasant 報告付費；<strong>無免費一手來源</strong></td></tr>
+          <tr><td>49</td><td>「Siemens：電子業停機每小時成本」</td><td>Siemens 數字為<strong>汽車業（US$2.3M/hr）</strong>；<strong>無電子組裝業一手數據</strong>；Siemens 原始報告未取得</td></tr>
+          <tr><td>50</td><td>「Heidrick 顯示向 CEO 匯報比例逐年上升至 42%」</td><td><strong>2024→2025 由 14% 躍升 42%，樣本由 370 降至 231，來源未說明方法變更</strong>。<strong>不可作時間序列使用</strong></td></tr>
+          <tr><td>51</td><td>「DBIR：第三方涉入由 15% 增至 30%」</td><td>30% 與「倍增」為原文；<strong>15% 係反推</strong>，Verizon 未直接列出基數。應寫「倍增至 30%」</td></tr>
+          <tr><td>52</td><td>Norsk Hydro 損失「US$71M／NOK 800M」</td><td><strong>與公司季報不符</strong>。原文為 <strong>NOK 650–750M</strong></td></tr>
+          <tr><td>53</td><td>Clorox 損失「US$356M」</td><td>出自媒體非 SEC 申報；申報數字為 <strong>US$49M</strong>（增量費用，口徑不同）</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3>G.5 事件（9 項）</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>項目</th><th>原因</th></tr></thead>
+        <tbody>
+          <tr><td>54</td><td>Pegatron（和碩）2020 年事件</td><td>未取得公司聲明或權威報導</td></tr>
+          <tr><td>55</td><td>Nichirin 2022 年美國子公司勒索事件</td><td>未完成驗證</td></tr>
+          <tr><td>56</td><td>SolarWinds SUNBURST 具體受害數（18,000 / ~100）</td><td>未取得一手來源確認</td></tr>
+          <tr><td>57</td><td>Kaseya VSA 2021 事件細節</td><td>僅確認 CVE-2021-30116 列入 KEV（2021-11-03，known ransomware use）</td></tr>
+          <tr><td>58</td><td>Polyfill.io（2024）</td><td>未完成驗證</td></tr>
+          <tr><td>59</td><td>Ultralytics YOLO PyPI 遭污染（2024-12）</td><td>未完成驗證</td></tr>
+          <tr><td>60</td><td>ENISA Threat Landscape 2026</td><td>截至 2026-08-30 尚未發布</td></tr>
+          <tr><td>61</td><td>Kojima → Toyota「28 條產線／13,000 輛」</td><td>Toyota 官方僅確認 14 廠停產一日；細部數字僅見第三方報導</td></tr>
+          <tr><td>62</td><td>Norsk Hydro 最終總成本</td><td>僅取得 Q3 2019 財報之上半年估計；全年最終數字未驗證</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3>G.6 使用本清單的方式</h3>
+    <ol>
+      <li><strong>這份清單本身應納入 repo</strong>（<code>registry/verification-gaps.yml</code>），並在每次維護時檢視是否已可補證</li>
+      <li><strong>對外文件不得引用本清單中的項目</strong>，除非已完成補證</li>
+      <li><strong>第 22 項（捷克廠納管）與第 27 項（CTPAT MSC）是影響最大的兩項</strong>，建議優先處理</li>
+      <li>本清單也是<strong>採購標準正本的預算理由</strong>：第 2–7 項全部需要購買 ISO/IEC 標準正本才能解決</li>
+    </ol>
+
+    <p class="to-top"><a href="#toc">↑ 回附錄目錄</a></p>
+  </section>
+
+  <!-- ============================== 附錄 H ============================== -->
+  <section class="section prose" id="appendix-h">
+    <div class="chapter-head">
+      <p class="kicker">Appendix H</p>
+      <h2>引用來源總表</h2>
+      <p class="lead">全手冊引用之來源清單，依主題分類（標準機構、政府與監理機關、威脅情報與事件、分析師與市場、客戶要求與產業、產業與公司資料）。</p>
+    </div>
+    <p><strong>查證基準日：2026-08-30</strong>。以下依主題分類，所有 URL 均於研究期間實際存取。</p>
+    <h3>H.1 標準機構</h3>
+    <p><strong>NIST</strong></p>
+    <ul>
+      <li>NIST Cybersecurity Framework — <a href="https://www.nist.gov/cyberframework" rel="noopener" target="_blank">https://www.nist.gov/cyberframework</a></li>
+      <li>The NIST Cybersecurity Framework (CSF) 2.0 — <a href="https://www.nist.gov/publications/nist-cybersecurity-framework-csf-20" rel="noopener" target="_blank">https://www.nist.gov/publications/nist-cybersecurity-framework-csf-20</a></li>
+      <li>NIST.CSWP.29.pdf — <a href="https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf" rel="noopener" target="_blank">https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf</a></li>
+      <li>CSF 2.0 Quick Start Guides — <a href="https://www.nist.gov/cyberframework/quick-start-guides" rel="noopener" target="_blank">https://www.nist.gov/cyberframework/quick-start-guides</a></li>
+      <li>CSF 2.0 Informative References — <a href="https://www.nist.gov/cyberframework/informative-references" rel="noopener" target="_blank">https://www.nist.gov/cyberframework/informative-references</a></li>
+      <li>OLIR Informative Reference Catalog — <a href="https://csrc.nist.gov/projects/olir/informative-reference-catalog" rel="noopener" target="_blank">https://csrc.nist.gov/projects/olir/informative-reference-catalog</a></li>
+      <li>SP 800-207 — <a href="https://csrc.nist.gov/pubs/sp/800/207/final" rel="noopener" target="_blank">https://csrc.nist.gov/pubs/sp/800/207/final</a></li>
+      <li>SP 800-207A — <a href="https://csrc.nist.gov/pubs/sp/800/207/a/final" rel="noopener" target="_blank">https://csrc.nist.gov/pubs/sp/800/207/a/final</a></li>
+      <li>SP 1800-35（Final 2025-06-10） — <a href="https://csrc.nist.gov/pubs/sp/1800/35/final" rel="noopener" target="_blank">https://csrc.nist.gov/pubs/sp/1800/35/final</a></li>
+      <li>Zero Trust Architecture 全文站 — <a href="https://pages.nist.gov/zero-trust-architecture/" rel="noopener" target="_blank">https://pages.nist.gov/zero-trust-architecture/</a></li>
+      <li>SP 800-53 Rev.5（Release 5.2.0） — <a href="https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final" rel="noopener" target="_blank">https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final</a></li>
+      <li>SP 800-61r3 — <a href="https://csrc.nist.gov/pubs/sp/800/61/r3/final" rel="noopener" target="_blank">https://csrc.nist.gov/pubs/sp/800/61/r3/final</a></li>
+      <li>SP 800-161r1 upd1 — <a href="https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final" rel="noopener" target="_blank">https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final</a></li>
+      <li>SP 800-171r3 — <a href="https://csrc.nist.gov/pubs/sp/800/171/r3/final" rel="noopener" target="_blank">https://csrc.nist.gov/pubs/sp/800/171/r3/final</a></li>
+      <li>SP 800-172r3（2026-05-13） — <a href="https://csrc.nist.gov/pubs/sp/800/172/r3/final" rel="noopener" target="_blank">https://csrc.nist.gov/pubs/sp/800/172/r3/final</a></li>
+      <li>SP 800-218（SSDF v1.1） — <a href="https://csrc.nist.gov/pubs/sp/800/218/final" rel="noopener" target="_blank">https://csrc.nist.gov/pubs/sp/800/218/final</a></li>
+      <li>SP 800-218A — <a href="https://csrc.nist.gov/pubs/sp/800/218/a/final" rel="noopener" target="_blank">https://csrc.nist.gov/pubs/sp/800/218/a/final</a></li>
+      <li>SP 800-63-4 — <a href="https://www.nist.gov/publications/nist-sp-800-63-4-digital-identity-guidelines" rel="noopener" target="_blank">https://www.nist.gov/publications/nist-sp-800-63-4-digital-identity-guidelines</a></li>
+      <li>NIST AI 600-1 — <a href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf" rel="noopener" target="_blank">https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf</a></li>
+      <li>IR 8183r1（Manufacturing Profile, Final） — <a href="https://csrc.nist.gov/pubs/ir/8183/r1/final" rel="noopener" target="_blank">https://csrc.nist.gov/pubs/ir/8183/r1/final</a></li>
+      <li>IR 8183r2 ipd（2025-09-29） — <a href="https://csrc.nist.gov/pubs/ir/8183/r2/ipd" rel="noopener" target="_blank">https://csrc.nist.gov/pubs/ir/8183/r2/ipd</a></li>
+      <li>IR 8546 ipd（Semiconductor Profile, 2025-02-27） — <a href="https://csrc.nist.gov/pubs/ir/8546/ipd" rel="noopener" target="_blank">https://csrc.nist.gov/pubs/ir/8546/ipd</a></li>
+      <li>NCCoE Semiconductor Profile 專案頁 — <a href="https://www.nccoe.nist.gov/projects/cybersecurity-framework-profile-semiconductor-manufacturing" rel="noopener" target="_blank">https://www.nccoe.nist.gov/projects/cybersecurity-framework-profile-semiconductor-manufacturing</a></li>
+    </ul>
+    <p><strong>ISO / IEC</strong></p>
+    <ul>
+      <li>ISO/IEC 27001 — <a href="https://www.iso.org/standard/27001" rel="noopener" target="_blank">https://www.iso.org/standard/27001</a></li>
+      <li>ISO/IEC 27001 Amd 1:2024 — <a href="https://www.iso.org/standard/88435.html" rel="noopener" target="_blank">https://www.iso.org/standard/88435.html</a></li>
+      <li>ISO/IEC 27002 — <a href="https://www.iso.org/standard/75652.html" rel="noopener" target="_blank">https://www.iso.org/standard/75652.html</a></li>
+      <li>ISO/IEC 27005 — <a href="https://www.iso.org/standard/80585.html" rel="noopener" target="_blank">https://www.iso.org/standard/80585.html</a></li>
+      <li>ISO/IEC 27017（Ed.2, 2026-07-27） — <a href="https://www.iso.org/standard/27017" rel="noopener" target="_blank">https://www.iso.org/standard/27017</a></li>
+      <li>ISO/IEC 27018（Ed.3, 2025-08） — <a href="https://www.iso.org/standard/27018" rel="noopener" target="_blank">https://www.iso.org/standard/27018</a></li>
+      <li>ISO/IEC 27701（Ed.2, 2025-10-14） — <a href="https://www.iso.org/standard/27701" rel="noopener" target="_blank">https://www.iso.org/standard/27701</a></li>
+      <li>ISO/IEC 27036-1 — <a href="https://www.iso.org/standard/82905.html" rel="noopener" target="_blank">https://www.iso.org/standard/82905.html</a></li>
+      <li>ISO/IEC 27036-2 — <a href="https://www.iso.org/standard/82060.html" rel="noopener" target="_blank">https://www.iso.org/standard/82060.html</a></li>
+      <li>ISO 22301 — <a href="https://www.iso.org/standard/75106.html" rel="noopener" target="_blank">https://www.iso.org/standard/75106.html</a></li>
+      <li>ISO/IEC 29147 — <a href="https://www.iso.org/standard/72311.html" rel="noopener" target="_blank">https://www.iso.org/standard/72311.html</a></li>
+      <li>ISO/IEC 30111 — <a href="https://www.iso.org/standard/69725.html" rel="noopener" target="_blank">https://www.iso.org/standard/69725.html</a></li>
+      <li>ISO/IEC 20153（CSAF v2.0） — <a href="https://www.iso.org/standard/89986.html" rel="noopener" target="_blank">https://www.iso.org/standard/89986.html</a></li>
+      <li>ISO/IEC 5962:2021（= SPDX 2.2.1） — <a href="https://www.iso.org/standard/81870.html" rel="noopener" target="_blank">https://www.iso.org/standard/81870.html</a></li>
+      <li>ISO/SAE 21434 — <a href="https://www.iso.org/standard/70918.html" rel="noopener" target="_blank">https://www.iso.org/standard/70918.html</a></li>
+      <li>IAF MD 26 Issue 2（轉版期限 2025-10-31） — <a href="https://iaf.nu/iaf_system/uploads/documents/IAF_MD26_Issue_2_15012023.pdf" rel="noopener" target="_blank">https://iaf.nu/iaf_system/uploads/documents/IAF_MD26_Issue_2_15012023.pdf</a></li>
+    </ul>
+    <p><strong>IEC Webstore</strong></p>
+    <ul>
+      <li>IEC TS 62443-1-1 — <a href="https://webstore.iec.ch/en/publication/7029" rel="noopener" target="_blank">https://webstore.iec.ch/en/publication/7029</a></li>
+      <li>IEC PAS 62443-1-6（2025-12-19） — <a href="https://webstore.iec.ch/en/publication/102885" rel="noopener" target="_blank">https://webstore.iec.ch/en/publication/102885</a></li>
+      <li>IEC 62443-2-1:2024 Ed.2 — <a href="https://webstore.iec.ch/en/publication/62883" rel="noopener" target="_blank">https://webstore.iec.ch/en/publication/62883</a></li>
+      <li>IEC 62443-2-4:2023 Ed.2 — <a href="https://webstore.iec.ch/en/publication/67631" rel="noopener" target="_blank">https://webstore.iec.ch/en/publication/67631</a></li>
+      <li>IEC 62443-3-2:2020 — <a href="https://webstore.iec.ch/en/publication/30727" rel="noopener" target="_blank">https://webstore.iec.ch/en/publication/30727</a></li>
+      <li>IEC 62443-3-3:2013 — <a href="https://webstore.iec.ch/en/publication/7033" rel="noopener" target="_blank">https://webstore.iec.ch/en/publication/7033</a></li>
+      <li>IEC 62443-4-1:2018 — <a href="https://webstore.iec.ch/en/publication/33615" rel="noopener" target="_blank">https://webstore.iec.ch/en/publication/33615</a></li>
+      <li>IEC 62443-4-2:2019 — <a href="https://webstore.iec.ch/en/publication/34421" rel="noopener" target="_blank">https://webstore.iec.ch/en/publication/34421</a></li>
+      <li>IEC TS 62443-6-2:2025 — <a href="https://webstore.iec.ch/en/publication/67463" rel="noopener" target="_blank">https://webstore.iec.ch/en/publication/67463</a></li>
+      <li>ISA/IEC 62443 Series — <a href="https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards" rel="noopener" target="_blank">https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards</a></li>
+      <li>ISAGCA — <a href="https://isagca.org/" rel="noopener" target="_blank">https://isagca.org/</a></li>
+      <li>ISAGCA/IIC Security Maturity Model — <a href="https://www.isagca.org/hubfs/2023%20ISA%20Website%20Redesigns/ISAGCA/PDFs/SMM-62443-Asset-Owner-Product-Supplier-Service_20230809.pdf" rel="noopener" target="_blank">https://www.isagca.org/hubfs/2023%20ISA%20Website%20Redesigns/ISAGCA/PDFs/SMM-62443-Asset-Owner-Product-Supplier-Service_20230809.pdf</a></li>
+    </ul>
+    <p><strong>其他標準</strong></p>
+    <ul>
+      <li>CIS Controls — <a href="https://www.cisecurity.org/controls" rel="noopener" target="_blank">https://www.cisecurity.org/controls</a></li>
+      <li>CIS Controls v8.1 — <a href="https://www.cisecurity.org/controls/v8-1" rel="noopener" target="_blank">https://www.cisecurity.org/controls/v8-1</a></li>
+      <li>CIS Implementation Groups（153 Safeguards） — <a href="https://www.cisecurity.org/controls/implementation-groups" rel="noopener" target="_blank">https://www.cisecurity.org/controls/implementation-groups</a></li>
+      <li>CIS Community Defense Model v2.0 — <a href="https://www.cisecurity.org/insights/white-papers/cis-community-defense-model-2-0" rel="noopener" target="_blank">https://www.cisecurity.org/insights/white-papers/cis-community-defense-model-2-0</a></li>
+      <li>DOE C2M2 — <a href="https://www.energy.gov/ceser/cybersecurity-capability-maturity-model-c2m2" rel="noopener" target="_blank">https://www.energy.gov/ceser/cybersecurity-capability-maturity-model-c2m2</a></li>
+      <li>SEMI 半導體資安標準 — <a href="https://www.semi.org/en/industry-groups/semiconductor-cybersecurity/standards" rel="noopener" target="_blank">https://www.semi.org/en/industry-groups/semiconductor-cybersecurity/standards</a></li>
+      <li>SLSA spec — <a href="https://slsa.dev/spec/" rel="noopener" target="_blank">https://slsa.dev/spec/</a></li>
+      <li>SPDX releases — <a href="https://github.com/spdx/spdx-spec/releases" rel="noopener" target="_blank">https://github.com/spdx/spdx-spec/releases</a></li>
+      <li>SPDX 3.0.1 spec — <a href="https://spdx.github.io/spdx-spec/v3.0.1/" rel="noopener" target="_blank">https://spdx.github.io/spdx-spec/v3.0.1/</a></li>
+      <li>CycloneDX specification — <a href="https://cyclonedx.org/specification/overview/" rel="noopener" target="_blank">https://cyclonedx.org/specification/overview/</a></li>
+      <li>ECMA-424 — <a href="https://ecma-international.org/publications-and-standards/standards/ecma-424/" rel="noopener" target="_blank">https://ecma-international.org/publications-and-standards/standards/ecma-424/</a></li>
+      <li>FIRST PSIRT Services Framework — <a href="https://www.first.org/standards/frameworks/psirts/" rel="noopener" target="_blank">https://www.first.org/standards/frameworks/psirts/</a></li>
+      <li>FIRST PSIRT SF v1.1 PDF — <a href="https://www.first.org/standards/frameworks/psirts/FIRST_PSIRT_Services_Framework_v1.1.pdf" rel="noopener" target="_blank">https://www.first.org/standards/frameworks/psirts/FIRST_PSIRT_Services_Framework_v1.1.pdf</a></li>
+      <li>FIRST CVSS v4.0 — <a href="https://www.first.org/newsroom/releases/20231101" rel="noopener" target="_blank">https://www.first.org/newsroom/releases/20231101</a></li>
+      <li>EPSS v4 — <a href="https://research.empiricalsecurity.com/research/introducing-epss-version-4" rel="noopener" target="_blank">https://research.empiricalsecurity.com/research/introducing-epss-version-4</a></li>
+      <li>OASIS CSAF → ISO/IEC 20153 — <a href="https://www.oasis-open.org/2025/05/20/csaf-v2-approved-as-iso-iec-international-standard/" rel="noopener" target="_blank">https://www.oasis-open.org/2025/05/20/csaf-v2-approved-as-iso-iec-international-standard/</a></li>
+      <li>OWASP LLM Top 10 2026 — <a href="https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/" rel="noopener" target="_blank">https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/</a></li>
+      <li>OWASP Top 10 for Agentic Applications 2026 — <a href="https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/" rel="noopener" target="_blank">https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/</a></li>
+      <li>OWASP Non-Human Identities Top 10 (2025) — <a href="https://owasp.org/www-project-non-human-identities-top-10/2025/top-10-2025/" rel="noopener" target="_blank">https://owasp.org/www-project-non-human-identities-top-10/2025/top-10-2025/</a></li>
+    </ul>
+    <h3>H.2 政府與監理機關</h3>
+    <p><strong>美國</strong></p>
+    <ul>
+      <li>CISA Known Exploited Vulnerabilities Catalog — <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" rel="noopener" target="_blank">https://www.cisa.gov/known-exploited-vulnerabilities-catalog</a></li>
+      <li>CISA ED 25-03（Cisco） — <a href="https://www.cisa.gov/news-events/directives/ed-25-03-identify-and-mitigate-potential-compromise-cisco-devices" rel="noopener" target="_blank">https://www.cisa.gov/news-events/directives/ed-25-03-identify-and-mitigate-potential-compromise-cisco-devices</a></li>
+      <li>CISA AA24-038A（Volt Typhoon） — <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-038a" rel="noopener" target="_blank">https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-038a</a></li>
+      <li>CISA Salt Typhoon 聯合公告（2025-08-27） — <a href="https://www.cisa.gov/news-events/alerts/2025/08/27/cisa-and-partners-release-joint-advisory-countering-chinese-state-sponsored-actors-compromise" rel="noopener" target="_blank">https://www.cisa.gov/news-events/alerts/2025/08/27/cisa-and-partners-release-joint-advisory-countering-chinese-state-sponsored-actors-compromise</a></li>
+      <li>CISA XZ Utils Alert（CVE-2024-3094） — <a href="https://www.cisa.gov/news-events/alerts/2024/03/29/reported-supply-chain-compromise-affecting-xz-utils-data-compression-library-cve-2024-3094" rel="noopener" target="_blank">https://www.cisa.gov/news-events/alerts/2024/03/29/reported-supply-chain-compromise-affecting-xz-utils-data-compression-library-cve-2024-3094</a></li>
+      <li>CISA tj-actions Alert（CVE-2025-30066） — <a href="https://www.cisa.gov/news-events/alerts/2025/03/18/supply-chain-compromise-third-party-tj-actionschanged-files-cve-2025-30066-and-reviewdogaction" rel="noopener" target="_blank">https://www.cisa.gov/news-events/alerts/2025/03/18/supply-chain-compromise-third-party-tj-actionschanged-files-cve-2025-30066-and-reviewdogaction</a></li>
+      <li>CISA npm Shai-Hulud Alert（2025-09-23） — <a href="https://www.cisa.gov/news-events/alerts/2025/09/23/widespread-supply-chain-compromise-impacting-npm-ecosystem" rel="noopener" target="_blank">https://www.cisa.gov/news-events/alerts/2025/09/23/widespread-supply-chain-compromise-impacting-npm-ecosystem</a></li>
+      <li>CISA Zero Trust Maturity Model — <a href="https://www.cisa.gov/zero-trust-maturity-model" rel="noopener" target="_blank">https://www.cisa.gov/zero-trust-maturity-model</a></li>
+      <li>CISA ZTMM v2.0 PDF — <a href="https://www.cisa.gov/sites/default/files/2023-04/zero_trust_maturity_model_v2_508.pdf" rel="noopener" target="_blank">https://www.cisa.gov/sites/default/files/2023-04/zero_trust_maturity_model_v2_508.pdf</a></li>
+      <li>CISA Secure by Design — <a href="https://www.cisa.gov/securebydesign" rel="noopener" target="_blank">https://www.cisa.gov/securebydesign</a></li>
+      <li>CISA Minimum Requirements for VEX — <a href="https://www.cisa.gov/sites/default/files/2023-04/minimum-requirements-for-vex-508c.pdf" rel="noopener" target="_blank">https://www.cisa.gov/sites/default/files/2023-04/minimum-requirements-for-vex-508c.pdf</a></li>
+      <li>DoD Zero Trust Reference Architecture v2.0 — <a href="https://dodcio.defense.gov/Portals/0/Documents/Library/(U" rel="noopener" target="_blank">https://dodcio.defense.gov/Portals/0/Documents/Library/(U</a>)ZT_RA_v2.0(U)_Sep22.pdf</li>
+      <li>DoD CIO CMMC — <a href="https://dodcio.defense.gov/CMMC/" rel="noopener" target="_blank">https://dodcio.defense.gov/CMMC/</a></li>
+      <li>DoW 暫停 CMMC Phase II（2026-07-13） — <a href="https://www.war.gov/News/Releases/Release/Article/4542329/" rel="noopener" target="_blank">https://www.war.gov/News/Releases/Release/Article/4542329/</a></li>
+      <li>32 CFR Part 170 CMMC Program（Federal Register） — <a href="https://www.federalregister.gov/documents/2024/10/15/2024-22905/cybersecurity-maturity-model-certification-cmmc-program" rel="noopener" target="_blank">https://www.federalregister.gov/documents/2024/10/15/2024-22905/cybersecurity-maturity-model-certification-cmmc-program</a></li>
+      <li>48 CFR DFARS Case 2019-D041 — <a href="https://www.federalregister.gov/documents/2025/09/10/2025-17359/defense-federal-acquisition-regulation-supplement-assessing-contractor-implementation-of" rel="noopener" target="_blank">https://www.federalregister.gov/documents/2025/09/10/2025-17359/defense-federal-acquisition-regulation-supplement-assessing-contractor-implementation-of</a></li>
+      <li>DFARS 252.204-7021 — <a href="https://www.acquisition.gov/dfars/252.204-7021-contractor-compliance-cybersecurity-maturity-model-certification-level-requirements." rel="noopener" target="_blank">https://www.acquisition.gov/dfars/252.204-7021-contractor-compliance-cybersecurity-maturity-model-certification-level-requirements.</a></li>
+      <li>BIS EAR — <a href="https://www.bis.gov/regulations/ear" rel="noopener" target="_blank">https://www.bis.gov/regulations/ear</a></li>
+      <li>DDTC（ITAR） — <a href="https://www.pmddtc.state.gov/" rel="noopener" target="_blank">https://www.pmddtc.state.gov/</a></li>
+      <li>SEC 資安揭露規則新聞稿 2023-139 — <a href="https://www.sec.gov/newsroom/press-releases/2023-139" rel="noopener" target="_blank">https://www.sec.gov/newsroom/press-releases/2023-139</a></li>
+      <li>DOJ APT41 起訴書新聞稿 — <a href="https://www.justice.gov/archives/opa/pr/seven-international-cyber-defendants-including-apt41-actors-charged-connection-computer" rel="noopener" target="_blank">https://www.justice.gov/archives/opa/pr/seven-international-cyber-defendants-including-apt41-actors-charged-connection-computer</a></li>
+      <li>CBP CTPAT Minimum Security Criteria — <a href="https://www.cbp.gov/border-security/ports-entry/cargo-security/ctpat/ctpat-minimum-security-criteria" rel="noopener" target="_blank">https://www.cbp.gov/border-security/ports-entry/cargo-security/ctpat/ctpat-minimum-security-criteria</a></li>
+    </ul>
+    <p><strong>歐盟</strong></p>
+    <ul>
+      <li>EU CRA 官方摘要 — <a href="https://digital-strategy.ec.europa.eu/en/policies/cra-summary" rel="noopener" target="_blank">https://digital-strategy.ec.europa.eu/en/policies/cra-summary</a></li>
+      <li>EU CRA 官方頁 — <a href="https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act" rel="noopener" target="_blank">https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act</a></li>
+      <li>CRA Reporting Obligations — <a href="https://digital-strategy.ec.europa.eu/en/policies/cra-reporting" rel="noopener" target="_blank">https://digital-strategy.ec.europa.eu/en/policies/cra-reporting</a></li>
+      <li>CRA Standardisation（M/606） — <a href="https://digital-strategy.ec.europa.eu/en/policies/cra-standardisation" rel="noopener" target="_blank">https://digital-strategy.ec.europa.eu/en/policies/cra-standardisation</a></li>
+      <li>EUR-Lex CELEX:32024R2847（CRA） — <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024R2847" rel="noopener" target="_blank">https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024R2847</a></li>
+      <li>ENISA Single Reporting Platform — <a href="https://www.enisa.europa.eu/topics/product-security-and-certification/single-reporting-platform-srp" rel="noopener" target="_blank">https://www.enisa.europa.eu/topics/product-security-and-certification/single-reporting-platform-srp</a></li>
+      <li>ENISA Threat Landscape 2025 (v1.2) — <a href="https://www.enisa.europa.eu/sites/default/files/2026-01/ENISA%20Threat%20Landscape%202025_v1.2.pdf" rel="noopener" target="_blank">https://www.enisa.europa.eu/sites/default/files/2026-01/ENISA%20Threat%20Landscape%202025_v1.2.pdf</a></li>
+      <li>EC NIS2 移送 CJEU 新聞稿（2026-06-19） — <a href="https://ec.europa.eu/commission/presscorner/detail/en/ip_26_1499" rel="noopener" target="_blank">https://ec.europa.eu/commission/presscorner/detail/en/ip_26_1499</a></li>
+      <li>EC NIS2 formal notice（2024-11-28） — <a href="https://digital-strategy.ec.europa.eu/en/news/commission-calls-23-member-states-fully-transpose-nis2-directive" rel="noopener" target="_blank">https://digital-strategy.ec.europa.eu/en/news/commission-calls-23-member-states-fully-transpose-nis2-directive</a></li>
+      <li>EU RED 官方頁 — <a href="https://single-market-economy.ec.europa.eu/sectors/electrical-and-electronic-engineering-industries-eei/radio-equipment-directive-red_en" rel="noopener" target="_blank">https://single-market-economy.ec.europa.eu/sectors/electrical-and-electronic-engineering-industries-eei/radio-equipment-directive-red_en</a></li>
+      <li>Delegated Regulation (EU) 2023/2444 — <a href="https://eur-lex.europa.eu/eli/reg_del/2023/2444/oj/eng" rel="noopener" target="_blank">https://eur-lex.europa.eu/eli/reg_del/2023/2444/oj/eng</a></li>
+      <li>Commission Implementing Decision (EU) 2025/138（EN 18031 限制） — <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202500138" rel="noopener" target="_blank">https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202500138</a></li>
+      <li>GDPR — <a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj" rel="noopener" target="_blank">https://eur-lex.europa.eu/eli/reg/2016/679/oj</a></li>
+      <li>EU Data Act — <a href="https://digital-strategy.ec.europa.eu/en/policies/data-act" rel="noopener" target="_blank">https://digital-strategy.ec.europa.eu/en/policies/data-act</a></li>
+      <li>Council AI Act Digital Omnibus（2026-06-29） — <a href="https://www.consilium.europa.eu/en/press/press-releases/2026/06/29/artificial-intelligence-council-gives-final-green-light-to-simplify-and-streamline-rules/" rel="noopener" target="_blank">https://www.consilium.europa.eu/en/press/press-releases/2026/06/29/artificial-intelligence-council-gives-final-green-light-to-simplify-and-streamline-rules/</a></li>
+      <li>EU AEO — <a href="https://taxation-customs.ec.europa.eu/customs-4/aeo-authorised-economic-operator_en" rel="noopener" target="_blank">https://taxation-customs.ec.europa.eu/customs-4/aeo-authorised-economic-operator_en</a></li>
+      <li>EU AEO 法規頁 — <a href="https://taxation-customs.ec.europa.eu/customs/authorised-economic-operator/legislation-and-management-instruments_en" rel="noopener" target="_blank">https://taxation-customs.ec.europa.eu/customs/authorised-economic-operator/legislation-and-management-instruments_en</a></li>
+      <li>NÚKIB 入口（捷克） — <a href="https://portal.nukib.gov.cz/" rel="noopener" target="_blank">https://portal.nukib.gov.cz/</a></li>
+    </ul>
+    <p><strong>中國</strong></p>
+    <ul>
+      <li>NPC Observer — Cybersecurity Law — <a href="https://npcobserver.com/legislation/cybersecurity-law/" rel="noopener" target="_blank">https://npcobserver.com/legislation/cybersecurity-law/</a></li>
+      <li>NPC Observer — Data Security Law — <a href="https://npcobserver.com/legislation/data-security-law/" rel="noopener" target="_blank">https://npcobserver.com/legislation/data-security-law/</a></li>
+      <li>NPC Observer — PIPL — <a href="https://npcobserver.com/legislation/personal-information-protection-law/" rel="noopener" target="_blank">https://npcobserver.com/legislation/personal-information-protection-law/</a></li>
+      <li>中國司法部英譯《網路數據安全管理條例》 — <a href="https://en.moj.gov.cn/pdf/RegulationsonNetworkDataSecurityManagement.pdf" rel="noopener" target="_blank">https://en.moj.gov.cn/pdf/RegulationsonNetworkDataSecurityManagement.pdf</a></li>
+      <li>China Law Translate — 促進和規範數據跨境流動規定 — <a href="https://www.chinalawtranslate.com/en/Provisions-on-Promoting-and-Regulating-the-Cross--Border-Flow-of-Data/" rel="noopener" target="_blank">https://www.chinalawtranslate.com/en/Provisions-on-Promoting-and-Regulating-the-Cross--Border-Flow-of-Data/</a></li>
+    </ul>
+    <p><strong>台灣</strong></p>
+    <ul>
+      <li>金管會 2023-03-09 資安人力分級新聞稿 — <a href="https://www.fsc.gov.tw/ch/home.jsp?id=96&amp;parentpath=0,2&amp;mcustomize=news_view.jsp&amp;dataserno=202303090003&amp;dtable=News" rel="noopener" target="_blank">https://www.fsc.gov.tw/ch/home.jsp?id=96&amp;parentpath=0,2&amp;mcustomize=news_view.jsp&amp;dataserno=202303090003&amp;dtable=News</a></li>
+      <li>金管會 2024-03-05 精進措施 — <a href="https://www.fsc.gov.tw/ch/home.jsp?id=96&amp;parentpath=0,2&amp;mcustomize=news_view.jsp&amp;dataserno=202403050004&amp;dtable=News" rel="noopener" target="_blank">https://www.fsc.gov.tw/ch/home.jsp?id=96&amp;parentpath=0,2&amp;mcustomize=news_view.jsp&amp;dataserno=202403050004&amp;dtable=News</a></li>
+      <li>金管會證期局資安人力新聞稿 — <a href="https://www.sfb.gov.tw/ch/home.jsp?id=95&amp;parentpath=0%2C2&amp;mcustomize=news_view.jsp&amp;dataserno=202301180010&amp;dtable=News" rel="noopener" target="_blank">https://www.sfb.gov.tw/ch/home.jsp?id=95&amp;parentpath=0%2C2&amp;mcustomize=news_view.jsp&amp;dataserno=202301180010&amp;dtable=News</a></li>
+      <li>TWSE 公司治理評鑑指標 2.24（114 年） — <a href="https://cgc.twse.com.tw/static/20250331/8a828e1795e942d60195eb92a6c5002b_114%E5%B9%B4%E5%85%AC%E5%8F%B8%E6%B2%BB%E7%90%86%E8%A9%95%E9%91%91_%E5%8F%83%E8%80%83%E7%AF%84%E4%BE%8B_%E6%8C%87%E6%A8%992.24.pdf" rel="noopener" target="_blank">https://cgc.twse.com.tw/static/20250331/8a828e1795e942d60195eb92a6c5002b_114%E5%B9%B4%E5%85%AC%E5%8F%B8%E6%B2%BB%E7%90%86%E8%A9%95%E9%91%91_%E5%8F%83%E8%80%83%E7%AF%84%E4%BE%8B_%E6%8C%87%E6%A8%992.24.pdf</a></li>
+      <li>TWSE 重大訊息參考問答集（115 年 3 月版） — <a href="https://dsp.twse.com.tw/public/static/downloads/listedCompany/%E3%80%8C%E9%87%8D%E5%A4%A7%E8%A8%8A%E6%81%AF%E7%99%BC%E5%B8%83%E6%87%89%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A0%85%E5%8F%83%E8%80%83%E5%95%8F%E7%AD%94%E9%9B%86%E3%80%8D11503_20260326104906.pdf" rel="noopener" target="_blank">https://dsp.twse.com.tw/public/static/downloads/listedCompany/%E3%80%8C%E9%87%8D%E5%A4%A7%E8%A8%8A%E6%81%AF%E7%99%BC%E5%B8%83%E6%87%89%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A0%85%E5%8F%83%E8%80%83%E5%95%8F%E7%AD%94%E9%9B%86%E3%80%8D11503_20260326104906.pdf</a></li>
+      <li>上市上櫃公司資通安全管控指引（櫃買中心） — <a href="https://dsp.tpex.org.tw/storage/co_download/%E4%B8%8A%E5%B8%82%E4%B8%8A%E6%AB%83%E5%85%AC%E5%8F%B8%E8%B3%87%E9%80%9A%E5%AE%89%E5%85%A8%E7%AE%A1%E6%8E%A7%E6%8C%87%E5%BC%95.pdf" rel="noopener" target="_blank">https://dsp.tpex.org.tw/storage/co_download/%E4%B8%8A%E5%B8%82%E4%B8%8A%E6%AB%83%E5%85%AC%E5%8F%B8%E8%B3%87%E9%80%9A%E5%AE%89%E5%85%A8%E7%AE%A1%E6%8E%A7%E6%8C%87%E5%BC%95.pdf</a></li>
+      <li>行政院資通安全管理法修正草案新聞稿 — <a href="https://www.ey.gov.tw/Page/9277F759E41CCD91/9c1b42cb-ebb2-4647-b2d6-2431ff1dfcb1" rel="noopener" target="_blank">https://www.ey.gov.tw/Page/9277F759E41CCD91/9c1b42cb-ebb2-4647-b2d6-2431ff1dfcb1</a></li>
+      <li>中央社：資安法修正三讀（2025-08-29） — <a href="https://www.cna.com.tw/news/aipl/202508290240.aspx" rel="noopener" target="_blank">https://www.cna.com.tw/news/aipl/202508290240.aspx</a></li>
+      <li>國科會國家核心關鍵技術增修預告 — <a href="https://www.nstc.gov.tw/folksonomy/detail/c3cad8e2-cf8b-4fb5-be03-0ace3e433321?l=ch" rel="noopener" target="_blank">https://www.nstc.gov.tw/folksonomy/detail/c3cad8e2-cf8b-4fb5-be03-0ace3e433321?l=ch</a></li>
+    </ul>
+    <h3>H.3 威脅情報與事件</h3>
+    <ul>
+      <li>IBM Think — X-Force 製造業 — <a href="https://www.ibm.com/think/news/x-force-threat-intelligence-index-manufacturing-most-vulnerable-hacking" rel="noopener" target="_blank">https://www.ibm.com/think/news/x-force-threat-intelligence-index-manufacturing-most-vulnerable-hacking</a></li>
+      <li>Manufacturing Dive — X-Force 2026 — <a href="https://www.manufacturingdive.com/news/manufacturing-sector-saw-most-cyberattacks-in-2025-IBM-X-Force/813063/" rel="noopener" target="_blank">https://www.manufacturingdive.com/news/manufacturing-sector-saw-most-cyberattacks-in-2025-IBM-X-Force/813063/</a></li>
+      <li>Verizon 2026 DBIR 製造業快照 — <a href="https://www.verizon.com/business/resources/reports/2026-dbir-manufacturing-snapshot.pdf" rel="noopener" target="_blank">https://www.verizon.com/business/resources/reports/2026-dbir-manufacturing-snapshot.pdf</a></li>
+      <li>Verizon 2025 DBIR 製造業快照 — <a href="https://www.verizon.com/business/resources/infographics/2025-dbir-manufacturing-snapshot.pdf" rel="noopener" target="_blank">https://www.verizon.com/business/resources/infographics/2025-dbir-manufacturing-snapshot.pdf</a></li>
+      <li>Verizon 2026 DBIR 執行摘要 — <a href="https://www.verizon.com/business/resources/executivebriefs/2026-dbir-executive-summary.pdf" rel="noopener" target="_blank">https://www.verizon.com/business/resources/executivebriefs/2026-dbir-executive-summary.pdf</a></li>
+      <li>Verizon 2025 DBIR 新聞稿 — <a href="https://www.verizon.com/about/news/2025-data-breach-investigations-report" rel="noopener" target="_blank">https://www.verizon.com/about/news/2025-data-breach-investigations-report</a></li>
+      <li>Dragos 2026 Year in Review 新聞稿 — <a href="https://www.dragos.com/resources/press-release/dragos-2026-year-in-review-new-ot-threats-ransomware" rel="noopener" target="_blank">https://www.dragos.com/resources/press-release/dragos-2026-year-in-review-new-ot-threats-ransomware</a></li>
+      <li>Dragos 2025 Year in Review 新聞稿 — <a href="https://www.dragos.com/resources/press-release/dragos-reports-ot-ics-cyber-threats-escalate-amid-geopolitical-conflicts-and-increasing-ransomware-attacks" rel="noopener" target="_blank">https://www.dragos.com/resources/press-release/dragos-reports-ot-ics-cyber-threats-escalate-amid-geopolitical-conflicts-and-increasing-ransomware-attacks</a></li>
+      <li>CrowdStrike 2026 Global Threat Report — <a href="https://www.crowdstrike.com/en-us/press-releases/2026-crowdstrike-global-threat-report/" rel="noopener" target="_blank">https://www.crowdstrike.com/en-us/press-releases/2026-crowdstrike-global-threat-report/</a></li>
+      <li>Sophos State of Ransomware in Manufacturing 2025 — <a href="https://www.sophos.com/en-us/blog/the-state-of-ransomware-in-manufacturing-and-production-2025" rel="noopener" target="_blank">https://www.sophos.com/en-us/blog/the-state-of-ransomware-in-manufacturing-and-production-2025</a></li>
+      <li>Mandiant M-Trends 2025 — <a href="https://cloud.google.com/blog/topics/threat-intelligence/m-trends-2025/" rel="noopener" target="_blank">https://cloud.google.com/blog/topics/threat-intelligence/m-trends-2025/</a></li>
+      <li>M-Trends 2026（Help Net Security 轉述） — <a href="https://www.helpnetsecurity.com/2026/03/24/mandiant-m-trends-2026-report/" rel="noopener" target="_blank">https://www.helpnetsecurity.com/2026/03/24/mandiant-m-trends-2026-report/</a></li>
+      <li>Proofpoint「Phish and Chips」（台灣半導體） — <a href="https://www.proofpoint.com/us/blog/threat-insight/phish-china-aligned-espionage-actors-ramp-up-taiwan-semiconductor-targeting" rel="noopener" target="_blank">https://www.proofpoint.com/us/blog/threat-insight/phish-china-aligned-espionage-actors-ramp-up-taiwan-semiconductor-targeting</a></li>
+      <li>Microsoft — Silk Typhoon targeting IT supply chain — <a href="https://www.microsoft.com/en-us/security/blog/2025/03/05/silk-typhoon-targeting-it-supply-chain/" rel="noopener" target="_blank">https://www.microsoft.com/en-us/security/blog/2025/03/05/silk-typhoon-targeting-it-supply-chain/</a></li>
+      <li>Microsoft — SharePoint ToolShell — <a href="https://www.microsoft.com/en-us/security/blog/2025/07/22/disrupting-active-exploitation-of-on-premises-sharepoint-vulnerabilities/" rel="noopener" target="_blank">https://www.microsoft.com/en-us/security/blog/2025/07/22/disrupting-active-exploitation-of-on-premises-sharepoint-vulnerabilities/</a></li>
+      <li>Google Cloud — Ivanti CVE-2025-22457 / UNC5221 — <a href="https://cloud.google.com/blog/topics/threat-intelligence/china-nexus-exploiting-critical-ivanti-vulnerability" rel="noopener" target="_blank">https://cloud.google.com/blog/topics/threat-intelligence/china-nexus-exploiting-critical-ivanti-vulnerability</a></li>
+      <li>Mandiant — 3CX 供應鏈 — <a href="https://cloud.google.com/blog/topics/threat-intelligence/3cx-software-supply-chain-compromise" rel="noopener" target="_blank">https://cloud.google.com/blog/topics/threat-intelligence/3cx-software-supply-chain-compromise</a></li>
+      <li>Unit 42 — Shai-Hulud 2.0 — <a href="https://unit42.paloaltonetworks.com/npm-supply-chain-attack/" rel="noopener" target="_blank">https://unit42.paloaltonetworks.com/npm-supply-chain-attack/</a></li>
+      <li>Kaspersky ICS-CERT Q2 2026 — <a href="https://ics-cert.kaspersky.com/publications/reports/2026/08/20/a-brief-overview-of-the-main-incidents-in-industrial-cybersecurity-q2-2026/" rel="noopener" target="_blank">https://ics-cert.kaspersky.com/publications/reports/2026/08/20/a-brief-overview-of-the-main-incidents-in-industrial-cybersecurity-q2-2026/</a></li>
+      <li>Help Net Security — 工業勒索 Q2 2026 — <a href="https://www.helpnetsecurity.com/2026/08/11/industrial-ransomware-attacks-q2-2026/" rel="noopener" target="_blank">https://www.helpnetsecurity.com/2026/08/11/industrial-ransomware-attacks-q2-2026/</a></li>
+      <li>Emsisoft — MOVEit 統計 — <a href="https://www.emsisoft.com/en/blog/44123/unpacking-the-moveit-breach-statistics-and-analysis/" rel="noopener" target="_blank">https://www.emsisoft.com/en/blog/44123/unpacking-the-moveit-breach-statistics-and-analysis/</a></li>
+      <li>Wiz — tj-actions 分析 — <a href="https://www.wiz.io/blog/github-action-tj-actions-changed-files-supply-chain-attack-cve-2025-30066" rel="noopener" target="_blank">https://www.wiz.io/blog/github-action-tj-actions-changed-files-supply-chain-attack-cve-2025-30066</a></li>
+    </ul>
+    <p><strong>具名事件來源</strong></p>
+    <ul>
+      <li>TSMC 2018 官方新聞稿 — <a href="https://pr.tsmc.com/english/news/1969" rel="noopener" target="_blank">https://pr.tsmc.com/english/news/1969</a></li>
+      <li>SecurityWeek — TSMC / Kinmax — <a href="https://www.securityweek.com/tsmc-says-supplier-hacked-after-ransomware-group-claims-attack-on-chip-giant/" rel="noopener" target="_blank">https://www.securityweek.com/tsmc-says-supplier-hacked-after-ransomware-group-claims-attack-on-chip-giant/</a></li>
+      <li>Cybersecurity Dive — MKS Instruments — <a href="https://www.cybersecuritydive.com/news/mks-ransomware-200-million-revenue/644000/" rel="noopener" target="_blank">https://www.cybersecuritydive.com/news/mks-ransomware-200-million-revenue/644000/</a></li>
+      <li>The Record — Applied Materials — <a href="https://therecord.media/applied-materials-supply-chain-mks-ransomware-attack" rel="noopener" target="_blank">https://therecord.media/applied-materials-supply-chain-mks-ransomware-attack</a></li>
+      <li>The Register — Data I/O 8-K — <a href="https://www.theregister.com/2025/08/22/data_io_ransomware_attack_temporarily/" rel="noopener" target="_blank">https://www.theregister.com/2025/08/22/data_io_ransomware_attack_temporarily/</a></li>
+      <li>Cybersecurity Dive — Foxconn 2026 — <a href="https://www.cybersecuritydive.com/news/foxconn-confirms-cyberattack-affecting-some-north-american-facilities/820120/" rel="noopener" target="_blank">https://www.cybersecuritydive.com/news/foxconn-confirms-cyberattack-affecting-some-north-american-facilities/820120/</a></li>
+      <li>BleepingComputer — Foxconn 2020 — <a href="https://www.bleepingcomputer.com/news/security/foxconn-electronics-giant-hit-by-ransomware-34-million-ransom/" rel="noopener" target="_blank">https://www.bleepingcomputer.com/news/security/foxconn-electronics-giant-hit-by-ransomware-34-million-ransom/</a></li>
+      <li>BleepingComputer — Advantech — <a href="https://www.bleepingcomputer.com/news/security/iot-chip-maker-advantech-confirms-ransomware-attack-data-theft/" rel="noopener" target="_blank">https://www.bleepingcomputer.com/news/security/iot-chip-maker-advantech-confirms-ransomware-attack-data-theft/</a></li>
+      <li>BleepingComputer — Delta Electronics — <a href="https://www.bleepingcomputer.com/news/security/taiwanese-apple-and-tesla-contractor-hit-by-conti-ransomware/" rel="noopener" target="_blank">https://www.bleepingcomputer.com/news/security/taiwanese-apple-and-tesla-contractor-hit-by-conti-ransomware/</a></li>
+      <li>The Register — Compal — <a href="https://www.theregister.com/2020/11/09/compal_ransomware_report/" rel="noopener" target="_blank">https://www.theregister.com/2020/11/09/compal_ransomware_report/</a></li>
+      <li>Bloomberg — Quanta / REvil — <a href="https://www.bloomberg.com/news/articles/2021-04-21/apple-targeted-in-50-million-ransomware-hack-of-supplier-quanta" rel="noopener" target="_blank">https://www.bloomberg.com/news/articles/2021-04-21/apple-targeted-in-50-million-ransomware-hack-of-supplier-quanta</a></li>
+      <li>Hydro Q3 2019 Report — <a href="https://www.hydro.com/Document/Index?name=Report+Q3+2019.pdf&amp;id=252245" rel="noopener" target="_blank">https://www.hydro.com/Document/Index?name=Report+Q3+2019.pdf&amp;id=252245</a></li>
+      <li>Hydro Q4 2019 業績發布 — <a href="https://www.hydro.com/en/global/media/news/2020/fourth-quarter-2019-firm-response-in-weak-markets/" rel="noopener" target="_blank">https://www.hydro.com/en/global/media/news/2020/fourth-quarter-2019-firm-response-in-weak-markets/</a></li>
+      <li>Toyota Times — Kojima Industries — <a href="https://toyotatimes.jp/en/newscast/008.html" rel="noopener" target="_blank">https://toyotatimes.jp/en/newscast/008.html</a></li>
+      <li>The Record — Brunswick — <a href="https://therecord.media/marine-industry-giant-brunswick-lost-millions" rel="noopener" target="_blank">https://therecord.media/marine-industry-giant-brunswick-lost-millions</a></li>
+      <li>SecurityWeek — Clorox 成本 — <a href="https://www.securityweek.com/clorox-says-cyberattack-costs-exceed-49-million/" rel="noopener" target="_blank">https://www.securityweek.com/clorox-says-cyberattack-costs-exceed-49-million/</a></li>
+      <li>BleepingComputer — Clorox 對 Cognizant 訴訟 — <a href="https://www.bleepingcomputer.com/news/security/hackers-fooled-cognizant-help-desk-says-clorox-in-380m-cyberattack-lawsuit/" rel="noopener" target="_blank">https://www.bleepingcomputer.com/news/security/hackers-fooled-cognizant-help-desk-says-clorox-in-380m-cyberattack-lawsuit/</a></li>
+      <li>BleepingComputer — Johnson Controls — <a href="https://www.bleepingcomputer.com/news/security/johnson-controls-says-ransomware-attack-cost-27-million-data-stolen/" rel="noopener" target="_blank">https://www.bleepingcomputer.com/news/security/johnson-controls-says-ransomware-attack-cost-27-million-data-stolen/</a></li>
+      <li>UK Cyber Monitoring Centre — JLR 聲明 — <a href="https://cybermonitoringcentre.com/2025/10/22/cyber-monitoring-centre-statement-on-the-jaguar-land-rovercyber-incident-october-2025/" rel="noopener" target="_blank">https://cybermonitoringcentre.com/2025/10/22/cyber-monitoring-centre-statement-on-the-jaguar-land-rovercyber-incident-october-2025/</a></li>
+      <li>SecurityWeek — Collins Aerospace / 歐洲機場 — <a href="https://www.securityweek.com/european-airport-cyberattack-linked-to-obscure-ransomware-suspect-arrested/" rel="noopener" target="_blank">https://www.securityweek.com/european-airport-cyberattack-linked-to-obscure-ransomware-suspect-arrested/</a></li>
+      <li>BankInfoSecurity — ENISA 確認 Collins Aerospace 勒索 — <a href="https://www.bankinfosecurity.com/ransomware-behind-collins-aerospace-hack-enisa-says-a-29498" rel="noopener" target="_blank">https://www.bankinfosecurity.com/ransomware-behind-collins-aerospace-hack-enisa-says-a-29498</a></li>
+      <li>BleepingComputer — Asahi / Qilin — <a href="https://www.bleepingcomputer.com/news/security/qilin-ransomware-claims-asahi-brewery-attack-leaks-data/" rel="noopener" target="_blank">https://www.bleepingcomputer.com/news/security/qilin-ransomware-claims-asahi-brewery-attack-leaks-data/</a></li>
+      <li>CommonWealth（天下英文版）— 台積電 2nm 案判決 — <a href="https://english.cw.com.tw/article/article.action?id=4737" rel="noopener" target="_blank">https://english.cw.com.tw/article/article.action?id=4737</a></li>
+      <li>The Register — TSMC 營業秘密案起訴 — <a href="https://www.theregister.com/2025/08/27/tsmc_trade_secret_thefts/" rel="noopener" target="_blank">https://www.theregister.com/2025/08/27/tsmc_trade_secret_thefts/</a></li>
+      <li>Taipei Times — 台積電 2nm 案 — <a href="https://www.taipeitimes.com/News/taiwan/archives/2026/07/21/2003861105" rel="noopener" target="_blank">https://www.taipeitimes.com/News/taiwan/archives/2026/07/21/2003861105</a></li>
+      <li>SCMP — Arup 深偽案 — <a href="https://www.scmp.com/news/hong-kong/law-and-crime/article/3263151/uk-multinational-arup-confirmed-victim-hk200-million-deepfake-scam-used-digital-version-cfo-dupe" rel="noopener" target="_blank">https://www.scmp.com/news/hong-kong/law-and-crime/article/3263151/uk-multinational-arup-confirmed-victim-hk200-million-deepfake-scam-used-digital-version-cfo-dupe</a></li>
+      <li>CNN — Arup — <a href="https://www.cnn.com/2024/05/16/tech/arup-deepfake-scam-loss-hong-kong-intl-hnk" rel="noopener" target="_blank">https://www.cnn.com/2024/05/16/tech/arup-deepfake-scam-loss-hong-kong-intl-hnk</a></li>
+    </ul>
+    <h3>H.4 分析師與市場</h3>
+    <ul>
+      <li>Okta — Access Management MQ 2025-11-11 — <a href="https://www.okta.com/newsroom/press-releases/okta-named-a-leader-in-2025-gartner-magic-quadrant/" rel="noopener" target="_blank">https://www.okta.com/newsroom/press-releases/okta-named-a-leader-in-2025-gartner-magic-quadrant/</a></li>
+      <li>BeyondTrust — PAM MQ 2025-10-13 — <a href="https://www.beyondtrust.com/resources/gartner-magic-quadrant-for-pam" rel="noopener" target="_blank">https://www.beyondtrust.com/resources/gartner-magic-quadrant-for-pam</a></li>
+      <li>BankInfoSecurity — PAM MQ — <a href="https://www.bankinfosecurity.com/cyberark-delinea-beyondtrust-again-lead-gartner-mq-for-pam-a-26554" rel="noopener" target="_blank">https://www.bankinfosecurity.com/cyberark-delinea-beyondtrust-again-lead-gartner-mq-for-pam-a-26554</a></li>
+      <li>BankInfoSecurity — Access Management MQ — <a href="https://www.bankinfosecurity.com/microsoft-ping-okta-dominate-access-management-gartner-mq-a-27214" rel="noopener" target="_blank">https://www.bankinfosecurity.com/microsoft-ping-okta-dominate-access-management-gartner-mq-a-27214</a></li>
+      <li>Saviynt — PAM MQ Challenger（自陳） — <a href="https://saviynt.com/press-release/saviynt-named-as-a-challenger-in-the-2025-gartner-magic-quadrant-for-privileged-access-management" rel="noopener" target="_blank">https://saviynt.com/press-release/saviynt-named-as-a-challenger-in-the-2025-gartner-magic-quadrant-for-privileged-access-management</a></li>
+      <li>Omada — IGA Market Guide 2025-10-02 — <a href="https://tools.prnewswire.com/en-us/live/20823/release/20251008EN92634" rel="noopener" target="_blank">https://tools.prnewswire.com/en-us/live/20823/release/20251008EN92634</a></li>
+      <li>Gartner SASE Platforms MQ 2025 Reprint — <a href="https://www.prival.ca/wp-content/uploads/2025/07/Gartner.pdf" rel="noopener" target="_blank">https://www.prival.ca/wp-content/uploads/2025/07/Gartner.pdf</a></li>
+      <li>Cato — SASE MQ 2026-07-28 — <a href="https://www.catonetworks.com/resources/gartner-magic-quadrant-for-sase-platforms-2026/" rel="noopener" target="_blank">https://www.catonetworks.com/resources/gartner-magic-quadrant-for-sase-platforms-2026/</a></li>
+      <li>Palo Alto — SSE MQ 2026-07-29 — <a href="https://www.paloaltonetworks.com/sase/gartner-sse-mq-leader-2026" rel="noopener" target="_blank">https://www.paloaltonetworks.com/sase/gartner-sse-mq-leader-2026</a></li>
+      <li>SDxCentral — SSE MQ — <a href="https://www.sdxcentral.com/news/netskope-palo-alto-networks-zscaler-continue-gartners-sse-domination/" rel="noopener" target="_blank">https://www.sdxcentral.com/news/netskope-palo-alto-networks-zscaler-continue-gartners-sse-domination/</a></li>
+      <li>SDxCentral — Hybrid Mesh Firewall MQ — <a href="https://www.sdxcentral.com/news/fortinet-palo-alto-networks-top-gartners-hybrid-mesh-firewall-rankings/" rel="noopener" target="_blank">https://www.sdxcentral.com/news/fortinet-palo-alto-networks-top-gartners-hybrid-mesh-firewall-rankings/</a></li>
+      <li>Vectra — NDR MQ 2026-05-18 — <a href="https://www.vectra.ai/gartner-magic-quadrant-for-ndr" rel="noopener" target="_blank">https://www.vectra.ai/gartner-magic-quadrant-for-ndr</a></li>
+      <li>SentinelOne — EPP MQ 2026-05-26 — <a href="https://www.sentinelone.com/press/sentinelone-named-a-leader-in-the-gartner-magic-quadrant-for-endpoint-protection-platforms-for-6th-consecutive-year/" rel="noopener" target="_blank">https://www.sentinelone.com/press/sentinelone-named-a-leader-in-the-gartner-magic-quadrant-for-endpoint-protection-platforms-for-6th-consecutive-year/</a></li>
+      <li>MITRE — ATT&amp;CK Evaluations ER7（2025-12-10） — <a href="https://www.mitre.org/news-insights/news-release/mitre-attck-evaluations-advance-cloud-security-and-counter-espionage" rel="noopener" target="_blank">https://www.mitre.org/news-insights/news-release/mitre-attck-evaluations-advance-cloud-security-and-counter-espionage</a></li>
+      <li>SecurityWeek — ER7 結果 — <a href="https://www.securityweek.com/mitre-posts-results-of-2025-attck-enterprise-evaluations/" rel="noopener" target="_blank">https://www.securityweek.com/mitre-posts-results-of-2025-attck-enterprise-evaluations/</a></li>
+      <li>Infosecurity — 廠商退出 MITRE 評測 — <a href="https://www.infosecurity-magazine.com/news/cyber-vendors-pull-out-mitre/" rel="noopener" target="_blank">https://www.infosecurity-magazine.com/news/cyber-vendors-pull-out-mitre/</a></li>
+      <li>AV-Comparatives EDR 2026 — <a href="https://www.prnewswire.co.uk/news-releases/nine-enterprise-security-solutions-certified-in-av-comparatives-2026-edr-detection-validation-test-302770674.html" rel="noopener" target="_blank">https://www.prnewswire.co.uk/news-releases/nine-enterprise-security-solutions-certified-in-av-comparatives-2026-edr-detection-validation-test-302770674.html</a></li>
+      <li>Microsoft — SIEM MQ 2025-10-08 — <a href="https://www.microsoft.com/en-us/security/blog/2025/10/16/microsoft-named-a-leader-in-the-2025-gartner-magic-quadrant-for-siem/" rel="noopener" target="_blank">https://www.microsoft.com/en-us/security/blog/2025/10/16/microsoft-named-a-leader-in-the-2025-gartner-magic-quadrant-for-siem/</a></li>
+      <li>Gartner SIEM MQ 2024 Reprint — <a href="https://www.prival.ca/wp-content/uploads/2025/09/Gartner-Reprint.pdf" rel="noopener" target="_blank">https://www.prival.ca/wp-content/uploads/2025/09/Gartner-Reprint.pdf</a></li>
+      <li>eSentire — Gartner 無 MDR MQ — <a href="https://www.esentire.com/cybersecurity-fundamentals-defined/glossary/what-is-the-mdr-gartner-magic-quadrant-and-market-guide" rel="noopener" target="_blank">https://www.esentire.com/cybersecurity-fundamentals-defined/glossary/what-is-the-mdr-gartner-magic-quadrant-and-market-guide</a></li>
+      <li>Bindplane — Telemetry Pipelines Market Guide 2025-09-02 — <a href="https://bindplane.com/gartner" rel="noopener" target="_blank">https://bindplane.com/gartner</a></li>
+      <li>Simbian — Hype Cycle for Security Operations 2026 — <a href="https://simbian.ai/blog/gartner-hype-cycle-security-operations-2026-ai-soc-agents" rel="noopener" target="_blank">https://simbian.ai/blog/gartner-hype-cycle-security-operations-2026-ai-soc-agents</a></li>
+      <li>CrowdStrike — CTI MQ 2026-05-04 — <a href="https://www.businesswire.com/news/home/20260504118656/en/CrowdStrike-Named-a-Leader-in-the-Inaugural-2026-Gartner-Magic-Quadrant-for-Cyberthreat-Intelligence-Technologies" rel="noopener" target="_blank">https://www.businesswire.com/news/home/20260504118656/en/CrowdStrike-Named-a-Leader-in-the-Inaugural-2026-Gartner-Magic-Quadrant-for-Cyberthreat-Intelligence-Technologies</a></li>
+      <li>Cyera — DSPM Market Guide — <a href="https://www.cyera.com/blog/2025-gartner-r-market-guide-for-data-security-posture-management" rel="noopener" target="_blank">https://www.cyera.com/blog/2025-gartner-r-market-guide-for-data-security-posture-management</a></li>
+      <li>SecuPi — Data Security Platforms MG 2025-03-26 — <a href="https://www.prweb.com/releases/secupi-recognized-in-the-2025-gartner-market-guide-for-data-security-platforms-302655853.html" rel="noopener" target="_blank">https://www.prweb.com/releases/secupi-recognized-in-the-2025-gartner-market-guide-for-data-security-platforms-302655853.html</a></li>
+      <li>Wiz — CNAPP Market Guide 2025-08-05 — <a href="https://www.wiz.io/blog/unpacking-cnapp-gartner-market-guide" rel="noopener" target="_blank">https://www.wiz.io/blog/unpacking-cnapp-gartner-market-guide</a></li>
+      <li>Microsoft — Email Security MQ 2025-12-01 — <a href="https://www.microsoft.com/en-us/security/blog/2025/12/05/microsoft-named-a-leader-in-the-2025-gartner-magic-quadrant-for-email-security/" rel="noopener" target="_blank">https://www.microsoft.com/en-us/security/blog/2025/12/05/microsoft-named-a-leader-in-the-2025-gartner-magic-quadrant-for-email-security/</a></li>
+      <li>Qualys — Exposure Assessment Platforms MQ 2025-11-10 — <a href="https://blog.qualys.com/product-tech/2025/11/24/from-vision-to-value-gartner-identifies-qualys-as-2025-magic-quadrant-leader-in-exposure-assessment-platforms" rel="noopener" target="_blank">https://blog.qualys.com/product-tech/2025/11/24/from-vision-to-value-gartner-identifies-qualys-as-2025-magic-quadrant-leader-in-exposure-assessment-platforms</a></li>
+      <li>Tenable — EAP MQ — <a href="https://www.tenable.com/press-releases/tenable-named-a-leader-in-the-2025-gartner-magic-quadrant-for-exposure-assessment" rel="noopener" target="_blank">https://www.tenable.com/press-releases/tenable-named-a-leader-in-the-2025-gartner-magic-quadrant-for-exposure-assessment</a></li>
+      <li>Pentera — AEV Market Guide 2026-03-24 — <a href="https://pentera.io/gartner-market-guide-aev-2026/" rel="noopener" target="_blank">https://pentera.io/gartner-market-guide-aev-2026/</a></li>
+      <li>Horizon3.ai — AEV Market Guide 2026 — <a href="https://horizon3.ai/2026-gartner-market-guide-aev/" rel="noopener" target="_blank">https://horizon3.ai/2026-gartner-market-guide-aev/</a></li>
+      <li>Claroty — CPS Protection Platforms MQ 2026-03-03 — <a href="https://claroty.com/blog/claroty-named-a-leader-in-2026-gartner-magic-quadrant-for-cps-protection-platforms" rel="noopener" target="_blank">https://claroty.com/blog/claroty-named-a-leader-in-2026-gartner-magic-quadrant-for-cps-protection-platforms</a></li>
+      <li>Nozomi Networks — CPS MQ 2026 — <a href="https://www.nozominetworks.com/gartner-magic-quadrant-cps-protection-platforms" rel="noopener" target="_blank">https://www.nozominetworks.com/gartner-magic-quadrant-cps-protection-platforms</a></li>
+      <li>Blocks &amp; Files — Backup MQ 2026-07-03 — <a href="https://www.blocksandfiles.com/data-protection/2026/07/03/veeam-leads-2026-gartner-backup-mq-by-a-whisker/5266085" rel="noopener" target="_blank">https://www.blocksandfiles.com/data-protection/2026/07/03/veeam-leads-2026-gartner-backup-mq-by-a-whisker/5266085</a></li>
+      <li>Gartner — 2024 Top Cybersecurity Trends — <a href="https://www.gartner.com/en/newsroom/press-releases/2024-02-22-gartner-identifies-top-cybersecurity-trends-for-2024" rel="noopener" target="_blank">https://www.gartner.com/en/newsroom/press-releases/2024-02-22-gartner-identifies-top-cybersecurity-trends-for-2024</a></li>
+      <li>Gartner — 2025 資安支出預測 — <a href="https://www.gartner.com/en/newsroom/press-releases/2025-07-29-gartner-forecasts-worldwide-end-user-spending-on-information-security-to-total-213-billion-us-dollars-in-2025" rel="noopener" target="_blank">https://www.gartner.com/en/newsroom/press-releases/2025-07-29-gartner-forecasts-worldwide-end-user-spending-on-information-security-to-total-213-billion-us-dollars-in-2025</a></li>
+      <li>IANS/Artico — Security Budget Benchmark 新聞稿 — <a href="https://www.prnewswire.com/news-releases/ians-research-and-artico-search-release-security-budget-benchmark-report-302521455.html" rel="noopener" target="_blank">https://www.prnewswire.com/news-releases/ians-research-and-artico-search-release-security-budget-benchmark-report-302521455.html</a></li>
+      <li>IANS — Security Budgets Under Pressure — <a href="https://www.iansresearch.com/resources/all-blogs/post/security-blog/2025/08/05/security-budgets-under-pressure--how-cisos-can-navigate-tight-budget-constraints" rel="noopener" target="_blank">https://www.iansresearch.com/resources/all-blogs/post/security-blog/2025/08/05/security-budgets-under-pressure--how-cisos-can-navigate-tight-budget-constraints</a></li>
+      <li>Heidrick &amp; Struggles 2025 CISO Survey — <a href="https://www.heidrick.com/-/media/heidrickcom/publications-and-reports/2025-global-chief-information-security-officer-ciso-comp-survey.pdf" rel="noopener" target="_blank">https://www.heidrick.com/-/media/heidrickcom/publications-and-reports/2025-global-chief-information-security-officer-ciso-comp-survey.pdf</a></li>
+      <li>Heidrick &amp; Struggles 2024 CISO Survey — <a href="https://www.heidrick.com/-/media/heidrickcom/publications-and-reports/2024-global-ciso-organization-and-compensation-survey.pdf" rel="noopener" target="_blank">https://www.heidrick.com/-/media/heidrickcom/publications-and-reports/2024-global-ciso-organization-and-compensation-survey.pdf</a></li>
+      <li>TechTarget — 集中式 vs 聯邦式資安模型 — <a href="https://www.techtarget.com/searchsecurity/tip/CISOs-guide-to-centralized-vs-federated-security-models" rel="noopener" target="_blank">https://www.techtarget.com/searchsecurity/tip/CISOs-guide-to-centralized-vs-federated-security-models</a></li>
+      <li>Beacon Security — Purdue Model 2026 批評 — <a href="https://beaconsecurity.io/resources/blog/purdue-model-2026-ot-network-architecture" rel="noopener" target="_blank">https://beaconsecurity.io/resources/blog/purdue-model-2026-ot-network-architecture</a></li>
+      <li>CSO Online — CVE 計畫資金 — <a href="https://www.csoonline.com/article/4142600/cve-program-funding-secured-easing-fears-of-repeat-crisis.html" rel="noopener" target="_blank">https://www.csoonline.com/article/4142600/cve-program-funding-secured-easing-fears-of-repeat-crisis.html</a></li>
+      <li>Infosecurity — EUVD 上線 — <a href="https://www.infosecurity-magazine.com/news/european-vulnerability-database-us/" rel="noopener" target="_blank">https://www.infosecurity-magazine.com/news/european-vulnerability-database-us/</a></li>
+      <li>Invicti — OWASP LLM Top 10 2026 分析 — <a href="https://www.invicti.com/blog/web-security/owasp-llm-top-10-2026-whats-new" rel="noopener" target="_blank">https://www.invicti.com/blog/web-security/owasp-llm-top-10-2026-whats-new</a></li>
+      <li>Veeam — 3-2-1 備份規則 — <a href="https://www.veeam.com/blog/321-backup-rule.html" rel="noopener" target="_blank">https://www.veeam.com/blog/321-backup-rule.html</a></li>
+      <li>AEMT — Siemens True Cost of Downtime 2024（轉述） — <a href="https://www.theaemt.com/resource/the-true-cost-of-downtime-2024-a-comprehensive-analysis.html" rel="noopener" target="_blank">https://www.theaemt.com/resource/the-true-cost-of-downtime-2024-a-comprehensive-analysis.html</a></li>
+    </ul>
+    <h3>H.5 客戶要求與產業</h3>
+    <ul>
+      <li>Apple Supplier Code of Conduct v5 — <a href="https://s203.q4cdn.com/367071867/files/doc_downloads/2025/11/Supplier-Code-of-Conduct-and-Supplier-Responsibility-Standards.pdf" rel="noopener" target="_blank">https://s203.q4cdn.com/367071867/files/doc_downloads/2025/11/Supplier-Code-of-Conduct-and-Supplier-Responsibility-Standards.pdf</a></li>
+      <li>Microsoft SSPA — <a href="https://www.microsoft.com/en-us/procurement/sspa" rel="noopener" target="_blank">https://www.microsoft.com/en-us/procurement/sspa</a></li>
+      <li>Microsoft SSPA（Learn 文件） — <a href="https://learn.microsoft.com/en-us/compliance/assurance/assurance-supplier-security-and-privacy-assurance-program" rel="noopener" target="_blank">https://learn.microsoft.com/en-us/compliance/assurance/assurance-supplier-security-and-privacy-assurance-program</a></li>
+      <li>Google Cloud Vendor Security Assessment（<strong>Google 作為受評方</strong>） — <a href="https://cloud.google.com/security/vendor-security-assessment" rel="noopener" target="_blank">https://cloud.google.com/security/vendor-security-assessment</a></li>
+      <li>NVIDIA PSIRT Policies — <a href="https://www.nvidia.com/en-us/product-security/psirt-policies/" rel="noopener" target="_blank">https://www.nvidia.com/en-us/product-security/psirt-policies/</a></li>
+      <li>RBA Code of Conduct — <a href="https://www.responsiblebusiness.org/code-of-conduct/" rel="noopener" target="_blank">https://www.responsiblebusiness.org/code-of-conduct/</a></li>
+      <li>RBA VAP（<strong>範圍不含資安</strong>） — <a href="https://www.responsiblebusiness.org/vap/about-vap/" rel="noopener" target="_blank">https://www.responsiblebusiness.org/vap/about-vap/</a></li>
+      <li>ENX — VDA ISA 2027 — <a href="https://enx.com/en-US/news/isa2027/" rel="noopener" target="_blank">https://enx.com/en-US/news/isa2027/</a></li>
+      <li>Microsoft Enterprise Access Model — <a href="https://learn.microsoft.com/en-us/security/privileged-access-workstations/privileged-access-access-model" rel="noopener" target="_blank">https://learn.microsoft.com/en-us/security/privileged-access-workstations/privileged-access-access-model</a></li>
+    </ul>
+    <h3>H.6 產業與公司資料</h3>
+    <ul>
+      <li>鴻海 FY2025 業績新聞稿（2026-03-16） — <a href="https://www.honhai.com/en-us/press-center/press-releases/latest-news/1978" rel="noopener" target="_blank">https://www.honhai.com/en-us/press-center/press-releases/latest-news/1978</a></li>
+      <li>鴻海 2024 ESG Insight Report — <a href="https://image.honhai.com/upload/202603/global/Hon_Hai_2024_ESG_Insight_Report(3" rel="noopener" target="_blank">https://image.honhai.com/upload/202603/global/Hon_Hai_2024_ESG_Insight_Report(3</a>)_20260326_6601.pdf</li>
+      <li>Taiwan News — AI 伺服器代工營收（2026-01-09） — <a href="https://www.taiwannews.com.tw/news/6279683" rel="noopener" target="_blank">https://www.taiwannews.com.tw/news/6279683</a></li>
+      <li>CommonWealth — AI 第二階段（2026-02-04） — <a href="https://english.cw.com.tw/article/article.action?id=4603" rel="noopener" target="_blank">https://english.cw.com.tw/article/article.action?id=4603</a></li>
+      <li>英業達 ESG 資安 — <a href="https://esg.inventec.com/en/corporate-governance/risk-governance/information-security-management" rel="noopener" target="_blank">https://esg.inventec.com/en/corporate-governance/risk-governance/information-security-management</a></li>
+      <li>廣達風險管理 — <a href="https://www.quantatw.com/quanta/english/corporategovernance/riskmanagement.aspx" rel="noopener" target="_blank">https://www.quantatw.com/quanta/english/corporategovernance/riskmanagement.aspx</a></li>
+      <li>緯創 ESG 資安 — <a href="https://esg.wistron.com/en/governance/RM/InformationSecurity" rel="noopener" target="_blank">https://esg.wistron.com/en/governance/RM/InformationSecurity</a></li>
+      <li>VentureOutsource — OEM/ODM/EMS/JDM 定義 — <a href="https://ventureoutsource.com/contract-manufacturing/what-difference-between-oem-cm-cem-ecm-ems-odm-jdm-design-house-contract-electronic-terms/" rel="noopener" target="_blank">https://ventureoutsource.com/contract-manufacturing/what-difference-between-oem-cm-cem-ecm-ems-odm-jdm-design-house-contract-electronic-terms/</a></li>
+      <li>Arnold &amp; Porter — 中國跨境資料傳輸規則釐清 — <a href="https://www.arnoldporter.com/en/perspectives/advisories/2025/06/china-clarifies-cross-border-data-transfer-rules" rel="noopener" target="_blank">https://www.arnoldporter.com/en/perspectives/advisories/2025/06/china-clarifies-cross-border-data-transfer-rules</a></li>
+      <li>IAPP — 中國跨境資料傳輸 — <a href="https://iapp.org/news/a/chinas-new-cross-border-data-transfer-regulations-what-you-need-to-know-and-do" rel="noopener" target="_blank">https://iapp.org/news/a/chinas-new-cross-border-data-transfer-regulations-what-you-need-to-know-and-do</a></li>
+      <li>Eversheds Sutherland — 捷克 NIS2 轉換 — <a href="https://ezine.eversheds-sutherland.com/eu-nis2-directive/czech-republic" rel="noopener" target="_blank">https://ezine.eversheds-sutherland.com/eu-nis2-directive/czech-republic</a></li>
+      <li>理律法律事務所 — 個資法子法草案 — <a href="https://www.leeandli.com/TW/NewslettersDetail/7584.htm" rel="noopener" target="_blank">https://www.leeandli.com/TW/NewslettersDetail/7584.htm</a></li>
+      <li>宏鑑法律事務所 — 個資法 2025 修法 — <a href="https://www.chenandlin.com/tc/blog_detail106.htm" rel="noopener" target="_blank">https://www.chenandlin.com/tc/blog_detail106.htm</a></li>
+      <li>iso27001security.com — ISO/IEC 27002 說明（第三方） — <a href="https://www.iso27001security.com/html/27002" rel="noopener" target="_blank">https://www.iso27001security.com/html/27002</a></li>
+    </ul>
+
+    <p class="to-top"><a href="#toc">↑ 回附錄目錄</a></p>
+  </section>
+
+  <!-- ============================== 文件資訊 ============================== -->
+  <section class="section prose">
+    <div class="chapter-head">
+      <p class="kicker">Document control</p>
+      <h2>文件資訊</h2>
+      <p class="lead">本頁內容摘自手冊全文（<code>docs/GSMDRPT2026083001.md</code>）之文件結束頁。</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>項目</th><th>內容</th></tr></thead>
+        <tbody>
+          <tr><td>文件編號</td><td>GSMD-RPT-2026-0830-01</td></tr>
+          <tr><td>版本</td><td>v1.0</td></tr>
+          <tr><td>發行日期</td><td>2026 年 8 月 30 日</td></tr>
+          <tr><td>查證基準日</td><td>2026 年 8 月 30 日</td></tr>
+          <tr><td>取代文件</td><td>GSMD-RPT-2026-0815-01</td></tr>
+          <tr><td>下次檢視</td><td>2026 年 11 月 30 日（法規類每 3 個月、標準類每 6 個月）</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="to-top"><a href="#toc">↑ 回附錄目錄</a></p>
   </section>
 
   <nav class="pager">

@@ -17,10 +17,9 @@
 
 共用資產在 `assets/css/main.css`（含深色模式支援）與 `assets/js/main.js`。
 
-內文回填進度：`index.html`、`methodology.html`、`part-1.html`（第 1–6 章）、
-`part-2.html`（第 7–10 章）、`part-3.html`（第 11–23 章）、
-`part-4.html`（第 24–30 章）已完成；`appendix.html` 仍為骨架狀態
-（標題、簡介與主題標籤已就位，內文標示「待填入」）。
+內文回填進度：**全部頁面已完成回填**——`index.html`、`methodology.html`、
+`part-1.html`（第 1–6 章）、`part-2.html`（第 7–10 章）、`part-3.html`（第 11–23 章）、
+`part-4.html`（第 24–30 章）、`appendix.html`（附錄 A–H）。
 完整內容來源為 `docs/GSMDRPT2026083001.md`。
 
 `part-1.html` 為內文頁的**版型範本**：頁內目錄 `.toc`、章節標題 `.chapter-head`、
