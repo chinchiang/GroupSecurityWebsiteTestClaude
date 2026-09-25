@@ -17,6 +17,8 @@ from html.parser import HTMLParser
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 CSS = os.path.join(ROOT, 'assets', 'css', 'main.css')
+JS = os.path.join(ROOT, 'assets', 'js', 'main.js')
+CHARSET = os.path.join(ROOT, 'assets', 'fonts', 'charset.txt')
 VOID = {'meta', 'link', 'br', 'hr', 'img', 'input', 'col', 'area', 'base',
         'source', 'wbr', 'track', 'embed', 'param'}
 IMPLIED_END = {'p', 'li', 'td', 'th', 'tr', 'dd', 'dt'}
@@ -159,12 +161,30 @@ def main():
             if not os.path.exists(os.path.join(ROOT, src.split('?')[0])):
                 error(f, line, f'引用不存在的資源：{src}')
 
-    # HTML 用到的 class 必須在 main.css 定義
+    # HTML 用到的 class 必須在 main.css 定義；main.css 以 url() 引用的字型等檔案須存在
     with open(CSS, encoding='utf-8') as fh:
-        css_classes = set(re.findall(r'\.([A-Za-z_][\w-]*)', re.sub(r'url\([^)]*\)', '', fh.read())))
+        css = fh.read()
+    css_classes = set(re.findall(r'\.([A-Za-z_][\w-]*)', re.sub(r'url\([^)]*\)', '', css)))
+    for ref in re.findall(r'''url\(["']?([^"')]+)["']?\)''', css):
+        if ref.startswith(('data:', 'http://', 'https://')):
+            continue
+        if not os.path.exists(os.path.join(os.path.dirname(CSS), ref)):
+            error('assets/css/main.css', 1, f'引用不存在的檔案：{ref}')
     for f, p in pages.items():
         for c in sorted(p.classes - css_classes - JS_CLASSES):
             error(f, 1, f'class "{c}" 未在 assets/css/main.css 定義')
+
+    # 字型為子集，內文新增的字元若不在子集內會退回系統字型
+    with open(CHARSET, encoding='utf-8') as fh:
+        charset = set(fh.read())
+    used = set()
+    for f in files + [JS]:
+        with open(os.path.join(ROOT, f), encoding='utf-8') as fh:
+            used.update(fh.read())
+    missing = sorted(c for c in used - charset if not c.isspace())
+    if missing:
+        error('assets/fonts/charset.txt', 1,
+              f'字型子集缺字 {"".join(missing)}，請執行 .github/scripts/build_fonts.py 重建字型')
 
     if check_external:
         check_links(external)

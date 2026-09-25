@@ -47,7 +47,7 @@ python3 -m http.server 8000
 
 `.github/scripts/check_site.py`（僅用 Python 標準函式庫）檢查：HTML 標籤結構、重複 id、
 站內連結與錨點、本站 CSS／JS／圖示資源存在、證據標籤 class 與文字相符且不加【】、禁用 inline style／`<style>`／inline `<script>`、
-每頁須有 `noindex` 與 meta description、HTML 用到的 class 須在 `main.css` 定義。
+每頁須有 `noindex` 與 meta description、HTML 用到的 class 須在 `main.css` 定義、內文字元須在字型子集內。
 
 ```bash
 python3 .github/scripts/check_site.py              # 站內檢查
@@ -57,7 +57,12 @@ python3 .github/scripts/check_site.py --external   # 另查外部連結（僅 40
 `.github/workflows/check-site.yml` 在 PR 與 push 到 `main` 時跑站內檢查，每週一另跑外部連結檢查；
 `deploy-pages.yml` 部署前也會先跑站內檢查，未通過就不部署。
 
-各頁設有 Content-Security-Policy（只允許本站與 Google Fonts），因此**不可使用 inline script／style**。
+各頁設有 Content-Security-Policy（只允許本站資源），因此**不可使用 inline script／style**。
+
+字型（Noto Sans TC／Noto Serif TC，SIL OFL 授權，見 `assets/fonts/OFL.txt`）由本站提供、不連 Google Fonts
+（中國大陸無法存取，也避免把瀏覽紀錄交給第三方），並子集化為網站實際用到的字元（兩檔合計約 1 MB）。
+內文新增字元後，`check_site.py` 會回報「字型子集缺字」，此時依 `.github/scripts/build_fonts.py`
+開頭的說明重建字型（需 fonttools，僅本機執行）。
 `404.html` 以 `<base href="/GroupSecurityWebsiteTestClaude/">` 固定資源路徑；repo 改名時須一併修改。
 
 ## 部署（GitHub Pages）

@@ -3,6 +3,20 @@
    純靜態樣式，無建置流程。
    ============================================================ */
 
+/* 字型由本站提供（子集化，見 .github/scripts/build_fonts.py；授權 assets/fonts/OFL.txt） */
+@font-face {
+  font-family: "Noto Sans TC";
+  src: url("../fonts/noto-sans-tc.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Noto Serif TC";
+  src: url("../fonts/noto-serif-tc.woff2") format("woff2");
+  font-weight: 600 700;
+  font-display: swap;
+}
+
 :root {
   --ink: #0e1a2b;
   --ink-2: #16263c;
