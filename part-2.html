@@ -60,7 +60,7 @@
       <p class="lead">為什麼不能只用一個框架；建議的四層框架堆疊；各框架的 2026 年現況（必須用對版本）；一項關鍵的負面發現——<strong>不存在官方的 CSF 2.0 ↔ IEC 62443 對映</strong>。</p>
     </div>
 
-    <h3>7.1 為什麼不能只用一個框架</h3>
+    <h3 id="s7-1">7.1 為什麼不能只用一個框架</h3>
     <p>任何單一框架都無法覆蓋 ODM 的需求。原因在於各框架的<strong>設計目的不同</strong>：</p>
     <div class="table-wrap">
       <table>
@@ -77,7 +77,7 @@
       </table>
     </div>
 
-    <h3>7.2 本手冊建議的四層框架堆疊</h3>
+    <h3 id="s7-2">7.2 本手冊建議的四層框架堆疊</h3>
     <div class="layer-stack">
       <div class="layer">
         <span class="tag">溝通</span>
@@ -101,9 +101,9 @@
       </div>
     </div>
 
-    <h3>7.3 各框架的 2026 年現況（必須用對版本）</h3>
+    <h3 id="s7-3">7.3 各框架的 2026 年現況（必須用對版本）</h3>
 
-    <h4>7.3.1　NIST CSF 2.0</h4>
+    <h4 id="s7-3-1">7.3.1　NIST CSF 2.0</h4>
     <div class="table-wrap">
       <table>
         <thead><tr><th>項目</th><th>內容</th><th>等級</th></tr></thead>
@@ -149,10 +149,10 @@
       <strong>重要：</strong>製造業 CSF 2.0 Profile（IR 8183r2）與半導體 Profile（IR 8546）<strong>截至 2026-08-30 仍為草案（ipd），尚未定稿</strong>。引用時必須標示「草案」。定稿版仍是 CSF v1.1 時期的 IR 8183r1（2020）。
     </div>
     <div class="notice accent">
-      <strong>GV.SC 是 CSF 2.0 對 ODM 最重要的新增</strong><span class="ev ev-verified">已證實</span>：CSF 2.0 新增 <strong>GV.SC（Cybersecurity Supply Chain Risk Management）</strong> category，定義為「Cyber supply chain risk management processes are identified, established, managed, monitored, and improved by organizational stakeholders」。這使供應鏈治理從「技術控制」<strong>升格為「治理功能」</strong>，與 <a href="part-1.html#ch2">§2.1.2</a> 的 61% 第三方涉入數字互相呼應。
+      <strong>GV.SC 是 CSF 2.0 對 ODM 最重要的新增</strong><span class="ev ev-verified">已證實</span>：CSF 2.0 新增 <strong>GV.SC（Cybersecurity Supply Chain Risk Management）</strong> category，定義為「Cyber supply chain risk management processes are identified, established, managed, monitored, and improved by organizational stakeholders」。這使供應鏈治理從「技術控制」<strong>升格為「治理功能」</strong>，與 <a href="part-1.html#s2-1-2">§2.1.2</a> 的 61% 第三方涉入數字互相呼應。
     </div>
 
-    <h4>7.3.2　ISO/IEC 27001:2022 與 27002:2022</h4>
+    <h4 id="s7-3-2">7.3.2　ISO/IEC 27001:2022 與 27002:2022</h4>
     <div class="table-wrap">
       <table>
         <thead><tr><th>項目</th><th>內容</th><th>等級</th></tr></thead>
@@ -188,7 +188,7 @@
       <strong>ODM 重點：</strong><strong>27036-2:2022 是集團對「供應商資安要求條款」最直接可引用的要求型標準</strong>，可作為供應商合約資安附件（Security Annex）的骨幹；<strong>27036-3:2023 專門處理硬體／軟體／服務供應鏈</strong>，對 ODM 業態最貼合。這兩份標準在台灣製造業被引用的頻率遠低於其價值。
     </div>
 
-    <h4>7.3.3　CIS Controls v8.1</h4>
+    <h4 id="s7-3-3">7.3.3　CIS Controls v8.1</h4>
     <div class="table-wrap">
       <table>
         <thead><tr><th>項目</th><th>內容</th><th>等級</th></tr></thead>
@@ -206,7 +206,7 @@
       <p><strong>CIS Community Defense Model (CDM) v2.0</strong>（2021-09-29）<span class="ev ev-verified">已證實</span>量化 CIS Controls 對主流攻擊型態之防禦效力。<strong>但 CDM 尚未更新以對應 v8.1</strong>，其資料基準為 v8 時期——若以 CDM 佐證控制優先序，須註明此點。</p>
     </div>
 
-    <h4>7.3.4　IEC 62443 系列</h4>
+    <h4 id="s7-3-4">7.3.4　IEC 62443 系列</h4>
     <p><strong>IEC 已發行部件</strong><span class="ev ev-verified">已證實</span>（IEC Webstore）</p>
     <div class="table-wrap">
       <table>
@@ -272,7 +272,7 @@
       <strong>行動建議：</strong>集團應購買 <strong>IEC 62443-3-2 與 -3-3 正本</strong>以核對逐字定義。手冊與內部文件中的 SL 與 zone/conduit 敘述須註明「依 IEC 62443-3-2／-3-3」，<strong>切勿引用未註明出處的網路版本</strong>。
     </div>
 
-    <h4>7.3.5　零信任：NIST SP 800-207 系列與 SP 1800-35</h4>
+    <h4 id="s7-3-5">7.3.5　零信任：NIST SP 800-207 系列與 SP 1800-35</h4>
     <div class="table-wrap">
       <table>
         <thead><tr><th>文件</th><th>標題</th><th>日期</th><th>等級</th></tr></thead>
@@ -307,7 +307,7 @@
       <p>註：CISA 五支柱與三跨領域能力之<strong>逐字名稱未取得一手確認</strong>（cisa.gov PDF 回傳 403），版本號與日期則已由 CISA 自家 URL 與 PDF 標題確證。</p>
     </div>
 
-    <h4>7.3.6　供應鏈與軟體供應鏈</h4>
+    <h4 id="s7-3-6">7.3.6　供應鏈與軟體供應鏈</h4>
     <div class="table-wrap">
       <table>
         <thead><tr><th>文件</th><th>版本／狀態</th><th>日期</th><th>等級</th></tr></thead>
@@ -330,7 +330,7 @@
       <strong>⚠️ CISA Secure by Design Pledge 的現況：</strong>Pledge（2024 年 RSA 推出、約 250+ 家廠商簽署）於本次抓取之 CISA 頁面<strong>已無相關內容</strong>，無法確認其 2026 年現況<span class="ev ev-unverified">尚未證實</span>。<strong>本手冊不引用 Pledge 為現行機制</strong>，並建議集團的供應商評估表移除以「是否簽署 Pledge」為評分項的做法。
     </div>
 
-    <h4>7.3.7　MITRE 系列</h4>
+    <h4 id="s7-3-7">7.3.7　MITRE 系列</h4>
     <div class="table-wrap">
       <table>
         <thead><tr><th>項目</th><th>現況</th><th>等級</th></tr></thead>
@@ -347,7 +347,7 @@
       <strong>立即的維運影響：</strong>ATT&amp;CK v19 拆分 Defense Evasion 為 Stealth 與 Defense Impairment。集團的偵測規則對映表、SOC 儀表板、威脅情資訂閱與 RFP 中的 ATT&amp;CK 覆蓋率要求，<strong>全部需要更新戰術列表</strong>。這是一項容易被忽略但會在客戶技術審查時被發現的過時點。
     </div>
 
-    <h3>7.4 一項關鍵的負面發現：不存在官方的 CSF 2.0 ↔ IEC 62443 對映</h3>
+    <h3 id="s7-4">7.4 一項關鍵的負面發現：不存在官方的 CSF 2.0 ↔ IEC 62443 對映</h3>
     <p><span class="ev ev-verified">已證實</span>（負面確認）</p>
     <p>NIST 官方 CSF 2.0 Informative References（OLIR）清單<strong>未包含 IEC 62443 或 ISA/IEC 62443</strong>。已對映至 CSF 2.0 的標準為：ISO/IEC 27001:2022、CIS Controls 8.1、NIST SP 800-53 Rev.5、NIST SP 800-171 Rev.3、NIST SP 800-81 Rev.3、PCI DSS 4.0.1、Cloud Controls Matrix v4.0、Secure Controls Framework、<strong>OWASP LLM Top 10 v2.0</strong>、NICE Framework v2.0.0。</p>
     <p>亦即：<strong>目前不存在 NIST 官方發行、經 OLIR 驗證的「CSF 2.0 ↔ IEC 62443」對映表。</strong></p>
@@ -374,7 +374,7 @@
     </div>
 
     <div class="deliverables">
-      <h4>7.5　本章可稽核產出</h4>
+      <h4 id="s7-5">7.5　本章可稽核產出</h4>
       <ul>
         <li>一份「集團框架採用聲明」，明訂各框架的角色（溝通／驗證／實作／領域）與版本</li>
         <li>一份「框架版本追蹤表」，含各標準的現行版本、發布日、下次檢視日期</li>
@@ -529,7 +529,7 @@
       <li><strong>DSL 第 36 條／PIPL 第 41 條</strong>：未經批准不得向境外司法或執法機關提供境內資料——與 eDiscovery、CMMC 稽核、客戶稽核存在<strong>無法以技術化解的法律衝突</strong></li>
       <li>金管會 2024-03-05 明文要求<strong>強化子公司資訊安全監督</strong><span class="ev ev-verified">已證實</span></li>
     </ul>
-    <p><strong>落地要求</strong>：見 <a href="part-1.html#ch6">第 6 章 §6.6</a> 的「治理層可視性與技術層隔離分離設計」框架。</p>
+    <p><strong>落地要求</strong>：見 <a href="part-1.html#s6-6">第 6 章 §6.6</a> 的「治理層可視性與技術層隔離分離設計」框架。</p>
 
     <h3>原則十：所有對外的資安宣稱都必須可回溯至證據</h3>
     <p><strong>主張：</strong>任何寫入 RFP、客戶回覆、年報、對外簡報的資安宣稱，都必須能指向具體證據（政策文件、稽核報告、系統設定截圖、第三方證書）。</p>
@@ -556,7 +556,7 @@
       <p class="lead">三維設計模型；九層架構總覽；三個橫切主題；五個信任分區（Z1 全球企業、Z2 中國、Z3 客戶專區、Z4 產品、Z5 OT）；「分區 × 層」矩陣是架構決策的核心表格。</p>
     </div>
 
-    <h3>9.1 三維設計模型</h3>
+    <h3 id="s9-1">9.1 三維設計模型</h3>
     <p>一般資安架構圖是一維的（由外而內的層）。ODM 需要三維：</p>
     <div class="table-wrap">
       <table>
@@ -572,7 +572,7 @@
       <strong>為什麼需要第三個維度：</strong>因為「我們有 EDR」這句話在 ODM 是不完整的。正確的表述是「Z1 全球區部署 CrowdStrike 並回傳遙測至美國區；Z2 中國區部署另一套 EDR 且遙測僅存境內；Z5 OT 區僅在支援的 Windows 主機上部署，且更新走離線通道」。<strong>沒有分區維度的架構圖，在 ODM 是不可執行的。</strong>
     </div>
 
-    <h3>9.2 九層架構總覽</h3>
+    <h3 id="s9-2">9.2 九層架構總覽</h3>
     <div class="table-wrap">
       <table>
         <thead><tr><th>層</th><th>名稱</th><th>核心問題</th><th>主要控制</th><th>對應章節</th></tr></thead>
@@ -602,7 +602,7 @@
       <strong>L9 為什麼是特殊層：</strong>L0–L8 保護的是「集團自己」，L9 保護的是「集團交付給客戶的產品」。對一般企業 L9 不存在；對 ODM 它是<strong>業務存續的必要條件</strong>，因為 CRA 與客戶要求都直指產品本身。
     </div>
 
-    <h3>9.3 三個橫切主題</h3>
+    <h3 id="s9-3">9.3 三個橫切主題</h3>
     <div class="table-wrap">
       <table>
         <thead><tr><th>橫切</th><th>名稱</th><th>為什麼不能放在某一層</th><th>對應章節</th></tr></thead>
@@ -614,7 +614,7 @@
       </table>
     </div>
 
-    <h3>9.4 五個信任分區</h3>
+    <h3 id="s9-4">9.4 五個信任分區</h3>
     <div class="table-wrap">
       <table>
         <thead><tr><th>分區</th><th>範圍</th><th>主要約束來源</th><th>與其他區的連通原則</th></tr></thead>
@@ -628,7 +628,7 @@
       </table>
     </div>
 
-    <h3>9.5 分區 × 層的矩陣：架構決策的核心表格</h3>
+    <h3 id="s9-5">9.5 分區 × 層的矩陣：架構決策的核心表格</h3>
     <p>這張表是本手冊主張的<strong>架構文件核心產出</strong>。每一格都需要明確的決策，而非「全公司一套」。</p>
     <div class="table-wrap">
       <table>
@@ -647,7 +647,7 @@
       </table>
     </div>
 
-    <h3>9.6 架構圖的敘述（文字版）</h3>
+    <h3 id="s9-6">9.6 架構圖的敘述（文字版）</h3>
     <p>由外而內、由上而下的資料流與控制點：</p>
     <pre class="ascii">[網際網路 / 客戶 / 供應商]
         │
@@ -693,9 +693,9 @@
    橫切 X3 人員與 AI：意識、服務台驗證、AI 使用治理</pre>
 
     <div class="deliverables">
-      <h4>9.7　本章可稽核產出</h4>
+      <h4 id="s9-7">9.7　本章可稽核產出</h4>
       <ul>
-        <li><strong>分區 × 層矩陣</strong>（§9.5）的完整填寫，每一格標註現況（已實作／部分／未實作／不適用）與負責人</li>
+        <li><strong>分區 × 層矩陣</strong>（<a href="#s9-5">§9.5</a>）的完整填寫，每一格標註現況（已實作／部分／未實作／不適用）與負責人</li>
         <li>一份正式的集團資安架構圖（建議三張：總覽圖、分區連通圖、資料流圖）</li>
         <li>每個分區的「架構決策紀錄（ADR）」，記錄決策、理由、替代方案與否決原因</li>
       </ul>
@@ -711,7 +711,7 @@
       <p class="lead">分區的判定準則；conduit（受控通道）的設計原則；Purdue 模型的處理——不取代，而是疊加；分區設計的常見錯誤。</p>
     </div>
 
-    <h3>10.1 分區的判定準則</h3>
+    <h3 id="s10-1">10.1 分區的判定準則</h3>
     <p>新的系統或環境要歸入哪一區？依序回答：</p>
     <ol>
       <li><strong>是否位於中國境內或處理中國境內產生的資料？</strong> → Z2</li>
@@ -724,7 +724,7 @@
       <strong>一個系統可以同時屬於多區</strong>（例如中國廠的產線 MES 同時是 Z2 與 Z5），此時<strong>取最嚴格的控制集合</strong>。
     </div>
 
-    <h3>10.2 conduit（受控通道）的設計原則</h3>
+    <h3 id="s10-2">10.2 conduit（受控通道）的設計原則</h3>
     <p>分區之間的每一條連線都是 conduit，必須被<strong>識別、正當化、治理</strong>。這個概念來自 IEC 62443-3-2，但本手冊主張把它從 OT 推廣到整個架構。每一條 conduit 必須有一份紀錄，包含：</p>
     <div class="table-wrap">
       <table>
@@ -747,7 +747,7 @@
       <strong>「可切斷性」欄位是本手冊特別強調的。</strong>多數企業的網路連線紀錄只記「有什麼」，不記「怎麼關」。但事件應變時最關鍵的動作就是切斷——Kinmax 事件中台積電的處置正是<strong>終止與該供應商的資料交換</strong>。若沒有事先定義每條 conduit 的切斷方式與授權，事件當下會浪費數小時在「這條線是誰在管、關掉會不會停線」的討論上。
     </div>
 
-    <h3>10.3 Purdue 模型的處理：不取代，而是疊加</h3>
+    <h3 id="s10-3">10.3 Purdue 模型的處理：不取代，而是疊加</h3>
     <p>Purdue Enterprise Reference Architecture 在 2026 年已被廣泛批評不足以描述現代 OT 環境。批評的五個失效點<span class="ev ev-third">第三方評論</span>：</p>
     <ol>
       <li>雲端連線使 OT 資料橫向外流而非逐層上行</li>
@@ -775,7 +775,7 @@
     <p><strong>Zone 的定義依據</strong>（IEC 62443-3-2:2020）：Zone 依「後果嚴重度」分組，各指派目標 Security Level（SL-T）；Conduit 為區域間受控通道，每條通訊鏈路須被識別、正當化與治理。</p>
     <p class="src-note">註：SL 1–4 的逐字定義與 zone/conduit 的正式定義文字位於 IEC 付費牆內，本手冊未取得<span class="ev ev-unverified">尚未證實</span>。集團應購買 IEC 62443-3-2 與 -3-3 正本以核對。</p>
 
-    <h3>10.4 分區設計的常見錯誤</h3>
+    <h3 id="s10-4">10.4 分區設計的常見錯誤</h3>
     <div class="table-wrap">
       <table>
         <thead><tr><th>錯誤</th><th>後果</th><th>正確做法</th></tr></thead>
@@ -790,9 +790,9 @@
     </div>
 
     <div class="deliverables">
-      <h4>10.5　本章可稽核產出</h4>
+      <h4 id="s10-5">10.5　本章可稽核產出</h4>
       <ul>
-        <li>一份完整的 <strong>conduit 清冊</strong>，含 §10.2 全部欄位</li>
+        <li>一份完整的 <strong>conduit 清冊</strong>，含 <a href="#s10-2">§10.2</a> 全部欄位</li>
         <li>每個分區的存取策略文件（IdP 條件式存取政策 ＋ 網路 ACL ＋ 資料存取策略）</li>
         <li>重繪後的 OT 分區圖（以後果嚴重度分 zone，標註 SL-T，並疊加 Purdue 層級標示）</li>
         <li>第三方存取的分區限定規則</li>

@@ -259,6 +259,7 @@ a:hover { text-decoration: underline; }
 }
 
 .section-head p { color: var(--text-dim); margin: 0; }
+.section-head p + p { margin-top: 8px; }
 
 /* ---------- 卡片 ---------- */
 .grid { display: grid; gap: 18px; }
@@ -308,6 +309,13 @@ a.card:hover { text-decoration: none; transform: translateY(-2px); border-color:
 
 /* 發現卡（編號） */
 .finding { position: relative; padding-left: 24px; }
+.span-all { grid-column: 1 / -1; }
+
+/* 首頁結論／定義等強調卡片 */
+.card.lead { border-left: 5px solid var(--accent); font-size: 16.5px; line-height: 1.9; }
+.card.lead.gold { border-left-color: var(--gold); font-size: 16px; }
+.card.lead p { font-size: inherit; }
+.card p.text, .card.lead p { color: var(--text); }
 .finding::before {
   content: "";
   position: absolute;
@@ -354,55 +362,6 @@ thead th {
 }
 tbody tr:last-child td { border-bottom: none; }
 tbody tr:hover { background: color-mix(in srgb, var(--accent-soft) 40%, transparent); }
-
-/* ---------- 章節列表 ---------- */
-.chapter-list { display: grid; gap: 14px; }
-
-.chapter {
-  display: grid;
-  grid-template-columns: 64px 1fr;
-  gap: 18px;
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 22px 24px;
-  box-shadow: var(--shadow);
-}
-
-.chapter .num {
-  font-family: var(--font-serif);
-  font-size: 26px;
-  font-weight: 700;
-  color: var(--accent);
-  line-height: 1.2;
-}
-.chapter .num small { display: block; font-family: var(--font-sans); font-size: 11px; color: var(--text-dim); letter-spacing: .08em; font-weight: 400; }
-
-.chapter h3 { margin: 0 0 6px; font-size: 17px; line-height: 1.5; }
-.chapter p { margin: 0; color: var(--text-dim); font-size: 14.5px; }
-
-.chapter .topics { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; }
-.chapter .topics span {
-  font-size: 12px;
-  color: var(--text-dim);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 2px 10px;
-}
-
-.placeholder {
-  margin-top: 12px;
-  font-size: 13px;
-  color: var(--text-dim);
-  border: 1px dashed var(--line);
-  border-radius: 8px;
-  padding: 8px 12px;
-  background: color-mix(in srgb, var(--paper) 60%, transparent);
-}
-
-@media (max-width: 560px) {
-  .chapter { grid-template-columns: 1fr; gap: 8px; }
-}
 
 /* ---------- 分層架構圖（第 III 部） ---------- */
 .layer-stack { display: grid; gap: 8px; }

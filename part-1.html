@@ -62,7 +62,7 @@
       <p class="lead">一般企業資安框架為什麼不夠用；ODM/OEM/EMS/JDM 商業模式差異及其資安意涵；2024–2026 產業結構位移——AI 伺服器如何改變資安責任邊界。</p>
     </div>
 
-    <h3>1.1 一般企業資安框架為什麼不夠用</h3>
+    <h3 id="s1-1">1.1 一般企業資安框架為什麼不夠用</h3>
     <p>主流資安框架（NIST CSF 2.0、ISO/IEC 27001:2022、CIS Controls v8.1）都是<strong>產業中立</strong>的。中立是它們的優點，也是它們用在 ODM 時的根本限制：它們假設組織保護的是「自己的資訊資產」，而 ODM 保護的<strong>主要是別人的資產</strong>。</p>
     <p>這個差異會一路傳導到每一個技術決策。舉三個具體例子：</p>
 
@@ -109,7 +109,7 @@
       <strong>推論：</strong>第 2、4 層的要求往往比第 1 層嚴格，且<strong>不公開</strong>——這使得「照法規做就好」在 ODM 是行不通的策略。
     </div>
 
-    <h3>1.2 ODM/OEM/EMS/JDM 的商業模式差異及其資安意涵</h3>
+    <h3 id="s1-2">1.2 ODM/OEM/EMS/JDM 的商業模式差異及其資安意涵</h3>
     <div class="table-wrap">
       <table>
         <thead><tr><th>模式</th><th>品牌</th><th>設計 IP</th><th>庫存</th><th>資安意涵（本手冊推論）</th></tr></thead>
@@ -129,7 +129,7 @@
       <strong>設計原則的推導：</strong>因為 ODM 與 JDM 同時存在「自有 IP」與「客戶／共有 IP」，資料層的存取控制<strong>不能只用組織階層（部門、職級）建模，必須引入「專案（project）」與「客戶（customer）」兩個正交維度</strong>。這直接決定了第 16 章資料層與第 12 章身分層的設計：ABAC（Attribute-Based Access Control）而非純 RBAC。
     </div>
 
-    <h3>1.3 2024–2026 的產業結構位移：AI 伺服器如何改變資安責任邊界</h3>
+    <h3 id="s1-3">1.3 2024–2026 的產業結構位移：AI 伺服器如何改變資安責任邊界</h3>
     <p>台灣 ODM/EMS 產業在 2024–2026 年間經歷了本世紀最劇烈的結構位移。</p>
     <div class="table-wrap">
       <table>
@@ -167,7 +167,7 @@
     </div>
 
     <div class="deliverables">
-      <h4>1.4　本章可稽核產出</h4>
+      <h4 id="s1-4">1.4　本章可稽核產出</h4>
       <ul>
         <li>一份「集團商業模式對照表」，逐一事業群標註屬 ODM／EMS／JDM／Design House，並標註其主要客戶類型</li>
         <li>一份「資料所有權矩陣」，列出 PLM/ERP/MES 中各類資料的擁有者、NDA 來源、稽核權歸屬</li>
@@ -185,9 +185,9 @@
       <p class="lead">為什麼製造業連續五年居全球受攻擊產業之首；亞太為主戰場（佔製造業事件 68%）；威脅情勢的四點綜合結論。</p>
     </div>
 
-    <h3>2.1 為什麼製造業連續五年居首</h3>
+    <h3 id="s2-1">2.1 為什麼製造業連續五年居首</h3>
 
-    <h4>2.1.1　IBM X-Force Threat Intelligence Index 2026 版</h4>
+    <h4 id="s2-1-1">2.1.1　IBM X-Force Threat Intelligence Index 2026 版</h4>
     <p>涵蓋 2025 年資料，2026-02 發布。<span class="ev ev-vendor">廠商主張</span></p>
     <div class="table-wrap">
       <table>
@@ -214,7 +214,7 @@
       </ol>
     </div>
 
-    <h4>2.1.2　Verizon DBIR 製造業專章：一年內的風險輪廓惡化</h4>
+    <h4 id="s2-1-2">2.1.2　Verizon DBIR 製造業專章：一年內的風險輪廓惡化</h4>
     <p>這是本手冊最關鍵的一組對照數據。<span class="ev ev-vendor">廠商主張</span></p>
     <div class="table-wrap">
       <table>
@@ -246,7 +246,7 @@
       </ol>
     </div>
 
-    <h4>2.1.3　ENISA Threat Landscape 2025</h4>
+    <h4 id="s2-1-3">2.1.3　ENISA Threat Landscape 2025</h4>
     <p>觀察期 2024-07-01 至 2025-06-30，2025-10 發布 v1.2。<span class="ev ev-verified">已證實</span>（歐盟機構出版品）</p>
     <ul>
       <li>威脅排序：DDoS <strong>76.7%</strong>、入侵 17.8%</li>
@@ -261,7 +261,7 @@
       <strong>注意口徑差異：</strong>ENISA 的「製造業佔 2.9%」與 X-Force 的「製造業佔 27.7%」看似矛盾，實則口徑完全不同——ENISA 以歐盟境內公開報導事件為母體且 DDoS 佔壓倒多數，X-Force 以其事件應變與遙測案件為母體。<strong>兩個數字不可放在同一張圖上比較</strong>，這正是 0.2 節「口徑必須一致才可比較」紀律的實例。
     </div>
 
-    <h4>2.1.4　Dragos OT Cybersecurity Year in Review</h4>
+    <h4 id="s2-1-4">2.1.4　Dragos OT Cybersecurity Year in Review</h4>
     <p><span class="ev ev-vendor">廠商主張</span></p>
     <div class="table-wrap">
       <table>
@@ -280,7 +280,7 @@
       <strong>「25% 案例導致 OT 場域完全停擺」是本手冊引用頻率最高的單一營運數字</strong>，因為它把資安風險直接翻譯成董事會聽得懂的語言：四分之一的機率，一次事件會讓一個廠完全停下來。
     </div>
 
-    <h4>2.1.5　CrowdStrike Global Threat Report 2026（2026-02-24）</h4>
+    <h4 id="s2-1-5">2.1.5　CrowdStrike Global Threat Report 2026（2026-02-24）</h4>
     <p><span class="ev ev-vendor">廠商主張</span></p>
     <ul>
       <li><strong>eCrime 平均突破時間（breakout time）降至 29 分鐘</strong>，較 2024 快 <strong>65%</strong>；<strong>最快觀測值 27 秒</strong>；某案例入侵後 <strong>4 分鐘</strong>即開始外傳資料</li>
@@ -295,7 +295,7 @@
       <strong>29 分鐘的意義：</strong>這個數字直接決定 SOC 的設計目標。若偵測到告警後的人工分診（triage）需要 45 分鐘，防護在數學上已經輸了。這是第 17 章主張「自動化圍堵（containment）必須先於自動化調查」的依據。
     </div>
 
-    <h4>2.1.6　Sophos State of Ransomware in Manufacturing and Production 2025（2025-12-03）</h4>
+    <h4 id="s2-1-6">2.1.6　Sophos State of Ransomware in Manufacturing and Production 2025（2025-12-03）</h4>
     <p>樣本：332 家製造與生產組織、17 國、100–5,000 員工。<span class="ev ev-vendor">廠商主張</span></p>
     <div class="table-wrap">
       <table>
@@ -318,7 +318,7 @@
       <strong>「純勒索（不加密）由 3% 升至 10%」</strong>是重要的趨勢轉折：攻擊者正在放棄加密（因為備份與 EDR 越來越擋得住），轉向<strong>純資料竊取後勒索</strong>。這使得以「備份能不能還原」為核心的韌性策略部分失效，資料外洩偵測（DLP、DSPM、egress monitoring）的相對重要性上升。
     </div>
 
-    <h3>2.2 威脅情勢的四點綜合結論</h3>
+    <h3 id="s2-2">2.2 威脅情勢的四點綜合結論</h3>
     <div class="grid grid-2">
       <div class="card finding">
         <div class="no">結論一</div>
@@ -343,7 +343,7 @@
     </div>
 
     <div class="deliverables">
-      <h4>2.3　本章可稽核產出</h4>
+      <h4 id="s2-3">2.3　本章可稽核產出</h4>
       <ul>
         <li>一份以本章數據為基礎的「集團威脅情勢簡報」（建議 8–10 頁，供董事會或稽核委員會使用）</li>
         <li>一份「威脅假設清單」（threat assumptions），明列本集團的資安設計是基於哪些威脅前提，供年度檢視</li>
@@ -361,7 +361,7 @@
       <p class="lead">本章所有事件均經一手或權威具名來源查證。<strong>無來源者不列入</strong>——這是本手冊與坊間「資安事件懶人包」的根本差異。</p>
     </div>
 
-    <h3>3.1 電子製造／ODM／EMS／半導體供應鏈事件總表</h3>
+    <h3 id="s3-1">3.1 電子製造／ODM／EMS／半導體供應鏈事件總表</h3>
     <div class="table-wrap">
       <table>
         <thead><tr><th>事件</th><th>受害組織</th><th>日期</th><th>攻擊者／手法</th><th>已確認影響</th><th>證據等級</th></tr></thead>
@@ -433,7 +433,7 @@
       </table>
     </div>
 
-    <h3>3.2 五個必須從中學到東西的案例</h3>
+    <h3 id="s3-2">3.2 五個必須從中學到東西的案例</h3>
 
     <h4>案例 A：TSMC 2018 —— 資安事件的根因可以是「作業程序」</h4>
     <p>台積電官方新聞稿明確指出根因是<strong>新機台軟體安裝過程的操作失誤</strong>，機台連上內網後病毒擴散。這不是駭客攻擊，而是<strong>未經掃描的機台接入生產網路</strong>。</p>
@@ -485,7 +485,7 @@
       <strong>注意 Clorox 的成本口徑：</strong>US$49M 為 SEC 申報之增量費用；坊間流傳的 US$356M 為含營收損失的媒體估計，<strong>兩者不可互換</strong>。
     </div>
 
-    <h3>3.3 其他製造業重大事件（跨產業對照）</h3>
+    <h3 id="s3-3">3.3 其他製造業重大事件（跨產業對照）</h3>
     <div class="table-wrap">
       <table>
         <thead><tr><th>事件</th><th>受害組織</th><th>日期</th><th>已確認影響</th><th>證據等級</th></tr></thead>
@@ -538,7 +538,7 @@
       <strong>JLR 案對 ODM 最有說服力的一點：</strong>損失的絕大部分不在 JLR 自身，而在 5,000 家下游供應商——<strong>ODM 在客戶供應鏈中所處的正是這個位置</strong>。這是客戶稽核趨嚴的根本商業邏輯，也是本手冊建議把「通過客戶稽核」視為資安投資的主要商業論證的原因。
     </div>
 
-    <h3>3.4 軟體與 IT 供應鏈攻擊</h3>
+    <h3 id="s3-4">3.4 軟體與 IT 供應鏈攻擊</h3>
     <div class="table-wrap">
       <table>
         <thead><tr><th>事件</th><th>日期</th><th>手法</th><th>已確認影響</th><th>等級</th></tr></thead>
@@ -580,7 +580,7 @@
       <strong>tj-actions 事件對本手冊有雙重意義：</strong>它既是供應鏈攻擊的實例，也直接關係到附錄 F 的 Prompt 套件——<strong>任何把資安控制項放進 GitHub repo 並以 GitHub Actions 自動化的做法，本身就繼承了這條攻擊鏈的風險</strong>。附錄 F 的 workflow 範例因此一律使用 commit SHA 而非版本標籤釘選 Action。
     </div>
 
-    <h3>3.5 邊界／VPN 裝置漏洞利用：CISA KEV 收錄狀態逐一查證</h3>
+    <h3 id="s3-5">3.5 邊界／VPN 裝置漏洞利用：CISA KEV 收錄狀態逐一查證</h3>
     <p>以下為直接解析 CISA 官方 KEV 目錄鏡像（catalogVersion <strong>2026.08.27</strong>，共 <strong>1,685 筆</strong>）的比對結果，證據等級全部為 <span class="ev ev-verified">已證實</span>。</p>
     <div class="table-wrap">
       <table>
@@ -642,7 +642,7 @@
     </div>
 
     <div class="deliverables">
-      <h4>3.6　本章可稽核產出</h4>
+      <h4 id="s3-6">3.6　本章可稽核產出</h4>
       <ul>
         <li>一份「同業事件教訓對照表」，將本章五個案例的落地要求逐項對映至本集團現況（已做／部分／未做）</li>
         <li>一份「邊界裝置清冊」，含型號、韌體版本、EOL 日期、對外暴露的服務、負責人</li>
@@ -662,7 +662,7 @@
       <p class="lead">台灣 ODM 必須把國家級行為者當成常態威脅；Proofpoint「Phish and Chips」；Volt / Salt / Silk Typhoon；APT41 / Winnti；台積電 2nm 案確立的內部威脅模式；勒索軟體不需要碰 PLC。</p>
     </div>
 
-    <h3>4.1 為什麼台灣 ODM 必須把國家級行為者當成常態威脅</h3>
+    <h3 id="s4-1">4.1 為什麼台灣 ODM 必須把國家級行為者當成常態威脅</h3>
     <p>一般企業的威脅模型可以合理地把 APT 列為「低機率、高衝擊」的尾部風險。台灣電子製造集團不行——原因有三：</p>
     <ol>
       <li>集團持有的資料（先進製程 know-how、hyperscaler 機櫃設計、車用電子安全機制）本身就是國家級情蒐目標</li>
@@ -670,7 +670,7 @@
       <li>DBIR 2026 顯示製造業間諜動機仍佔 15%，遠高於歷史基期的 3%</li>
     </ol>
 
-    <h3>4.2 Proofpoint「Phish and Chips」：最直接相關的一手研究</h3>
+    <h3 id="s4-2">4.2 Proofpoint「Phish and Chips」：最直接相關的一手研究</h3>
     <p>Proofpoint 於 <strong>2025-07-11</strong> 發布（7/16 更新）的研究，揭露 2025 年 3–6 月間<strong>至少三個</strong>中國關聯行為者集群密集鎖定<strong>台灣半導體產業</strong>，涵蓋製造、封裝、測試、設計、設備服務供應鏈，乃至<strong>分析台灣半導體的投資分析師</strong>。<span class="ev ev-vendor">廠商主張</span>（具名一手研究）</p>
     <div class="table-wrap">
       <table>
@@ -716,7 +716,7 @@
       </div>
     </div>
 
-    <h3>4.3 Volt Typhoon：預置（pre-positioning）的意義</h3>
+    <h3 id="s4-3">4.3 Volt Typhoon：預置（pre-positioning）的意義</h3>
     <p>CISA 聯合公告 <strong>AA24-038A</strong>（2024-02-07；共同具名：CISA、NSA、FBI ＋ 澳洲 ASD、加拿大 CCCS、英國 NCSC、紐西蘭 NCSC）<span class="ev ev-verified">已證實</span>：</p>
     <ul>
       <li><strong>在部分受害者 IT 環境中維持存取與立足點「至少五年」</strong>，並多次反覆擷取憑證</li>
@@ -734,7 +734,7 @@
       本手冊據此在第 17 章建議：<strong>熱資料保存 90 天、總保存 12–24 個月</strong>為 ODM 的最低基準，並將關鍵身分與網路連線日誌（DC/AD、DNS、VPN、Proxy）的保存期延長至 24 個月。
     </div>
 
-    <h3>4.4 Salt Typhoon 與 Silk Typhoon：電信與 IT 供應鏈</h3>
+    <h3 id="s4-4">4.4 Salt Typhoon 與 Silk Typhoon：電信與 IT 供應鏈</h3>
     <p><strong>Salt Typhoon</strong>（CISA 等多國聯合公告，2025-08-27）<span class="ev ev-verified">已證實</span>：涉及別名 Salt Typhoon、OPERATOR PANDA、RedMike、UNC5807、GhostEmperor；鎖定電信、政府、運輸、住宿、國防；手法核心為利用<strong>骨幹路由器</strong>漏洞。</p>
     <p><strong>Silk Typhoon</strong>（Microsoft，2025-03-05）—— <strong>這是對 ODM 最具操作意義的一則</strong><span class="ev ev-vendor">廠商主張</span>（Microsoft 一手）：</p>
     <p>Microsoft 揭露 Silk Typhoon <strong>策略轉向：不再直攻目標，改為入侵 IT 解決方案供應商以取得下游存取</strong>。</p>
@@ -747,7 +747,7 @@
       <strong>對 ODM 的直接推論：</strong>集團導入的每一個 MSP、RMM、外包維運服務，都是一條<strong>具備特權且繞過所有邊界控制</strong>的通道。第 21 章因此主張：<strong>第三方遠端存取必須全部收斂至受監控的 PAM/ZTNA 通道，且不得使用長期有效的 API 金鑰</strong>。
     </div>
 
-    <h3>4.5 APT41 / Winnti：已進入司法紀錄的供應鏈攻擊</h3>
+    <h3 id="s4-5">4.5 APT41 / Winnti：已進入司法紀錄的供應鏈攻擊</h3>
     <p>美國司法部 2020-09-16 公告<span class="ev ev-verified">已證實</span>：起訴 7 名被告，核心公司為 <strong>成都 404 網路科技（Chengdu 404）</strong>。</p>
     <ul>
       <li><strong>逾 100 個受害組織</strong>，明列產業包含「<strong>軟體開發公司、電腦硬體製造商</strong>、電信業者、社群媒體、遊戲公司、非營利組織、大學、智庫、外國政府」</li>
@@ -758,7 +758,7 @@
       這份起訴書的價值在於：它是<strong>法院文件</strong>，不是廠商報告。在向董事會或客戶說明「電腦硬體製造商是明確的國家級攻擊目標」時，這是最高等級的可引用證據。
     </div>
 
-    <h3>4.6 內部威脅：台積電 2nm 案確立的三個技術事實</h3>
+    <h3 id="s4-6">4.6 內部威脅：台積電 2nm 案確立的三個技術事實</h3>
     <p><strong>智慧財產及商業法院，2026-04-27 一審判決</strong><span class="ev ev-verified">已證實</span>——台灣首宗國安法「國家核心關鍵技術」定罪案。</p>
     <div class="table-wrap">
       <table>
@@ -793,7 +793,7 @@
       <strong>判決同時確立的治理事實：</strong><strong>接收端企業（含外商子公司）可被科以刑事罰金並負賠償責任</strong>。這對 ODM 的意義是雙向的——集團不只要防止自己的 IP 外流，也必須確保<strong>引進的人才不會帶入他人的營業秘密</strong>。第 23 章因此建議將「新進員工營業秘密聲明與前雇主資料清查」納入報到程序。
     </div>
 
-    <h3>4.7 OT/ICS 威脅：勒索軟體不需要碰 PLC</h3>
+    <h3 id="s4-7">4.7 OT/ICS 威脅：勒索軟體不需要碰 PLC</h3>
 
     <h4>Dragos 具名威脅群組（與製造業相關）</h4>
     <p><span class="ev ev-vendor">廠商主張</span></p>
@@ -836,7 +836,7 @@
     </div>
 
     <div class="deliverables">
-      <h4>4.8　本章可稽核產出</h4>
+      <h4 id="s4-8">4.8　本章可稽核產出</h4>
       <ul>
         <li>一份「非工程部門高風險名單」（法務、財務、採購、人資、高階主管助理），並套用強化的郵件與端點保護</li>
         <li>HR 履歷收件的隔離環境設計（沙箱預覽、禁止本機下載）</li>
@@ -858,7 +858,7 @@
       <p class="lead">歐盟收緊（CRA、NIS2、RED、GDPR/Data Act/AI Act）、美國鬆綁（CMMC 暫停 Phase II）；台灣法規；客戶驅動的驗證體系；以最嚴時限倒推的單一通報決策樹；AEO 與 CTPAT。</p>
     </div>
 
-    <h3>5.1 總體判斷：歐盟收緊、美國鬆綁</h3>
+    <h3 id="s5-1">5.1 總體判斷：歐盟收緊、美國鬆綁</h3>
     <p>2026 年是兩個方向相反的合規年。<strong>不可把兩者寫成同向趨勢</strong>，否則合規資源會配置錯誤。</p>
     <div class="table-wrap">
       <table>
@@ -878,9 +878,9 @@
       </table>
     </div>
 
-    <h3>5.2 EU Cyber Resilience Act — Regulation (EU) 2024/2847</h3>
+    <h3 id="s5-2">5.2 EU Cyber Resilience Act — Regulation (EU) 2024/2847</h3>
 
-    <h4>5.2.1　時程</h4>
+    <h4 id="s5-2-1">5.2.1　時程</h4>
     <p>以下全部 <span class="ev ev-verified">已證實</span>。</p>
     <div class="table-wrap">
       <table>
@@ -896,7 +896,7 @@
       </table>
     </div>
 
-    <h4>5.2.2　Article 14 的雙軌通報時限</h4>
+    <h4 id="s5-2-2">5.2.2　Article 14 的雙軌通報時限</h4>
     <div class="grid grid-2">
       <div class="card">
         <span class="chip">A・遭實際利用之漏洞</span>
@@ -919,8 +919,8 @@
     </div>
     <p>通報對象：<strong>同時</strong>送交協調者 CSIRT 與 ENISA，經 Single Reporting Platform 一次提交。製造商並須通知受影響使用者；若製造商延遲，CSIRT 得逕行通知使用者。</p>
 
-    <h4>5.2.3　兩個必須立即行動的現況風險</h4>
-    <p><strong>風險一：ENISA Single Reporting Platform 尚未上線。</strong>ENISA 官方頁確認：法源 Art. 16(1)，目標 2026-09-11 上線，<strong>目前仍在開發／測試，公開 URL 尚未公布</strong>；製造商應先完成 <strong>EU Login 註冊</strong>並向所屬國家 CSIRT 完成驗證。<span class="ev ev-verified">已證實</span></p>
+    <h4 id="s5-2-3">5.2.3　兩個必須立即行動的現況風險</h4>
+    <p><strong>風險一：ENISA Single Reporting Platform 尚未上線（截至查證基準日 2026-08-30）。</strong>ENISA 官方頁確認：法源 Art. 16(1)，目標 2026-09-11 上線，<strong>目前仍在開發／測試，公開 URL 尚未公布</strong>；製造商應先完成 <strong>EU Login 註冊</strong>並向所屬國家 CSIRT 完成驗證。<span class="ev ev-verified">已證實</span></p>
     <div class="notice">
       <strong>立即行動建議：</strong>本週內完成 EU Login 註冊、確認捷克廠（及其他歐盟出貨責任實體）對應的國家 CSIRT 聯絡窗口，並準備<strong>離線／備援通報流程</strong>（以電子郵件直接送交 CSIRT 的範本與收件人清單）。
     </div>
@@ -929,7 +929,7 @@
       <strong>對 ODM 的意涵：</strong>2027-12-11 前若無 OJ 引用之調和標準，重要／關鍵類產品（Annex III/IV）將被迫走 <strong>Notified Body 第三方驗證</strong>路徑。NB 驗證量能有限，<strong>應提前預約</strong>。
     </div>
 
-    <h4>5.2.4　Annex I 結構與 SBOM 要求</h4>
+    <h4 id="s5-2-4">5.2.4　Annex I 結構與 SBOM 要求</h4>
     <ul>
       <li><strong>Part I</strong> — 產品性質之基本網路安全要求（設計、開發、生產階段）</li>
       <li><strong>Part II</strong> — 漏洞處理要求（於支援期間 support period，<strong>最短 5 年</strong>）共 8 點：
@@ -947,15 +947,15 @@
     </ul>
     <p class="src-note">Annex I 逐字條文於本次查證中僅取得第三方轉錄，正式出版前建議以 EUR-Lex PDF 覆核官方文字。</p>
 
-    <h4>5.2.5　ODM 特有的「誰是 manufacturer」問題</h4>
+    <h4 id="s5-2-5">5.2.5　ODM 特有的「誰是 manufacturer」問題</h4>
     <p>CRA 的義務主體是「manufacturer」。ODM 為品牌客戶生產含數位元素產品時，<strong>誰是 CRA 意義下的 manufacturer 取決於產品以誰的商標上市</strong>——通常是品牌商，但 ODM 將透過合約承接 SBOM、漏洞處理與支援期義務。執委會頁面未就 ODM/OEM 責任分配提供細節，<strong>此分配問題屬 <span class="ev ev-unverified">尚未證實</span>，須依個案合約與後續指引判斷</strong>。</p>
     <div class="notice">
       <strong>合約層行動建議：</strong>在所有含數位元素產品的 NPI 階段，於報價與合約中明確載明 CRA 角色分配條款（誰是 manufacturer、誰負責 SBOM 產出與更新、誰負責 CVD 管道、支援期長度與費用歸屬、Art. 14 通報的資訊提供義務與時限）。<strong>這應成為標準合約範本的必備條款，而非個案協商項目。</strong>
     </div>
 
-    <h3>5.3 NIS2 Directive (EU) 2022/2555</h3>
+    <h3 id="s5-3">5.3 NIS2 Directive (EU) 2022/2555</h3>
 
-    <h4>5.3.1　轉換狀態（2026 年）</h4>
+    <h4 id="s5-3-1">5.3.1　轉換狀態（2026 年）</h4>
     <div class="table-wrap">
       <table>
         <thead><tr><th>事項</th><th>內容</th><th>等級</th></tr></thead>
@@ -967,11 +967,11 @@
       </table>
     </div>
 
-    <h4>5.3.2　Article 21(2) 十項最低要求</h4>
+    <h4 id="s5-3-2">5.3.2　Article 21(2) 十項最低要求</h4>
     <p>(a) 風險分析與資訊系統安全政策；(b) 事故處理；(c) 營運持續（備份管理、災難復原、危機管理）；<strong>(d) 供應鏈安全</strong>（含與直接供應商／服務提供者關係之安全面向）；(e) 網路與資訊系統取得、開發與維護之安全，<strong>含漏洞處理與揭露</strong>；(f) 評估風險管理措施有效性之政策與程序；(g) 基本網路衛生實務與資安訓練；(h) 密碼學與加密之政策與程序；(i) 人員安全、存取控制政策與資產管理；(j) <strong>多因素或持續驗證</strong>、安全語音／視訊／文字通訊與緊急通訊系統。</p>
     <p>Art. 21(3) 另要求考量<strong>各直接供應商特定弱點</strong>與其產品／資安實務之整體品質。</p>
 
-    <h4>5.3.3　Article 23 通報</h4>
+    <h4 id="s5-3-3">5.3.3　Article 23 通報</h4>
     <ul>
       <li><strong>24 小時</strong>：early warning（載明是否疑似違法／惡意行為、是否具跨境影響）</li>
       <li><strong>72 小時</strong>：incident notification（初步評估、嚴重度、影響、IoC）</li>
@@ -979,7 +979,7 @@
       <li><strong>1 個月</strong>：final report（詳細描述、威脅類型與根因、緩解措施、跨境影響）</li>
     </ul>
 
-    <h4>5.3.4　捷克：本集團最需要注意的成員國</h4>
+    <h4 id="s5-3-4">5.3.4　捷克：本集團最需要注意的成員國</h4>
     <div class="table-wrap">
       <table>
         <thead><tr><th>項目</th><th>內容</th><th>等級</th></tr></thead>
@@ -1006,7 +1006,7 @@
       <strong>捷克「鍍金條款」的關鍵含意：</strong>捷克法明示 <strong>ISO 27001 驗證不足以滿足其要求</strong>。這推翻了「我們有 ISO 27001，歐盟合規就沒問題」的常見假設。
     </div>
 
-    <h3>5.4 EU RED Delegated Regulation (EU) 2022/30</h3>
+    <h3 id="s5-4">5.4 EU RED Delegated Regulation (EU) 2022/30</h3>
     <div class="table-wrap">
       <table>
         <thead><tr><th>項目</th><th>內容</th><th>等級</th></tr></thead>
@@ -1036,9 +1036,9 @@
       <strong>對 ODM 的落地要求：</strong>一旦出貨預設允許空白密碼或可略過密碼設定，<strong>不得自我宣告，必須取得 Notified Body 之 EU Type Examination Certificate</strong>。這應直接寫入 <strong>PLM 的設計規範與 NPI 檢核點</strong>：所有連網產品必須強制首次開機設定密碼，且不得提供「略過」選項。
     </div>
 
-    <h3>5.5 GDPR、Data Act、AI Act</h3>
+    <h3 id="s5-5">5.5 GDPR、Data Act、AI Act</h3>
 
-    <h4>5.5.1　GDPR 製造商重點</h4>
+    <h4 id="s5-5-1">5.5.1　GDPR 製造商重點</h4>
     <div class="table-wrap">
       <table>
         <thead><tr><th>條文</th><th>義務</th></tr></thead>
@@ -1053,7 +1053,7 @@
       </table>
     </div>
 
-    <h4>5.5.2　EU Data Act — Regulation (EU) 2023/2854</h4>
+    <h4 id="s5-5-2">5.5.2　EU Data Act — Regulation (EU) 2023/2854</h4>
     <div class="table-wrap">
       <table>
         <thead><tr><th>項目</th><th>內容</th><th>等級</th></tr></thead>
@@ -1070,7 +1070,7 @@
       <strong>ODM 意涵：</strong>ODM 多為代工，<strong>應在 NPI 階段與品牌客戶明確劃分 data holder 責任</strong>，並在合約中載明資料取用 API 的建置責任與費用歸屬。
     </div>
 
-    <h4>5.5.3　EU AI Act 與 Digital Omnibus</h4>
+    <h4 id="s5-5-3">5.5.3　EU AI Act 與 Digital Omnibus</h4>
     <div class="table-wrap">
       <table>
         <thead><tr><th>里程碑</th><th>日期</th><th>等級</th></tr></thead>
@@ -1090,9 +1090,9 @@
       <strong>ODM 意涵：</strong>產線 AI（AOI 瑕疵檢測、預測保養）多屬<strong>非高風險</strong>；若為客戶製造內含高風險 AI 之產品（醫材、車用感知），<strong>Annex I 路徑已延至 2028-08-02</strong>，可重新排定 NPI 合規時程。<strong>招募與員工管理用 AI（Annex III 第 4 類）延至 2027-12-02</strong>——這一項常被忽略，但集團若使用 AI 履歷篩選或績效評估工具，即落入高風險範疇。
     </div>
 
-    <h3>5.6 美國：CMMC 與出口管制</h3>
+    <h3 id="s5-6">5.6 美國：CMMC 與出口管制</h3>
 
-    <h4>5.6.1　CMMC 2.0 的 2026 年變局</h4>
+    <h4 id="s5-6-1">5.6.1　CMMC 2.0 的 2026 年變局</h4>
     <div class="table-wrap">
       <table>
         <thead><tr><th>事件</th><th>日期</th><th>等級</th></tr></thead>
@@ -1107,9 +1107,9 @@
     </div>
     <p><strong>暫停之內容</strong>：原訂 2026-11-10 生效之 Phase II 要求（含 C3PAO 第三方驗證強制化）<strong>即刻暫停</strong>。<br>
     <strong>仍然有效</strong>：Phase I 自評要求全數維持；<strong>DFARS 252.204-7012</strong> 保護 covered defense information 之契約義務不變；<strong>NIST SP 800-171 Rev 2</strong> 仍透過自評與政府主導評鑑執行。<br>
-    成立 <strong>CMMC Reform Task Force</strong>，須於 60 日內（即約 2026-09-11 前）向 DoW CIO 提出報告；方向為「speed to capability」、降低中小與非傳統廠商門檻。</p>
+    成立 <strong>CMMC Reform Task Force</strong>，須於 60 日內（即約 2026-09-11 前）向 DoW CIO 提出報告（此期限晚於查證基準日 2026-08-30，報告結果須追蹤覆核）；方向為「speed to capability」、降低中小與非傳統廠商門檻。</p>
 
-    <h4>5.6.2　CMMC 等級與 Rev 2 / Rev 3 的關鍵區別</h4>
+    <h4 id="s5-6-2">5.6.2　CMMC 等級與 Rev 2 / Rev 3 的關鍵區別</h4>
     <div class="table-wrap">
       <table>
         <thead><tr><th>等級</th><th>要求</th><th>評鑑方式</th></tr></thead>
@@ -1126,7 +1126,7 @@
       <p>另註：<strong>NIST SP 800-172 Rev. 3 已於 2026-05-13 定稿</strong>，為 2026 年新出文件，多數市面手冊尚未收錄。CMMC Level 3 未來若改採 Rev 3，將是重大變更點，應納入追蹤。</p>
     </div>
 
-    <h4>5.6.3　DFARS 條款與流下義務</h4>
+    <h4 id="s5-6-3">5.6.3　DFARS 條款與流下義務</h4>
     <ul>
       <li><strong>252.204-7021</strong> Contractor Compliance with CMMC Level Requirements（契約條款）</li>
       <li><strong>252.204-7025</strong> Notice of CMMC Level Requirements（招標條款）</li>
@@ -1138,7 +1138,7 @@
       <strong>對 ODM 的建議：</strong>2026 年下半年<strong>不應解散 CMMC 專案</strong>。Phase I 自評與 7012 條款仍具契約拘束力，且 Task Force 報告出爐後極可能以新規則重啟。維持 SPRS 分數與 SSP/POA&amp;M 文件現況，僅延後 C3PAO 驗證的採購預算。
     </div>
 
-    <h4>5.6.4　ITAR / EAR：技術資料的地理與國籍圍籬</h4>
+    <h4 id="s5-6-4">5.6.4　ITAR / EAR：技術資料的地理與國籍圍籬</h4>
     <div class="table-wrap">
       <table>
         <thead><tr><th>項目</th><th>內容</th><th>等級</th></tr></thead>
@@ -1154,9 +1154,9 @@
       <strong>IT 架構意涵（第 12、16 章詳述）：</strong>ITAR/EAR 技術資料須以<strong>存取控制 ＋ 加密 ＋ 地理／國籍圍籬（geo/nationality fencing）</strong>隔離。PLM、EDA、檔案伺服器須具備<strong>依國籍的 ABAC</strong>；雲端與跨境 VDI 須確保資料不落地於未授權國家。這是「身分屬性」必須包含國籍欄位的少數合法場景之一，且該欄位的使用必須有明確法遵依據與 DPIA。
     </div>
 
-    <h3>5.7 台灣</h3>
+    <h3 id="s5-7">5.7 台灣</h3>
 
-    <h4>5.7.1　資通安全管理法</h4>
+    <h4 id="s5-7-1">5.7.1　資通安全管理法</h4>
     <div class="table-wrap">
       <table>
         <thead><tr><th>項目</th><th>內容</th><th>等級</th></tr></thead>
@@ -1174,7 +1174,7 @@
       <p><strong>落地要求</strong>：採購與資產管理系統須能<strong>識別並阻擋受管制品牌之網通／資安產品</strong>。這需要在 CMDB 中維護一份「受限廠牌清單」並與採購系統整合。</p>
     </div>
 
-    <h4>5.7.2　個人資料保護法與個資會</h4>
+    <h4 id="s5-7-2">5.7.2　個人資料保護法與個資會</h4>
     <div class="table-wrap">
       <table>
         <thead><tr><th>項目</th><th>內容</th><th>等級</th></tr></thead>
@@ -1193,7 +1193,7 @@
       <strong>待辦：</strong>施行日確定後，須立即檢視集團個資事故通報流程是否能在 72 小時內同時完成「通報個資會」與「通知當事人」——後者對數萬名員工規模的製造集團是重大作業負擔，需事先建置通知管道與範本。
     </div>
 
-    <h4>5.7.3　金管會上市櫃公司資安要求</h4>
+    <h4 id="s5-7-3">5.7.3　金管會上市櫃公司資安要求</h4>
     <p><strong>資安人力分級</strong><span class="ev ev-verified">已證實</span>（金管會 2023-03-09 新聞稿）</p>
     <div class="table-wrap">
       <table>
@@ -1223,7 +1223,7 @@
       <strong>這是台灣制度與歐美最大的差異：</strong>要件 3 明文要求<strong>揭露資安人力數</strong>。資安編制在台灣是<strong>可查核的公開治理指標</strong>，而非內部資訊。這在第 24 章組織設計時是重要的約束條件——編制數不只是內部管理決策，也是對外承諾。
     </div>
 
-    <h4>5.7.4　TWSE 重大訊息：最緊迫的通報時限</h4>
+    <h4 id="s5-7-4">5.7.4　TWSE 重大訊息：最緊迫的通報時限</h4>
     <p><span class="ev ev-verified">已證實</span>（TWSE 重大訊息參考問答集 115 年 3 月版）</p>
     <ul>
       <li>依《重大訊息之查證暨公開處理程序》<strong>第 4 條第 1 項第 26 款</strong>發布</li>
@@ -1242,7 +1242,7 @@
       <strong>這 2 小時是本手冊查證到的最短通報時限。</strong>它意味著：一旦媒體報導本集團資安事件，2 小時內必須有對外說法。事件應變計畫必須包含<strong>預先擬定的重訊草稿範本</strong>與<strong>發言人授權鏈</strong>，不能在事件發生後才開始擬稿。
     </div>
 
-    <h4>5.7.5　營業秘密法與國家核心關鍵技術</h4>
+    <h4 id="s5-7-5">5.7.5　營業秘密法與國家核心關鍵技術</h4>
     <div class="table-wrap">
       <table>
         <thead><tr><th>項目</th><th>內容</th><th>等級</th></tr></thead>
@@ -1256,12 +1256,12 @@
       </table>
     </div>
     <div class="notice">
-      <strong>ODM 意涵：</strong>涉及國家核心關鍵技術者，員工赴中國大陸須經審查、營業秘密須以更高強度保護。台積電 2nm 案（<a href="#ch4">§4.6</a>）已示範此法的實際適用。集團若受政府補助研發，額外受人員境管與技術外流管制。
+      <strong>ODM 意涵：</strong>涉及國家核心關鍵技術者，員工赴中國大陸須經審查、營業秘密須以更高強度保護。台積電 2nm 案（<a href="#s4-6">§4.6</a>）已示範此法的實際適用。集團若受政府補助研發，額外受人員境管與技術外流管制。
     </div>
 
-    <h3>5.8 客戶驅動的驗證體系</h3>
+    <h3 id="s5-8">5.8 客戶驅動的驗證體系</h3>
 
-    <h4>5.8.1　TISAX / VDA ISA —— 版本制度已於 2026 年改變</h4>
+    <h4 id="s5-8-1">5.8.1　TISAX / VDA ISA —— 版本制度已於 2026 年改變</h4>
     <div class="table-wrap">
       <table>
         <thead><tr><th>項目</th><th>內容</th><th>等級</th></tr></thead>
@@ -1280,7 +1280,7 @@
       <strong>行動建議：</strong>直接向 ENX Portal 下載目錄確認 AI 相關控制項與 ISA 2027 的正式發布日。<strong>由於改為年度發布，資安團隊必須建立「每年年中檢視 ISA 新版」的常態流程</strong>，這是制度變更帶來的新維運負擔。
     </div>
 
-    <h4>5.8.2　RBA —— 一項必須澄清的常見誤解</h4>
+    <h4 id="s5-8-2">5.8.2　RBA —— 一項必須澄清的常見誤解</h4>
     <div class="table-wrap">
       <table>
         <thead><tr><th>項目</th><th>內容</th><th>等級</th></tr></thead>
@@ -1297,14 +1297,14 @@
       <p><strong>結論</strong>：客戶的資安要求來自<strong>獨立的資安條款</strong>，不可與 VAP 混為一談。若銷售或客戶服務單位以「我們通過 RBA VAP」回應客戶的資安問卷，將構成不實陳述風險。</p>
     </div>
 
-    <h4>5.8.3　車用電子</h4>
+    <h4 id="s5-8-3">5.8.3　車用電子</h4>
     <ul>
       <li><strong>ISO/SAE 21434:2021</strong>「Road vehicles — Cybersecurity engineering」，<strong>2021-08-31 發布</strong>，2026-07-15 起進行系統性審查<span class="ev ev-verified">已證實</span>。要求全生命週期資安工程、<strong>TARA</strong>、<strong>分散式資安活動與 Cybersecurity Interface Agreement（CIA）</strong>——<strong>ODM 作為 Tier-1/Tier-2 必須與 OEM 簽署 CIA 並承擔分工</strong></li>
       <li><strong>UN R155/R156</strong>（CSMS/SUMS 型式認證）透過 OEM 流下至供應商<span class="ev ev-third">第三方評論</span></li>
       <li><strong>TISAX</strong> 為德系 OEM 之資訊安全入場券</li>
     </ul>
 
-    <h4>5.8.4　半導體設備（SEMI）</h4>
+    <h4 id="s5-8-4">5.8.4　半導體設備（SEMI）</h4>
     <p><span class="ev ev-verified">已證實</span>（SEMI 官方頁）</p>
     <div class="table-wrap">
       <table>
@@ -1319,7 +1319,7 @@
     </div>
     <p class="src-note">性質：SEMI 標準為<strong>自願性技術協議</strong>，但台積電等大廠已於採購合約中強制要求（客戶驅動）<span class="ev ev-third">第三方評論</span>。</p>
 
-    <h4>5.8.5　客戶稽核要求的公開程度：一張必須知道的對照表</h4>
+    <h4 id="s5-8-5">5.8.5　客戶稽核要求的公開程度：一張必須知道的對照表</h4>
     <p>這是本手冊在客戶合規章節最重要的一張表——它區分了「可查證的義務框架」與「不可公開的技術要求細節」。</p>
     <div class="table-wrap">
       <table>
@@ -1358,9 +1358,9 @@
       </ol>
     </div>
 
-    <h3>5.9 通報與揭露：以最嚴時限倒推的單一決策樹</h3>
+    <h3 id="s5-9">5.9 通報與揭露：以最嚴時限倒推的單一決策樹</h3>
 
-    <h4>5.9.1　美國 SEC 資安揭露規則</h4>
+    <h4 id="s5-9-1">5.9.1　美國 SEC 資安揭露規則</h4>
     <p><span class="ev ev-verified">已證實</span>（SEC 2023-07-26 新聞稿）</p>
     <div class="table-wrap">
       <table>
@@ -1377,7 +1377,7 @@
       <strong>對 ODM（作為供應商）的意涵：</strong>ODM 本身若非美國上市公司則不直接適用，但<strong>美國上市客戶會將「供應商資安事件 24–48 小時內通知」寫入合約</strong>，以確保其能在 4 個營業日內完成重大性判定與申報。
     </div>
 
-    <h4>5.9.2　全球通報時限總覽</h4>
+    <h4 id="s5-9-2">5.9.2　全球通報時限總覽</h4>
     <div class="table-wrap">
       <table>
         <thead><tr><th>時限</th><th>來源</th><th>觸發條件</th></tr></thead>
@@ -1410,7 +1410,7 @@
       <p>六條路徑的判定必須在<strong>同一份表單、同一次會議</strong>中完成，由法務、資安、投資人關係、業務四方共同判定。</p>
     </div>
 
-    <h3>5.10 AEO 與 CTPAT</h3>
+    <h3 id="s5-10">5.10 AEO 與 CTPAT</h3>
     <div class="table-wrap">
       <table>
         <thead><tr><th>制度</th><th>資安相關內容</th><th>等級</th></tr></thead>
@@ -1424,7 +1424,7 @@
       <strong>整合建議：</strong>AEO/CTPAT 之資安條款與 ISO 27001 附錄 A 高度重疊（A.5 政策、A.6 人員、A.7 實體、A.8 技術）。建議<strong>以單一 ISMS 同時滿足 AEO IT 安全、CTPAT Cybersecurity、RBA Management Systems、TISAX</strong>，避免重複稽核與重複文件維護。
     </div>
 
-    <h3>5.11 主合規總表</h3>
+    <h3 id="s5-11">5.11 主合規總表</h3>
     <p>完整版見附錄 B。以下為 ODM 集團最須優先處理的十項：</p>
     <div class="table-wrap">
       <table>
@@ -1445,7 +1445,7 @@
     </div>
 
     <div class="deliverables">
-      <h4>5.12　本章可稽核產出</h4>
+      <h4 id="s5-12">5.12　本章可稽核產出</h4>
       <ul>
         <li>EU Login 註冊完成證明 ＋ 各歐盟實體之國家 CSIRT 聯絡窗口清單</li>
         <li>CRA 角色分配標準合約條款範本</li>
@@ -1468,14 +1468,14 @@
       <p class="lead">先破除「中國法律要求完全獨立 IT 系統」的錯誤前提；CSL 2025 修正的罰則躍升與個人責任；跨境傳輸三軌與門檻；無法以技術化解的法律衝突；隔離架構六個決策點；隔離與集團治理可視性的張力。</p>
     </div>
 
-    <h3>6.1 一項必須先破除的錯誤前提</h3>
+    <h3 id="s6-1">6.1 一項必須先破除的錯誤前提</h3>
     <p><strong>「中國法律要求外資企業建立完全獨立的 IT 系統」——這個說法在法源上無法成立。</strong><span class="ev ev-third">本手冊查證結論</span></p>
     <p>中國的跨境資料傳輸法制提供<strong>三條合法路徑</strong>，並設有明確的豁免門檻。2025 年 3 月 CAC 公布的數據顯示：<strong>受審的 509 項資料項中，325 項獲准出境</strong><span class="ev ev-third">第三方評論</span>。這個核准率不支持「資料絕對不能出境」的假設。</p>
     <div class="notice accent">
       <strong>正確的說法：</strong>把隔離決策歸因於「中國法律要求」是<strong>過度簡化且無法引用法源支撐</strong>的。在董事會或客戶面前這樣說，一旦被追問法源會無法回答。應改為：<strong>隔離是集團在法律不確定性、客戶合約要求與營運可行性三者權衡下的架構決策。</strong>
     </div>
 
-    <h3>6.2 中國法規現況（2026-08-30 查證）</h3>
+    <h3 id="s6-2">6.2 中國法規現況（2026-08-30 查證）</h3>
     <div class="table-wrap">
       <table>
         <thead><tr><th>法規</th><th>通過／發布</th><th>生效</th><th>等級</th></tr></thead>
@@ -1491,7 +1491,7 @@
       </table>
     </div>
 
-    <h4>6.2.1　CSL 2025 修正的罰則躍升</h4>
+    <h4 id="s6-2-1">6.2.1　CSL 2025 修正的罰則躍升</h4>
     <p><span class="ev ev-verified">已證實</span></p>
     <div class="table-wrap">
       <table>
@@ -1512,7 +1512,7 @@
       <strong>個人責任 RMB 100 萬</strong>是最重要的變化。這意味著中國區的資安主管與 IT 負責人承擔個人法律風險，集團必須在<strong>授權、資源與責任保險</strong>三方面對應——若要求當地主管承擔法律責任，就必須給予相應的決策權與預算。
     </div>
 
-    <h4>6.2.2　網路數據安全管理條例（790 號令）關鍵條號</h4>
+    <h4 id="s6-2-2">6.2.2　網路數據安全管理條例（790 號令）關鍵條號</h4>
     <p><span class="ev ev-verified">已證實</span>（中國司法部官方英譯）</p>
     <div class="table-wrap">
       <table>
@@ -1528,7 +1528,7 @@
       </table>
     </div>
 
-    <h4>6.2.3　跨境資料傳輸的三軌與門檻</h4>
+    <h4 id="s6-2-3">6.2.3　跨境資料傳輸的三軌與門檻</h4>
     <p><span class="ev ev-third">第三方評論</span>（逐條譯本）</p>
     <div class="table-wrap">
       <table>
@@ -1550,7 +1550,7 @@
       <p><strong>可稽核產出</strong>：中國各廠的勞動規章制度文本、民主程序證明（職代會紀錄）、公示證明，應由 HR 保存並可供資安／法務調閱。這是技術架構之外、但決定架構合法性的文件。</p>
     </div>
 
-    <h3>6.3 真正驅動隔離的三個因素</h3>
+    <h3 id="s6-3">6.3 真正驅動隔離的三個因素</h3>
     <p>既然法律未強制完全隔離，為什麼實務上仍要隔離？本手冊的分析是：<strong>驅動因素是三項可查證因素的交集，而非單一法規。</strong></p>
     <div class="grid grid-3">
       <div class="card finding">
@@ -1566,11 +1566,11 @@
       <div class="card finding">
         <div class="no">因素三</div>
         <h3>客戶合約要求</h3>
-        <p>如 <a href="#ch5">§5.8.5</a> 所述，客戶（尤其美國品牌）的資料處理要求可能與中國落地要求直接衝突。客戶可能要求「本專案資料不得存放於中國境內」或「中國員工不得存取本專案資料」——這是<strong>合約隔離要求</strong>，與 PIPL 無關，但同樣需要技術隔離來落實。</p>
+        <p>如 <a href="#s5-8-5">§5.8.5</a> 所述，客戶（尤其美國品牌）的資料處理要求可能與中國落地要求直接衝突。客戶可能要求「本專案資料不得存放於中國境內」或「中國員工不得存取本專案資料」——這是<strong>合約隔離要求</strong>，與 PIPL 無關，但同樣需要技術隔離來落實。</p>
       </div>
     </div>
 
-    <h3>6.4 無法以技術架構化解的法律衝突</h3>
+    <h3 id="s6-4">6.4 無法以技術架構化解的法律衝突</h3>
     <p><strong>DSL 第 36 條與 PIPL 第 41 條規定：未經中國主管機關批准，不得向境外司法或執法機關提供境內資料。</strong>這與以下三者存在<strong>無法以技術架構化解的直接衝突</strong>：</p>
     <div class="table-wrap">
       <table>
@@ -1592,7 +1592,7 @@
       </ol>
     </div>
 
-    <h3>6.5 中國區隔離架構的六個決策點</h3>
+    <h3 id="s6-5">6.5 中國區隔離架構的六個決策點</h3>
     <p>以下為本手冊建議的架構決策清單。每一項都需要明確的「<strong>隔離 / 受控連通 / 共用</strong>」三選一決定，並記錄理由。</p>
     <div class="table-wrap">
       <table>
@@ -1638,7 +1638,7 @@
       </table>
     </div>
 
-    <h3>6.6 隔離與集團治理可視性的張力</h3>
+    <h3 id="s6-6">6.6 隔離與集團治理可視性的張力</h3>
     <p><strong>這是台灣 ODM 特有的治理難題。</strong>金管會 2024-03-05 精進措施<strong>明文要求「強化子公司資訊安全監督」</strong><span class="ev ev-verified">已證實</span>；同時，公司治理評鑑指標 2.24 要求母公司揭露集團層級的資安管理架構與投入資源。但技術隔離會<strong>削減母公司對子公司的可視性</strong>——母公司要證明對中國子公司的資安監督有效，卻無法取得其原始日誌與詳細組態。</p>
     <p><strong>本手冊建議的解方框架：治理層可視性與技術層隔離分離設計。</strong></p>
     <div class="table-wrap">
@@ -1658,9 +1658,9 @@
     </div>
 
     <div class="deliverables">
-      <h4>6.7　本章可稽核產出</h4>
+      <h4 id="s6-7">6.7　本章可稽核產出</h4>
       <ul>
-        <li>一份「中國區架構決策紀錄（Architecture Decision Record）」，逐項記錄 §6.5 六個決策點的選擇與理由</li>
+        <li>一份「中國區架構決策紀錄（Architecture Decision Record）」，逐項記錄 <a href="#s6-5">§6.5</a> 六個決策點的選擇與理由</li>
         <li>中國各廠勞動規章制度文本、民主程序證明與公示證明（HR 保存，資安／法務可調閱）</li>
         <li>一份「跨境資料請求審核程序」，含單一窗口、審核表單、拒絕紀錄範本</li>
         <li>客戶合約中的「以當地法律為限」標準條款</li>
