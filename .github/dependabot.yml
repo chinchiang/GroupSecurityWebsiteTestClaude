@@ -1,0 +1,7 @@
+# Actions 以 commit SHA 釘選；由 Dependabot 每月提 PR 更新 SHA 與版本註解
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
