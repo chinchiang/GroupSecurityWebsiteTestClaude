@@ -4,14 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'self'; form-action 'none'; object-src 'none'">
 <title>方法論：證據分級與時效性警示 | 資安防護網設計手冊</title>
 <meta name="description" content="前言 §0.2–§0.4：四級證據分級（已證實／廠商主張／第三方評論／尚未證實）、三條查證紀律、名詞與範圍界定、十六項 2026 年時效性警示。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
+<a class="skip-link" href="#main">跳到主要內容</a>
 
 <header class="site-header">
   <div class="nav-wrap">
@@ -19,8 +22,8 @@
       <span class="mark">🛡</span>
       <span>資安防護網設計手冊<small>GSMD-RPT-2026-0830-01</small></span>
     </a>
-    <button class="nav-toggle" aria-expanded="false" aria-label="開啟選單">選單 ☰</button>
-    <nav class="site-nav">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="開啟選單">選單 ☰</button>
+    <nav class="site-nav" id="site-nav" aria-label="主要導覽">
       <a href="index.html">首頁</a>
       <a href="methodology.html">方法論</a>
       <a href="part-1.html">第 I 部・背景</a>
@@ -40,7 +43,7 @@
   </div>
 </section>
 
-<main class="container">
+<main class="container" id="main" tabindex="-1">
 
   <section class="section" id="s0-2">
     <div class="section-head">
@@ -51,7 +54,7 @@
     </div>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>等級</th><th>定義</th><th>判定標準</th><th>使用限制</th></tr></thead>
+        <thead><tr><th scope="col">等級</th><th scope="col">定義</th><th scope="col">判定標準</th><th scope="col">使用限制</th></tr></thead>
         <tbody>
           <tr>
             <td><span class="ev ev-verified">已證實</span></td>
@@ -124,7 +127,7 @@
       <h3>範圍界定</h3>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>納入</th><th>說明</th></tr></thead>
+          <thead><tr><th scope="col">納入</th><th scope="col">說明</th></tr></thead>
           <tbody>
             <tr><td>企業 IT（OA、ERP、PLM、MES 介接層、雲端、SaaS）</td><td>本手冊主體</td></tr>
             <tr><td>廠區 IT（廠務網路、非氣隙 OT 區段的邊界）</td><td><a href="part-3.html#ch19">第 19 章</a>，以 IT/OT 邊界治理為重點</td></tr>
@@ -136,7 +139,7 @@
       </div>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>排除或僅點到為止</th><th>理由</th></tr></thead>
+          <thead><tr><th scope="col">排除或僅點到為止</th><th scope="col">理由</th></tr></thead>
           <tbody>
             <tr><td>氣隙 OT 深層（PLC、DCS、SIS 本體防護）</td><td>需以 IEC 62443-3-3／-4-2 專篇處理，非 IT 資安防護網範疇</td></tr>
             <tr><td>實體安全與門禁工程細節</td><td>屬 ISO 27001 A.7 範疇，本手冊僅處理其與 IT 的介面</td></tr>
@@ -155,7 +158,7 @@
     </div>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>#</th><th>常見的過時認知</th><th>2026-08-30 的正確狀態</th><th>等級</th></tr></thead>
+        <thead><tr><th scope="col">#</th><th scope="col">常見的過時認知</th><th scope="col">2026-08-30 的正確狀態</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr><td>1</td><td>ISO/IEC 27017:2015 為雲端安全控制標準</td><td><strong>ISO/IEC 27017:2026 Ed.2 已於 2026-07-27 發行，2015 版同日撤銷（Withdrawn）</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td>2</td><td>ISO/IEC 27018:2019、27701:2019</td><td><strong>27018 已於 2025-08 改版為 Ed.3；27701 已於 2025-10-14 改版為 Ed.2</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>

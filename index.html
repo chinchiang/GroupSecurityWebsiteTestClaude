@@ -4,14 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'self'; form-action 'none'; object-src 'none'">
 <title>資安防護網設計手冊 | GSMD-RPT-2026-0830-01</title>
 <meta name="description" content="跨國 ODM/OEM 製造業集團 IT 資安防護網設計手冊 — 以客戶信任為交付物、產線不停為最高可用性目標、多法域資料主權為結構性約束。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
+<a class="skip-link" href="#main">跳到主要內容</a>
 
 <header class="site-header">
   <div class="nav-wrap">
@@ -19,8 +22,8 @@
       <span class="mark">🛡</span>
       <span>資安防護網設計手冊<small>GSMD-RPT-2026-0830-01</small></span>
     </a>
-    <button class="nav-toggle" aria-expanded="false" aria-label="開啟選單">選單 ☰</button>
-    <nav class="site-nav">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="開啟選單">選單 ☰</button>
+    <nav class="site-nav" id="site-nav" aria-label="主要導覽">
       <a href="index.html">首頁</a>
       <a href="methodology.html">方法論</a>
       <a href="part-1.html">第 I 部・背景</a>
@@ -49,7 +52,7 @@
   </div>
 </section>
 
-<main class="container">
+<main class="container" id="main" tabindex="-1">
 
   <!-- 一句話結論 -->
   <section class="section" id="summary">
@@ -137,7 +140,7 @@
     <div class="table-wrap">
       <table>
         <thead>
-          <tr><th>順位</th><th>領域</th><th>理由（可查證錨點）</th><th>建議年度</th></tr>
+          <tr><th scope="col">順位</th><th scope="col">領域</th><th scope="col">理由（可查證錨點）</th><th scope="col">建議年度</th></tr>
         </thead>
         <tbody>
           <tr><td>1</td><td>對外攻擊面管理與邊界裝置修補時窗（EASM＋緊急修補 SLA）</td><td>X-Force 2026：製造業初始入侵 32% 為對外應用漏洞；CISA ED 25-03 要求 Cisco 更新於<strong>釋出後 48 小時內</strong>套用</td><td>Y1 上半</td></tr>
@@ -225,7 +228,7 @@
     </div>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>你的角色</th><th>建議閱讀路徑</th></tr></thead>
+        <thead><tr><th scope="col">你的角色</th><th scope="col">建議閱讀路徑</th></tr></thead>
         <tbody>
           <tr><td>資安長／CISO（要向董事會報告）</td><td>0.1 執行摘要 → 第 5 章法規地景 → 第 9 章總體架構 → 第 26 章成熟度與路線圖 → 第 30 章治理建議</td></tr>
           <tr><td>IT 主管（要編預算）</td><td>0.1 → 第 9 章 → 第 25 章預算模型 → 第 28 章選型方法論 → 附錄 D 控制項清單</td></tr>
@@ -248,7 +251,7 @@
     </div>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>項目</th><th>內容</th></tr></thead>
+        <thead><tr><th scope="col">項目</th><th scope="col">內容</th></tr></thead>
         <tbody>
           <tr><td>文件編號</td><td>GSMD-RPT-2026-0830-01</td></tr>
           <tr><td>版本</td><td>v1.0（全新深化改版，取代 GSMD-RPT-2026-0815-01）</td></tr>

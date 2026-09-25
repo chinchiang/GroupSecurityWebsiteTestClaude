@@ -1,0 +1,35 @@
+name: Check site
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  # 每週一 01:00 UTC 檢查外部引用連結是否失效
+  schedule:
+    - cron: '0 1 * * 1'
+  workflow_dispatch:
+
+# 依附錄 F 安全前提：Action 以 commit SHA 釘選、最小 permissions、不輸出環境變數
+permissions:
+  contents: read
+
+jobs:
+  site:
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+
+      - name: HTML structure, internal links, evidence tags
+        run: python3 .github/scripts/check_site.py
+
+  external-links:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+
+      - name: External links (404/410 only)
+        run: python3 .github/scripts/check_site.py --external
