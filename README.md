@@ -66,6 +66,17 @@ Repo Settings → Pages → Build and deployment → Source 選 **GitHub Actions
 > **不要**改選「Deploy from a branch」：那會把整個分支根目錄（含 `docs/` 手冊全文）
 > 原樣公開到 Pages。
 
+部署失敗時，先看該次 run 的 annotation（log 過期後仍保留，可用
+`gh api repos/{owner}/{repo}/check-runs/{id}/annotations` 查），過去遇過的原因：
+
+| 現象 | 原因 | 處理 |
+|---|---|---|
+| job 沒有任何 step 就失敗 | 帳號付款失敗或 Actions 花費上限不足，job 未啟動 | 到 Settings → Billing & plans 處理後重跑 |
+| `Get Pages site failed: Not Found` | Pages 來源尚未設為 GitHub Actions | 依上方設定 Source |
+| 部署步驟被拒 | `github-pages` 環境只允許 `main` 部署 | 從 `main` 部署，勿從其他分支觸發 |
+
+Action 版本由 `.github/dependabot.yml` 每月自動提 PR 更新（仍以 commit SHA 釘選）。
+
 > **密級**：本版為**公開 / Public（通用參考版）**，不含任何集團實際控制項現況、評估結果或缺口資料。
 > 網站各頁均設 `<meta name="robots" content="noindex, nofollow">`，避免被搜尋引擎收錄；
 > 這只防搜尋曝光、不是存取控制——網址與公開 repo 內容仍可被任何人讀取。
