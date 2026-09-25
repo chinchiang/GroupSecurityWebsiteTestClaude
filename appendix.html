@@ -4,12 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'self'; form-action 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; base-uri 'self'; form-action 'none'; object-src 'none'">
 <meta name="description" content="附錄 A–H：主標準總表、主合規總表、已驗證事件總表、控制項庫與多框架對映矩陣、60 題成熟度自評問卷、Claude Code + GitHub Prompt 套件、查證缺口清單、引用來源總表。">
 <title>附錄 A–H | 資安防護網設計手冊</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -34,6 +31,10 @@
     </nav>
   </div>
 </header>
+
+<div class="asof-banner" role="note">
+  <p><strong>內容截至 2026-08-30：</strong>本站所有法規生效、平台上線、標準發行與報告發布狀態均以查證基準日為準，其後未再更新。引用前請依 <a href="appendix.html#appendix-g">附錄 G 查證缺口清單</a> 重新確認。</p>
+</div>
 
 <section class="hero page-hero">
   <div class="hero-inner">
@@ -117,7 +118,7 @@
           <tr><td><strong>NIST SP 1800-35</strong></td><td><strong>Final（Vol. A–E）</strong></td><td><strong>2025-06-10</strong></td><td>NIST NCCoE</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td>CISA Zero Trust Maturity Model</td><td>v2.0（5 支柱 + 3 跨領域能力；4 階段）</td><td>2023-04</td><td>CISA</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td>DoD Zero Trust Reference Architecture</td><td>v2.0（<strong>7 支柱</strong>）</td><td>2022-07</td><td>DoD CIO</td><td><span class="ev ev-verified">已證實</span></td></tr>
-          <tr><td>CIS Critical Security Controls</td><td><strong>v8.1</strong>（18 Controls / <strong>153</strong> Safeguards；無 v9）</td><td>2024（月份未證）</td><td>CIS</td><td><span class="ev ev-verified">已證實</span> / 日期 <span class="ev ev-third">第三方</span></td></tr>
+          <tr><td>CIS Critical Security Controls</td><td><strong>v8.1</strong>（18 Controls / <strong>153</strong> Safeguards；無 v9）</td><td>2024（月份未證）</td><td>CIS</td><td><span class="ev ev-verified">已證實</span> / 日期 <span class="ev ev-third">第三方評論</span></td></tr>
           <tr><td>CIS Community Defense Model</td><td>v2.0（<strong>基準為 v8 時期</strong>）</td><td>2021-09-29</td><td>CIS</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td><strong>NIST SP 800-53</strong></td><td>Rev. 5, <strong>Release 5.2.0</strong></td><td><strong>2025-08-27</strong></td><td>NIST</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td>NIST SP 800-161</td><td>Rev. 1 upd1（無 Rev.2 進行中）</td><td>2022-05；更新 <strong>2024-11-01</strong></td><td>NIST</td><td><span class="ev ev-verified">已證實</span></td></tr>
@@ -1385,7 +1386,7 @@ body:
     <h3 id="sF-9">F.9 使用本套件的三個注意事項</h3>
     <ol>
       <li><strong>repo 必須是 private</strong>。它包含集團的控制項現況、自評分數與缺口清單——這對攻擊者是高價值情報。建議另設 branch protection、required reviews 與 CODEOWNERS。</li>
-      <li><strong>不要把實際證據提交到 repo</strong>。<code>evidence/index.yml</code> 只放索引（文件名稱、存放系統、負責人、更新日期）。實際的截圖、日誌、稽核報告放在文件管理系統中，並依第 16 章的資料分類保護。</li>
+      <li><strong>不要把實際證據提交到 repo</strong>。<code>evidence/index.yml</code> 只放索引（文件名稱、存放系統、負責人、更新日期）。實際的截圖、日誌、稽核報告放在文件管理系統中，並依<a href="part-3.html#ch16">第 16 章</a>的資料分類保護。</li>
       <li><strong>CI 本身是攻擊面</strong>。除了本附錄已納入的 SHA 釘選、最小 permissions、<code>--require-hashes</code> 之外，建議：
         <ul>
           <li>定期檢視 repo 的 Actions 使用清單，移除不再需要的</li>
@@ -1839,7 +1840,7 @@ body:
     <p class="to-top"><a href="#toc">↑ 回附錄目錄</a></p>
   </section>
 
-  <nav class="pager">
+  <nav class="pager" aria-label="上一頁／下一頁">
     <a href="part-4.html"><small>← 上一頁</small>第 IV 部・落地</a>
     <a class="next" href="index.html"><small>回到 →</small>首頁</a>
   </nav>

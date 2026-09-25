@@ -4,12 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'self'; form-action 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; base-uri 'self'; form-action 'none'; object-src 'none'">
 <title>第 III 部・分層設計 | 資安防護網設計手冊</title>
 <meta name="description" content="第 11–23 章：L0 治理至 L9 產品安全的十層設計，加上供應鏈、韌性、人員與 AI 治理三個橫切面；每層含必備控制、分區差異、選型與失敗模式。">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -34,6 +31,10 @@
     </nav>
   </div>
 </header>
+
+<div class="asof-banner" role="note">
+  <p><strong>內容截至 2026-08-30：</strong>本站所有法規生效、平台上線、標準發行與報告發布狀態均以查證基準日為準，其後未再更新。引用前請依 <a href="appendix.html#appendix-g">附錄 G 查證缺口清單</a> 重新確認。</p>
+</div>
 
 <section class="hero page-hero">
   <div class="hero-inner">
@@ -1688,7 +1689,7 @@ P5（例行週期） = 其餘</pre>
     </div>
 
     <h4 id="s20-3-2">20.3.2　SBOM 的最低要求（CRA 對應）</h4>
-    <p>CRA Annex I Part II 第 1 點：「<strong>a software bill of materials in a commonly used, machine-readable format covering at least the top-level dependencies</strong>」<span class="ev ev-third">第三方轉錄；正式出版前建議以 EUR-Lex PDF 覆核官方文字</span>。</p>
+    <p>CRA Annex I Part II 第 1 點：「<strong>a software bill of materials in a commonly used, machine-readable format covering at least the top-level dependencies</strong>」<span class="ev ev-third">第三方評論・第三方轉錄；正式出版前建議以 EUR-Lex PDF 覆核官方文字</span>。</p>
     <p><strong>注意「至少頂層相依性」</strong>——CRA 的最低要求不是完整遞迴的相依樹。但客戶要求通常更嚴，且完整相依樹才能有效回答「Log4j 影響我們哪些產品」這類問題。<strong>本手冊建議產出完整遞迴 SBOM，而非只做到 CRA 最低線。</strong></p>
 
     <h4 id="s20-3-3">20.3.3　VEX：讓 SBOM 可用的關鍵</h4>
@@ -2398,7 +2399,7 @@ P5（例行週期） = 其餘</pre>
     <p class="to-top"><a href="#toc">↑ 回本部目錄</a></p>
   </section>
 
-  <nav class="pager">
+  <nav class="pager" aria-label="上一頁／下一頁">
     <a href="part-2.html"><small>← 上一頁</small>第 II 部・設計</a>
     <a class="next" href="part-4.html"><small>下一頁 →</small>第 IV 部・落地</a>
   </nav>

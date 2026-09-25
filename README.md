@@ -27,11 +27,14 @@
 
 小節錨點：編號小節標題一律帶 `id="s{章}-{節}"`（如 `s5-2`、`s5-2-1`、`sF-2`），
 前言為 `s0-2`–`s0-4`（`methodology.html`）與 `s0-5`（`index.html`）。
-內文的「§x.y」交互參照應直接連到該小節錨點，而非只連到章（`#chN`）。
+內文的「§x.y」交互參照應直接連到該小節錨點，而非只連到章（`#chN`）；
+只提到「第 N 章」時則連到該章錨點（如 `part-3.html#ch17`）。
 
 證據標籤一律寫成 `<span class="ev ev-verified">已證實</span>`（不加【】括號；
-另有 `ev-vendor`、`ev-third`、`ev-unverified`）。「公知」不是四級之一，以純文字呈現。
+另有 `ev-vendor`、`ev-third`、`ev-unverified`）。標籤文字須以該 class 對應的四級名稱開頭，
+補充說明接在後面（如「第三方評論・完整 Reprint」）。「公知」「本手冊查證結論」不是四級之一，以純文字呈現。
 查證基準日（2026-08-30）之後才會發生或可能變動的狀態，須註明「截至 2026-08-30」。
+各內文頁頂端的 `.asof-banner` 提示全站內容以查證基準日為準；改版重新查證後須一併更新日期。
 
 ## 本機預覽
 
@@ -43,8 +46,8 @@ python3 -m http.server 8000
 ## 自動檢查
 
 `.github/scripts/check_site.py`（僅用 Python 標準函式庫）檢查：HTML 標籤結構、重複 id、
-站內連結與錨點、證據標籤 class 與不加【】、禁用 inline style／`<style>`／inline `<script>`、
-每頁須有 `noindex` 與 meta description、HTML 用到的 class 須在 `main.css` 定義。
+站內連結與錨點、本站 CSS／JS／圖示資源存在、證據標籤 class 與文字相符且不加【】、禁用 inline style／`<style>`／inline `<script>`、
+每頁須有 `noindex` 與 meta description、HTML 用到的 class 須在 `main.css` 定義、內文字元須在字型子集內。
 
 ```bash
 python3 .github/scripts/check_site.py              # 站內檢查
@@ -54,7 +57,12 @@ python3 .github/scripts/check_site.py --external   # 另查外部連結（僅 40
 `.github/workflows/check-site.yml` 在 PR 與 push 到 `main` 時跑站內檢查，每週一另跑外部連結檢查；
 `deploy-pages.yml` 部署前也會先跑站內檢查，未通過就不部署。
 
-各頁設有 Content-Security-Policy（只允許本站與 Google Fonts），因此**不可使用 inline script／style**。
+各頁設有 Content-Security-Policy（只允許本站資源），因此**不可使用 inline script／style**。
+
+字型（Noto Sans TC／Noto Serif TC，SIL OFL 授權，見 `assets/fonts/OFL.txt`）由本站提供、不連 Google Fonts
+（中國大陸無法存取，也避免把瀏覽紀錄交給第三方），並子集化為網站實際用到的字元（兩檔合計約 1 MB）。
+內文新增字元後，`check_site.py` 會回報「字型子集缺字」，此時依 `.github/scripts/build_fonts.py`
+開頭的說明重建字型（需 fonttools，僅本機執行）。
 `404.html` 以 `<base href="/GroupSecurityWebsiteTestClaude/">` 固定資源路徑；repo 改名時須一併修改。
 
 ## 部署（GitHub Pages）

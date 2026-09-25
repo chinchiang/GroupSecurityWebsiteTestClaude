@@ -3,6 +3,20 @@
    純靜態樣式，無建置流程。
    ============================================================ */
 
+/* 字型由本站提供（子集化，見 .github/scripts/build_fonts.py；授權 assets/fonts/OFL.txt） */
+@font-face {
+  font-family: "Noto Sans TC";
+  src: url("../fonts/noto-sans-tc.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Noto Serif TC";
+  src: url("../fonts/noto-serif-tc.woff2") format("woff2");
+  font-weight: 600 700;
+  font-display: swap;
+}
+
 :root {
   --ink: #0e1a2b;
   --ink-2: #16263c;
@@ -62,6 +76,7 @@
 * { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 body {
   margin: 0;
@@ -163,6 +178,16 @@ a:hover { text-decoration: underline; }
   }
   .site-nav.open { display: flex; }
 }
+
+/* ---------- 查證基準日提示（全站） ---------- */
+.asof-banner {
+  background: var(--gold-soft);
+  border-bottom: 1px solid var(--line);
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+.asof-banner p { max-width: 1120px; margin: 0 auto; padding: 8px 24px; }
+.asof-banner strong { color: var(--gold); }
 
 /* ---------- Hero ---------- */
 .hero {
@@ -585,7 +610,15 @@ main:focus { outline: none; }
 
 /* ---------- 列印（董事會／稽核紙本、存 PDF） ---------- */
 @media print {
-  :root { --paper: #fff; --card: #fff; --text: #000; --text-dim: #333; --line: #bbb; }
+  /* 深色模式下列印也一律用淺色配色 */
+  :root {
+    --paper: #fff; --card: #fff; --text: #000; --text-dim: #333; --line: #bbb;
+    --accent: #0e7c86; --accent-soft: #e3f2f3; --gold: #b9852c; --gold-soft: #f7efe0;
+    --ev-verified: #1d7a46; --ev-verified-bg: #e5f4ea;
+    --ev-vendor: #a06a10; --ev-vendor-bg: #faf1dd;
+    --ev-third: #2a5fa8; --ev-third-bg: #e7eefa;
+    --ev-unverified: #b03a3a; --ev-unverified-bg: #fae8e8;
+  }
   body { font-size: 11pt; line-height: 1.6; background: #fff; color: #000; }
   .site-header, .skip-link, .hero-cta, .toc, .to-top, .pager, .copy-btn { display: none !important; }
   .hero, .page-hero { background: none; color: #000; padding: 0 0 12pt; }

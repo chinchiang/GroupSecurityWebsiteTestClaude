@@ -17,10 +17,14 @@ from html.parser import HTMLParser
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 CSS = os.path.join(ROOT, 'assets', 'css', 'main.css')
+JS = os.path.join(ROOT, 'assets', 'js', 'main.js')
+CHARSET = os.path.join(ROOT, 'assets', 'fonts', 'charset.txt')
 VOID = {'meta', 'link', 'br', 'hr', 'img', 'input', 'col', 'area', 'base',
         'source', 'wbr', 'track', 'embed', 'param'}
 IMPLIED_END = {'p', 'li', 'td', 'th', 'tr', 'dd', 'dt'}
-EV_CLASSES = {'ev-verified', 'ev-vendor', 'ev-third', 'ev-unverified'}
+# 證據標籤 class 與其文字須以對應的四級名稱開頭（可接「・補充說明」等後綴）
+EV_LABELS = {'ev-verified': '已證實', 'ev-vendor': '廠商主張',
+             'ev-third': '第三方評論', 'ev-unverified': '尚未證實'}
 # 由 JS 動態加上的 class，不會出現在 HTML 原始碼
 JS_CLASSES = {'active', 'open', 'code-wrap', 'copy-btn'}
 
@@ -43,7 +47,9 @@ class Page(HTMLParser):
         self.has_title = False
         self.lang = None
         self.ev_open = None
+        self.ev_kind = None
         self.ev_text = ''
+        self.assets = []
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
@@ -60,6 +66,10 @@ class Page(HTMLParser):
             self.ids[a['id']] = line
         if tag == 'a' and 'href' in a:
             self.links.append((a['href'], line))
+        if tag == 'link' and 'href' in a:
+            self.assets.append((a['href'], line))
+        if tag in ('script', 'img') and 'src' in a:
+            self.assets.append((a['src'], line))
         if 'style' in a:
             error(self.path, line, '不可使用 inline style，請改用 main.css 的 class')
         if tag == 'style':
@@ -70,9 +80,10 @@ class Page(HTMLParser):
         self.classes.update(cls)
         if 'ev' in cls:
             kinds = [c for c in cls if c.startswith('ev-')]
-            if len(kinds) != 1 or kinds[0] not in EV_CLASSES:
+            if len(kinds) != 1 or kinds[0] not in EV_LABELS:
                 error(self.path, line, f'證據標籤 class 不正確：{a.get("class")}')
             self.ev_open = line
+            self.ev_kind = kinds[0] if len(kinds) == 1 else None
             self.ev_text = ''
         if tag not in VOID:
             self.stack.append((tag, line))
@@ -83,6 +94,10 @@ class Page(HTMLParser):
         if tag == 'span' and self.ev_open is not None:
             if '【' in self.ev_text or '】' in self.ev_text:
                 error(self.path, self.ev_open, f'證據標籤不加【】括號：{self.ev_text.strip()}')
+            label = EV_LABELS.get(self.ev_kind)
+            if label and not self.ev_text.strip().startswith(label):
+                error(self.path, self.ev_open,
+                      f'證據標籤文字「{self.ev_text.strip()}」與 class {self.ev_kind}（{label}）不符')
             self.ev_open = None
         for i in range(len(self.stack) - 1, -1, -1):
             if self.stack[i][0] == tag:
@@ -121,11 +136,11 @@ def main():
         pages[f] = p
 
     # 站內連結與錨點
-    external = set()
+    external = {}
     for f, p in pages.items():
         for href, line in p.links:
             if href.startswith(('http://', 'https://')):
-                external.add(href)
+                external.setdefault(href, []).append((f, line))
                 continue
             if href.startswith(('mailto:', 'tel:')):
                 continue
@@ -138,15 +153,41 @@ def main():
             if frag and frag not in pages[target].ids:
                 error(f, line, f'連到不存在的錨點：{href}')
 
-    # HTML 用到的 class 必須在 main.css 定義
+    # 本站資源（CSS／JS／圖示）須存在
+    for f, p in pages.items():
+        for src, line in p.assets:
+            if src.startswith(('http://', 'https://', 'data:')):
+                continue
+            if not os.path.exists(os.path.join(ROOT, src.split('?')[0])):
+                error(f, line, f'引用不存在的資源：{src}')
+
+    # HTML 用到的 class 必須在 main.css 定義；main.css 以 url() 引用的字型等檔案須存在
     with open(CSS, encoding='utf-8') as fh:
-        css_classes = set(re.findall(r'\.([A-Za-z_][\w-]*)', re.sub(r'url\([^)]*\)', '', fh.read())))
+        css = fh.read()
+    css_classes = set(re.findall(r'\.([A-Za-z_][\w-]*)', re.sub(r'url\([^)]*\)', '', css)))
+    for ref in re.findall(r'''url\(["']?([^"')]+)["']?\)''', css):
+        if ref.startswith(('data:', 'http://', 'https://')):
+            continue
+        if not os.path.exists(os.path.join(os.path.dirname(CSS), ref)):
+            error('assets/css/main.css', 1, f'引用不存在的檔案：{ref}')
     for f, p in pages.items():
         for c in sorted(p.classes - css_classes - JS_CLASSES):
             error(f, 1, f'class "{c}" 未在 assets/css/main.css 定義')
 
+    # 字型為子集，內文新增的字元若不在子集內會退回系統字型
+    with open(CHARSET, encoding='utf-8') as fh:
+        charset = set(fh.read())
+    used = set()
+    for f in files + [JS]:
+        with open(os.path.join(ROOT, f), encoding='utf-8') as fh:
+            used.update(fh.read())
+    missing = sorted(c for c in used - charset if not c.isspace())
+    if missing:
+        error('assets/fonts/charset.txt', 1,
+              f'字型子集缺字 {"".join(missing)}，請執行 .github/scripts/build_fonts.py 重建字型')
+
     if check_external:
-        check_links(sorted(external))
+        check_links(external)
 
     for e in errors:
         print(f'::error::{e}' if os.environ.get('GITHUB_ACTIONS') else e)
@@ -155,7 +196,7 @@ def main():
     return 1 if errors else 0
 
 
-def check_links(urls):
+def check_links(external):
     """只把 404/410 視為失效；403、逾時多半是網站擋自動請求，不列為錯誤。"""
     def probe(url):
         req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 (link-check)'})
@@ -168,10 +209,14 @@ def check_links(urls):
             return url, None
 
     with ThreadPoolExecutor(max_workers=12) as pool:
-        for url, code in pool.map(probe, urls):
+        for url, code in pool.map(probe, sorted(external)):
             if code in (404, 410):
-                error('appendix.html', 1, f'外部連結失效（HTTP {code}）：{url}')
+                for f, line in external[url]:
+                    error(f, line, f'外部連結失效（HTTP {code}）：{url}')
 
 
 if __name__ == '__main__':
+    # Windows 主控台預設非 UTF-8，避免中文訊息變亂碼
+    if hasattr(sys.stdout, 'reconfigure'):
+        sys.stdout.reconfigure(encoding='utf-8')
     sys.exit(main())
