@@ -4,14 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'self'; form-action 'none'; object-src 'none'">
 <meta name="description" content="第 24–30 章：組織與人力設計、四構面預算模型、C2M2 成熟度與三年路線圖、三層指標體系、選型方法論，以及誠實列出的手冊限制與未解問題與治理建議。">
 <title>第 IV 部・落地 | 資安防護網設計手冊</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
+<a class="skip-link" href="#main">跳到主要內容</a>
 
 <header class="site-header">
   <div class="nav-wrap">
@@ -19,8 +22,8 @@
       <span class="mark">🛡</span>
       <span>資安防護網設計手冊<small>GSMD-RPT-2026-0830-01</small></span>
     </a>
-    <button class="nav-toggle" aria-expanded="false" aria-label="開啟選單">選單 ☰</button>
-    <nav class="site-nav">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="開啟選單">選單 ☰</button>
+    <nav class="site-nav" id="site-nav" aria-label="主要導覽">
       <a href="index.html">首頁</a>
       <a href="methodology.html">方法論</a>
       <a href="part-1.html">第 I 部・背景</a>
@@ -40,8 +43,8 @@
   </div>
 </section>
 
-<main class="container">
-  <nav class="toc" id="toc">
+<main class="container" id="main" tabindex="-1">
+  <nav class="toc" id="toc" aria-label="本頁目錄">
     <h2>本部章節</h2>
     <ol>
       <li><a href="#ch24"><b>24</b><span>組織與人力設計</span></a></li>
@@ -67,7 +70,7 @@
     <h4 id="s24-1-1">24.1.1　國際調查數據（必須謹慎引用）</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>調查</th><th>期間</th><th>n</th><th>向 CEO</th><th>向 CIO/CTO</th><th>等級</th></tr></thead>
+        <thead><tr><th scope="col">調查</th><th scope="col">期間</th><th scope="col">n</th><th scope="col">向 CEO</th><th scope="col">向 CIO/CTO</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr><td>Heidrick &amp; Struggles 2023</td><td>2023-07 發布</td><td>262</td><td><strong>5%</strong></td><td><strong>&gt;33%</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td>Heidrick &amp; Struggles 2024</td><td>2024 夏</td><td>370</td><td><strong>14%</strong></td><td><strong>48%</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
@@ -88,7 +91,7 @@
     <h4 id="s24-1-2">24.1.2　台灣 ODM 的實際做法（可查證的同業對照）</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>公司</th><th>匯報線</th><th>專責組織</th></tr></thead>
+        <thead><tr><th scope="col">公司</th><th scope="col">匯報線</th><th scope="col">專責組織</th></tr></thead>
         <tbody>
           <tr><td><strong>英業達</strong></td><td>CISO <strong>向總經理（President）匯報</strong></td><td>總部資安部 ＋ <strong>各廠區資安部</strong></td></tr>
           <tr><td><strong>廣達</strong></td><td>資安中心<strong>直接向 CEO 匯報</strong>，2022Q1 指派資安長</td><td>資安中心下轄<strong>資安管理處、資安技術處</strong>兩部門</td></tr>
@@ -107,7 +110,7 @@
     <p><strong>C2M2 v2.1（2022-06 發布，美國能源部）</strong>是本次查證找到<strong>最權威可引用的資安功能切分框架</strong> <span class="ev ev-verified">已證實</span>。<strong>10 個 Domain、逾 350 項 practices</strong>，MIL 三級（MIL1 Initiated → MIL2 Performed → MIL3 Managed）。</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>C2M2 Domain</th><th>建議組織功能</th><th>ODM 的特殊考量</th></tr></thead>
+        <thead><tr><th scope="col">C2M2 Domain</th><th scope="col">建議組織功能</th><th scope="col">ODM 的特殊考量</th></tr></thead>
         <tbody>
           <tr><td>Cybersecurity Program Management</td><td>資安治理辦公室 / GRC</td><td>對外揭露與評鑑的產出</td></tr>
           <tr><td>Risk Management</td><td>GRC</td><td>客戶要求驅動的風險</td></tr>
@@ -140,7 +143,7 @@
     <h3 id="s24-3">24.3 集中式 vs 聯邦式 vs 混合</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>模式</th><th>定義</th><th>優點</th><th>缺點</th></tr></thead>
+        <thead><tr><th scope="col">模式</th><th scope="col">定義</th><th scope="col">優點</th><th scope="col">缺點</th></tr></thead>
         <tbody>
           <tr><td><strong>集中式</strong></td><td>所有權限、工具、政策與決策集中於單一資安組織</td><td>政策一致執行、統一可視性、簡化法遵、資源效率</td><td>瓶頸、反應較慢、彈性不足</td></tr>
           <tr><td><strong>聯邦式</strong></td><td>責任分散至事業單位或區域；中央提供標準與監督；資安人員嵌入 BU</td><td>敏捷、貼合 BU 需求、賦權在地</td><td>政策不一致、工具碎片化、可視性缺口</td></tr>
@@ -155,7 +158,7 @@
     </div>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>決策類型</th><th>歸屬</th><th>理由</th></tr></thead>
+        <thead><tr><th scope="col">決策類型</th><th scope="col">歸屬</th><th scope="col">理由</th></tr></thead>
         <tbody>
           <tr><td><strong>政策與標準</strong></td><td><strong>中央（Hub）</strong></td><td>對外一致性；客戶稽核</td></tr>
           <tr><td><strong>架構與工具選型</strong></td><td><strong>中央</strong></td><td>避免碎片化；議價力</td></tr>
@@ -171,7 +174,7 @@
     <h4 id="s24-4-1">24.4.1　必須誠實說明的查證結果</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>常見說法</th><th>查證結論</th><th>等級</th></tr></thead>
+        <thead><tr><th scope="col">常見說法</th><th scope="col">查證結論</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr><td>「每 1,000 員工需 X 名資安人員」</td><td><strong>無免費一手來源</strong>。Avasant《IT Security Staffing Ratios 2025》為付費報告</td><td><span class="ev ev-unverified">尚未證實</span></td></tr>
           <tr><td>「製造業資安人力 benchmark 為 X」</td><td>IANS/Artico 公開產業拆分<strong>不含製造業</strong></td><td><span class="ev ev-unverified">尚未證實</span></td></tr>
@@ -185,7 +188,7 @@
     <h4 id="s24-4-2">24.4.2　可查證的錨點</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>錨點</th><th>數值</th><th>等級</th></tr></thead>
+        <thead><tr><th scope="col">錨點</th><th scope="col">數值</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr><td><strong>緯創 2024 年專責資安人員</strong></td><td><strong>26 名</strong>（另有 89 人納入技術職能模型）</td><td><span class="ev ev-vendor">廠商主張・公司自行揭露</span></td></tr>
           <tr><td>緯創 2024 資安團隊訓練</td><td>1,599 人次／<strong>7,850 小時</strong></td><td><span class="ev ev-vendor">廠商主張</span></td></tr>
@@ -203,7 +206,7 @@
     <p>以<strong>工作量推導</strong>而非以比例推導：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>步驟</th><th>動作</th></tr></thead>
+        <thead><tr><th scope="col">步驟</th><th scope="col">動作</th></tr></thead>
         <tbody>
           <tr><td>1</td><td>列出第 III 部各層的「可稽核產出」清單（本手冊共列出約 100 項）</td></tr>
           <tr><td>2</td><td>對每一項估算「建立所需人天」與「維持所需人天/年」</td></tr>
@@ -243,7 +246,7 @@
     <h3 id="s24-6">24.6 RACI 矩陣範例（節錄）</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>活動</th><th>集團資安</th><th>廠區 IT</th><th>廠務</th><th>法務</th><th>採購</th><th>HR</th><th>業務</th></tr></thead>
+        <thead><tr><th scope="col">活動</th><th scope="col">集團資安</th><th scope="col">廠區 IT</th><th scope="col">廠務</th><th scope="col">法務</th><th scope="col">採購</th><th scope="col">HR</th><th scope="col">業務</th></tr></thead>
         <tbody>
           <tr><td>政策制定</td><td><strong>A/R</strong></td><td>C</td><td>C</td><td>C</td><td>C</td><td>C</td><td>I</td></tr>
           <tr><td>事件判定會議（P0/P1）</td><td><strong>A/R</strong></td><td>R</td><td>C</td><td><strong>R</strong></td><td>I</td><td>I</td><td><strong>R</strong></td></tr>
@@ -291,7 +294,7 @@
     <p>樣本 <strong>587 位 CISO</strong>，調查期間 2025-04 至 2025-08，發布 2025-08-05。<span class="ev ev-verified">已證實</span></p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>指標</th><th>2025</th><th>2024</th></tr></thead>
+        <thead><tr><th scope="col">指標</th><th scope="col">2025</th><th scope="col">2024</th></tr></thead>
         <tbody>
           <tr><td>資安預算年增率</td><td><strong>4%</strong>（五年最低）</td><td>8%</td></tr>
           <tr><td><strong>資安預算佔 IT 支出比例</strong></td><td><strong>10.9%</strong></td><td><strong>11.9%</strong></td></tr>
@@ -315,7 +318,7 @@
     <h4 id="s25-1-2">25.1.2　Gartner 全球資安支出預測</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>年度</th><th>全球終端使用者資安支出</th><th>成長率</th></tr></thead>
+        <thead><tr><th scope="col">年度</th><th scope="col">全球終端使用者資安支出</th><th scope="col">成長率</th></tr></thead>
         <tbody>
           <tr><td>2024</td><td><strong>US$193.408 bn</strong></td><td>—</td></tr>
           <tr><td>2025</td><td><strong>US$213.025 bn</strong></td><td><strong>+10.1%</strong></td></tr>
@@ -327,7 +330,7 @@
     <p>分項（US$ 百萬）：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>分項</th><th>2024</th><th>2025</th><th>2026</th></tr></thead>
+        <thead><tr><th scope="col">分項</th><th scope="col">2024</th><th scope="col">2025</th><th scope="col">2026</th></tr></thead>
         <tbody>
           <tr><td>Security Software</td><td>94,960</td><td>105,940</td><td><strong>121,154</strong></td></tr>
           <tr><td>Security Services</td><td>77,130</td><td>83,812</td><td>92,780</td></tr>
@@ -344,7 +347,7 @@
     <p><strong>建議以四個構面編列</strong>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>構面</th><th>內容</th><th>特性</th></tr></thead>
+        <thead><tr><th scope="col">構面</th><th scope="col">內容</th><th scope="col">特性</th></tr></thead>
         <tbody>
           <tr><td><strong>A. 維持營運（Run）</strong></td><td>既有工具授權續約、人力薪資、MDR/外包服務、稽核與驗證費用</td><td>相對固定，年增 3–8%（授權漲價）</td></tr>
           <tr><td><strong>B. 法規驅動（Comply）</strong></td><td>CRA、NIS2、TISAX、CMMC、個資法等的新增合規成本</td><td><strong>由外部時程決定，非選擇性</strong></td></tr>
@@ -361,7 +364,7 @@
     <p>以下為<strong>結構範例</strong>，實際數字須依集團規模填入。</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>構面</th><th>Y1</th><th>Y2</th><th>Y3</th><th>說明</th></tr></thead>
+        <thead><tr><th scope="col">構面</th><th scope="col">Y1</th><th scope="col">Y2</th><th scope="col">Y3</th><th scope="col">說明</th></tr></thead>
         <tbody>
           <tr><td><strong>A. Run</strong></td><td>基準</td><td>基準 ×1.06</td><td>基準 ×1.12</td><td>授權年漲 6% 假設</td></tr>
           <tr><td><strong>B. Comply</strong></td><td>CRA 準備、個資法子法</td><td>CRA 全面義務準備、TISAX ISA 2027 換版</td><td>CRA 全面義務（2027-12-11）</td><td><strong>B 的高峰在 Y3</strong></td></tr>
@@ -375,7 +378,7 @@
     <p>以下是編列資安預算時最常被漏掉的成本：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>遺漏項</th><th>說明</th></tr></thead>
+        <thead><tr><th scope="col">遺漏項</th><th scope="col">說明</th></tr></thead>
         <tbody>
           <tr><td><strong>導入人力成本</strong></td><td>工具授權只是一部分；導入通常需要等值或更多的人力投入</td></tr>
           <tr><td><strong>遙測量成長</strong></td><td>SIEM/雲端安全的計費隨資料量成長；應以 150% 成長情境編列</td></tr>
@@ -437,7 +440,7 @@
     <p><strong>必須先釐清三個容易混淆的模型</strong>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>模型</th><th>層級</th><th>出處</th><th>注意</th></tr></thead>
+        <thead><tr><th scope="col">模型</th><th scope="col">層級</th><th scope="col">出處</th><th scope="col">注意</th></tr></thead>
         <tbody>
           <tr><td><strong>NIST CSF 2.0 Tiers</strong></td><td>Tier 1 Partial / 2 Risk Informed / 3 Repeatable / 4 Adaptive</td><td>NIST CSWP 29</td><td><strong>NIST 明確定位為「characterize the rigor of governance and management practices」，非成熟度模型</strong>，且未要求所有組織達到 Tier 4</td></tr>
           <tr><td><strong>C2M2 MIL</strong></td><td>MIL1 Initiated / MIL2 Performed / MIL3 Managed</td><td>DOE C2M2 v2.1</td><td>10 domain、逾 350 practices；<strong>最適合作為組織能力評估</strong></td></tr>
@@ -461,7 +464,7 @@
     <p><strong>本手冊建議的目標設定方法</strong>：依 <a href="part-2.html#s9-4">§9.4</a> 的五個分區與各 domain 的風險，設定<strong>差異化目標</strong>。</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>Domain</th><th>Z1 全球</th><th>Z2 中國</th><th>Z3 客戶專案</th><th>Z4 產品開發</th><th>Z5 廠務 OT</th></tr></thead>
+        <thead><tr><th scope="col">Domain</th><th scope="col">Z1 全球</th><th scope="col">Z2 中國</th><th scope="col">Z3 客戶專案</th><th scope="col">Z4 產品開發</th><th scope="col">Z5 廠務 OT</th></tr></thead>
         <tbody>
           <tr><td>Identity and Access Management</td><td><strong>MIL3</strong></td><td>MIL3</td><td>MIL3</td><td>MIL3</td><td>MIL2</td></tr>
           <tr><td>Threat and Vulnerability Management</td><td>MIL3</td><td>MIL2</td><td>MIL2</td><td>MIL3</td><td>MIL2</td></tr>
@@ -484,7 +487,7 @@
     <h4>Year 1：止血與基礎（重點：邊界、身分、偵測）</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>季</th><th>主要交付</th><th>對應章節</th></tr></thead>
+        <thead><tr><th scope="col">季</th><th scope="col">主要交付</th><th scope="col">對應章節</th></tr></thead>
         <tbody>
           <tr><td><strong>Q1</strong></td><td>① 對外資產清冊 + EASM 導入<br>② KEV 24 小時修補 SLA 上線<br>③ 邊界裝置清冊與 EOL 下線計畫<br>④ <strong>單一通報決策樹</strong>與判定表單<br>⑤ <strong>CRA Art.14 準備</strong>（EU Login、CSIRT 窗口、備援通報流程）<br>⑥ 服務台身分驗證 SOP</td><td>13, 17, 5, 12</td></tr>
           <tr><td><strong>Q2</strong></td><td>⑦ 防釣魚 MFA 覆蓋率至 95%+<br>⑧ PAM 導入（管理員 100%）<br>⑨ NHI 清冊建立<br>⑩ 端點覆蓋率報表（三類資產）<br>⑪ 自動圍堵政策上線</td><td>12, 14</td></tr>
@@ -497,7 +500,7 @@
     <h4>Year 2：深化與收斂（重點：資料、供應鏈、韌性）</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>季</th><th>主要交付</th></tr></thead>
+        <thead><tr><th scope="col">季</th><th scope="col">主要交付</th></tr></thead>
         <tbody>
           <tr><td><strong>Q1</strong></td><td>⑳ 四維資料分類標準；DSPM 階段 1（對外可達儲存）</td></tr>
           <tr><td><strong>Q2</strong></td><td>㉑ DLP 由監控轉為部分阻擋；動態浮水印；資料庫活動監控 + UEBA</td></tr>
@@ -510,7 +513,7 @@
     <h4>Year 3：擴展與成熟（重點：OT、產品安全、AI）</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>季</th><th>主要交付</th></tr></thead>
+        <thead><tr><th scope="col">季</th><th scope="col">主要交付</th></tr></thead>
         <tbody>
           <tr><td><strong>Q1</strong></td><td>㉔ OT 資產清冊 + Level 3.5 DMZ 強化 + IT/OT conduit 清冊</td></tr>
           <tr><td><strong>Q2</strong></td><td>㉕ 堡壘機全面納管 + 設備入網管制落地 + OT 備份還原測試</td></tr>
@@ -523,7 +526,7 @@
     <p><strong>與外部時程的對齊檢核</strong>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>外部時程</th><th>日期</th><th>路線圖對應</th></tr></thead>
+        <thead><tr><th scope="col">外部時程</th><th scope="col">日期</th><th scope="col">路線圖對應</th></tr></thead>
         <tbody>
           <tr><td>CRA Art. 14</td><td><strong>2026-09-11</strong></td><td>Y1 Q1（⑤）</td></tr>
           <tr><td>TISAX ISA 2027 強制</td><td>2027 年起</td><td>Y2</td></tr>
@@ -537,7 +540,7 @@
     <h3 id="s26-4">26.4 路線圖的三個執行紀律</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>紀律</th><th>說明</th></tr></thead>
+        <thead><tr><th scope="col">紀律</th><th scope="col">說明</th></tr></thead>
         <tbody>
           <tr><td><strong>每項交付必須有可稽核產出</strong></td><td>本手冊各章末的清單即為驗收標準</td></tr>
           <tr><td><strong>法規驅動項不可延後</strong></td><td>CRA、TISAX 換版等有外部截止日者，優先於能力提升項</td></tr>
@@ -590,7 +593,7 @@
     <h3 id="s27-2">27.2 董事會層級指標（5–7 項，每季）</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>指標</th><th>定義</th><th>目標方向</th><th>為什麼是這個</th></tr></thead>
+        <thead><tr><th scope="col">指標</th><th scope="col">定義</th><th scope="col">目標方向</th><th scope="col">為什麼是這個</th></tr></thead>
         <tbody>
           <tr><td><strong>重大事件數與最高分級</strong></td><td>P0/P1 事件數</td><td>下降</td><td>董事會最關心的事</td></tr>
           <tr><td><strong>產線受影響時數</strong></td><td>因資安事件導致的產線停止或降級時數</td><td>趨近 0</td><td>原則一：以出貨為目標</td></tr>
@@ -606,7 +609,7 @@
     <h3 id="s27-3">27.3 管理層級指標（每月）</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>類別</th><th>指標</th></tr></thead>
+        <thead><tr><th scope="col">類別</th><th scope="col">指標</th></tr></thead>
         <tbody>
           <tr><td><strong>暴露面</strong></td><td>對外資產數；EASM 與 CMDB 的差異數；高風險對外暴露數</td></tr>
           <tr><td><strong>弱點</strong></td><td>各優先級（P1–P5）的未修補數與平均修補時效；逾期數</td></tr>
@@ -625,7 +628,7 @@
     <h3 id="s27-4">27.4 SOC 營運指標（每週）</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>指標</th><th>定義</th><th>目標</th></tr></thead>
+        <thead><tr><th scope="col">指標</th><th scope="col">定義</th><th scope="col">目標</th></tr></thead>
         <tbody>
           <tr><td><strong>MTTD</strong></td><td>從入侵發生（或最早證據時間）到偵測的時間</td><td>對照 M-Trends 2026 全球中位數 <strong>14 天</strong> <span class="ev ev-third">第三方評論轉述</span></td></tr>
           <tr><td><strong>MTTC</strong>（Contain）</td><td>從偵測到圍堵完成的時間</td><td><strong>對照 29 分鐘突破時間</strong>——目標應 &lt;30 分鐘</td></tr>
@@ -643,7 +646,7 @@
     <h3 id="s27-5">27.5 指標的常見陷阱</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>陷阱</th><th>說明</th><th>對策</th></tr></thead>
+        <thead><tr><th scope="col">陷阱</th><th scope="col">說明</th><th scope="col">對策</th></tr></thead>
         <tbody>
           <tr><td><strong>改定義讓數字好看</strong></td><td>覆蓋率的分母縮小</td><td>定義寫入文件並版本控制；改定義須說明並提供舊定義的數字</td></tr>
           <tr><td>只看絕對值不看趨勢</td><td>「告警 5,000 筆」沒有意義</td><td>一律呈現趨勢與同期比較</td></tr>
@@ -683,7 +686,7 @@
     <h4 id="s28-2-1">28.2.1　報告類型的區別</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>類型</th><th>是否排名</th><th>有無 Leader</th><th>正確用法</th></tr></thead>
+        <thead><tr><th scope="col">類型</th><th scope="col">是否排名</th><th scope="col">有無 Leader</th><th scope="col">正確用法</th></tr></thead>
         <tbody>
           <tr><td><strong>Magic Quadrant</strong></td><td>有（二維象限）</td><td><strong>有</strong></td><td>可引用象限位置，但須註明報告日期與分析師</td></tr>
           <tr><td><strong>Critical Capabilities</strong></td><td>有（使用案例評分）</td><td>無象限</td><td>比 MQ 更適合對照自身使用案例</td></tr>
@@ -714,7 +717,7 @@
     </div>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>市場</th><th>有無 MQ</th><th>最新報告與日期</th><th>等級</th></tr></thead>
+        <thead><tr><th scope="col">市場</th><th scope="col">有無 MQ</th><th scope="col">最新報告與日期</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr><td>Access Management</td><td><strong>有</strong></td><td>MQ, <strong>2025-11-11</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td>Privileged Access Management</td><td><strong>有</strong></td><td>MQ, <strong>2025-10-13</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
@@ -754,7 +757,7 @@
     <h3 id="s28-4">28.4 獨立測試機構的正確理解</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>機構</th><th>涵蓋</th><th>限制</th></tr></thead>
+        <thead><tr><th scope="col">機構</th><th scope="col">涵蓋</th><th scope="col">限制</th></tr></thead>
         <tbody>
           <tr><td><strong>MITRE ATT&amp;CK Evaluations</strong></td><td>最新已公布為 <strong>Enterprise Round 7（2025-12-10）</strong>，模擬 <strong>Scattered Spider ＋ Mustang Panda</strong>，首度納入雲端與 Reconnaissance</td><td><strong>僅 11 家參與</strong>；<strong>Microsoft、SentinelOne、Palo Alto 均退出</strong>；MITRE 自承題目難度未抓好平衡；分析師批評近似 vendor theater</td></tr>
           <tr><td><strong>AV-Comparatives EDR Detection Validation 2026</strong>（2026-05-13）</td><td>14 階段 APT 情境、detection-only、含 Signal-to-Noise 良性活動測試</td><td><strong>僅公布通過認證者，未通過者不公開 → 發表偏誤（selection bias）</strong></td></tr>
@@ -770,7 +773,7 @@
     <p>除了一般的功能與價格，ODM 必須額外評估：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>準則</th><th>具體問題</th></tr></thead>
+        <thead><tr><th scope="col">準則</th><th scope="col">具體問題</th></tr></thead>
         <tbody>
           <tr><td><strong>中國區可行性</strong></td><td>產品在中國境內是否可用？資料是否落地？是否有中國營運（地緣政治審查）？若受限，替代方案為何？</td></tr>
           <tr><td><strong>多站點部署</strong></td><td>13 個站點的部署複雜度與集中管理能力</td></tr>
@@ -789,7 +792,7 @@
     <p>依集團既有實務，<strong>中國資本／研發／營運關聯作為硬性第一道排除門檻</strong>。建議的查核項：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>查核項</th><th>說明</th></tr></thead>
+        <thead><tr><th scope="col">查核項</th><th scope="col">說明</th></tr></thead>
         <tbody>
           <tr><td>股權結構</td><td>中國資本持股比例；母公司與最終受益人</td></tr>
           <tr><td>研發中心</td><td>是否有中國研發團隊接觸產品原始碼</td></tr>
@@ -828,7 +831,7 @@
     </div>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>限制</th><th>說明</th></tr></thead>
+        <thead><tr><th scope="col">限制</th><th scope="col">說明</th></tr></thead>
         <tbody>
           <tr><td><strong>付費標準的逐字內容未取得</strong></td><td>IEC 62443 的 SL 1–4 定義、FR1–FR7 名稱、zone/conduit 定義文字、2-1 Ed.2 的 ML 定義；ISO/IEC 27002:2022 的 93 控制與 11 項新增控制的逐條清單。這些均在付費牆內，本手冊採用業界一致引用並標註 <span class="ev ev-third">第三方評論</span></td></tr>
           <tr><td><strong>分析師報告全文未取得</strong></td><td>Gartner MQ 的完整象限與各家 Cautions 多來自廠商新聞稿與第三方轉述，非 Reprint 全文</td></tr>
@@ -887,7 +890,7 @@
     <p>本手冊在各章列出約 70 項「常見失敗模式」。以下是其中影響最大的十項：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>#</th><th>反面做法</th><th>為什麼會失敗</th></tr></thead>
+        <thead><tr><th scope="col">#</th><th scope="col">反面做法</th><th scope="col">為什麼會失敗</th></tr></thead>
         <tbody>
           <tr><td>1</td><td>以 CVSS 排序修補</td><td>工作量 50.7% 但效率僅 6%（EPSS 對照）</td></tr>
           <tr><td>2</td><td>為每部法規寫一套通報流程</td><td>事件當下無法在 2 小時內完成</td></tr>
@@ -954,7 +957,7 @@
     <h3 id="s30-2">30.2 給董事會的五個問題（供稽核委員會使用）</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>#</th><th>問題</th><th>為什麼問這個</th></tr></thead>
+        <thead><tr><th scope="col">#</th><th scope="col">問題</th><th scope="col">為什麼問這個</th></tr></thead>
         <tbody>
           <tr><td>1</td><td>若最大客戶要求 <strong>24 小時內</strong>通報任何可能影響其產品的資安事件，我們的流程能否做到？缺口在哪個環節？</td><td>檢驗通報決策樹是否存在且可執行</td></tr>
           <tr><td>2</td><td>若台北總部 OA 網路今晚全斷 72 小時，桃園與上海產線能否繼續出貨？最近一次演練是什麼時候？</td><td>檢驗降級作業能力（原則一）</td></tr>
@@ -968,7 +971,7 @@
     <h3 id="s30-3">30.3 建議的董事會年度議程</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>時點</th><th>議題</th></tr></thead>
+        <thead><tr><th scope="col">時點</th><th scope="col">議題</th></tr></thead>
         <tbody>
           <tr><td><strong>Q1</strong></td><td>上年度資安成果、事件回顧、成熟度自評結果、本年度目標與預算</td></tr>
           <tr><td><strong>Q2</strong></td><td>威脅情勢更新、重大法規變化（CRA/NIS2/AI Act）、供應鏈風險評估</td></tr>

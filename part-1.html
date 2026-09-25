@@ -4,14 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'self'; form-action 'none'; object-src 'none'">
 <title>第 I 部・背景 | 資安防護網設計手冊</title>
 <meta name="description" content="第 I 部（第 1–6 章）：ODM/OEM 製造業的資安本質、2026 年威脅情勢、已驗證事件研究、國家級行為者與內部威脅、法規與客戶合規地景、中國法律隔離。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
+<a class="skip-link" href="#main">跳到主要內容</a>
 
 <header class="site-header">
   <div class="nav-wrap">
@@ -19,8 +22,8 @@
       <span class="mark">🛡</span>
       <span>資安防護網設計手冊<small>GSMD-RPT-2026-0830-01</small></span>
     </a>
-    <button class="nav-toggle" aria-expanded="false" aria-label="開啟選單">選單 ☰</button>
-    <nav class="site-nav">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="開啟選單">選單 ☰</button>
+    <nav class="site-nav" id="site-nav" aria-label="主要導覽">
       <a href="index.html">首頁</a>
       <a href="methodology.html">方法論</a>
       <a href="part-1.html">第 I 部・背景</a>
@@ -40,9 +43,9 @@
   </div>
 </section>
 
-<main class="container">
+<main class="container" id="main" tabindex="-1">
 
-  <nav class="toc" id="toc">
+  <nav class="toc" id="toc" aria-label="本頁目錄">
     <h2>本部章節</h2>
     <ol>
       <li><a href="#ch1"><b>01</b><span>ODM/OEM 製造業的資安本質</span></a></li>
@@ -112,7 +115,7 @@
     <h3 id="s1-2">1.2 ODM/OEM/EMS/JDM 的商業模式差異及其資安意涵</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>模式</th><th>品牌</th><th>設計 IP</th><th>庫存</th><th>資安意涵（本手冊推論）</th></tr></thead>
+        <thead><tr><th scope="col">模式</th><th scope="col">品牌</th><th scope="col">設計 IP</th><th scope="col">庫存</th><th scope="col">資安意涵（本手冊推論）</th></tr></thead>
         <tbody>
           <tr><td><strong>OEM</strong></td><td>擁有</td><td>通常擁有</td><td>視外包程度</td><td>資安邊界較清楚，接近一般企業</td></tr>
           <tr><td><strong>CM / CEM / ECM</strong></td><td>無</td><td>無</td><td>原物料／在製品</td><td>主要保護生產排程與 BOM</td></tr>
@@ -133,7 +136,7 @@
     <p>台灣 ODM/EMS 產業在 2024–2026 年間經歷了本世紀最劇烈的結構位移。</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>公司</th><th>2025 全年營收</th><th>YoY</th><th>等級與來源</th></tr></thead>
+        <thead><tr><th scope="col">公司</th><th scope="col">2025 全年營收</th><th scope="col">YoY</th><th scope="col">等級與來源</th></tr></thead>
         <tbody>
           <tr><td>鴻海 Hon Hai</td><td><strong>NT$8.1 兆</strong>；EPS NT$13.61（1991 年以來新高）；ROE 11.25%</td><td>+18%（營利 +29%、淨利 +24%）</td><td><span class="ev ev-verified">已證實</span> 鴻海官方新聞稿 2026-03-16</td></tr>
           <tr><td>緯創 Wistron</td><td><strong>NT$2.18 兆</strong>（US$68.9bn），<strong>首度超越廣達</strong></td><td><strong>+108.4%</strong></td><td><span class="ev ev-verified">已證實</span> Taiwan News 2026-01-09</td></tr>
@@ -191,7 +194,7 @@
     <p>涵蓋 2025 年資料，2026-02 發布。<span class="ev ev-vendor">廠商主張</span></p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>指標</th><th>數值</th></tr></thead>
+        <thead><tr><th scope="col">指標</th><th scope="col">數值</th></tr></thead>
         <tbody>
           <tr><td><strong>製造業佔全球攻擊事件比例</strong></td><td><strong>27.7%</strong></td></tr>
           <tr><td>連續居首年數</td><td><strong>第 5 年</strong></td></tr>
@@ -218,7 +221,7 @@
     <p>這是本手冊最關鍵的一組對照數據。<span class="ev ev-vendor">廠商主張</span></p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>指標</th><th>2025 DBIR</th><th>2026 DBIR</th><th>變化</th></tr></thead>
+        <thead><tr><th scope="col">指標</th><th scope="col">2025 DBIR</th><th scope="col">2026 DBIR</th><th scope="col">變化</th></tr></thead>
         <tbody>
           <tr><td>事件數 / 確認外洩數</td><td>3,837 / 1,607</td><td>3,627 / <strong>2,713</strong></td><td>確認外洩大增 69%</td></tr>
           <tr><td>前三大模式合計</td><td>85%</td><td><strong>91%</strong></td><td>↑</td></tr>
@@ -265,7 +268,7 @@
     <p><span class="ev ev-vendor">廠商主張</span></p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>指標</th><th>2025 版（涵蓋 2024）</th><th>2026 版（涵蓋 2025）</th></tr></thead>
+        <thead><tr><th scope="col">指標</th><th scope="col">2025 版（涵蓋 2024）</th><th scope="col">2026 版（涵蓋 2025）</th></tr></thead>
         <tbody>
           <tr><td>追蹤威脅群組</td><td>23 個（9 個活躍）</td><td><strong>26 個（11 個活躍）</strong></td></tr>
           <tr><td>新命名群組</td><td>GRAPHITE、BAUXITE</td><td><strong>AZURITE、PYROXENE、SYLVANITE</strong></td></tr>
@@ -299,7 +302,7 @@
     <p>樣本：332 家製造與生產組織、17 國、100–5,000 員工。<span class="ev ev-vendor">廠商主張</span></p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>指標</th><th>數值</th></tr></thead>
+        <thead><tr><th scope="col">指標</th><th scope="col">數值</th></tr></thead>
         <tbody>
           <tr><td><strong>攻擊根因第一名</strong></td><td><strong>漏洞利用 32%</strong></td></tr>
           <tr><td>惡意郵件</td><td>23%（前年 29%）</td></tr>
@@ -364,7 +367,7 @@
     <h3 id="s3-1">3.1 電子製造／ODM／EMS／半導體供應鏈事件總表</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>事件</th><th>受害組織</th><th>日期</th><th>攻擊者／手法</th><th>已確認影響</th><th>證據等級</th></tr></thead>
+        <thead><tr><th scope="col">事件</th><th scope="col">受害組織</th><th scope="col">日期</th><th scope="col">攻擊者／手法</th><th scope="col">已確認影響</th><th scope="col">證據等級</th></tr></thead>
         <tbody>
           <tr>
             <td>Foxconn 墨西哥廠勒索</td><td>鴻海 Foxconn CTBG MX（Ciudad Juárez）</td><td>2020-11-29</td><td>DoppelPaymer</td>
@@ -488,7 +491,7 @@
     <h3 id="s3-3">3.3 其他製造業重大事件（跨產業對照）</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>事件</th><th>受害組織</th><th>日期</th><th>已確認影響</th><th>證據等級</th></tr></thead>
+        <thead><tr><th scope="col">事件</th><th scope="col">受害組織</th><th scope="col">日期</th><th scope="col">已確認影響</th><th scope="col">證據等級</th></tr></thead>
         <tbody>
           <tr>
             <td><strong>Norsk Hydro LockerGoga</strong></td><td>Norsk Hydro ASA（挪威鋁業）</td><td>2019-03-19</td>
@@ -541,7 +544,7 @@
     <h3 id="s3-4">3.4 軟體與 IT 供應鏈攻擊</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>事件</th><th>日期</th><th>手法</th><th>已確認影響</th><th>等級</th></tr></thead>
+        <thead><tr><th scope="col">事件</th><th scope="col">日期</th><th scope="col">手法</th><th scope="col">已確認影響</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr>
             <td><strong>MOVEit Transfer（Cl0p）</strong></td><td>2023-05-27 起</td><td><strong>CVE-2023-34362</strong>（CVSS 9.8）SQL Injection</td>
@@ -584,7 +587,7 @@
     <p>以下為直接解析 CISA 官方 KEV 目錄鏡像（catalogVersion <strong>2026.08.27</strong>，共 <strong>1,685 筆</strong>）的比對結果，證據等級全部為 <span class="ev ev-verified">已證實</span>。</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>CVE</th><th>產品</th><th>KEV</th><th>收錄日</th><th>修補期限</th><th>已知用於勒索</th></tr></thead>
+        <thead><tr><th scope="col">CVE</th><th scope="col">產品</th><th scope="col">KEV</th><th scope="col">收錄日</th><th scope="col">修補期限</th><th scope="col">已知用於勒索</th></tr></thead>
         <tbody>
           <tr><td>CVE-2023-46805</td><td>Ivanti Connect Secure / Policy Secure</td><td>✅</td><td>2024-01-10</td><td>2024-01-22</td><td><strong>Known</strong></td></tr>
           <tr><td>CVE-2024-21887</td><td>Ivanti Connect Secure / Policy Secure</td><td>✅</td><td>2024-01-10</td><td>2024-01-22</td><td><strong>Known</strong></td></tr>
@@ -674,7 +677,7 @@
     <p>Proofpoint 於 <strong>2025-07-11</strong> 發布（7/16 更新）的研究，揭露 2025 年 3–6 月間<strong>至少三個</strong>中國關聯行為者集群密集鎖定<strong>台灣半導體產業</strong>，涵蓋製造、封裝、測試、設計、設備服務供應鏈，乃至<strong>分析台灣半導體的投資分析師</strong>。<span class="ev ev-vendor">廠商主張</span>（具名一手研究）</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>集群</th><th>目標</th><th>時間</th><th>TTP</th></tr></thead>
+        <thead><tr><th scope="col">集群</th><th scope="col">目標</th><th scope="col">時間</th><th scope="col">TTP</th></tr></thead>
         <tbody>
           <tr>
             <td><strong>UNK_FistBump</strong></td><td>半導體<strong>製造、封裝、測試</strong>及供應鏈組織</td><td>2025-05～06</td>
@@ -762,7 +765,7 @@
     <p><strong>智慧財產及商業法院，2026-04-27 一審判決</strong><span class="ev ev-verified">已證實</span>——台灣首宗國安法「國家核心關鍵技術」定罪案。</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>項目</th><th>內容</th></tr></thead>
+        <thead><tr><th scope="col">項目</th><th scope="col">內容</th></tr></thead>
         <tbody>
           <tr><td>涉案技術</td><td><strong>2 奈米製程（經指定為「國家核心關鍵技術」）</strong>，另涉 14 埃（Å）製程</td></tr>
           <tr><td>適用法律</td><td><strong>國家安全法</strong>（國家核心關鍵技術營業秘密罪，主要）＋<strong>營業秘密法</strong>（次要）</td></tr>
@@ -799,7 +802,7 @@
     <p><span class="ev ev-vendor">廠商主張</span></p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>群組</th><th>狀態</th><th>相關性</th></tr></thead>
+        <thead><tr><th scope="col">群組</th><th scope="col">狀態</th><th scope="col">相關性</th></tr></thead>
         <tbody>
           <tr><td><strong>KAMACITE</strong></td><td>2026 版列名</td><td>提供初始存取，交棒予 ELECTRUM</td></tr>
           <tr><td><strong>ELECTRUM</strong></td><td>2026 版列名</td><td>具 OT 破壞能力</td></tr>
@@ -822,7 +825,7 @@
     <p>Help Net Security 依 Kaspersky ICS-CERT Q2 2026 分析指出，<strong>勒索集團無需取得控制系統存取即可中斷工業生產</strong>。本手冊表列的四個案例全部是此模式的實證：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>案例</th><th>被攻擊的是</th><th>造成的產線後果</th></tr></thead>
+        <thead><tr><th scope="col">案例</th><th scope="col">被攻擊的是</th><th scope="col">造成的產線後果</th></tr></thead>
         <tbody>
           <tr><td>Asahi（2025-09）</td><td>IT 訂單系統</td><td>日本 6 廠停工</td></tr>
           <tr><td>Kojima → Toyota（2022-02）</td><td>供應商 IT 系統</td><td>Toyota 日本 14 廠停產一日</td></tr>
@@ -862,7 +865,7 @@
     <p>2026 年是兩個方向相反的合規年。<strong>不可把兩者寫成同向趨勢</strong>，否則合規資源會配置錯誤。</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>方向</th><th>事實</th><th>對 ODM 的資源意義</th></tr></thead>
+        <thead><tr><th scope="col">方向</th><th scope="col">事實</th><th scope="col">對 ODM 的資源意義</th></tr></thead>
         <tbody>
           <tr>
             <td><strong>歐盟收緊</strong></td>
@@ -884,7 +887,7 @@
     <p>以下全部 <span class="ev ev-verified">已證實</span>。</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>里程碑</th><th>日期</th></tr></thead>
+        <thead><tr><th scope="col">里程碑</th><th scope="col">日期</th></tr></thead>
         <tbody>
           <tr><td>簽署</td><td>2024-10-23（Strasbourg）</td></tr>
           <tr><td><strong>生效</strong></td><td><strong>2024-12-10</strong></td></tr>
@@ -958,7 +961,7 @@
     <h4 id="s5-3-1">5.3.1　轉換狀態（2026 年）</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>事項</th><th>內容</th><th>等級</th></tr></thead>
+        <thead><tr><th scope="col">事項</th><th scope="col">內容</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr><td>轉換期限</td><td>2024-10-17（Art. 41）</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td>2024-11-28</td><td>執委會對 <strong>23 個會員國</strong>發出 letter of formal notice</td><td><span class="ev ev-verified">已證實</span></td></tr>
@@ -982,7 +985,7 @@
     <h4 id="s5-3-4">5.3.4　捷克：本集團最需要注意的成員國</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>項目</th><th>內容</th><th>等級</th></tr></thead>
+        <thead><tr><th scope="col">項目</th><th scope="col">內容</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr><td>法律</td><td><strong>Zákon č. 264/2025 Sb., o kybernetické bezpečnosti</strong>，取代 181/2014 Sb.</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td><strong>生效日</strong></td><td><strong>2025-11-01</strong></td><td><span class="ev ev-verified">已證實</span>（NÚKIB 官方簡報）</td></tr>
@@ -1009,7 +1012,7 @@
     <h3 id="s5-4">5.4 EU RED Delegated Regulation (EU) 2022/30</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>項目</th><th>內容</th><th>等級</th></tr></thead>
+        <thead><tr><th scope="col">項目</th><th scope="col">內容</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr><td>法源</td><td>啟動 RED 2014/53/EU <strong>Art. 3(3)(d) 網路防護 / (e) 個資與隱私 / (f) 詐欺防制</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td>採認</td><td>2021-10-29 採認，2022-01-12 刊登 OJ</td><td><span class="ev ev-verified">已證實</span></td></tr>
@@ -1041,7 +1044,7 @@
     <h4 id="s5-5-1">5.5.1　GDPR 製造商重點</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>條文</th><th>義務</th></tr></thead>
+        <thead><tr><th scope="col">條文</th><th scope="col">義務</th></tr></thead>
         <tbody>
           <tr><td>Art. 32</td><td>技術與組織措施：加密、假名化、CIA 三性、韌性、定期測試</td></tr>
           <tr><td><strong>Art. 33</strong></td><td>向監理機關通報個資外洩 <strong>72 小時</strong>內</td></tr>
@@ -1056,7 +1059,7 @@
     <h4 id="s5-5-2">5.5.2　EU Data Act — Regulation (EU) 2023/2854</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>項目</th><th>內容</th><th>等級</th></tr></thead>
+        <thead><tr><th scope="col">項目</th><th scope="col">內容</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr><td>生效</td><td><strong>2024-01-11</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td><strong>適用日</strong></td><td><strong>2025-09-12</strong>（已生效）</td><td><span class="ev ev-verified">已證實</span></td></tr>
@@ -1073,7 +1076,7 @@
     <h4 id="s5-5-3">5.5.3　EU AI Act 與 Digital Omnibus</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>里程碑</th><th>日期</th><th>等級</th></tr></thead>
+        <thead><tr><th scope="col">里程碑</th><th scope="col">日期</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr><td>生效</td><td>2024-08-01</td><td><span class="ev ev-third">第三方評論</span>／公知</td></tr>
           <tr><td>禁止性 AI 實務 + AI 素養</td><td>2025-02-02（已生效）</td><td><span class="ev ev-third">第三方評論</span></td></tr>
@@ -1095,7 +1098,7 @@
     <h4 id="s5-6-1">5.6.1　CMMC 2.0 的 2026 年變局</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>事件</th><th>日期</th><th>等級</th></tr></thead>
+        <thead><tr><th scope="col">事件</th><th scope="col">日期</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr><td><strong>32 CFR Part 170「CMMC Program」最終規則</strong>刊登</td><td>2024-10-15</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td>生效日</td><td><strong>2024-12-16</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
@@ -1112,7 +1115,7 @@
     <h4 id="s5-6-2">5.6.2　CMMC 等級與 Rev 2 / Rev 3 的關鍵區別</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>等級</th><th>要求</th><th>評鑑方式</th></tr></thead>
+        <thead><tr><th scope="col">等級</th><th scope="col">要求</th><th scope="col">評鑑方式</th></tr></thead>
         <tbody>
           <tr><td><strong>Level 1</strong></td><td><strong>FAR 52.204-21</strong> 之 <strong>15 項</strong>要求，保護 <strong>FCI</strong></td><td>年度自評，<strong>不得有例外或 POA&amp;M</strong></td></tr>
           <tr><td><strong>Level 2</strong></td><td><strong>NIST SP 800-171 Rev 2</strong>（2020-02 版含 2021-01-28 更新）<strong>110 項</strong>，保護 <strong>CUI</strong></td><td>自評 或 <strong>C3PAO</strong> 第三方</td></tr>
@@ -1141,7 +1144,7 @@
     <h4 id="s5-6-4">5.6.4　ITAR / EAR：技術資料的地理與國籍圍籬</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>項目</th><th>內容</th><th>等級</th></tr></thead>
+        <thead><tr><th scope="col">項目</th><th scope="col">內容</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr><td><strong>ITAR</strong></td><td>22 CFR Parts 120–130；管制 <strong>USML</strong> 國防物品與 <strong>technical data</strong>；製造／出口者須向 <strong>DDTC 註冊（Part 122）</strong>；「出口」包含<strong>向外國人釋出技術資料（含美國境內釋出）</strong>；22 CFR 120.54(a)(5) 提供<strong>端對端加密</strong>之安全港</td><td><span class="ev ev-unverified">尚未證實</span> 條號依公知，出版前請以 eCFR 覆核</td></tr>
           <tr><td><strong>EAR</strong></td><td><strong>15 CFR Parts 730–774</strong>；CCL 於 Supplement No. 1 to Part 774（ECCN）；Commerce Country Chart 於 Supplement No. 1 to Part 738；Country Groups 於 Supplement No. 1 to Part 740</td><td><span class="ev ev-verified">已證實</span> CFR 部號與 Supplement 位置</td></tr>
@@ -1159,7 +1162,7 @@
     <h4 id="s5-7-1">5.7.1　資通安全管理法</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>項目</th><th>內容</th><th>等級</th></tr></thead>
+        <thead><tr><th scope="col">項目</th><th scope="col">內容</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr><td>現行法</td><td>2018-06-06 公布，2019-01-01 施行</td><td>公知</td></tr>
           <tr><td>修正草案</td><td>行政院 2024-07-04 通過送立法院</td><td><span class="ev ev-verified">已證實</span></td></tr>
@@ -1177,7 +1180,7 @@
     <h4 id="s5-7-2">5.7.2　個人資料保護法與個資會</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>項目</th><th>內容</th><th>等級</th></tr></thead>
+        <thead><tr><th scope="col">項目</th><th scope="col">內容</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr><td>2023 修法</td><td>非公務機關個資外洩最高罰 <strong>1,500 萬元</strong>；增訂第 1-1 條個資會設立依據</td><td><span class="ev ev-third">第三方評論</span></td></tr>
           <tr><td><strong>2025 修法</strong></td><td><strong>2025-10-17 立法院三讀</strong></td><td><span class="ev ev-third">第三方評論</span></td></tr>
@@ -1197,7 +1200,7 @@
     <p><strong>資安人力分級</strong><span class="ev ev-verified">已證實</span>（金管會 2023-03-09 新聞稿）</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>級別</th><th>家數</th><th>定義</th><th>應設置</th><th>期限</th></tr></thead>
+        <thead><tr><th scope="col">級別</th><th scope="col">家數</th><th scope="col">定義</th><th scope="col">應設置</th><th scope="col">期限</th></tr></thead>
         <tbody>
           <tr><td><strong>第一級</strong></td><td><strong>115 家</strong></td><td>實收資本額 ≥ NT$100 億、或臺灣 50 成分股、或主營電子商務仲介</td><td><strong>資訊安全長 ＋ 資安專責主管 ＋ 資安專責人員 ≥2 人</strong></td><td>2022 年底</td></tr>
           <tr><td><strong>第二級</strong></td><td><strong>1,387 家</strong></td><td>上述以外之上市櫃公司（排除連續虧損或每股淨值低於面額者）</td><td><strong>資安專責主管 1 人 ＋ 資安專責人員 ≥1 人</strong></td><td>2023 年底</td></tr>
@@ -1210,7 +1213,7 @@
     <p><strong>公司治理評鑑指標 2.24（第 12 屆／114 年）</strong><span class="ev ev-verified">已證實</span></p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>要件</th><th>內容</th><th>計分</th></tr></thead>
+        <thead><tr><th scope="col">要件</th><th scope="col">內容</th><th scope="col">計分</th></tr></thead>
         <tbody>
           <tr><td>要件 1</td><td>建置<strong>風險管理架構</strong>：設資安專責單位、指派資安長、設資安委員會、定期檢視政策、<strong>定期向董事會報告</strong></td><td>三要件須全數符合方得基本分</td></tr>
           <tr><td>要件 2</td><td>訂定並揭露資安政策與具體管理方案</td><td>同上</td></tr>
@@ -1245,7 +1248,7 @@
     <h4 id="s5-7-5">5.7.5　營業秘密法與國家核心關鍵技術</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>項目</th><th>內容</th><th>等級</th></tr></thead>
+        <thead><tr><th scope="col">項目</th><th scope="col">內容</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr><td>國家安全法第 3 條</td><td>2022 年修法增訂<strong>經濟間諜罪</strong>，侵害「國家核心關鍵技術之營業秘密」者加重處罰；並增訂域外使用之處罰</td><td><span class="ev ev-third">第三方評論</span></td></tr>
           <tr><td>首批清單</td><td><strong>2023-12-05</strong> 國科會公告 <strong>22 項</strong>（含 14 奈米以下製程、後量子密碼等）</td><td><span class="ev ev-third">第三方評論</span></td></tr>
@@ -1264,7 +1267,7 @@
     <h4 id="s5-8-1">5.8.1　TISAX / VDA ISA —— 版本制度已於 2026 年改變</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>項目</th><th>內容</th><th>等級</th></tr></thead>
+        <thead><tr><th scope="col">項目</th><th scope="col">內容</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr><td>2026 年現行版本</td><td><strong>VDA ISA 6.0.3</strong></td><td><span class="ev ev-third">第三方評論</span></td></tr>
           <tr><td><strong>新版 VDA ISA 2027</strong></td><td><strong>2026 年年中發布</strong>（ENX 於 TISAX 十週年公布）</td><td><span class="ev ev-verified">已證實</span> 存在性</td></tr>
@@ -1283,7 +1286,7 @@
     <h4 id="s5-8-2">5.8.2　RBA —— 一項必須澄清的常見誤解</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>項目</th><th>內容</th><th>等級</th></tr></thead>
+        <thead><tr><th scope="col">項目</th><th scope="col">內容</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr><td><strong>RBA Code of Conduct 8.0</strong></td><td><strong>2024-01-01 生效</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td><strong>RBA VAP Standard 8.0.2</strong></td><td>2025 年 4 月版</td><td><span class="ev ev-third">第三方評論</span></td></tr>
@@ -1308,7 +1311,7 @@
     <p><span class="ev ev-verified">已證實</span>（SEMI 官方頁）</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>標準</th><th>全名</th><th>發布</th><th>範圍</th></tr></thead>
+        <thead><tr><th scope="col">標準</th><th scope="col">全名</th><th scope="col">發布</th><th scope="col">範圍</th></tr></thead>
         <tbody>
           <tr><td><strong>SEMI E187</strong></td><td>Specification for Cybersecurity of Fab Equipment</td><td><strong>2022-01</strong></td><td>Fab 設備 by-design 資安基線：<strong>OS 支援、網路安全、端點防護、資安監控</strong></td></tr>
           <tr><td><strong>SEMI E188</strong></td><td>Specification for Malware Free Equipment Integration</td><td><strong>2022-02</strong></td><td>設備交付與支援期間之防惡意程式：網路存取控制、安裝、升級、還原程序</td></tr>
@@ -1323,7 +1326,7 @@
     <p>這是本手冊在客戶合規章節最重要的一張表——它區分了「可查證的義務框架」與「不可公開的技術要求細節」。</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>客戶</th><th>公開資安要求文件</th><th>可公開查證程度</th><th>等級</th></tr></thead>
+        <thead><tr><th scope="col">客戶</th><th scope="col">公開資安要求文件</th><th scope="col">可公開查證程度</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr><td><strong>Microsoft</strong></td><td><strong>SSPA ＋ DPR v12（FY26）</strong>：全文公開、多語版（含簡體中文）、獨立評鑑報告範本公開</td><td><strong>高</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td><strong>Apple</strong></td><td><strong>Supplier Code of Conduct v5（2025-11-11 生效）§6.5–6.8</strong>：框架公開；<strong>§6.6 Information Security 採併入引用（incorporation by reference）指向「Apple's Information Security and Data Privacy requirements」，該技術要求文件不公開</strong></td><td><strong>中</strong></td><td>框架 <span class="ev ev-verified">已證實</span>／內容 <span class="ev ev-unverified">尚未證實</span></td></tr>
@@ -1337,7 +1340,7 @@
     <p><strong>Microsoft SSPA/DPR 的細節</strong>（唯一可完整公開引用的 hyperscaler 範例）<span class="ev ev-verified">已證實</span>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>項目</th><th>內容</th></tr></thead>
+        <thead><tr><th scope="col">項目</th><th scope="col">內容</th></tr></thead>
         <tbody>
           <tr><td>核心文件</td><td>Microsoft Supplier Data Protection Requirements (DPR)</td></tr>
           <tr><td><strong>現行版本</strong></td><td><strong>Version 12（FY26）</strong></td></tr>
@@ -1364,7 +1367,7 @@
     <p><span class="ev ev-verified">已證實</span>（SEC 2023-07-26 新聞稿）</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>項目</th><th>內容</th></tr></thead>
+        <thead><tr><th scope="col">項目</th><th scope="col">內容</th></tr></thead>
         <tbody>
           <tr><td><strong>Form 8-K Item 1.05</strong></td><td>判定<strong>重大（material）</strong>之資安事件後 <strong>4 個營業日</strong>內揭露</td></tr>
           <tr><td><strong>Regulation S-K Item 106</strong></td><td>年度（10-K）揭露資安風險管理流程、策略與治理（含董事會監督）</td></tr>
@@ -1380,7 +1383,7 @@
     <h4 id="s5-9-2">5.9.2　全球通報時限總覽</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>時限</th><th>來源</th><th>觸發條件</th></tr></thead>
+        <thead><tr><th scope="col">時限</th><th scope="col">來源</th><th scope="col">觸發條件</th></tr></thead>
         <tbody>
           <tr><td><strong>2 小時</strong></td><td><strong>TWSE 重大訊息</strong></td><td>回應媒體報導之資安事件</td></tr>
           <tr><td><strong>24 小時</strong></td><td><strong>EU CRA Art. 14</strong></td><td>遭實際利用之漏洞／嚴重事故之早期預警</td></tr>
@@ -1413,7 +1416,7 @@
     <h3 id="s5-10">5.10 AEO 與 CTPAT</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>制度</th><th>資安相關內容</th><th>等級</th></tr></thead>
+        <thead><tr><th scope="col">制度</th><th scope="col">資安相關內容</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr><td><strong>EU AEO</strong></td><td>法源 UCC Regulation (EU) 952/2013 <strong>Art. 38–39</strong> ＋ Implementing Regulation (EU) 2015/2447；類型 AEOC／<strong>AEOS</strong>／併用；準則含 <strong>Art. 39(e) 適當之安全與保安標準</strong>；<strong>AEO Guidelines 明訂 IT 安全措施要求</strong>（存取控制、備份、災難復原、資料完整性、實體機房安全）</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td><strong>US CTPAT</strong></td><td>Minimum Security Criteria（MSC），2019 公布、2020-03 起分階段實施；<strong>「Cybersecurity」為獨立 criteria 類別</strong>，要求含書面資安政策與程序、定期資安訓練、密碼複雜度／雙因素驗證、資料備份與<strong>異地保存</strong>、系統定期測試、硬體與可攜式媒體管控、個人裝置使用限制、離職人員存取撤銷</td><td>🚩 <span class="ev ev-unverified">尚未證實</span> CBP 網站回傳 403，出版前務必自 CBP 下載最新 MSC PDF 逐條核對</td></tr>
@@ -1428,7 +1431,7 @@
     <p>完整版見附錄 B。以下為 ODM 集團最須優先處理的十項：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>順位</th><th>法規／標準</th><th>關鍵日期</th><th>核心義務</th><th>本集團行動</th></tr></thead>
+        <thead><tr><th scope="col">順位</th><th scope="col">法規／標準</th><th scope="col">關鍵日期</th><th scope="col">核心義務</th><th scope="col">本集團行動</th></tr></thead>
         <tbody>
           <tr><td>1</td><td><strong>EU CRA Art. 14</strong></td><td><strong>2026-09-11</strong></td><td>24h/72h/14d 通報至 CSIRT+ENISA</td><td>立即完成 EU Login 註冊、備援通報流程</td></tr>
           <tr><td>2</td><td><strong>TWSE 重大訊息</strong></td><td>現行</td><td><strong>回應媒體 2 小時內</strong></td><td>預擬重訊範本與發言授權鏈</td></tr>
@@ -1478,7 +1481,7 @@
     <h3 id="s6-2">6.2 中國法規現況（2026-08-30 查證）</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>法規</th><th>通過／發布</th><th>生效</th><th>等級</th></tr></thead>
+        <thead><tr><th scope="col">法規</th><th scope="col">通過／發布</th><th scope="col">生效</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr><td><strong>網路安全法（CSL）</strong></td><td>2016-11-07</td><td>2017-06-01</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td><strong>CSL 2025 修正</strong></td><td><strong>2025-10-28</strong> 全國人大常委會通過</td><td><strong>2026-01-01（已生效）</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
@@ -1495,7 +1498,7 @@
     <p><span class="ev ev-verified">已證實</span></p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>情形</th><th>修正前</th><th>修正後</th></tr></thead>
+        <thead><tr><th scope="col">情形</th><th scope="col">修正前</th><th scope="col">修正後</th></tr></thead>
         <tbody>
           <tr><td>首次違規</td><td>警告</td><td>警告 → <strong>RMB 1 萬–5 萬</strong></td></tr>
           <tr><td>拒不改正</td><td>RMB 1 萬–10 萬</td><td><strong>RMB 5 萬–50 萬</strong></td></tr>
@@ -1516,7 +1519,7 @@
     <p><span class="ev ev-verified">已證實</span>（中國司法部官方英譯）</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>條號</th><th>義務</th></tr></thead>
+        <thead><tr><th scope="col">條號</th><th scope="col">義務</th></tr></thead>
         <tbody>
           <tr><td><strong>第 9 條</strong></td><td>加密、備份、存取控制等技術措施</td></tr>
           <tr><td><strong>第 10 條</strong></td><td>安全缺陷通報；<strong>涉及危害國家安全與公共利益者 24 小時內</strong>報告</td></tr>
@@ -1532,7 +1535,7 @@
     <p><span class="ev ev-third">第三方評論</span>（逐條譯本）</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>情形</th><th>機制</th><th>條號</th></tr></thead>
+        <thead><tr><th scope="col">情形</th><th scope="col">機制</th><th scope="col">條號</th></tr></thead>
         <tbody>
           <tr><td>不含個資與重要資料</td><td><strong>豁免</strong></td><td>第 3 條</td></tr>
           <tr><td>境外來源個資於中國境內處理後回傳（未引入境內資料）</td><td><strong>豁免</strong></td><td>第 4 條</td></tr>
@@ -1574,7 +1577,7 @@
     <p><strong>DSL 第 36 條與 PIPL 第 41 條規定：未經中國主管機關批准，不得向境外司法或執法機關提供境內資料。</strong>這與以下三者存在<strong>無法以技術架構化解的直接衝突</strong>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>衝突對象</th><th>衝突情境</th></tr></thead>
+        <thead><tr><th scope="col">衝突對象</th><th scope="col">衝突情境</th></tr></thead>
         <tbody>
           <tr><td><strong>美國 eDiscovery</strong></td><td>美國訴訟中的證據開示要求集團提供中國境內的郵件、文件、日誌</td></tr>
           <tr><td><strong>CMMC / DFARS 稽核</strong></td><td>美國政府或 C3PAO 要求檢視處理 CUI 之系統，若該系統或其備份涉及中國</td></tr>
@@ -1596,7 +1599,7 @@
     <p>以下為本手冊建議的架構決策清單。每一項都需要明確的「<strong>隔離 / 受控連通 / 共用</strong>」三選一決定，並記錄理由。</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>#</th><th>決策點</th><th>選項</th><th>本手冊建議</th><th>理由</th></tr></thead>
+        <thead><tr><th scope="col">#</th><th scope="col">決策點</th><th scope="col">選項</th><th scope="col">本手冊建議</th><th scope="col">理由</th></tr></thead>
         <tbody>
           <tr>
             <td>1</td><td><strong>身分（IdP）</strong></td>
@@ -1643,7 +1646,7 @@
     <p><strong>本手冊建議的解方框架：治理層可視性與技術層隔離分離設計。</strong></p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>層次</th><th>中國區</th><th>集團總部</th><th>說明</th></tr></thead>
+        <thead><tr><th scope="col">層次</th><th scope="col">中國區</th><th scope="col">集團總部</th><th scope="col">說明</th></tr></thead>
         <tbody>
           <tr><td><strong>技術層</strong></td><td>獨立 IdP、境內資料庫、境內 SIEM、受控閘道</td><td>無直接存取</td><td>隔離</td></tr>
           <tr><td><strong>指標層</strong></td><td>產生標準化的資安指標</td><td><strong>接收匯總指標</strong></td><td>指標定義由總部制定、數值由中國區產生：修補時效、告警處理時效、教育訓練完成率、高風險弱點數、事件數與分級</td></tr>

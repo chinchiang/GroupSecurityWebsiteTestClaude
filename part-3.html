@@ -4,14 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'self'; form-action 'none'; object-src 'none'">
 <title>第 III 部・分層設計 | 資安防護網設計手冊</title>
 <meta name="description" content="第 11–23 章：L0 治理至 L9 產品安全的十層設計，加上供應鏈、韌性、人員與 AI 治理三個橫切面；每層含必備控制、分區差異、選型與失敗模式。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
+<a class="skip-link" href="#main">跳到主要內容</a>
 
 <header class="site-header">
   <div class="nav-wrap">
@@ -19,8 +22,8 @@
       <span class="mark">🛡</span>
       <span>資安防護網設計手冊<small>GSMD-RPT-2026-0830-01</small></span>
     </a>
-    <button class="nav-toggle" aria-expanded="false" aria-label="開啟選單">選單 ☰</button>
-    <nav class="site-nav">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="開啟選單">選單 ☰</button>
+    <nav class="site-nav" id="site-nav" aria-label="主要導覽">
       <a href="index.html">首頁</a>
       <a href="methodology.html">方法論</a>
       <a href="part-1.html">第 I 部・背景</a>
@@ -40,7 +43,7 @@
   </div>
 </section>
 
-<main class="container">
+<main class="container" id="main" tabindex="-1">
 
   <section class="section" id="toc">
     <div class="section-head">
@@ -88,7 +91,7 @@
     <h3 id="s11-2">11.2 政策架構：三層式</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>層級</th><th>文件類型</th><th>核准層級</th><th>變更頻率</th><th>說明</th></tr></thead>
+        <thead><tr><th scope="col">層級</th><th scope="col">文件類型</th><th scope="col">核准層級</th><th scope="col">變更頻率</th><th scope="col">說明</th></tr></thead>
         <tbody>
           <tr><td><strong>第一層：政策（Policy）</strong></td><td>資訊安全政策、資料保護政策、可接受使用政策、AI 使用政策</td><td><strong>董事會或最高管理階層</strong></td><td>年度檢視</td><td>陳述「必須做到什麼」，不含技術細節；全集團一致</td></tr>
           <tr><td><strong>第二層：標準（Standard）</strong></td><td>密碼標準、加密標準、日誌標準、網路分區標準、供應商資安標準</td><td>資安長</td><td>年度或重大變更時</td><td>陳述「達到什麼具體門檻」；全集團一致，但可有分區附錄</td></tr>
@@ -119,7 +122,7 @@
     <h4>董事會報告的建議內容架構（每次 6–8 頁）</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>段</th><th>內容</th><th>為什麼</th></tr></thead>
+        <thead><tr><th scope="col">段</th><th scope="col">內容</th><th scope="col">為什麼</th></tr></thead>
         <tbody>
           <tr><td>1</td><td><strong>本期重大事件與處理結果</strong>（含未達重訊門檻者）</td><td>董事會需要知道實際發生了什麼</td></tr>
           <tr><td>2</td><td><strong>威脅情勢變化</strong>（同業事件、針對本產業的新威脅）</td><td>提供風險判斷的外部脈絡</td></tr>
@@ -142,7 +145,7 @@
     <p><strong>本手冊建議的功能切分</strong>（依 <strong>C2M2 v2.1 的 10 個 domain</strong> 為權威依據，這是本次查證找到最權威可引用的資安功能切分框架）<span class="ev ev-verified">已證實</span>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>C2M2 Domain</th><th>建議對應組織功能</th></tr></thead>
+        <thead><tr><th scope="col">C2M2 Domain</th><th scope="col">建議對應組織功能</th></tr></thead>
         <tbody>
           <tr><td>Cybersecurity Program Management</td><td>資安治理辦公室 / GRC</td></tr>
           <tr><td>Risk Management</td><td>GRC</td></tr>
@@ -166,7 +169,7 @@
     <p><strong>正確做法</strong>：建立<strong>單一控制項庫（unified control set）</strong>，每個控制項標註其滿足的所有外部要求。範例：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>控制項 ID</th><th>控制項</th><th>ISO 27001:2022</th><th>CIS v8.1</th><th>CSF 2.0</th><th>NIS2 Art.21</th><th>CRA Annex I</th><th>CMMC L2</th></tr></thead>
+        <thead><tr><th scope="col">控制項 ID</th><th scope="col">控制項</th><th scope="col">ISO 27001:2022</th><th scope="col">CIS v8.1</th><th scope="col">CSF 2.0</th><th scope="col">NIS2 Art.21</th><th scope="col">CRA Annex I</th><th scope="col">CMMC L2</th></tr></thead>
         <tbody>
           <tr><td>IAM-04</td><td>所有遠端存取須使用防釣魚 MFA</td><td>A.5.17, A.8.5</td><td>6.3, 6.4, 6.5</td><td>PR.AA-03</td><td>(j)</td><td>—</td><td>IA.L2-3.5.3</td></tr>
           <tr><td>VUL-02</td><td>KEV 收錄漏洞於 24 小時內修補或隔離</td><td>A.8.8</td><td>7.3, 7.4</td><td>ID.RA-01, PR.PS-02</td><td>(e)</td><td>Part II §2</td><td>RA.L2-3.11.2</td></tr>
@@ -179,7 +182,7 @@
     <h3 id="s11-7">11.7 常見失敗模式</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>失敗模式</th><th>症狀</th><th>對策</th></tr></thead>
+        <thead><tr><th scope="col">失敗模式</th><th scope="col">症狀</th><th scope="col">對策</th></tr></thead>
         <tbody>
           <tr><td><strong>政策與實作脫節</strong></td><td>政策寫「所有系統須啟用 MFA」，實際上 30% 系統沒有</td><td>每條政策條款必須有對應的<strong>可自動化查核</strong>或明確的例外紀錄</td></tr>
           <tr><td><strong>例外管理失控</strong></td><td>例外核准後沒有到期日，累積數百筆</td><td>例外必須有到期日（建議 ≤6 個月）、補償控制、風險承擔者簽名</td></tr>
@@ -226,7 +229,7 @@
     <h4 id="s12-2-1">12.2.1　人類身分</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>控制</th><th>要求</th><th>理由</th></tr></thead>
+        <thead><tr><th scope="col">控制</th><th scope="col">要求</th><th scope="col">理由</th></tr></thead>
         <tbody>
           <tr><td><strong>防釣魚 MFA</strong></td><td>全體員工、全部應用；<strong>FIDO2/passkey 或憑證式</strong>優先，簡訊 OTP 僅作降級</td><td>AitM 框架（UNK_SparkyCarp 自製）可繞過 OTP <span class="ev ev-vendor">廠商主張</span></td></tr>
           <tr><td><strong>條件式存取（Conditional Access）</strong></td><td>依裝置合規狀態、位置、風險分數決定存取</td><td>零信任核心（NIST SP 800-207）</td></tr>
@@ -244,7 +247,7 @@
     <p><strong>OWASP Non-Human Identities Top 10 (2025)</strong> <span class="ev ev-verified">已證實 — 清單，發布日期未載明</span>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>#</th><th>風險</th></tr></thead>
+        <thead><tr><th scope="col">#</th><th scope="col">風險</th></tr></thead>
         <tbody>
           <tr><td>NHI1</td><td>Improper Offboarding</td></tr>
           <tr><td>NHI2</td><td>Secret Leakage</td></tr>
@@ -262,7 +265,7 @@
     <p><strong>必備控制</strong>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>控制</th><th>要求</th></tr></thead>
+        <thead><tr><th scope="col">控制</th><th scope="col">要求</th></tr></thead>
         <tbody>
           <tr><td>NHI 清冊</td><td>每一個服務帳號、API 金鑰、憑證、機器人帳號都有：<strong>擁有者、用途、權限範圍、輪換週期、下線程序</strong></td></tr>
           <tr><td><strong>禁止長期有效金鑰</strong></td><td>一律改用短期憑證或 workload identity federation（如 OIDC federation to cloud）</td></tr>
@@ -280,7 +283,7 @@
     <p>依原則七，身分屬性須包含：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>屬性</th><th>用途</th><th>注意事項</th></tr></thead>
+        <thead><tr><th scope="col">屬性</th><th scope="col">用途</th><th scope="col">注意事項</th></tr></thead>
         <tbody>
           <tr><td>部門、職級</td><td>基本 RBAC</td><td>—</td></tr>
           <tr><td><strong>專案代號清單</strong></td><td>Z3 客戶專案區的存取判定</td><td>專案結案後自動撤銷</td></tr>
@@ -298,7 +301,7 @@
     <h3 id="s12-3">12.3 分區差異</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>分區</th><th>身分層差異</th></tr></thead>
+        <thead><tr><th scope="col">分區</th><th scope="col">身分層差異</th></tr></thead>
         <tbody>
           <tr><td><strong>Z1 全球</strong></td><td>全球 IdP、統一 PAM、防釣魚 MFA</td></tr>
           <tr><td><strong>Z2 中國</strong></td><td><strong>獨立 IdP 租戶</strong>（避免全球目錄無差別複寫中國員工個資）；獨立 PAM 實例；MFA 方案須考量中國境內可用性（部分國際 MFA 服務在中國不穩定）</td></tr>
@@ -313,7 +316,7 @@
     <p><strong>必須先知道的市場結構事實</strong> <span class="ev ev-verified">已證實</span>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>市場</th><th>有無 Magic Quadrant</th><th>最新報告</th></tr></thead>
+        <thead><tr><th scope="col">市場</th><th scope="col">有無 Magic Quadrant</th><th scope="col">最新報告</th></tr></thead>
         <tbody>
           <tr><td>Access Management</td><td><strong>有 MQ</strong></td><td><strong>2025-11-11</strong>，分析師 Brian Guthrie 等，13 家／15 項準則</td></tr>
           <tr><td>Privileged Access Management</td><td><strong>有 MQ</strong></td><td><strong>2025-10-13</strong>，分析師 Abhyuday Data 等，12 家</td></tr>
@@ -324,7 +327,7 @@
     </div>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>產品</th><th>廠商</th><th>獨立評測</th><th>已知限制</th><th>等級</th></tr></thead>
+        <thead><tr><th scope="col">產品</th><th scope="col">廠商</th><th scope="col">獨立評測</th><th scope="col">已知限制</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr><td>Microsoft Entra ID</td><td>Microsoft</td><td>Leader, AM MQ 2025-11-11</td><td>與 Azure 深度綁定</td><td><span class="ev ev-third">第三方評論</span></td></tr>
           <tr><td>Okta Workforce Identity Cloud</td><td>Okta</td><td>Leader（連 9 年）, 2025-11-11</td><td>完整 Cautions 未取得</td><td><span class="ev ev-vendor">廠商主張＋第三方標題佐證</span></td></tr>
@@ -347,7 +350,7 @@
     <h3 id="s12-5">12.5 常見失敗模式</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>失敗模式</th><th>症狀</th><th>對策</th></tr></thead>
+        <thead><tr><th scope="col">失敗模式</th><th scope="col">症狀</th><th scope="col">對策</th></tr></thead>
         <tbody>
           <tr><td>MFA 覆蓋率不完整</td><td>「我們有 MFA」但 legacy 應用與服務帳號沒有</td><td>以<strong>應用清單</strong>而非「有沒有導入」衡量覆蓋率；legacy 應用置於 ZTNA 之後</td></tr>
           <tr><td>PAM 導入後仍有旁路</td><td>直接 RDP 到伺服器仍可行</td><td>網路層強制：只允許 PAM 來源 IP 連線至管理埠</td></tr>
@@ -394,7 +397,7 @@
     <h3 id="s13-2">13.2 必備控制清單</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>控制</th><th>要求</th><th>理由</th></tr></thead>
+        <thead><tr><th scope="col">控制</th><th scope="col">要求</th><th scope="col">理由</th></tr></thead>
         <tbody>
           <tr><td><strong>對外資產清冊與 EASM</strong></td><td>持續發現所有對外暴露的服務、IP、網域、憑證</td><td>X-Force 2026：製造業初始入侵 32% 為對外應用漏洞 <span class="ev ev-vendor">廠商主張</span></td></tr>
           <tr><td><strong>邊界裝置緊急修補 SLA</strong></td><td>KEV 且標記 known ransomware use：<strong>24 小時</strong>內修補或隔離</td><td>CISA ED 25-03 要求 48 小時內套用 Cisco 更新 <span class="ev ev-verified">已證實</span></td></tr>
@@ -412,7 +415,7 @@
     <h3 id="s13-3">13.3 分區差異</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>分區</th><th>網路層差異</th></tr></thead>
+        <thead><tr><th scope="col">分區</th><th scope="col">網路層差異</th></tr></thead>
         <tbody>
           <tr><td><strong>Z1 全球</strong></td><td>單一 SASE/SSE 平台為佳；微分段以身分與工作負載標籤驅動</td></tr>
           <tr><td><strong>Z2 中國</strong></td><td><strong>境內 SASE 或本地方案</strong>（多數國際 SASE 在中國有 PoP 與合規限制）；<strong>對 Z1 僅經受控閘道</strong>；閘道須可稽核、可阻斷</td></tr>
@@ -427,7 +430,7 @@
     <p><strong>必須先知道的市場結構事實</strong>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>市場</th><th>報告</th><th>日期</th><th>等級</th></tr></thead>
+        <thead><tr><th scope="col">市場</th><th scope="col">報告</th><th scope="col">日期</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr><td><strong>SASE Platforms</strong></td><td>Gartner MQ</td><td><strong>2025-07-09</strong>（2026 版 <strong>2026-07-28</strong>）</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td><strong>Security Service Edge</strong></td><td>Gartner MQ</td><td><strong>2026-07-29</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
@@ -461,7 +464,7 @@
     <h4>廠商已知限制（Gartner Cautions 摘要）<span class="ev ev-third">第三方評論</span></h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>產品</th><th>已知限制</th></tr></thead>
+        <thead><tr><th scope="col">產品</th><th scope="col">已知限制</th></tr></thead>
         <tbody>
           <tr><td>Cato SASE Cloud</td><td>定價較高且不透明；<strong>缺乏地端 IPS/過濾</strong>；資料主權支援有限</td></tr>
           <tr><td>FortiSASE</td><td>客戶體驗低於平均；<strong>ZTNA 缺 broker connector proxy</strong>；雙層 PoP 造成混淆。HMF 中被指產品漏洞疑慮與路線圖能見度不足</td></tr>
@@ -481,7 +484,7 @@
     <h3 id="s13-5">13.5 常見失敗模式</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>失敗模式</th><th>症狀</th><th>對策</th></tr></thead>
+        <thead><tr><th scope="col">失敗模式</th><th scope="col">症狀</th><th scope="col">對策</th></tr></thead>
         <tbody>
           <tr><td><strong>對外資產清冊不完整</strong></td><td>收購來的子公司網段、測試環境、遺忘的 DNS 記錄暴露在外</td><td>EASM 持續發現；每季比對 CMDB 與 EASM 結果的差異</td></tr>
           <tr><td>防火牆規則熵增</td><td>數千條規則，無人知道哪些可刪</td><td>規則須有擁有者、業務理由、到期日；每年清理</td></tr>
@@ -521,7 +524,7 @@
     <p>端點層在 ODM 有三類差異極大的資產：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>類型</th><th>特性</th><th>挑戰</th></tr></thead>
+        <thead><tr><th scope="col">類型</th><th scope="col">特性</th><th scope="col">挑戰</th></tr></thead>
         <tbody>
           <tr><td><strong>一般 OA 端點</strong></td><td>Windows/macOS 筆電、桌機</td><td>數量大（數萬台）、跨法域</td></tr>
           <tr><td><strong>工程工作站</strong></td><td>高規格、跑 EDA/CAD/模擬</td><td>效能敏感、使用者權限高、常有例外需求</td></tr>
@@ -536,7 +539,7 @@
     <h3 id="s14-2">14.2 必備控制清單</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>控制</th><th>OA 端點</th><th>工程工作站</th><th>產線/設備電腦</th></tr></thead>
+        <thead><tr><th scope="col">控制</th><th scope="col">OA 端點</th><th scope="col">工程工作站</th><th scope="col">產線/設備電腦</th></tr></thead>
         <tbody>
           <tr><td><strong>EDR/XDR</strong></td><td>必備、全面</td><td>必備（須驗證效能影響）</td><td>僅在支援的 OS 上部署；供應商核可；<strong>離線更新</strong></td></tr>
           <tr><td><strong>修補管理</strong></td><td>月度週期 + 緊急</td><td>月度週期</td><td><strong>依廠商核可的版本</strong>；無法修補者以網路隔離補償</td></tr>
@@ -555,7 +558,7 @@
     <p><strong>本手冊建議的設備入網 SOP</strong>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>階段</th><th>動作</th><th>負責</th></tr></thead>
+        <thead><tr><th scope="col">階段</th><th scope="col">動作</th><th scope="col">負責</th></tr></thead>
         <tbody>
           <tr><td>1. 採購階段</td><td>合約載明 <strong>SEMI E187/E188/E191</strong> 要求（或等效條款）；要求供應商提供 OS 版本、修補狀態、資安功能清單</td><td>採購 + 資安</td></tr>
           <tr><td>2. 到貨</td><td>進入 <strong>quarantine VLAN</strong>（無法連生產網、無法連網際網路）</td><td>廠務 IT</td></tr>
@@ -574,7 +577,7 @@
     <p><strong>必須先知道的事實</strong>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>項目</th><th>現況</th><th>等級</th></tr></thead>
+        <thead><tr><th scope="col">項目</th><th scope="col">現況</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr><td>Gartner MQ for Endpoint Protection Platforms</td><td><strong>2026-05-26</strong>（2025 版為 2025-07 中）</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td><strong>MITRE ATT&amp;CK Evaluations 最新已公布輪次</strong></td><td><strong>Enterprise Round 7（ER7），2025-12-10</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
@@ -591,7 +594,7 @@
     <h4>ATT&amp;CK Evaluations 的獨立批評 —— 選型時必讀 <span class="ev ev-third">第三方評論</span></h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>批評</th><th>出處</th><th>日期</th></tr></thead>
+        <thead><tr><th scope="col">批評</th><th scope="col">出處</th><th scope="col">日期</th></tr></thead>
         <tbody>
           <tr><td><strong>Microsoft（6/13）、SentinelOne 與 Palo Alto Networks（9/12）退出 2025 年評測</strong>，均以「資源配置／專注產品創新」為由</td><td>Infosecurity Magazine</td><td>2025-09-22</td></tr>
           <tr><td>MITRE 自承 2025 年題目難度「有時沒抓好平衡」（Charles Clancy）</td><td>同上</td><td>同上</td></tr>
@@ -607,7 +610,7 @@
     <h4>產品比較</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>產品</th><th>廠商</th><th>獨立評測</th><th>已知限制</th><th>等級</th></tr></thead>
+        <thead><tr><th scope="col">產品</th><th scope="col">廠商</th><th scope="col">獨立評測</th><th scope="col">已知限制</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr><td>Falcon</td><td>CrowdStrike</td><td>EPP MQ Leader（2025、2026-05-26）；<strong>參與 ER7</strong>；Forrester XDR Wave Q2 2026 Leader</td><td>2024-07 內容更新事故導致約 850 萬台 Windows 藍屏</td><td>評測 <span class="ev ev-third">第三方評論</span>／事故公知</td></tr>
           <tr><td>Singularity</td><td>SentinelOne</td><td>EPP MQ Leader 連 6 年（2026-05-26）</td><td><strong>退出 2025 MITRE 評測</strong> → 缺最新第三方對抗式驗證</td><td><span class="ev ev-third">第三方評論</span></td></tr>
@@ -624,7 +627,7 @@
     <p>許多 ODM 集團因併購與歷史因素，同時存在多套 EDR/XDR（例如 Microsoft Defender for Endpoint、SentinelOne、Bitdefender、CrowdStrike、TrendMicro 五家並存）。這造成：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>問題</th><th>影響</th></tr></thead>
+        <thead><tr><th scope="col">問題</th><th scope="col">影響</th></tr></thead>
         <tbody>
           <tr><td>遙測格式不一</td><td>SIEM 需維護五套 parser 與五套偵測規則</td></tr>
           <tr><td>覆蓋盲區</td><td>無法回答「全集團有多少端點未受保護」</td></tr>
@@ -648,7 +651,7 @@
     <h3 id="s14-6">14.6 常見失敗模式</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>失敗模式</th><th>症狀</th><th>對策</th></tr></thead>
+        <thead><tr><th scope="col">失敗模式</th><th scope="col">症狀</th><th scope="col">對策</th></tr></thead>
         <tbody>
           <tr><td>覆蓋率是估計值</td><td>「大概 95%」但說不出分母</td><td>以 CMDB/AD 為分母的精確報表</td></tr>
           <tr><td>產線電腦被排除在資安之外</td><td>「那是廠務的，我們不管」</td><td>明確納入 ISMS 範圍，以差異化控制而非豁免處理</td></tr>
@@ -684,7 +687,7 @@
     <h3 id="s15-1">15.1 本層要解決的問題</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>世界</th><th>內容</th><th>主要風險</th></tr></thead>
+        <thead><tr><th scope="col">世界</th><th scope="col">內容</th><th scope="col">主要風險</th></tr></thead>
         <tbody>
           <tr><td><strong>買來的</strong></td><td>ERP（SAP／Oracle）、PLM（Teamcenter／Windchill／3DEXPERIENCE／Agile）、MES、CRM、M365、Google Workspace、各式 SaaS</td><td>組態錯誤、過度授權、第三方應用整合（OAuth）、供應商本身遭入侵</td></tr>
           <tr><td><strong>自建的</strong></td><td>客戶入口、EDI 介接、內部工具、產線資料平台、AI 應用</td><td>程式碼漏洞、開源元件、Secrets 外洩、CI/CD 供應鏈</td></tr>
@@ -714,7 +717,7 @@
     <h4 id="s15-2-3">15.2.3　必備控制</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>控制</th><th>要求</th></tr></thead>
+        <thead><tr><th scope="col">控制</th><th scope="col">要求</th></tr></thead>
         <tbody>
           <tr><td><strong>CSPM</strong></td><td>持續組態合規檢查；以 CIS Benchmark 或 CSP 自家基準為基線；違規自動告警並可自動修復低風險項</td></tr>
           <tr><td><strong>CWPP</strong></td><td>工作負載執行期保護（VM、容器、serverless）</td></tr>
@@ -730,7 +733,7 @@
     <h4 id="s15-2-4">15.2.4　分區差異</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>分區</th><th>雲端層差異</th></tr></thead>
+        <thead><tr><th scope="col">分區</th><th scope="col">雲端層差異</th></tr></thead>
         <tbody>
           <tr><td>Z1 全球</td><td>Azure ＋ AWS 為主；統一 CNAPP</td></tr>
           <tr><td><strong>Z2 中國</strong></td><td><strong>中國雲（阿里／騰訊／Azure China／AWS 寧夏北京）</strong>；須完成 <strong>MLPS 2.0 定級與公安備案</strong>；國際 CNAPP 產品在中國雲的支援度須實測</td></tr>
@@ -748,7 +751,7 @@
     <p>四大實務群組（業界通用引用，本次未自 PDF 逐字取證）<span class="ev ev-third">第三方評論</span>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>群組</th><th>全名</th></tr></thead>
+        <thead><tr><th scope="col">群組</th><th scope="col">全名</th></tr></thead>
         <tbody>
           <tr><td><strong>PO</strong></td><td>Prepare the Organization</td></tr>
           <tr><td><strong>PS</strong></td><td>Protect the Software</td></tr>
@@ -762,7 +765,7 @@
     <h4 id="s15-3-2">15.3.2　必備控制</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>階段</th><th>控制</th><th>說明</th></tr></thead>
+        <thead><tr><th scope="col">階段</th><th scope="col">控制</th><th scope="col">說明</th></tr></thead>
         <tbody>
           <tr><td><strong>設計</strong></td><td>威脅建模</td><td>高風險應用（對外、處理客戶 IP、處理個資）強制執行</td></tr>
           <tr><td rowspan="2"><strong>編碼</strong></td><td><strong>Secret 掃描</strong></td><td>pre-commit hook ＋ repo 全歷史掃描；<strong>這是 Silk Typhoon 於 GitHub 蒐集外洩企業密碼的直接對策</strong></td></tr>
@@ -806,7 +809,7 @@
     <p><strong>必備控制（不依賴特定產品）</strong>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>控制</th><th>說明</th></tr></thead>
+        <thead><tr><th scope="col">控制</th><th scope="col">說明</th></tr></thead>
         <tbody>
           <tr><td><strong>SaaS 清冊</strong></td><td>所有企業使用的 SaaS，含擁有者、資料分類、合約、DPA、資安評估結果</td></tr>
           <tr><td><strong>影子 IT 發現</strong></td><td>從 SASE/Proxy 日誌與費用報銷發現未經核准的 SaaS</td></tr>
@@ -822,7 +825,7 @@
     <p><strong>必備控制</strong>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>控制</th><th>說明</th></tr></thead>
+        <thead><tr><th scope="col">控制</th><th scope="col">說明</th></tr></thead>
         <tbody>
           <tr><td><strong>API 清冊</strong></td><td>含影子 API 與殭屍 API 的發現</td></tr>
           <tr><td>認證與授權</td><td>每個 API 端點的認證方式與授權模型須文件化</td></tr>
@@ -836,7 +839,7 @@
     <h3 id="s15-6">15.6 常見失敗模式</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>失敗模式</th><th>症狀</th><th>對策</th></tr></thead>
+        <thead><tr><th scope="col">失敗模式</th><th scope="col">症狀</th><th scope="col">對策</th></tr></thead>
         <tbody>
           <tr><td>CSPM 告警未處理</td><td>數千筆告警無人看</td><td>分級：只有「可從網際網路達到 + 高權限」的組合是 P1</td></tr>
           <tr><td>SAST 誤報淹沒開發者</td><td>開發者關閉檢查</td><td>只阻擋高信心高風險項；其餘進入待辦而非阻擋</td></tr>
@@ -881,7 +884,7 @@
     <p>依原則七，ODM 的資料分類不能是單一維度的「機密／內部／公開」。本手冊建議<strong>四維標籤</strong>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>維度</th><th>值</th><th>用途</th></tr></thead>
+        <thead><tr><th scope="col">維度</th><th scope="col">值</th><th scope="col">用途</th></tr></thead>
         <tbody>
           <tr><td><strong>敏感度</strong></td><td>極機密 / 機密 / 內部 / 公開</td><td>加密與存取強度</td></tr>
           <tr><td><strong>所有權</strong></td><td>集團自有 / 客戶所有 / <strong>JDM 共有</strong> / 第三方所有</td><td>決定誰有權授權存取、外洩時通知誰</td></tr>
@@ -903,7 +906,7 @@
     <h3 id="s16-3">16.3 必備控制清單</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>控制</th><th>要求</th><th>理由</th></tr></thead>
+        <thead><tr><th scope="col">控制</th><th scope="col">要求</th><th scope="col">理由</th></tr></thead>
         <tbody>
           <tr><td><strong>資料分類與標記</strong></td><td>四維標籤；PLM/檔案系統/M365 一致</td><td>所有下游控制的基礎</td></tr>
           <tr><td><strong>DSPM</strong></td><td>發現「資料在哪」：非結構化檔案、資料庫、雲端儲存、SaaS</td><td>沒有清冊就無法保護</td></tr>
@@ -921,7 +924,7 @@
     <h3 id="s16-4">16.4 分區差異</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>分區</th><th>資料層差異</th></tr></thead>
+        <thead><tr><th scope="col">分區</th><th scope="col">資料層差異</th></tr></thead>
         <tbody>
           <tr><td><strong>Z1 全球</strong></td><td>統一 DSPM + DLP + 分類</td></tr>
           <tr><td><strong>Z2 中國</strong></td><td><strong>境內資料庫實例</strong>；境內 DLP；資料出境依 CAC 三軌之一並保存合法性文件；<strong>重要資料處理者每年風險評估並報省級主管機關（790 號令第 33 條）</strong> <span class="ev ev-verified">已證實</span></td></tr>
@@ -938,7 +941,7 @@
     </div>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>報告</th><th>日期</th><th>分析師</th></tr></thead>
+        <thead><tr><th scope="col">報告</th><th scope="col">日期</th><th scope="col">分析師</th></tr></thead>
         <tbody>
           <tr><td>Gartner <strong>Market Guide for Data Security Platforms</strong></td><td><strong>2025-03-26</strong></td><td>Joerg Fritsch, Brian Lowans, Andrew Bales</td></tr>
           <tr><td>Gartner <strong>Market Guide for DSPM</strong></td><td>2025 年（月份未確認）</td><td>—</td></tr>
@@ -949,7 +952,7 @@
     </div>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>產品</th><th>廠商</th><th>定位</th><th>注意</th></tr></thead>
+        <thead><tr><th scope="col">產品</th><th scope="col">廠商</th><th scope="col">定位</th><th scope="col">注意</th></tr></thead>
         <tbody>
           <tr><td>Cyera</td><td>Cyera</td><td>Representative Vendor, DSPM Market Guide 2025</td><td>Market Guide 無排名，Gartner 明示不背書</td></tr>
           <tr><td>Varonis Data Security Platform</td><td>Varonis</td><td>Gartner Peer Insights DSPM Customers' Choice（連 3 年）——<strong>客戶評分非分析師評測</strong></td><td>同上</td></tr>
@@ -966,7 +969,7 @@
     <p>DSPM 最常見的失敗是「掃出 500 萬個發現，然後沒人處理」。本手冊建議的順序：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>階段</th><th>範圍</th><th>目標</th><th>週期</th></tr></thead>
+        <thead><tr><th scope="col">階段</th><th scope="col">範圍</th><th scope="col">目標</th><th scope="col">週期</th></tr></thead>
         <tbody>
           <tr><td><strong>1</strong></td><td>僅掃描「對外可達 + 大量檔案」的儲存（公開 S3/Blob、對外檔案分享、SharePoint 外部分享）</td><td>找出<strong>已經在外面</strong>的資料</td><td>4 週</td></tr>
           <tr><td><strong>2</strong></td><td>客戶 IP 集中的儲存（PLM 附件區、專案檔案伺服器）</td><td>建立客戶 IP 的實際分布圖</td><td>8 週</td></tr>
@@ -982,7 +985,7 @@
     <h3 id="s16-7">16.7 常見失敗模式</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>失敗模式</th><th>症狀</th><th>對策</th></tr></thead>
+        <thead><tr><th scope="col">失敗模式</th><th scope="col">症狀</th><th scope="col">對策</th></tr></thead>
         <tbody>
           <tr><td><strong>分類只有政策沒有標記</strong></td><td>政策定義四級，但實際檔案沒有標籤</td><td>以自動分類 + 建立時強制選擇；PLM 與檔案系統的標記欄位必填</td></tr>
           <tr><td>DLP 只在監控模式</td><td>導入兩年仍不敢阻擋</td><td>分階段：先阻擋「極機密 + 外部郵件」等高信心組合，逐步擴大</td></tr>
@@ -1027,7 +1030,7 @@
     <p><strong>全收所有日誌是最常見的預算陷阱。</strong>本手冊建議的優先序（以 ODM 情境調整）：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>優先</th><th>來源</th><th>理由</th></tr></thead>
+        <thead><tr><th scope="col">優先</th><th scope="col">來源</th><th scope="col">理由</th></tr></thead>
         <tbody>
           <tr><td><strong>P1</strong></td><td><strong>EDR/XDR 完整遙測</strong></td><td>端點是攻擊落地點；提供程序、命令列、網路連線的完整脈絡</td></tr>
           <tr><td><strong>P1</strong></td><td><strong>身分：DC/AD 事件、DNS、IdP 登入與權限變更</strong></td><td>憑證濫用 41%（DBIR 2026 製造業）；長期潛伏偵測依賴此</td></tr>
@@ -1051,7 +1054,7 @@
     <p><strong>遙測管線在 ODM 的四個具體價值</strong>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>價值</th><th>說明</th></tr></thead>
+        <thead><tr><th scope="col">價值</th><th scope="col">說明</th></tr></thead>
         <tbody>
           <tr><td><strong>多 EDR 正規化</strong></td><td><a href="#s14-5">§14.5</a> 的多 EDR 並存問題，管線層可將五套遙測正規化為統一格式</td></tr>
           <tr><td><strong>成本控制</strong></td><td>在進 SIEM 前過濾、聚合、降取樣，降低授權費用</td></tr>
@@ -1072,7 +1075,7 @@
     <p><strong>市場事實</strong> <span class="ev ev-verified">已證實</span>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>項目</th><th>現況</th></tr></thead>
+        <thead><tr><th scope="col">項目</th><th scope="col">現況</th></tr></thead>
         <tbody>
           <tr><td>Gartner <strong>MQ for SIEM</strong> 最新版</td><td><strong>2025-10-08</strong>，分析師 Andrew Davies, Eric Ahlm, Angel Berrios, Darren Livingstone</td></tr>
           <tr><td>已個別確認為 Leader 者</td><td><strong>Microsoft、Splunk、Exabeam、Gurucul、Google</strong></td></tr>
@@ -1083,7 +1086,7 @@
     <p><strong>2024 版 MQ 揭露的廠商 Cautions</strong>（2025 版 Cautions 未取得）<span class="ev ev-third">第三方評論</span>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>產品</th><th>Cautions（2024 版）</th></tr></thead>
+        <thead><tr><th scope="col">產品</th><th scope="col">Cautions（2024 版）</th></tr></thead>
         <tbody>
           <tr><td>Microsoft Sentinel</td><td>依賴 Azure 能力、學習曲線陡、法遵報表有限、<strong>僅 SaaS 部署</strong></td></tr>
           <tr><td>Splunk Enterprise Security</td><td><strong>成本高</strong>、複雜需專業人力、北美以外區域銷售支援有限</td></tr>
@@ -1095,7 +1098,7 @@
     <p><strong>SIEM 選型的 ODM 特有考量</strong>（若集團正在進行 SIEM 選型）：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>考量</th><th>說明</th></tr></thead>
+        <thead><tr><th scope="col">考量</th><th scope="col">說明</th></tr></thead>
         <tbody>
           <tr><td><strong>中國資料主權</strong></td><td>是否支援中國境內部署或獨立租戶？跨境資料流是否可控？</td></tr>
           <tr><td><strong>多站點架構</strong></td><td>13 個站點的集中式儀表板與分散式蒐集</td></tr>
@@ -1124,7 +1127,7 @@
     <p><strong>ODM 是否該用 MDR</strong>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>情境</th><th>建議</th></tr></thead>
+        <thead><tr><th scope="col">情境</th><th scope="col">建議</th></tr></thead>
         <tbody>
           <tr><td>SOC 團隊 &lt;5 人、需要 24×7</td><td><strong>強烈建議 MDR</strong> 補足夜間與假日</td></tr>
           <tr><td>有多個時區站點</td><td>MDR 的 follow-the-sun 優於自建</td></tr>
@@ -1147,7 +1150,7 @@
     <p><strong>Gartner Hype Cycle for Security Operations, 2026（2026-06-05）</strong> <span class="ev ev-third">第三方評論</span>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>項目</th><th>現況</th></tr></thead>
+        <thead><tr><th scope="col">項目</th><th scope="col">現況</th></tr></thead>
         <tbody>
           <tr><td>AI SOC Agents 位置</td><td><strong>Peak of Inflated Expectations</strong>（一年內自 Innovation Trigger 上移一階）</td></tr>
           <tr><td>距主流採用</td><td><strong>2–5 年</strong></td></tr>
@@ -1179,7 +1182,7 @@
     <p>召開<strong>單一判定會議</strong>，出席：資安（主持）、法務、IT、投資人關係／公關、業務代表。使用單一判定表單，同時判斷六條路徑：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>#</th><th>判定問題</th><th>若是 → 觸發</th><th>時限</th></tr></thead>
+        <thead><tr><th scope="col">#</th><th scope="col">判定問題</th><th scope="col">若是 → 觸發</th><th scope="col">時限</th></tr></thead>
         <tbody>
           <tr><td>1</td><td>已經或即將被媒體報導？</td><td>TWSE 重訊路徑</td><td><strong>2 小時</strong></td></tr>
           <tr><td>2</td><td>涉及含數位元素產品的漏洞或嚴重事故（歐盟市場）？</td><td>CRA Art.14</td><td><strong>24 小時</strong></td></tr>
@@ -1197,7 +1200,7 @@
     <h4>第二階段（技術應變，與通報並行）</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>時間</th><th>動作</th></tr></thead>
+        <thead><tr><th scope="col">時間</th><th scope="col">動作</th></tr></thead>
         <tbody>
           <tr><td>0–30 分鐘</td><td>圍堵：隔離受影響主機、停用受影響帳號、封鎖 C2</td></tr>
           <tr><td>30–120 分鐘</td><td>影響範圍評估：哪些系統、哪些資料、哪些客戶專案</td></tr>
@@ -1211,7 +1214,7 @@
     <h4>事件分級（建議五級）</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>級別</th><th>定義</th><th>通報層級</th><th>回應時限</th></tr></thead>
+        <thead><tr><th scope="col">級別</th><th scope="col">定義</th><th scope="col">通報層級</th><th scope="col">回應時限</th></tr></thead>
         <tbody>
           <tr><td><strong>P0</strong></td><td>產線停止或即將停止；客戶交付受影響；大規模資料外洩</td><td>CEO + 董事長，2 小時內</td><td>立即，全員動員</td></tr>
           <tr><td><strong>P1</strong></td><td>關鍵系統受影響但未停線；確認資料外洩；勒索軟體在網內</td><td>資安長 + CIO，4 小時內</td><td>1 小時內開始</td></tr>
@@ -1226,7 +1229,7 @@
     <h3 id="s17-9">17.9 常見失敗模式</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>失敗模式</th><th>症狀</th><th>對策</th></tr></thead>
+        <thead><tr><th scope="col">失敗模式</th><th scope="col">症狀</th><th scope="col">對策</th></tr></thead>
         <tbody>
           <tr><td><strong>每部法規一套流程</strong></td><td>事件當下開三個會、填五份表</td><td>單一判定會議 + 單一表單</td></tr>
           <tr><td>沒有預擬的對外說法</td><td>2 小時內來不及擬稿</td><td>預先準備三種情境的重訊草稿範本</td></tr>
@@ -1273,7 +1276,7 @@
     <p><strong>五階段</strong>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>階段</th><th>內容</th><th>ODM 的具體作法</th></tr></thead>
+        <thead><tr><th scope="col">階段</th><th scope="col">內容</th><th scope="col">ODM 的具體作法</th></tr></thead>
         <tbody>
           <tr><td><strong>Scoping</strong></td><td>界定範圍</td><td>以<a href="part-2.html#ch9">第 9 章</a>的五個分區界定；每一輪聚焦一個分區或一條攻擊面</td></tr>
           <tr><td><strong>Discovery</strong></td><td>發現資產與暴露</td><td>EASM + CMDB + 雲端資產發現 + 影子 IT</td></tr>
@@ -1300,7 +1303,7 @@
     <p><strong>EPSS 的效益數據</strong> <span class="ev ev-third">第三方評論</span>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>策略</th><th>工作量</th><th>效率</th><th>覆蓋率</th></tr></thead>
+        <thead><tr><th scope="col">策略</th><th scope="col">工作量</th><th scope="col">效率</th><th scope="col">覆蓋率</th></tr></thead>
         <tbody>
           <tr><td>CVSS ≥7</td><td><strong>50.7%</strong></td><td>6%</td><td>74.6%</td></tr>
           <tr><td><strong>EPSS</strong></td><td><strong>約 6%</strong></td><td><strong>47%</strong></td><td>相當</td></tr>
@@ -1325,7 +1328,7 @@ P5（例行週期） = 其餘</pre>
     <p><strong>EASM 的 ODM 特有價值</strong>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>場景</th><th>說明</th></tr></thead>
+        <thead><tr><th scope="col">場景</th><th scope="col">說明</th></tr></thead>
         <tbody>
           <tr><td><strong>併購與子公司</strong></td><td>收購來的公司帶來未知的對外資產</td></tr>
           <tr><td><strong>多廠區的影子資產</strong></td><td>廠區自行架設的測試環境、監控系統</td></tr>
@@ -1340,7 +1343,7 @@ P5（例行週期） = 其餘</pre>
     <p><strong>市場事實</strong> <span class="ev ev-verified">已證實</span>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>報告</th><th>日期</th><th>分析師</th></tr></thead>
+        <thead><tr><th scope="col">報告</th><th scope="col">日期</th><th scope="col">分析師</th></tr></thead>
         <tbody>
           <tr><td>Gartner <strong>Market Guide for Adversarial Exposure Validation</strong>（2026 版）</td><td><strong>2026-03-24</strong></td><td>Dhivya Poole, Mitchell Schneider, Eric Ahlm</td></tr>
           <tr><td>2025 版</td><td>2025 年（約 4 月）</td><td>—</td></tr>
@@ -1351,7 +1354,7 @@ P5（例行週期） = 其餘</pre>
     <p class="src-note"><strong>2026 版預測</strong>：至 2029 年 <strong>60% 組織將把結構化暴露驗證納入 CTEM</strong>。</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>產品</th><th>廠商</th><th>定位</th></tr></thead>
+        <thead><tr><th scope="col">產品</th><th scope="col">廠商</th><th scope="col">定位</th></tr></thead>
         <tbody>
           <tr><td>NodeZero</td><td>Horizon3.ai</td><td>Representative Vendor, AEV MG 2026-03-24；<strong>Gartner Peer Insights AEV "Customers' Choice"（2025-10）</strong>（客戶評分）</td></tr>
           <tr><td>Pentera</td><td>Pentera</td><td>Representative Vendor, AEV MG 2026-03-24</td></tr>
@@ -1375,7 +1378,7 @@ P5（例行週期） = 其餘</pre>
     <p>市場定義：「將持續資產發現、風險導向優先排序與修補收斂為單一統一框架的解決方案」，並將暴露對應至攻擊路徑與業務風險脈絡。</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>產品</th><th>廠商</th><th>定位</th></tr></thead>
+        <thead><tr><th scope="col">產品</th><th scope="col">廠商</th><th scope="col">定位</th></tr></thead>
         <tbody>
           <tr><td>Tenable One</td><td>Tenable</td><td><strong>Leader</strong>；Ability to Execute 最高且 Vision 最遠</td></tr>
           <tr><td>Rapid7 Exposure Command</td><td>Rapid7</td><td><strong>Leader</strong></td></tr>
@@ -1401,7 +1404,7 @@ P5（例行週期） = 其餘</pre>
     <h3 id="s18-8">18.8 常見失敗模式</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>失敗模式</th><th>症狀</th><th>對策</th></tr></thead>
+        <thead><tr><th scope="col">失敗模式</th><th scope="col">症狀</th><th scope="col">對策</th></tr></thead>
         <tbody>
           <tr><td><strong>以 CVSS 排序</strong></td><td>修補待辦永遠做不完</td><td>改用 KEV + EPSS + 可達性（<a href="#s18-3">§18.3</a>）</td></tr>
           <tr><td>掃描但不修</td><td>每月掃描報告，修補率 &lt;30%</td><td>Mobilization：發現必須進工單系統並追蹤關閉率</td></tr>
@@ -1466,7 +1469,7 @@ P5（例行週期） = 其餘</pre>
     <p>ISAGCA/IIC SMM 的四個 <strong>Comprehensiveness Level</strong>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>Level</th><th>名稱</th><th>定義（原文摘要）</th></tr></thead>
+        <thead><tr><th scope="col">Level</th><th scope="col">名稱</th><th scope="col">定義（原文摘要）</th></tr></thead>
         <tbody>
           <tr><td>1</td><td><strong>Minimum</strong></td><td>「The minimum requirements of the security practice are implemented. There are no assurance activities…」</td></tr>
           <tr><td>2</td><td><strong>Ad Hoc</strong></td><td>涵蓋「main use cases and well-known security incidents」，具「ad hoc reviews…to ensure baseline mitigations」</td></tr>
@@ -1500,7 +1503,7 @@ P5（例行週期） = 其餘</pre>
     <h3 id="s19-4">19.4 必備控制清單</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>控制</th><th>要求</th><th>優先</th></tr></thead>
+        <thead><tr><th scope="col">控制</th><th scope="col">要求</th><th scope="col">優先</th></tr></thead>
         <tbody>
           <tr><td><strong>OT 資產清冊</strong></td><td>被動發現為主；含設備型號、韌體版本、通訊協定、供應商、連線關係</td><td><strong>第一階段</strong></td></tr>
           <tr><td><strong>Level 3.5 DMZ 強化</strong></td><td>所有 IT↔OT 跨越必須經此；無直接穿越</td><td><strong>第一階段</strong></td></tr>
@@ -1524,7 +1527,7 @@ P5（例行週期） = 其餘</pre>
     <p><strong>市場事實</strong> <span class="ev ev-verified">已證實</span>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>報告</th><th>日期</th><th>分析師</th><th>受評數</th></tr></thead>
+        <thead><tr><th scope="col">報告</th><th scope="col">日期</th><th scope="col">分析師</th><th scope="col">受評數</th></tr></thead>
         <tbody>
           <tr><td>Gartner <strong>MQ for CPS Protection Platforms</strong>（2025 版）</td><td><strong>2025-02-12</strong></td><td>Katell Thielemann, Wam Voster, Ruggero Contu</td><td>17 家</td></tr>
           <tr><td>Gartner <strong>MQ for CPS Protection Platforms</strong>（<strong>2026 版，最新</strong>）</td><td><strong>2026-03-03</strong></td><td>Katell Thielemann, Ruggero Contu 等</td><td><strong>13 家、4 家 Leaders</strong></td></tr>
@@ -1535,7 +1538,7 @@ P5（例行週期） = 其餘</pre>
     <p class="src-note">Critical Capabilities 四項使用案例 <span class="ev ev-vendor">廠商主張</span>：① Discover and Map CPS Assets ② Threat and Vulnerability Management ③ Prioritize CPS Security Issues and Remediation ④ Monitor CPS Security; Align to Enterprise Efforts。</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>產品</th><th>廠商</th><th>定位</th><th>備註</th></tr></thead>
+        <thead><tr><th scope="col">產品</th><th scope="col">廠商</th><th scope="col">定位</th><th scope="col">備註</th></tr></thead>
         <tbody>
           <tr><td>Claroty xDome / CTD</td><td>Claroty</td><td><strong>Leader</strong>（2025-02-12 與 2026-03-03）</td><td>—</td></tr>
           <tr><td>Nozomi Guardian / Vantage</td><td>Nozomi Networks</td><td><strong>Leader</strong>（2026-03-03）</td><td>自稱雙軸最高 <span class="ev ev-vendor">廠商主張</span></td></tr>
@@ -1550,7 +1553,7 @@ P5（例行週期） = 其餘</pre>
     <h3 id="s19-6">19.6 分區內的 OT 差異</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>分區</th><th>OT 差異</th></tr></thead>
+        <thead><tr><th scope="col">分區</th><th scope="col">OT 差異</th></tr></thead>
         <tbody>
           <tr><td>Z1 全球廠區</td><td>標準 OT 控制集</td></tr>
           <tr><td><strong>Z2 中國廠區</strong></td><td>同樣適用；<strong>OT 日誌與資產資料的跨境傳輸須依 CAC 規則評估</strong>；等保定級可能涵蓋 MES 等系統</td></tr>
@@ -1562,7 +1565,7 @@ P5（例行週期） = 其餘</pre>
     <h3 id="s19-7">19.7 常見失敗模式</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>失敗模式</th><th>症狀</th><th>對策</th></tr></thead>
+        <thead><tr><th scope="col">失敗模式</th><th scope="col">症狀</th><th scope="col">對策</th></tr></thead>
         <tbody>
           <tr><td><strong>OT 被排除在 ISMS 之外</strong></td><td>「那是廠務的」</td><td>IEC 62443-2-1 Ed.2 已消除與 ISMS 重複，可掛在同一 ISMS 下</td></tr>
           <tr><td>先做深度後做邊界</td><td>買了 OT 偵測平台，但 IT/OT 邊界仍是 any-any</td><td><a href="#s19-1">§19.1</a> 的策略前提</td></tr>
@@ -1611,7 +1614,7 @@ P5（例行週期） = 其餘</pre>
     <h4 id="s20-2-1">20.2.1　標準依據</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>標準</th><th>內容</th><th>等級</th></tr></thead>
+        <thead><tr><th scope="col">標準</th><th scope="col">內容</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr><td><strong>ISO/IEC 29147:2018</strong></td><td>Vulnerability disclosure（漏洞揭露），第 2 版，現行有效</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td><strong>ISO/IEC 30111:2019</strong></td><td>Vulnerability handling processes（漏洞處理流程），現行有效</td><td><span class="ev ev-verified">已證實</span></td></tr>
@@ -1622,7 +1625,7 @@ P5（例行週期） = 其餘</pre>
     <p><strong>FIRST PSIRT Services Framework v1.1 的服務領域</strong>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>#</th><th>服務領域</th><th>ODM 的特殊性</th></tr></thead>
+        <thead><tr><th scope="col">#</th><th scope="col">服務領域</th><th scope="col">ODM 的特殊性</th></tr></thead>
         <tbody>
           <tr><td>1</td><td><strong>Stakeholder Ecosystem Management</strong></td><td>含 <strong>downstream stakeholder management</strong>——<strong>對 ODM 即為品牌客戶通報義務</strong></td></tr>
           <tr><td>2</td><td><strong>Vulnerability Discovery</strong></td><td>含 <strong>Monitoring for Product Component Vulnerabilities</strong>——對應第三方元件與韌體</td></tr>
@@ -1658,7 +1661,7 @@ P5（例行週期） = 其餘</pre>
     <h4 id="s20-3-1">20.3.1　格式：兩個必須知道的更正</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>常見錯誤</th><th>正確狀態</th></tr></thead>
+        <thead><tr><th scope="col">常見錯誤</th><th scope="col">正確狀態</th></tr></thead>
         <tbody>
           <tr><td>「SPDX 3.0 已是 ISO 標準」</td><td><strong>錯誤。ISO/IEC 5962:2021 對應的是 SPDX 2.2.1</strong>；SPDX 3.0 目前僅在 <strong>ISO/IEC DIS</strong> 階段</td></tr>
           <tr><td>「ECMA-424 = CycloneDX 1.6」</td><td><strong>過時。ECMA-424 2nd edition（2025-12）＝ CycloneDX v1.7</strong></td></tr>
@@ -1669,7 +1672,7 @@ P5（例行週期） = 其餘</pre>
     <p><strong>雙格式對照</strong>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th></th><th>SPDX</th><th>CycloneDX</th></tr></thead>
+        <thead><tr><th scope="col"></th><th scope="col">SPDX</th><th scope="col">CycloneDX</th></tr></thead>
         <tbody>
           <tr><td>主導組織</td><td>Linux Foundation</td><td>OWASP</td></tr>
           <tr><td><strong>現行規格版本</strong></td><td><strong>3.0.1</strong>（3.1-RC1 測試中）</td><td><strong>1.7</strong></td></tr>
@@ -1692,7 +1695,7 @@ P5（例行週期） = 其餘</pre>
     <p>SBOM 告訴你「產品裡有什麼」，<strong>VEX 告訴你「這個漏洞是否真的影響本產品」</strong>。沒有 VEX，一份 SBOM 會產生數百個不影響產品的 CVE 告警，導致客戶與內部都無法使用。</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>標準</th><th>現況</th><th>等級</th></tr></thead>
+        <thead><tr><th scope="col">標準</th><th scope="col">現況</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr><td><strong>CSAF v2.0</strong></td><td>OASIS 標準；<strong>2025 年獲採納為 ISO/IEC 20153:2025 國際標準</strong>（OASIS 公告 2025-05-20），可自 ISO/IEC 網站免費取得</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td><strong>CISA Minimum Requirements for VEX</strong></td><td>2023-04 發布</td><td><span class="ev ev-verified">已證實</span></td></tr>
@@ -1715,7 +1718,7 @@ P5（例行週期） = 其餘</pre>
     <p>見<a href="#s15-3">第 15 章 §15.3</a>。此處補充對產品的特殊要求：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>要求</th><th>說明</th></tr></thead>
+        <thead><tr><th scope="col">要求</th><th scope="col">說明</th></tr></thead>
         <tbody>
           <tr><td><strong>建置出處（provenance）</strong></td><td>依 SLSA v1.2（2025-11-24）Build Track L1–L3；<strong>v1.x 新增 Source Track</strong>——可用於對客戶承諾「原始碼來源可證」</td></tr>
           <tr><td><strong>韌體簽章</strong></td><td>金鑰置於 HSM；雙人授權；簽章紀錄可稽核</td></tr>
@@ -1729,7 +1732,7 @@ P5（例行週期） = 其餘</pre>
     <h4 id="s20-5-1">20.5.1　CVE 計畫的資金危機與現況 <span class="ev ev-third">第三方評論</span></h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>事件</th><th>內容</th></tr></thead>
+        <thead><tr><th scope="col">事件</th><th scope="col">內容</th></tr></thead>
         <tbody>
           <tr><td>2025 年危機</td><td>MITRE 揭露其 CVE 合約即將到期且未續約；<strong>CISA 以 11 個月緊急展延</strong>避免計畫停擺</td></tr>
           <tr><td><strong>現況</strong></td><td>CVE 計畫<strong>已獲完整資金</strong>，且<strong>自 CISA 的裁量性預算改列為受保護的預算項目（protected line item）</strong></td></tr>
@@ -1748,7 +1751,7 @@ P5（例行週期） = 其餘</pre>
     <h4 id="s20-5-3">20.5.3　CVSS 與 EPSS</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>標準</th><th>現況</th><th>等級</th></tr></thead>
+        <thead><tr><th scope="col">標準</th><th scope="col">現況</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr><td><strong>CVSS v4.0</strong></td><td>FIRST 於 <strong>2023-11-01</strong> 正式發布</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td><strong>EPSS v4</strong></td><td><strong>2025-03-16</strong> 發布</td><td><span class="ev ev-verified">已證實</span></td></tr>
@@ -1761,7 +1764,7 @@ P5（例行週期） = 其餘</pre>
     <p>依 <a href="part-1.html#s5-2">§5.2</a> 的時程（Art. 14 於 2026-09-11、全面義務 2027-12-11）：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>期間</th><th>行動</th></tr></thead>
+        <thead><tr><th scope="col">期間</th><th scope="col">行動</th></tr></thead>
         <tbody>
           <tr><td><strong>立即（0–1 個月）</strong></td><td>① 完成 EU Login 註冊；② 確認各歐盟責任實體的國家 CSIRT 窗口；③ 建立離線／備援通報流程與範本；④ 盤點「哪些出貨產品落入 CRA 範圍」與「我方是否為 manufacturer」</td></tr>
           <tr><td><strong>1–3 個月</strong></td><td>⑤ 建立 CVD 政策並公開（security.txt、產品網站的漏洞回報頁）；⑥ 建立 PSIRT 值班與 24 小時通報能力；⑦ 在標準合約範本中加入 CRA 角色分配條款</td></tr>
@@ -1775,7 +1778,7 @@ P5（例行週期） = 其餘</pre>
     <h3 id="s20-7">20.7 常見失敗模式</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>失敗模式</th><th>症狀</th><th>對策</th></tr></thead>
+        <thead><tr><th scope="col">失敗模式</th><th scope="col">症狀</th><th scope="col">對策</th></tr></thead>
         <tbody>
           <tr><td><strong>沒有 CVD 管道</strong></td><td>研究人員找不到人回報，直接公開揭露</td><td>security.txt + 產品網站的回報頁 + 24 小時內回覆的承諾</td></tr>
           <tr><td>SBOM 手工整理</td><td>每次發行都要人工整理數天</td><td>建置流程自動產出</td></tr>
@@ -1821,7 +1824,7 @@ P5（例行週期） = 其餘</pre>
     <h3 id="s21-2">21.2 曝險的規模</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>數據</th><th>來源</th><th>等級</th></tr></thead>
+        <thead><tr><th scope="col">數據</th><th scope="col">來源</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr><td><strong>製造業第三方涉入 61%</strong>（全產業 48%）</td><td>DBIR 2026</td><td><span class="ev ev-vendor">廠商主張</span></td></tr>
           <tr><td>第三方涉入的資料外洩比例<strong>倍增至 30%</strong></td><td>DBIR 2025</td><td><span class="ev ev-verified">已證實</span></td></tr>
@@ -1843,7 +1846,7 @@ P5（例行週期） = 其餘</pre>
     <p><strong>本手冊建議的雙軸分級</strong>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th></th><th>低資料/系統存取</th><th>高資料/系統存取</th></tr></thead>
+        <thead><tr><th scope="col"></th><th scope="col">低資料/系統存取</th><th scope="col">高資料/系統存取</th></tr></thead>
         <tbody>
           <tr><td><strong>低營運依賴</strong>（可快速替換）</td><td><strong>T4</strong>：基本問卷、合約標準條款</td><td><strong>T2</strong>：完整問卷、年度複審、遠端存取管制</td></tr>
           <tr><td><strong>高營運依賴</strong>（SPOF，停擺即停線）</td><td><strong>T3</strong>：完整問卷、BCP 要求、第二來源</td><td><strong>T1</strong>：現場稽核、24h 通知條款、第二來源、持續監控</td></tr>
@@ -1853,7 +1856,7 @@ P5（例行週期） = 其餘</pre>
     <p><strong>兩軸的判定準則</strong>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>軸</th><th>判定問題</th></tr></thead>
+        <thead><tr><th scope="col">軸</th><th scope="col">判定問題</th></tr></thead>
         <tbody>
           <tr><td><strong>營運依賴</strong></td><td>「該供應商完全停擺時，我方多久出不了貨？」　≤3 天 = 高；&gt;2 週 = 低</td></tr>
           <tr><td><strong>資料/系統存取</strong></td><td>「該供應商能存取我方哪些資料或系統？」　有內網存取、可存取客戶 IP、可存取個資 = 高</td></tr>
@@ -1873,7 +1876,7 @@ P5（例行週期） = 其餘</pre>
     <p><strong>市場標準對照</strong> <span class="ev ev-third">第三方評論</span>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>問卷</th><th>發行機構</th><th>題數</th><th>領域</th></tr></thead>
+        <thead><tr><th scope="col">問卷</th><th scope="col">發行機構</th><th scope="col">題數</th><th scope="col">領域</th></tr></thead>
         <tbody>
           <tr><td><strong>CAIQ v4</strong></td><td>Cloud Security Alliance</td><td>約 260 題</td><td>17 控制領域（對齊 CCM）</td></tr>
           <tr><td><strong>SIG Core</strong></td><td>Shared Assessments</td><td>逾 800 題</td><td>20 風險領域</td></tr>
@@ -1910,7 +1913,7 @@ P5（例行週期） = 其餘</pre>
     <p>依原則四與 <a href="part-1.html#s4-4">§4.4</a> 的 Silk Typhoon 教訓：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>控制</th><th>要求</th></tr></thead>
+        <thead><tr><th scope="col">控制</th><th scope="col">要求</th></tr></thead>
         <tbody>
           <tr><td><strong>全部經 PAM/ZTNA</strong></td><td>不得有直接 VPN 或直連</td></tr>
           <tr><td><strong>有效期預設 ≤90 天</strong></td><td>到期自動失效，需重新申請</td></tr>
@@ -1928,7 +1931,7 @@ P5（例行週期） = 其餘</pre>
     <p><strong>優化策略</strong>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>策略</th><th>說明</th></tr></thead>
+        <thead><tr><th scope="col">策略</th><th scope="col">說明</th></tr></thead>
         <tbody>
           <tr><td><strong>單一控制項庫</strong></td><td>見 <a href="#s11-6">§11.6</a>，一份證據回應多個框架</td></tr>
           <tr><td><strong>預先準備的稽核包</strong></td><td>常見問題的標準回覆 + 證據文件包，可在稽核前提供</td></tr>
@@ -1945,7 +1948,7 @@ P5（例行週期） = 其餘</pre>
     <h3 id="s21-8">21.8 常見失敗模式</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>失敗模式</th><th>症狀</th><th>對策</th></tr></thead>
+        <thead><tr><th scope="col">失敗模式</th><th scope="col">症狀</th><th scope="col">對策</th></tr></thead>
         <tbody>
           <tr><td><strong>以採購金額分級</strong></td><td>高風險小廠商未被納管</td><td><a href="#s21-3">§21.3</a> 的雙軸分級</td></tr>
           <tr><td>問卷收了沒人看</td><td>供應商回覆存檔了事</td><td>只對 T1/T2 發完整問卷，但<strong>必須逐題審閱並追蹤不符合項</strong></td></tr>
@@ -1989,7 +1992,7 @@ P5（例行週期） = 其餘</pre>
     <p>四個已證實案例的共同教訓：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>案例</th><th>降級能力</th></tr></thead>
+        <thead><tr><th scope="col">案例</th><th scope="col">降級能力</th></tr></thead>
         <tbody>
           <tr><td><strong>Kojima Industries</strong></td><td>以<strong>紙本看板與人工配送圖面</strong>維持運作 <span class="ev ev-verified">已證實</span></td></tr>
           <tr><td><strong>Asahi</strong></td><td>Super Dry 以<strong>人工接單</strong>方式恢復生產，10/15 恢復出貨 <span class="ev ev-verified">已證實</span></td></tr>
@@ -2007,7 +2010,7 @@ P5（例行週期） = 其餘</pre>
     <p><strong>ODM 的備份必備項</strong>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>項目</th><th>要求</th></tr></thead>
+        <thead><tr><th scope="col">項目</th><th scope="col">要求</th></tr></thead>
         <tbody>
           <tr><td><strong>不可變備份（immutable）</strong></td><td>至少一份無法被刪除或加密（object lock / WORM / 磁帶）</td></tr>
           <tr><td><strong>備份系統的身分隔離</strong></td><td>備份系統的管理帳號<strong>不得</strong>是網域帳號（勒索軟體取得 DA 後第一件事就是刪備份）</td></tr>
@@ -2033,7 +2036,7 @@ P5（例行週期） = 其餘</pre>
     <p><strong>建議內容</strong>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>章節</th><th>內容</th></tr></thead>
+        <thead><tr><th scope="col">章節</th><th scope="col">內容</th></tr></thead>
         <tbody>
           <tr><td><strong>1. 觸發與決策</strong></td><td>誰有權宣告進入降級模式？宣告的判準是什麼？</td></tr>
           <tr><td><strong>2. 通訊</strong></td><td>IT 全斷時如何聯絡（電話樹、外部通訊管道、集合地點）</td></tr>
@@ -2054,7 +2057,7 @@ P5（例行週期） = 其餘</pre>
     <p><strong>以出貨鏈為單位</strong>（原則一）：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>步驟</th><th>動作</th></tr></thead>
+        <thead><tr><th scope="col">步驟</th><th scope="col">動作</th></tr></thead>
         <tbody>
           <tr><td>1</td><td>繪製「出貨資訊鏈圖」：從投料到客戶收貨的所有系統與介接</td></tr>
           <tr><td>2</td><td>對每一條鏈，計算「停擺一天的營收與客戶影響」</td></tr>
@@ -2076,7 +2079,7 @@ P5（例行週期） = 其餘</pre>
     <h3 id="s22-6">22.6 已驗證的財務衝擊：可引用的數字</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>案例</th><th>金額</th><th>口徑</th><th>等級</th></tr></thead>
+        <thead><tr><th scope="col">案例</th><th scope="col">金額</th><th scope="col">口徑</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr><td><strong>Norsk Hydro</strong>（2019）</td><td><strong>NOK 650–750 million（2019 全年）</strong>；Q4 認列保險理賠 NOK 187 million</td><td><strong>公司季報原文</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td><strong>Brunswick</strong>（2023）</td><td>Q2 營收衝擊 <strong>US$85M</strong>，全年 EBITDA 影響 US$60–70M</td><td>法說會</td><td><span class="ev ev-verified">已證實</span></td></tr>
@@ -2117,7 +2120,7 @@ P5（例行週期） = 其餘</pre>
     <h3 id="s22-8">22.8 常見失敗模式</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>失敗模式</th><th>症狀</th><th>對策</th></tr></thead>
+        <thead><tr><th scope="col">失敗模式</th><th scope="col">症狀</th><th scope="col">對策</th></tr></thead>
         <tbody>
           <tr><td><strong>備份管理員是網域帳號</strong></td><td>勒索軟體取得 DA 後刪光備份</td><td>備份系統身分完全隔離</td></tr>
           <tr><td>有備份沒測過還原</td><td>需要時才發現還不回來</td><td>關鍵系統每季還原測試</td></tr>
@@ -2166,7 +2169,7 @@ P5（例行週期） = 其餘</pre>
     <h4 id="s23-1-2">23.1.2　同業實測數據（可作為基準）</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>公司</th><th>數據</th></tr></thead>
+        <thead><tr><th scope="col">公司</th><th scope="col">數據</th></tr></thead>
         <tbody>
           <tr><td><strong>緯創</strong></td><td>釣魚<strong>點擊率</strong>：2023H1 <strong>7.4%</strong> → 2023H2 <strong>8.2%</strong> → 2024H1 <strong>7.8%</strong> → 2024H2 <strong>12.6%（惡化）</strong></td></tr>
           <tr><td><strong>英業達</strong></td><td>2024 年 <strong>22 次演練、44,824 封郵件、通過率 96.38%</strong>（即失敗率約 3.62%）</td></tr>
@@ -2190,7 +2193,7 @@ P5（例行週期） = 其餘</pre>
     <p><strong>但這不代表可以停掉訓練</strong>，而是代表訓練的<strong>重點應該轉移</strong>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>從</th><th>轉向</th></tr></thead>
+        <thead><tr><th scope="col">從</th><th scope="col">轉向</th></tr></thead>
         <tbody>
           <tr><td>泛用的釣魚辨識</td><td><strong>服務台身分驗證</strong>（Clorox 案）與<strong>付款流程驗證</strong>（Arup 案）</td></tr>
           <tr><td>全員一致的訓練</td><td><strong>高風險族群的強化訓練</strong>：法務、財務、採購、人資、高階主管助理（<a href="part-1.html#s4-2">§4.2 的 UNK_ColtCentury</a>）</td></tr>
@@ -2203,7 +2206,7 @@ P5（例行週期） = 其餘</pre>
     <h3 id="s23-2">23.2 Arup 案：一個必須正確歸類的案例</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>項目</th><th>內容</th></tr></thead>
+        <thead><tr><th scope="col">項目</th><th scope="col">內容</th></tr></thead>
         <tbody>
           <tr><td>損失</td><td><strong>HK$200 million = US$25.6 million</strong></td></tr>
           <tr><td>時間</td><td>2024 年 1 月中</td></tr>
@@ -2232,7 +2235,7 @@ P5（例行週期） = 其餘</pre>
     <p>依 <a href="part-1.html#s4-6">§4.6 台積電 2nm 案</a>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>控制</th><th>說明</th></tr></thead>
+        <thead><tr><th scope="col">控制</th><th scope="col">說明</th></tr></thead>
         <tbody>
           <tr><td><strong>新進員工營業秘密聲明</strong></td><td>聲明未攜帶前雇主營業秘密；報到時清查裝置</td></tr>
           <tr><td><strong>離職面談與提醒</strong></td><td>明確告知營業秘密義務與法律後果</td></tr>
@@ -2251,7 +2254,7 @@ P5（例行週期） = 其餘</pre>
     <p>AI 在 ODM 資安架構中有三個角色，必須分開處理：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>角色</th><th>說明</th><th>主要議題</th></tr></thead>
+        <thead><tr><th scope="col">角色</th><th scope="col">說明</th><th scope="col">主要議題</th></tr></thead>
         <tbody>
           <tr><td><strong>AI 作為資料出口</strong></td><td>員工使用 ChatGPT、Copilot 等處理公司資料</td><td>資料外洩、客戶 IP 外洩、合約違反</td></tr>
           <tr><td><strong>AI 作為被保護對象</strong></td><td>集團自建或部署的 AI 應用（AOI 檢測、預測保養、內部助理）</td><td>Prompt injection、資料污染、模型竊取</td></tr>
@@ -2263,7 +2266,7 @@ P5（例行週期） = 其餘</pre>
     <h4 id="s23-4-1">23.4.1　框架依據</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>框架</th><th>現況</th><th>等級</th></tr></thead>
+        <thead><tr><th scope="col">框架</th><th scope="col">現況</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr><td><strong>NIST AI RMF 1.0</strong></td><td>2023-01 發布</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td><strong>NIST AI 600-1（Generative AI Profile）</strong></td><td><strong>2024 年 7 月</strong>發布；<strong>12 項 GenAI 風險類別</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
@@ -2283,7 +2286,7 @@ P5（例行週期） = 其餘</pre>
     </div>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>版本</th><th>發布日</th><th>等級</th></tr></thead>
+        <thead><tr><th scope="col">版本</th><th scope="col">發布日</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr><td><strong>2026 版（最新）</strong></td><td>OWASP 官方頁載 <strong>2026-08-03</strong>；第三方分析載 2026-08-05（<strong>兩來源日期不一致，建議標註「2026 年 8 月初」</strong>）</td><td><span class="ev ev-verified">已證實但有歧異</span></td></tr>
           <tr><td>2025 版</td><td>2024-11 發布</td><td><span class="ev ev-verified">已證實</span></td></tr>
@@ -2293,7 +2296,7 @@ P5（例行週期） = 其餘</pre>
     <p><strong>2026 版清單</strong> <span class="ev ev-third">第三方評論</span>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>#</th><th>項目</th><th>變動</th></tr></thead>
+        <thead><tr><th scope="col">#</th><th scope="col">項目</th><th scope="col">變動</th></tr></thead>
         <tbody>
           <tr><td>LLM01</td><td>Prompt Injection</td><td>維持第一</td></tr>
           <tr><td>LLM02</td><td>Sensitive Information Disclosure</td><td>—</td></tr>
@@ -2317,7 +2320,7 @@ P5（例行週期） = 其餘</pre>
     <h4 id="s23-4-3">23.4.3　AI 使用治理的必備控制</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>控制</th><th>說明</th></tr></thead>
+        <thead><tr><th scope="col">控制</th><th scope="col">說明</th></tr></thead>
         <tbody>
           <tr><td><strong>AI 使用政策</strong></td><td>哪些 AI 工具可用、哪些資料不可輸入、需要核准的使用情境</td></tr>
           <tr><td><strong>資料分類與 AI 的對映</strong></td><td>明確：客戶 IP、極機密、個資<strong>不得</strong>輸入公有 AI 服務</td></tr>
@@ -2333,7 +2336,7 @@ P5（例行週期） = 其餘</pre>
     <h4 id="s23-4-4">23.4.4　分區差異</h4>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>分區</th><th>AI 治理差異</th></tr></thead>
+        <thead><tr><th scope="col">分區</th><th scope="col">AI 治理差異</th></tr></thead>
         <tbody>
           <tr><td><strong>Z1 全球</strong></td><td>企業租戶 + 關閉訓練 + Gateway DLP</td></tr>
           <tr><td><strong>Z2 中國</strong></td><td><strong>中國區可用的 AI 服務清單不同</strong>；資料出境限制；地緣政治審查（供應商中國資本／研發／營運關聯為第一道排除門檻）</td></tr>
@@ -2347,7 +2350,7 @@ P5（例行週期） = 其餘</pre>
     <p>依 <a href="part-1.html#s5-5-3">§5.5.3</a>：</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>情境</th><th>分類</th><th>時程</th></tr></thead>
+        <thead><tr><th scope="col">情境</th><th scope="col">分類</th><th scope="col">時程</th></tr></thead>
         <tbody>
           <tr><td>產線 AI（AOI 瑕疵檢測、預測保養）</td><td>多屬<strong>非高風險</strong></td><td>—</td></tr>
           <tr><td>為客戶製造內含高風險 AI 之產品（醫材、車用感知）</td><td><strong>Annex I 嵌入式高風險</strong></td><td><strong>延至 2028-08-02</strong></td></tr>
@@ -2363,7 +2366,7 @@ P5（例行週期） = 其餘</pre>
     <h3 id="s23-5">23.5 常見失敗模式</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>失敗模式</th><th>症狀</th><th>對策</th></tr></thead>
+        <thead><tr><th scope="col">失敗模式</th><th scope="col">症狀</th><th scope="col">對策</th></tr></thead>
         <tbody>
           <tr><td><strong>把 Arup 案當技術問題</strong></td><td>買更多端點防護</td><td>改善付款流程與帶外驗證</td></tr>
           <tr><td>意識訓練形式化</td><td>年度線上課程點完就好</td><td>情境化演練；高風險族群強化</td></tr>

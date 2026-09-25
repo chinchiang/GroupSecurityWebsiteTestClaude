@@ -40,6 +40,23 @@ python3 -m http.server 8000
 # 開啟 http://localhost:8000
 ```
 
+## 自動檢查
+
+`.github/scripts/check_site.py`（僅用 Python 標準函式庫）檢查：HTML 標籤結構、重複 id、
+站內連結與錨點、證據標籤 class 與不加【】、禁用 inline style／`<style>`／inline `<script>`、
+每頁須有 `noindex` 與 meta description、HTML 用到的 class 須在 `main.css` 定義。
+
+```bash
+python3 .github/scripts/check_site.py              # 站內檢查
+python3 .github/scripts/check_site.py --external   # 另查外部連結（僅 404/410 視為失效）
+```
+
+`.github/workflows/check-site.yml` 在 PR 與 push 到 `main` 時跑站內檢查，每週一另跑外部連結檢查；
+`deploy-pages.yml` 部署前也會先跑站內檢查，未通過就不部署。
+
+各頁設有 Content-Security-Policy（只允許本站與 Google Fonts），因此**不可使用 inline script／style**。
+`404.html` 以 `<base href="/GroupSecurityWebsiteTestClaude/">` 固定資源路徑；repo 改名時須一併修改。
+
 ## 部署（GitHub Pages）
 
 Repo Settings → Pages → Build and deployment → Source 選 **GitHub Actions**。
