@@ -43,6 +43,10 @@ Repo Settings → Pages → Build and deployment → Source 選 **GitHub Actions
 > **不要**改選「Deploy from a branch」：那會把整個分支根目錄（含 `docs/` 手冊全文）
 > 原樣公開到 Pages。
 
+> **密級**：本版為**公開 / Public（通用參考版）**，不含任何集團實際控制項現況、評估結果或缺口資料。
+> 網站各頁均設 `<meta name="robots" content="noindex, nofollow">`，避免被搜尋引擎收錄；
+> 這只防搜尋曝光、不是存取控制——網址與公開 repo 內容仍可被任何人讀取。
+
 > **注意**：依手冊附錄 F 的安全前提，若後續在本 repo 填入集團的控制項現況、
 > 評估結果或缺口資料，repo 應設為 **private**——這些內容本身就是高價值的攻擊情報。
 
