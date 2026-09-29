@@ -33,7 +33,7 @@
 </header>
 
 <div class="asof-banner" role="note">
-  <p><strong>內容截至 2026-08-30：</strong>本站所有法規生效、平台上線、標準發行與報告發布狀態均以查證基準日為準，其後未再更新。引用前請依 <a href="appendix.html#appendix-g">附錄 G 查證缺口清單</a> 重新確認。</p>
+  <p><strong>原版查證 2026-08-30；時效資訊更新至 2026-09-29：</strong>重要狀態已依官方來源覆核；其他歷史數據以各段標示日期為準。引用前請依 <a href="appendix.html#appendix-g">附錄 G 查證缺口清單</a> 重新確認。</p>
 </div>
 
 <section class="hero page-hero">
@@ -260,9 +260,9 @@
       <li><strong>供應鏈攻擊佔威脅類別 10.6%</strong></li>
       <li>漏洞利用佔入侵向量 <strong>21.3%</strong>；其中近 70% 導致實際入侵，68% 導致惡意程式部署</li>
     </ul>
-    <p class="src-note">ENISA Threat Landscape 2026 截至本手冊查證日（2026-08-30）尚未發布，故不予引用。</p>
+    <p class="src-note"><a href="https://www.enisa.europa.eu/publications/enisa-threat-landscape-2026" rel="noopener" target="_blank">ENISA Threat Landscape 2026</a> 已於 2026-09-22 發布，觀察期為 2025-01-01～2025-12-31（樣本 8,257 件）；製造業佔所記錄事件的 <strong>6.9%</strong>，排名第 4；製造業事件以未授權存取（80.4%）為主；勒索軟體宣稱案件中製造業佔 <strong>25.2%</strong>，居各部門之首；製造業勒索家族前三為 Qilin 17.4%、Akira 11.5%、SafePay 8%。<span class="ev ev-verified">已證實</span>。上述 2.9% 是 2025 版資料，兩版觀察期間與樣本口徑不同，不宜直接當作年增幅。</p>
     <div class="notice">
-      <strong>注意口徑差異：</strong>ENISA 的「製造業佔 2.9%」與 X-Force 的「製造業佔 27.7%」看似矛盾，實則口徑完全不同——ENISA 以歐盟境內公開報導事件為母體且 DDoS 佔壓倒多數，X-Force 以其事件應變與遙測案件為母體。<strong>兩個數字不可放在同一張圖上比較</strong>，這正是 0.2 節「口徑必須一致才可比較」紀律的實例。
+      <strong>注意口徑差異：</strong>ENISA 的「製造業佔 2.9%」（2026 版為 6.9%）與 X-Force 的「製造業佔 27.7%」看似矛盾，實則口徑完全不同——ENISA 以歐盟境內公開報導事件為母體且 DDoS 佔壓倒多數，X-Force 以其事件應變與遙測案件為母體。<strong>兩個數字不可放在同一張圖上比較</strong>，這正是 0.2 節「口徑必須一致才可比較」紀律的實例。
     </div>
 
     <h4 id="s2-1-4">2.1.4　Dragos OT Cybersecurity Year in Review</h4>
@@ -300,6 +300,7 @@
     </div>
 
     <h4 id="s2-1-6">2.1.6　Sophos State of Ransomware in Manufacturing and Production 2025（2025-12-03）</h4>
+    <p class="src-note"><strong>2026-09-29 更新</strong>：截至 2026-09-29 未見製造業專版 2026，以下仍為 2025 製造業版數字。Sophos 跨產業版 <a href="https://www.sophos.com/en-us/content/state-of-ransomware" rel="noopener" target="_blank">State of Ransomware 2026</a>（2026-07-15，n=2,158、17 國）稱 79% 的勒索攻擊源自身分遭入侵，身分已超越漏洞利用成為首因<span class="ev ev-vendor">廠商主張</span>。</p>
     <p>樣本：332 家製造與生產組織、17 國、100–5,000 員工。<span class="ev ev-vendor">廠商主張</span></p>
     <div class="table-wrap">
       <table>
@@ -322,12 +323,15 @@
       <strong>「純勒索（不加密）由 3% 升至 10%」</strong>是重要的趨勢轉折：攻擊者正在放棄加密（因為備份與 EDR 越來越擋得住），轉向<strong>純資料竊取後勒索</strong>。這使得以「備份能不能還原」為核心的韌性策略部分失效，資料外洩偵測（DLP、DSPM、egress monitoring）的相對重要性上升。
     </div>
 
+    <div class="notice">
+      <strong>2026-09 近期事件補充：</strong><a href="https://www.ithome.com.tw/news/179107" rel="noopener" target="_blank">Acronis 指</a>中國關聯組織 Red Heron 利用 Gitea 漏洞 CVE-2026-60004 入侵台灣工業自動化業者，竊取含 SCADA/HMI 工具在內的程式碼庫，並將台灣 477 個 Gitea 實例列為目標<span class="ev ev-vendor">廠商主張</span>。自架程式碼平台應比照邊界裝置納入<a href="part-1.html#ch4">第 4 章</a>的修補時窗與曝險管理。
+    </div>
     <h3 id="s2-2">2.2 威脅情勢的四點綜合結論</h3>
     <div class="grid grid-2">
       <div class="card finding">
         <div class="no">結論一</div>
         <h3>入口已從人轉向機器</h3>
-        <p>漏洞利用（X-Force 32%／DBIR 製造業 38%／Sophos 32%）在三個獨立來源上一致成為首要入侵途徑，且釣魚同步下降。</p>
+        <p>漏洞利用（X-Force 32%／DBIR 製造業 38%／Sophos 32%）在三個獨立來源上一致成為首要入侵途徑，且釣魚同步下降。（2026-09-29 補充：Sophos 跨產業版 2026 改稱身分遭入侵為勒索首因<span class="ev ev-vendor">廠商主張</span>，身分與漏洞兩條入口須並重，見第 12 章。）</p>
       </div>
       <div class="card finding">
         <div class="no">結論二</div>
@@ -870,12 +874,12 @@
         <tbody>
           <tr>
             <td><strong>歐盟收緊</strong></td>
-            <td>CRA Art. 14 通報義務 <strong>2026-09-11</strong> 生效；NIS2 已有四國遭移送 CJEU；捷克新法 2025-11-01 生效且<strong>逾越 NIS2</strong>；RED DA 已於 2025-08-01 適用</td>
+            <td>CRA Art. 14 通報義務 <strong>2026-09-11</strong> 起適用；NIS2 已有四國遭移送 CJEU；捷克新法 2025-11-01 生效且<strong>逾越 NIS2</strong>；RED DA 已於 2025-08-01 適用</td>
             <td>歐洲廠區與出貨歐盟的產品線，需在 2026H2–2027 投入</td>
           </tr>
           <tr>
             <td><strong>美國鬆綁</strong></td>
-            <td>美國 DoW <strong>2026-07-13 宣布立即暫停 CMMC Phase II</strong>；Phase I 自評與 DFARS 252.204-7012 仍有效</td>
+            <td>美國 DoW <strong>2026-07-13 宣布立即暫停 CMMC Phase II</strong>（2026-09 以 DFARS 類別偏離制度化）；Phase I 自評與 DFARS 252.204-7012 仍有效</td>
             <td><strong>不可解散 CMMC 專案</strong>，但可延後 C3PAO 驗證預算</td>
           </tr>
         </tbody>
@@ -893,7 +897,7 @@
           <tr><td>簽署</td><td>2024-10-23（Strasbourg）</td></tr>
           <tr><td><strong>生效</strong></td><td><strong>2024-12-10</strong></td></tr>
           <tr><td>Chapter IV（Art. 35–51，驗證機構通報）適用</td><td>2026-06-11</td></tr>
-          <tr><td><strong>Article 14 通報義務適用</strong></td><td><strong>2026-09-11</strong>（距本手冊發行僅 12 天）</td></tr>
+          <tr><td><strong>Article 14 通報義務適用</strong></td><td><strong>2026-09-11</strong>（已適用）</td></tr>
           <tr><td><strong>主要義務全面適用</strong></td><td><strong>2027-12-11</strong></td></tr>
           <tr><td>執委會實務指引發布</td><td>2026-07-27</td></tr>
         </tbody>
@@ -924,11 +928,11 @@
     <p>通報對象：<strong>同時</strong>送交協調者 CSIRT 與 ENISA，經 Single Reporting Platform 一次提交。製造商並須通知受影響使用者；若製造商延遲，CSIRT 得逕行通知使用者。</p>
 
     <h4 id="s5-2-3">5.2.3　兩個必須立即行動的現況風險</h4>
-    <p><strong>風險一：ENISA Single Reporting Platform 尚未上線（截至查證基準日 2026-08-30）。</strong>ENISA 官方頁確認：法源 Art. 16(1)，目標 2026-09-11 上線，<strong>目前仍在開發／測試，公開 URL 尚未公布</strong>；製造商應先完成 <strong>EU Login 註冊</strong>並向所屬國家 CSIRT 完成驗證。<span class="ev ev-verified">已證實</span></p>
+    <p><strong>風險一：通報義務已適用，應立即啟用平台帳號與流程。</strong>ENISA <a href="https://www.enisa.europa.eu/news/the-cra-single-reporting-platform-is-launched" rel="noopener" target="_blank">確認</a> Single Reporting Platform 已於 2026-09-11 上線；製造商透過 <a href="https://portal.cra-srp.enisa.europa.eu/" rel="noopener" target="_blank">官方平台</a>通報，須完成 <strong>EU Login</strong>與代表人註冊，選定協調者 CSIRT。<span class="ev ev-verified">已證實</span></p>
     <div class="notice">
-      <strong>立即行動建議：</strong>本週內完成 EU Login 註冊、確認捷克廠（及其他歐盟出貨責任實體）對應的國家 CSIRT 聯絡窗口，並準備<strong>離線／備援通報流程</strong>（以電子郵件直接送交 CSIRT 的範本與收件人清單）。
+      <strong>立即行動建議：</strong>完成 EU Login 與平台代表人註冊、確認各歐盟責任實體的協調者 CSIRT，演練 24/72 小時通報。平台暫停服務時可先聯絡 CSIRT；<strong>恢復後仍須透過平台提交</strong>。
     </div>
-    <p><strong>風險二：尚無任何 CRA 調和標準刊登於 Official Journal。</strong>標準化請求 <strong>M/606</strong> 共 41 項標準，交付期限為 Type A（框架）與 Type B（漏洞處理）<strong>2026-08-30</strong>、Type C（產品別）<strong>2026-10-30</strong>。截至 2026-08-13 尚無任何 CRA 調和標準刊登 OJ，故<strong>所有產品類別目前均無「符合推定」（presumption of conformity）可用</strong>。17 項 ETSI EN 304 6xx 產品標準仍在 public enquiry（意見期至 2026 年 9–11 月）。<span class="ev ev-verified">已證實</span> ＋ <span class="ev ev-third">第三方評論</span>（進度追蹤）</p>
+    <p><strong>風險二：CRA 調和標準的 OJ 引用須逐項核對。</strong>標準化請求 <strong>M/606</strong> 的交付時程涵蓋 2026-08-30、2026-10-30 與 2027 年<span class="ev ev-unverified">尚未證實（2026-09-29 未能以一手來源覆核）</span>。<a href="https://www.etsi.org/newsroom/press-releases/etsi-launches-approval-process-for-17-european-standards-supporting-the-cyber-resilience-act/" rel="noopener" target="_blank">ETSI 於 2026-08-13 宣布</a> 17 項垂直類 EN 304 xxx 最終草案進入 Public Enquiry（核准程序第一階段），依類別於 2026 年 9 月中至 11 月中結束；尚非調和標準。截至 2026-09-29 未見任何 CRA 調和標準刊登於 Official Journal。標準完成不等於自動產生「符合推定」（presumption of conformity），仍須查明是否已刊登於 Official Journal。<span class="ev ev-verified">已證實</span></p>
     <div class="notice">
       <strong>對 ODM 的意涵：</strong>2027-12-11 前若無 OJ 引用之調和標準，重要／關鍵類產品（Annex III/IV）將被迫走 <strong>Notified Body 第三方驗證</strong>路徑。NB 驗證量能有限，<strong>應提前預約</strong>。
     </div>
@@ -966,7 +970,8 @@
         <tbody>
           <tr><td>轉換期限</td><td>2024-10-17（Art. 41）</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td>2024-11-28</td><td>執委會對 <strong>23 個會員國</strong>發出 letter of formal notice</td><td><span class="ev ev-verified">已證實</span></td></tr>
-          <tr><td><strong>2026-06-19</strong></td><td>執委會<strong>將 Ireland、Spain、France、Netherlands 移送歐盟法院（CJEU）</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>2026-07-08</strong></td><td>執委會<strong>將 Ireland、Spain、France、Netherlands 移送歐盟法院（CJEU）</strong>，並請求法院科處一次性罰款及按日罰款</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>2026-01-20</td><td>執委會提出 NIS2 修正指令（COM(2026)13）及 Cybersecurity Act 2（COM(2026)11）；截至 2026-09-29 仍為提案</td><td><span class="ev ev-verified">已證實（提案存在）</span> <span class="ev ev-unverified">尚未證實（立法進度）</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -993,7 +998,7 @@
           <tr><td>子法</td><td><strong>Vyhláška č. 408/2025 Sb., o regulovaných službách</strong>，同日生效</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td>主管機關</td><td><strong>NÚKIB</strong>（布爾諾），內設 GovCERT.CZ</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td>登記</td><td>符合條件後 <strong>60 日內</strong>通報登記；多數實體實務期限為 2025-12-31</td><td><span class="ev ev-third">第三方評論</span></td></tr>
-          <tr><td>落地期限</td><td>登記確認後 <strong>12 個月</strong>內完成全部安全措施導入</td><td><span class="ev ev-third">第三方評論</span></td></tr>
+          <tr><td>落地期限</td><td>自 NÚKIB 登記決定<strong>送達之日起 1 年內</strong>開始執行安全措施（§13(4)）及事件通報義務（§15(4)）；應以捷克廠實際收受決定日期推算</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td>雙層制</td><td><strong>vyšší režim（高階）</strong>：大型企業、全部 ISP、策略性重要服務；<strong>nižší režim（低階）</strong>：中型企業、小型 ISP</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td>通報</td><td>高階：24h 通報 NÚKIB → 72h 詳報 → 30 日（持續中 60 日）最終報告。低階：72h 通報國家 CERT</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td>罰則</td><td>最高 <strong>CZK 250,000,000</strong></td><td><span class="ev ev-third">第三方評論</span></td></tr>
@@ -1002,9 +1007,9 @@
       </table>
     </div>
     <div class="notice">
-      <strong>🚩 必須立即釐清的重大未決事項</strong><span class="ev ev-unverified">尚未證實</span>：NÚKIB 立法理由書之解讀顯示，vyhláška 408/2025 附表之「製造業（sector 7）」<strong>似僅涵蓋乘用車量產</strong>（sériová výroba osobních motorových vozidel），未見獨立列出 CZ-NACE 26 電腦電子光學產品製造。此與 NIS2 Annex II 之強制範圍不一致，可能為（a）查證不完整，或（b）捷克限縮轉換。
-      <p><strong>這直接決定捷克廠是否納管，影響數百萬元等級的合規支出。</strong></p>
-      <p><strong>行動建議</strong>：由捷克廠透過 NÚKIB 登記入口（portal.nukib.gov.cz）執行<strong>正式自我識別</strong>，並取得當地法律意見書。<strong>切勿依本手冊或任何二手資料直接認定不納管。</strong></p>
+      <strong>🚩 納管範圍已釐清（2026-09-29 更新）</strong><span class="ev ev-verified">已證實</span>：依 <a href="https://www.e-sbirka.cz/sb/2025/408" rel="noopener" target="_blank">vyhláška 408/2025 Sb.</a> 附表第 7.1 項，CZ-NACE 26（電腦、電子及光學產品製造）之<strong>大型或中型企業</strong>屬受規範服務，適用<strong>低階（nižší režim）</strong>；CZ-NACE 27／28 亦同。乘用車量產（7.4）僅為高階觸發條件。先前「製造業似僅涵蓋乘用車量產」的解讀有誤。
+      <p><strong>捷克廠若為中型以上企業，原則上即屬納管，影響數百萬元等級的合規支出。</strong></p>
+      <p><strong>行動建議</strong>：由捷克廠透過 NÚKIB 登記入口（portal.nukib.gov.cz）執行<strong>正式自我識別</strong>，並取得當地法律意見書，確認企業規模與 NACE 分類。<strong>切勿依本手冊或任何二手資料直接認定不納管。</strong></p>
     </div>
     <div class="notice accent">
       <strong>捷克「鍍金條款」的關鍵含意：</strong>捷克法明示 <strong>ISO 27001 驗證不足以滿足其要求</strong>。這推翻了「我們有 ISO 27001，歐盟合規就沒問題」的常見假設。
@@ -1065,7 +1070,7 @@
           <tr><td>生效</td><td><strong>2024-01-11</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td><strong>適用日</strong></td><td><strong>2025-09-12</strong>（已生效）</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td>製造商義務</td><td>Chapter II：<strong>connected product 須「設計上」即可讓使用者取用其產生之資料</strong>（Art. 3）、使用者取用權（Art. 4）、依使用者要求分享予第三方（Art. 5）；禁止不公平契約條款</td><td><span class="ev ev-verified">已證實</span></td></tr>
-          <tr><td>Art. 3(1) 設計義務之適用範圍</td><td>一般理解為適用於 2026-09-12 之後投放市場之連網產品（Art. 50）</td><td>🚩 <span class="ev ev-unverified">尚未證實</span> 須以 EUR-Lex 覆核</td></tr>
+          <tr><td>Art. 3(1) 設計義務之適用範圍</td><td>依 Art. 50，適用於 2026-09-12 之後投放市場之連網產品</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td>營業秘密</td><td>設有保護配套，但<strong>不得作為全面拒絕分享之藉口</strong></td><td><span class="ev ev-third">第三方評論</span></td></tr>
         </tbody>
       </table>
@@ -1082,11 +1087,12 @@
           <tr><td>生效</td><td>2024-08-01</td><td><span class="ev ev-third">第三方評論</span>／公知</td></tr>
           <tr><td>禁止性 AI 實務 + AI 素養</td><td>2025-02-02（已生效）</td><td><span class="ev ev-third">第三方評論</span></td></tr>
           <tr><td>GPAI 義務</td><td>2025-08-02（已生效）</td><td><span class="ev ev-third">第三方評論</span></td></tr>
-          <tr><td><strong>Digital Omnibus：Council 最終通過</strong></td><td><strong>2026-06-29</strong>；生效為 OJ 刊登後第 3 日</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>Digital Omnibus on AI＝Regulation (EU) 2026/1744</strong></td><td>2026-07-08 簽署，2026-07-24 刊登 OJ，<strong>2026-07-27 生效</strong>（Council 最終通過日 2026-06-29 尚未以一手來源覆核）</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td><strong>獨立式高風險 AI（Annex III）</strong></td><td><strong>延後至 2027-12-02</strong>（原 2026-08-02）</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td><strong>嵌入產品之高風險 AI（Annex I）</strong></td><td><strong>延後至 2028-08-02</strong>（原 2026-08-02）</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td>AI 監理沙盒建置</td><td>延後至 2027-08-02</td><td><span class="ev ev-verified">已證實</span></td></tr>
-          <tr><td>合成內容透明度標示</td><td>2026-12-02</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>Art. 50 透明度義務</td><td><strong>2026-08-02</strong> 起適用（已適用）</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>既有生成式系統之合成內容標示（Art. 50(2)）過渡期；新增禁止事項（未經同意之性深偽、CSAM）</td><td>2026-12-02</td><td><span class="ev ev-verified">已證實</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -1106,12 +1112,14 @@
           <tr><td><strong>48 CFR DFARS 採購規則（DFARS Case 2019-D041）</strong>刊登</td><td>2025-09-10</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td>生效日</td><td><strong>2025-11-10</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td>🚩 <strong>DoW 宣布「立即暫停」CMMC Phase II 要求</strong></td><td><strong>2026-07-13</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>DFARS 類別偏離 2026-O0025 Rev.3</strong>：將暫停制度化</td><td>2026-09</td><td><span class="ev ev-verified">已證實</span></td></tr>
         </tbody>
       </table>
     </div>
     <p><strong>暫停之內容</strong>：原訂 2026-11-10 生效之 Phase II 要求（含 C3PAO 第三方驗證強制化）<strong>即刻暫停</strong>。<br>
     <strong>仍然有效</strong>：Phase I 自評要求全數維持；<strong>DFARS 252.204-7012</strong> 保護 covered defense information 之契約義務不變；<strong>NIST SP 800-171 Rev 2</strong> 仍透過自評與政府主導評鑑執行。<br>
-    成立 <strong>CMMC Reform Task Force</strong>，須於 60 日內（即約 2026-09-11 前）向 DoW CIO 提出報告（此期限晚於查證基準日 2026-08-30，報告結果須追蹤覆核）；方向為「speed to capability」、降低中小與非傳統廠商門檻。</p>
+    成立 <strong>CMMC Reform Task Force</strong>，原定 60 日內（約 2026-09-11 前）向 DoW CIO 提出報告；截至 2026-09-29 未見公開報告、重啟日期或新規則；報告先送 DoW CIO，是否公開由其決定<span class="ev ev-third">第三方評論</span>。後續應持續追蹤，不可推定 Phase II 已重啟或取消。</p>
+    <p><strong>2026-09 更新</strong>：DoW 以 <a href="https://www.acq.osd.mil/dpap/dars/classdev/DFARS_RFO/Part-240/2026-O0025_Rev3_TAB_A_Deviation_Memo.pdf" rel="noopener" target="_blank">DFARS 類別偏離 2026-O0025 Rev.3</a>（取代 2026-07-16 的 Rev.2）將暫停制度化。契約官須自新舊招標與契約移除 CMMC 第三方驗證要求，僅得要求 Level 1／Level 2 <strong>自評</strong>，並以 DFARS 252.204-7012／NIST SP 800-171 Rev 2 為基線；2026-11 的 Phase 2 轉換已暫停。既有契約於下一選擇權期間或行政修約時移除相關要求。eCFR 條文（32 CFR 170、252.204-7021／-7025）本身未修改。<span class="ev ev-verified">已證實</span></p>
 
     <h4 id="s5-6-2">5.6.2　CMMC 等級與 Rev 2 / Rev 3 的關鍵區別</h4>
     <div class="table-wrap">
@@ -1139,7 +1147,7 @@
       <li><strong>分包流下（flow-down）</strong>：主約商須將 CMMC 要求流下至<strong>會處理、儲存或傳輸 FCI/CUI 之分包商</strong>；分包商須自行於 SPRS 登錄自評結果並年度確認，並提供各處理 FCI/CUI 系統之 <strong>CMMC UID</strong></li>
     </ul>
     <div class="notice">
-      <strong>對 ODM 的建議：</strong>2026 年下半年<strong>不應解散 CMMC 專案</strong>。Phase I 自評與 7012 條款仍具契約拘束力，且 Task Force 報告出爐後極可能以新規則重啟。維持 SPRS 分數與 SSP/POA&amp;M 文件現況，僅延後 C3PAO 驗證的採購預算。
+      <strong>對 ODM 的建議：</strong>2026 年下半年<strong>不應解散 CMMC 專案</strong>。Phase I 自評與 7012 條款仍具契約拘束力，重啟需另行撤回偏離或發布新規則，時程未定。維持 SPRS 分數與 SSP/POA&amp;M 文件現況，僅延後 C3PAO 驗證的採購預算。
     </div>
 
     <h4 id="s5-6-4">5.6.4　ITAR / EAR：技術資料的地理與國籍圍籬</h4>
@@ -1147,10 +1155,11 @@
       <table>
         <thead><tr><th scope="col">項目</th><th scope="col">內容</th><th scope="col">等級</th></tr></thead>
         <tbody>
-          <tr><td><strong>ITAR</strong></td><td>22 CFR Parts 120–130；管制 <strong>USML</strong> 國防物品與 <strong>technical data</strong>；製造／出口者須向 <strong>DDTC 註冊（Part 122）</strong>；「出口」包含<strong>向外國人釋出技術資料（含美國境內釋出）</strong>；22 CFR 120.54(a)(5) 提供<strong>端對端加密</strong>之安全港</td><td><span class="ev ev-unverified">尚未證實</span> 條號依公知，出版前請以 eCFR 覆核</td></tr>
+          <tr><td><strong>ITAR</strong></td><td>22 CFR Parts 120–130；管制 <strong>USML</strong> 國防物品與 <strong>technical data</strong>；製造／出口者須向 <strong>DDTC 註冊（Part 122）</strong>；「出口」包含<strong>向外國人釋出技術資料（含美國境內釋出）</strong>；22 CFR 120.54(a)(5) 提供<strong>端對端加密</strong>之安全港（FIPS 140-2 或相當 AES-128，且不得存放於或自 §126.1 國家傳送）；120.54 將於 2026-10-13 新增 (a)(8)(9)（航空器存活性裝備），不影響 (a)(5)</td><td><span class="ev ev-verified">已證實 — eCFR 2026-09-25 覆核</span></td></tr>
           <tr><td><strong>EAR</strong></td><td><strong>15 CFR Parts 730–774</strong>；CCL 於 Supplement No. 1 to Part 774（ECCN）；Commerce Country Chart 於 Supplement No. 1 to Part 738；Country Groups 於 Supplement No. 1 to Part 740</td><td><span class="ev ev-verified">已證實</span> CFR 部號與 Supplement 位置</td></tr>
           <tr><td><strong>Deemed Export</strong></td><td>於美國境內向外國籍員工釋出受管制技術，視同對其國籍國之出口——<strong>對 ODM 之美國廠與跨國工程協作影響最大</strong></td><td><span class="ev ev-third">第三方評論</span>／公知</td></tr>
-          <tr><td><strong>Entity List / Affiliates Rule（50% 規則）</strong></td><td>2025 年 BIS 擴大 Entity List 至受列名實體持股 50% 以上之關係企業</td><td>🚩 <span class="ev ev-unverified">尚未證實</span> 須向法務／貿易合規確認最新版本</td></tr>
+          <tr><td><strong>Entity List / Affiliates Rule（50% 規則）</strong></td><td>BIS 於 2025-09-29 施行關係企業規則（<a href="https://www.federalregister.gov/documents/2025/09/30/2025-19001/" rel="noopener" target="_blank">90 FR 47201</a>）：受一個或多個列名實體合計持股 50% 以上者自動受限；2025-11-10 起暫停一年至 <strong>2026-11-09</strong>（<a href="https://www.federalregister.gov/documents/2025/11/12/2025-19846/" rel="noopener" target="_blank">90 FR 50857</a>）</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>暫停再延長</td><td>美方官員稱將再延兩個月至約 2027-01-10；截至 2026-09-29 尚無 Federal Register 公告</td><td>🚩 <span class="ev ev-third">第三方評論</span> 須向法務／貿易合規確認</td></tr>
         </tbody>
       </table>
     </div>
@@ -1168,6 +1177,7 @@
           <tr><td>現行法</td><td>2018-06-06 公布，2019-01-01 施行</td><td>公知</td></tr>
           <tr><td>修正草案</td><td>行政院 2024-07-04 通過送立法院</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td><strong>立法院三讀</strong></td><td><strong>2025-08-29 三讀通過</strong>部分條文修正</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>公布與施行</strong></td><td><strong>2025-09-24 總統公布</strong>修正全文 35 條；行政院定自 <strong>2025-12-01 施行</strong>；施行細則、資通安全事件通報及應變辦法、情資分享辦法、責任等級分級辦法等子法已於 2025-12 至 2026-01 修正發布</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td>修正重點</td><td>① 公務機關<strong>禁止下載、安裝、使用「危害國家資通安全產品」</strong>；② 主管機關明定為<strong>數位發展部</strong>；③ 特定非公務機關應<strong>配置資通安全長</strong>、建立專責人員制度；④ 資安專職人員適任性查核；⑤ 中央目的事業主管機關之<strong>行政調查權</strong>；⑥ <strong>未依規定通報資安事件之罰鍰上限由 500 萬元提高至 1,000 萬元</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td>適用對象</td><td>公務機關 ＋ 特定非公務機關（關鍵基礎設施提供者、公營事業、政府捐助之財團法人）</td><td><span class="ev ev-verified">已證實</span></td></tr>
         </tbody>
@@ -1185,10 +1195,10 @@
         <tbody>
           <tr><td>2023 修法</td><td>非公務機關個資外洩最高罰 <strong>1,500 萬元</strong>；增訂第 1-1 條個資會設立依據</td><td><span class="ev ev-third">第三方評論</span></td></tr>
           <tr><td><strong>2025 修法</strong></td><td><strong>2025-10-17 立法院三讀</strong></td><td><span class="ev ev-third">第三方評論</span></td></tr>
-          <tr><td><strong>公布日</strong></td><td><strong>2025-11-11 總統公布</strong></td><td><span class="ev ev-third">第三方評論</span></td></tr>
-          <tr><td><strong>施行日</strong></td><td>🚩 <strong>由行政院另定，截至查證日尚未確定</strong></td><td><span class="ev ev-unverified">尚未證實</span></td></tr>
+          <tr><td><strong>公布日</strong></td><td><strong>2025-11-11 總統公布</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>施行日</strong></td><td>🚩 <strong>由行政院另定，截至 2026-09-29 仍未定</strong>；個資會尚未成立（籌備處表示施行日待組織法完成，組織法尚未完成立法）</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td>修正重點</td><td>① 個資事故<strong>知悉即應通知當事人</strong>，不以先確認違法為前提；② 應向個資會通報並立即採取有效應變措施；③ 個資會為主要主管機關並具執法權，設 <strong>6 年過渡期</strong>；④ 公務機關設個人資料保護長；⑤ 對個資會處分改採直接行政訴訟</td><td><span class="ev ev-third">第三方評論</span></td></tr>
-          <tr><td><strong>子法草案預告 2026-01-22</strong>（預告期 60 日）</td><td>①《個人資料檔案安全維護管理辦法》②《個人資料事故通知通報及應變辦法》③《個人資料保護長及相關人員職掌職能條件及訓練辦法》</td><td><span class="ev ev-third">第三方評論</span></td></tr>
+          <tr><td><strong>子法草案預告 2026-01-22</strong>（預告期 60 日）</td><td>①《個人資料檔案安全維護管理辦法》②《個人資料事故通知通報及應變辦法》③《個人資料保護長及相關人員執掌職能條件及訓練辦法》④ 施行細則修正；2026-02 至 03 另預告推進會議運作、檢查非公務機關作業、公務機關稽核等辦法；截至 2026-09-29 均僅預告、尚未發布</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td><strong>通報時限</strong></td><td><strong>知悉個資事故起 72 小時內</strong>通報並通知當事人；觸發門檻：涉特種個資、<strong>逾 1 萬筆</strong>、或影響<strong>逾 100 人</strong></td><td><span class="ev ev-third">第三方評論</span></td></tr>
         </tbody>
       </table>
@@ -1212,6 +1222,9 @@
     <p><strong>年報揭露</strong>：自 2022 年度起，年報應揭露<strong>資安風險管理架構、資安政策、具體管理方案、投入資安管理之資源、重大資安事件損失、可能影響及因應措施</strong>。<span class="ev ev-verified">已證實</span></p>
     <p><strong>金管會 2024-03-05 精進措施</strong><span class="ev ev-verified">已證實</span>：修正《上市上櫃公司資通安全管控指引》；<strong>提高資訊安全內部控制查核比重</strong>；於重大訊息 FAQ 明確化資安事件重大性標準；<strong>強化子公司資安監督</strong>；推動加入 TWCERT/CC。</p>
     <p><strong>公司治理評鑑指標 2.24（第 12 屆／114 年）</strong><span class="ev ev-verified">已證實</span></p>
+    <div class="notice">
+      <strong>2026-09-29 更新：</strong>115 年起公司治理評鑑轉型為 <strong>ESG 評鑑</strong>（第一屆，75 項指標），資安指標改為 <strong>S-12</strong>（原 2.24），要件架構不變：要件 1–3 須全數符合方得分，要件 4 驗證加 1 分且效期須涵蓋 115 年。文字差異：要件 1 為「設置資安主管」；要件 3 例示新增「<strong>資產監控覆蓋率</strong>」。<span class="ev ev-verified">已證實</span>來源：<a href="https://cgc.twse.com.tw/front/evaluationOverview" rel="noopener" target="_blank">證交所公司治理中心 評鑑概況</a>
+    </div>
     <div class="table-wrap">
       <table>
         <thead><tr><th scope="col">要件</th><th scope="col">內容</th><th scope="col">計分</th></tr></thead>
@@ -1243,7 +1256,7 @@
       <li><strong>時限</strong>：<strong>回應媒體報導之資安事件，至遲不得逾發現後或經證交所通知後 2 小時內</strong>辦理</li>
     </ul>
     <div class="notice">
-      <strong>這 2 小時是本手冊查證到的最短通報時限。</strong>它意味著：一旦媒體報導本集團資安事件，2 小時內必須有對外說法。事件應變計畫必須包含<strong>預先擬定的重訊草稿範本</strong>與<strong>發言人授權鏈</strong>，不能在事件發生後才開始擬稿。
+      <strong>這 2 小時是本手冊查證到、適用於台灣總部的最短通報時限</strong>（中國 CII 營運者另有 1 小時、一般網路營運者 4 小時，見 <a href="#s5-9-2">§5.9.2</a>）。它意味著：一旦媒體報導本集團資安事件，2 小時內必須有對外說法。事件應變計畫必須包含<strong>預先擬定的重訊草稿範本</strong>與<strong>發言人授權鏈</strong>，不能在事件發生後才開始擬稿。
     </div>
 
     <h4 id="s5-7-5">5.7.5　營業秘密法與國家核心關鍵技術</h4>
@@ -1253,9 +1266,9 @@
         <tbody>
           <tr><td>國家安全法第 3 條</td><td>2022 年修法增訂<strong>經濟間諜罪</strong>，侵害「國家核心關鍵技術之營業秘密」者加重處罰；並增訂域外使用之處罰</td><td><span class="ev ev-third">第三方評論</span></td></tr>
           <tr><td>首批清單</td><td><strong>2023-12-05</strong> 國科會公告 <strong>22 項</strong>（含 14 奈米以下製程、後量子密碼等）</td><td><span class="ev ev-third">第三方評論</span></td></tr>
-          <tr><td>現行清單</td><td><strong>32 項</strong></td><td><span class="ev ev-third">第三方評論</span></td></tr>
-          <tr><td><strong>增修預告</strong></td><td>國科會預告增修為 <strong>42 項</strong>（新增 10 項、變更 1 項），預告期至 2025-12-08；領域涵蓋國防科技、太空、農業、<strong>半導體</strong>、<strong>資安</strong>、量子、能源、AI</td><td><span class="ev ev-verified">已證實</span> 預告階段</td></tr>
-          <tr><td><strong>42 項是否已正式公告</strong></td><td>🚩 <strong>須查行政院公報／國科會法規查詢系統確認</strong></td><td><span class="ev ev-unverified">尚未證實</span></td></tr>
+          <tr><td>前版清單</td><td><strong>32 項</strong>（2024-12-31 修正）</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>增修預告</strong></td><td>國科會預告增修為 <strong>42 項</strong>（新增 10 項、變更 1 項），預告期至 2025-12-08；領域涵蓋國防科技、太空、農業、<strong>半導體</strong>、<strong>資安</strong>、量子、能源、AI</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>現行清單</strong></td><td><strong>42 項</strong>：行政院 <strong>2026-02-13</strong> 公告修正（院臺科字第1141037623號），即日生效</td><td><span class="ev ev-verified">已證實</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -1270,18 +1283,18 @@
       <table>
         <thead><tr><th scope="col">項目</th><th scope="col">內容</th><th scope="col">等級</th></tr></thead>
         <tbody>
-          <tr><td>2026 年現行版本</td><td><strong>VDA ISA 6.0.3</strong></td><td><span class="ev ev-third">第三方評論</span></td></tr>
-          <tr><td><strong>新版 VDA ISA 2027</strong></td><td><strong>2026 年年中發布</strong>（ENX 於 TISAX 十週年公布）</td><td><span class="ev ev-verified">已證實</span> 存在性</td></tr>
-          <tr><td>強制適用</td><td><strong>2027 年起</strong>所有初次與換證評鑑須採 ISA 2027（約 6 個月預告期）</td><td><span class="ev ev-third">第三方評論</span></td></tr>
-          <tr><td>命名制度變更</td><td><strong>廢除 6.0.x 版號，改為年度命名（ISA 2027）</strong>；<strong>改為年度發布</strong>（原三年一版），新版於前一年年中發布</td><td><span class="ev ev-third">第三方評論</span></td></tr>
+          <tr><td>2026 年現行版本</td><td><strong>VDA ISA 6</strong>（2023-10 發布，2024-04-01 起委託之評鑑適用；ENX 頁面未標示 6.0.3）</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>新版 VDA ISA 2027</strong></td><td><strong>2026-07-01 正式發布</strong>（ENX 於 TISAX 十週年公布）</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>強制適用</td><td><strong>2027-01-01 起委託</strong>之 TISAX 評鑑一律適用 ISA 2027；以 ISA 6 開立初次評鑑最遲至 2027 年 3 月</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>命名制度變更</td><td><strong>廢除 6.0.x 版號，改為年度命名（ISA 2027）</strong>；<strong>每年夏季發布、次年 1 月 1 日生效</strong>（原三年一版）</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td>模組</td><td><strong>Information Security（43 項控制項修訂）</strong>、<strong>Prototype Protection（重構為 Basic (AL2) 與 Facilities (AL3) 兩級）</strong>、Data Protection</td><td><span class="ev ev-third">第三方評論</span></td></tr>
-          <tr><td><strong>AI 模組</strong></td><td>🚩 <strong>未於查證中發現獨立 AI 模組</strong>；現況為 6.0.3 → ISA 2027，<strong>未見 6.1</strong></td><td><span class="ev ev-unverified">尚未證實</span></td></tr>
+          <tr><td><strong>AI 模組</strong></td><td><strong>無獨立 AI 模組</strong>；ISA 2027 僅以雲端服務示例（AI chatbots、AI agents）納入 AI，ENX 表示 AI 已涵蓋於 ISA 既有控制項</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td>評鑑等級</td><td>AL1（自評）／AL2（遠距＋文件）／AL3（現場深度）</td><td><span class="ev ev-third">第三方評論</span></td></tr>
         </tbody>
       </table>
     </div>
     <div class="notice">
-      <strong>行動建議：</strong>直接向 ENX Portal 下載目錄確認 AI 相關控制項與 ISA 2027 的正式發布日。<strong>由於改為年度發布，資安團隊必須建立「每年年中檢視 ISA 新版」的常態流程</strong>，這是制度變更帶來的新維運負擔。
+      <strong>行動建議：</strong>自 ENX 下載 ISA 2027 目錄與 ISA 6 對照紅線版（主要變更為供應鏈、原型保護、OT 與對映），完成差距分析。<strong>由於改為年度發布，資安團隊必須建立「每年年中檢視 ISA 新版」的常態流程</strong>，這是制度變更帶來的新維運負擔。
     </div>
 
     <h4 id="s5-8-2">5.8.2　RBA —— 一項必須澄清的常見誤解</h4>
@@ -1290,8 +1303,9 @@
         <thead><tr><th scope="col">項目</th><th scope="col">內容</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr><td><strong>RBA Code of Conduct 8.0</strong></td><td><strong>2024-01-01 生效</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
-          <tr><td><strong>RBA VAP Standard 8.0.2</strong></td><td>2025 年 4 月版</td><td><span class="ev ev-third">第三方評論</span></td></tr>
-          <tr><td>VAP 評鑑方式</td><td>document review、interviews with management and employees、visual site survey；現場評鑑 <strong>1–5 天</strong>；不符合項分 minor / major / priority 三級</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>RBA VAP Standard V8.1</strong></td><td><strong>2026-09-27</strong> 版（前版 8.0.2 為 2025-03-10）；新增 "Risk of Non-conformance" 類別，另僅就工時新增 "Opportunity for Improvement"</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>VAP 評鑑方式</td><td>document review、interviews with management and employees、visual site survey；現場評鑑 <strong>1–5 天</strong>；不符合項分 minor / major / priority 三級，V8.1 另增 risk of non-conformance</td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td>V8.1 新定義</td><td>將 "IT Services" 供應者（含資安服務）列為服務供應商類型；此非對受稽廠區的資安稽核範圍，但下述「VAP 不含資安」的判斷應以 V8.1 重新確認</td><td><span class="ev ev-verified">已證實</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -1386,7 +1400,9 @@
       <table>
         <thead><tr><th scope="col">時限</th><th scope="col">來源</th><th scope="col">觸發條件</th></tr></thead>
         <tbody>
+          <tr><td><strong>1 小時</strong></td><td><strong>中國《國家網絡安全事件報告管理辦法》</strong></td><td>CII 營運者之網路安全事件（2025-11-01 施行）</td></tr>
           <tr><td><strong>2 小時</strong></td><td><strong>TWSE 重大訊息</strong></td><td>回應媒體報導之資安事件</td></tr>
+          <tr><td><strong>4 小時</strong></td><td><strong>中國《國家網絡安全事件報告管理辦法》</strong></td><td>一般網路營運者向省級網信部門報告（2025-11-01 施行）</td></tr>
           <tr><td><strong>24 小時</strong></td><td><strong>EU CRA Art. 14</strong></td><td>遭實際利用之漏洞／嚴重事故之早期預警</td></tr>
           <tr><td><strong>24 小時</strong></td><td><strong>NIS2 Art. 23</strong></td><td>重大事故早期預警</td></tr>
           <tr><td><strong>24 小時</strong></td><td><strong>中國網路數據安全管理條例 Art. 10</strong></td><td>危害國家安全與公共利益之資料安全缺陷</td></tr>
@@ -1420,7 +1436,7 @@
         <thead><tr><th scope="col">制度</th><th scope="col">資安相關內容</th><th scope="col">等級</th></tr></thead>
         <tbody>
           <tr><td><strong>EU AEO</strong></td><td>法源 UCC Regulation (EU) 952/2013 <strong>Art. 38–39</strong> ＋ Implementing Regulation (EU) 2015/2447；類型 AEOC／<strong>AEOS</strong>／併用；準則含 <strong>Art. 39(e) 適當之安全與保安標準</strong>；<strong>AEO Guidelines 明訂 IT 安全措施要求</strong>（存取控制、備份、災難復原、資料完整性、實體機房安全）</td><td><span class="ev ev-verified">已證實</span></td></tr>
-          <tr><td><strong>US CTPAT</strong></td><td>Minimum Security Criteria（MSC），2019 公布、2020-03 起分階段實施；<strong>「Cybersecurity」為獨立 criteria 類別</strong>，要求含書面資安政策與程序、定期資安訓練、密碼複雜度／雙因素驗證、資料備份與<strong>異地保存</strong>、系統定期測試、硬體與可攜式媒體管控、個人裝置使用限制、離職人員存取撤銷</td><td>🚩 <span class="ev ev-unverified">尚未證實</span> CBP 網站回傳 403，出版前務必自 CBP 下載最新 MSC PDF 逐條核對</td></tr>
+          <tr><td><strong>US CTPAT</strong></td><td>現行版為 <a href="https://www.cbp.gov/sites/default/files/assets/documents/2023-Feb/CTPAT%20Foreign%20Manufacturers%20MSC%20October%202021%20%28508%29_0.pdf" rel="noopener" target="_blank">Minimum Security Criteria – Foreign Manufacturers（2021-10）</a>；第 4 節 <strong>Cybersecurity（4.1–4.13）</strong> 為獨立類別，要求含書面資安政策（Must）、惡意程式防護、定期安全測試、年度政策檢視、依角色授權與離職撤銷存取（Must）、個人帳號與強密碼、遠端存取採 VPN 或 MFA（MFA 為建議）、個人裝置、仿冒軟體、資料備份（Should，異地／雲端為建議）、媒體盤點與清除；資安訓練列於 12.8</td><td><span class="ev ev-verified">已證實 — CBP MSC PDF 2026-09-29 覆核</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -1434,10 +1450,10 @@
       <table>
         <thead><tr><th scope="col">順位</th><th scope="col">法規／標準</th><th scope="col">關鍵日期</th><th scope="col">核心義務</th><th scope="col">本集團行動</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td><strong>EU CRA Art. 14</strong></td><td><strong>2026-09-11</strong></td><td>24h/72h/14d 通報至 CSIRT+ENISA</td><td>立即完成 EU Login 註冊、備援通報流程</td></tr>
+          <tr><td>1</td><td><strong>EU CRA Art. 14</strong></td><td><strong>2026-09-11</strong></td><td>24h/72h/14d 通報至 CSIRT+ENISA</td><td>已適用：完成 EU Login 與平台代表人註冊、選定協調者 CSIRT、演練 24/72 小時通報</td></tr>
           <tr><td>2</td><td><strong>TWSE 重大訊息</strong></td><td>現行</td><td><strong>回應媒體 2 小時內</strong></td><td>預擬重訊範本與發言授權鏈</td></tr>
           <tr><td>3</td><td><strong>客戶合約通知 SLA</strong></td><td>現行</td><td>24–48h 通知客戶</td><td>盤點所有客戶合約之通知條款與時限</td></tr>
-          <tr><td>4</td><td><strong>捷克 Act 264/2025 Sb.</strong></td><td>2025-11-01 生效</td><td>登記 + 12 個月落地；<strong>所有事件均須通報</strong></td><td><strong>立即確認捷克廠是否納管</strong></td></tr>
+          <tr><td>4</td><td><strong>捷克 Act 264/2025 Sb.</strong></td><td>2025-11-01 生效</td><td>登記決定送達後 1 年內落地；<strong>所有事件均須通報</strong></td><td><strong>立即完成自我識別與登記</strong>（CZ-NACE 26 中大型企業屬納管）</td></tr>
           <tr><td>5</td><td><strong>金管會資安人力與年報揭露</strong></td><td>現行</td><td>資安長＋專責單位；揭露人力數與資源</td><td>確保揭露內容與實際能力一致</td></tr>
           <tr><td>6</td><td><strong>中國 CSL（2025 修正）</strong></td><td><strong>2026-01-01 生效</strong></td><td>罰鍰上限 RMB 1,000 萬、個人 100 萬</td><td>中國區合規檢視</td></tr>
           <tr><td>7</td><td><strong>EU RED DA</strong></td><td>2025-08-01 已適用</td><td>連網產品不得允許免密碼</td><td>寫入 PLM 設計規範與 NPI 檢核點</td></tr>
@@ -1479,7 +1495,7 @@
       <strong>正確的說法：</strong>把隔離決策歸因於「中國法律要求」是<strong>過度簡化且無法引用法源支撐</strong>的。在董事會或客戶面前這樣說，一旦被追問法源會無法回答。應改為：<strong>隔離是集團在法律不確定性、客戶合約要求與營運可行性三者權衡下的架構決策。</strong>
     </div>
 
-    <h3 id="s6-2">6.2 中國法規現況（2026-08-30 查證）</h3>
+    <h3 id="s6-2">6.2 中國法規現況（2026-08-30 查證，2026-09-29 更新）</h3>
     <div class="table-wrap">
       <table>
         <thead><tr><th scope="col">法規</th><th scope="col">通過／發布</th><th scope="col">生效</th><th scope="col">等級</th></tr></thead>
@@ -1490,7 +1506,11 @@
           <tr><td><strong>個人資訊保護法（PIPL）</strong></td><td>2021-08-20</td><td>2021-11-01</td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td><strong>網路數據安全管理條例</strong></td><td>國務院令<strong>第 790 號</strong>，2024-09-24 公布</td><td><strong>2025-01-01</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
           <tr><td><strong>促進和規範數據跨境流動規定（CAC）</strong></td><td><strong>2024-03-22</strong> 公布</td><td><strong>公布日即生效</strong></td><td><span class="ev ev-third">第三方評論</span>（逐條譯本）</td></tr>
-          <tr><td><strong>MLPS 2.0／等級保護 2.0（GB/T 22239-2019）</strong></td><td>2019-05 發布</td><td>2019-12-01</td><td>🚩 <span class="ev ev-unverified">尚未證實</span> 日期依公知，須以 TC260／公安部來源覆核</td></tr>
+          <tr><td><strong>MLPS 2.0／等級保護 2.0（GB/T 22239-2019）</strong></td><td>2019-05-10 發布（現行）</td><td>2019-12-01</td><td><span class="ev ev-verified">已證實</span> 國家標準全文公開系統</td></tr>
+          <tr><td><strong>國家網絡安全事件報告管理辦法（CAC）</strong></td><td>2025-09-15 公布</td><td><strong>2025-11-01</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>個人信息出境認證辦法</strong></td><td>2025 公布</td><td><strong>2026-01-01</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>網絡數據安全風險評估辦法</strong>（CAC／工信部／公安部）</td><td>2026-06-18 公布</td><td><strong>2026-08-20</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
+          <tr><td><strong>小型個人信息處理者個人信息保護簡化措施規定</strong></td><td>2026 公布</td><td><strong>2026-09-01</strong></td><td><span class="ev ev-verified">已證實</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -1526,7 +1546,7 @@
           <tr><td><strong>第 10 條</strong></td><td>安全缺陷通報；<strong>涉及危害國家安全與公共利益者 24 小時內</strong>報告</td></tr>
           <tr><td><strong>第 11 條</strong></td><td>立即啟動應急預案並及時通知受影響方</td></tr>
           <tr><td><strong>第 21–22 條</strong></td><td>告知義務；敏感個資單獨同意、未滿 14 歲須監護人同意</td></tr>
-          <tr><td><strong>第 33 條</strong></td><td>重要資料處理者<strong>每年</strong>風險評估並報省級主管機關</td></tr>
+          <tr><td><strong>第 33 條</strong></td><td>重要資料處理者<strong>每年</strong>風險評估並報省級主管機關（《網絡數據安全風險評估辦法》2026-08-20 施行後，報告須於評估完成後 <strong>20 個工作日</strong>內報送主管部門，無明確主管部門者報網信部門）</td></tr>
           <tr><td><strong>第 35–38 條</strong></td><td>出境條件；<strong>第 37 條</strong>重要資料出境須通過 CAC 安全評估</td></tr>
         </tbody>
       </table>
@@ -1683,7 +1703,7 @@
 
 <footer class="site-footer">
   <div class="footer-inner">
-    <div>© 2026 GSMD Security Fabric・文件編號 GSMD-RPT-2026-0830-01・查證基準日 2026-08-30・密級：公開（通用參考版）</div>
+    <div>© 2026 GSMD Security Fabric・文件編號 GSMD-RPT-2026-0830-01・原版查證 2026-08-30・時效更新 2026-09-29・密級：公開（通用參考版）</div>
     <div><a href="methodology.html">證據分級方法論</a>・<a href="appendix.html">引用來源總表</a></div>
   </div>
 </footer>
