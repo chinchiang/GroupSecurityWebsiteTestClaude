@@ -52,9 +52,14 @@ python3 -m http.server 8000
 ```bash
 python3 .github/scripts/check_site.py              # 站內檢查
 python3 .github/scripts/check_site.py --external   # 另查外部連結（僅 404/410 視為失效）
+python3 .github/scripts/check_site.py --stale      # 另列出已過期或 45 天內到期的時程（僅提醒）
 ```
 
-`.github/workflows/check-site.yml` 在 PR 與 push 到 `main` 時跑站內檢查，每週一另跑外部連結檢查；
+`--stale` 會找出「預定／預計／將於／目標」等字後緊接的日期：已早於今天者列為 warning（時程可能已過期，應查證後改寫），
+45 天內到期者列為 notice（到期後回頭查證）。同句或同一表格列已交代結果（原預定、已於、延後、暫停……）者不列入。
+這些提醒不影響檢查結果，但會以 annotation 顯示在 PR 與每週排程的執行結果中。
+
+`.github/workflows/check-site.yml` 在 PR 與 push 到 `main` 時跑站內檢查與時程提醒，每週一另跑外部連結檢查與時程提醒；
 `deploy-pages.yml` 部署前也會先跑站內檢查，未通過就不部署。
 
 各頁設有 Content-Security-Policy（只允許本站資源），因此**不可使用 inline script／style**。

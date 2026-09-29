@@ -4,9 +4,12 @@
 用法：
   python3 .github/scripts/check_site.py             # 站內檢查（PR 與部署前必跑）
   python3 .github/scripts/check_site.py --external  # 另外檢查外部連結（僅 404/410 視為失效）
+  python3 .github/scripts/check_site.py --stale     # 另外列出已過期或即將到期的時程（僅提醒，不影響結果）
 
 只用標準函式庫，無相依套件。
 """
+import datetime
+import html
 import os
 import re
 import sys
@@ -27,8 +30,18 @@ EV_LABELS = {'ev-verified': '已證實', 'ev-vendor': '廠商主張',
              'ev-third': '第三方評論', 'ev-unverified': '尚未證實'}
 # 由 JS 動態加上的 class，不會出現在 HTML 原始碼
 JS_CLASSES = {'active', 'open', 'code-wrap', 'copy-btn'}
+# 時程檢查：未來式用語後 16 字內的日期。已早於今天者可能過期，45 天內者提醒追蹤
+FUTURE_DATE = re.compile(r'(?:預定|預計|預期|將於|將在|即將|排定|可望|最快|最遲|目標)'
+                         r'[^。；|]{0,16}?(20\d\d)-(\d\d)(?:-(\d\d))?')
+# 同句（表格則同一列）已交代結果（原預定、已於、延後……）者不列入
+SETTLED = re.compile(r'原(?:預定|訂|定|預計)|已(?:於|經|延|生效|施行|發布|上線|公告|過)|前版|延後|暫停|取消|改為')
+SENTENCE_END = re.compile(r'[。；\n]|</(?:p|li|tr|h\d)>')
+UPCOMING_DAYS = 45
+MASTER = 'docs/GSMDRPT2026083001.md'
 
 errors = []
+warnings = []
+notices = []
 
 
 def error(path, line, msg):
@@ -188,12 +201,53 @@ def main():
 
     if check_external:
         check_links(external)
+    check_dates = '--stale' in sys.argv
+    if check_dates:
+        check_stale(files + [MASTER])
 
+    gha = os.environ.get('GITHUB_ACTIONS')
+    for kind, items in (('notice', notices), ('warning', warnings)):
+        for e in items:
+            print(f'::{kind}::{e}' if gha else f'[{kind}] {e}')
     for e in errors:
-        print(f'::error::{e}' if os.environ.get('GITHUB_ACTIONS') else e)
+        print(f'::error::{e}' if gha else e)
     print(f'檢查 {len(files)} 個頁面，{len(errors)} 個問題'
-          + (f'；外部連結 {len(external)} 條' if check_external else ''))
+          + (f'；外部連結 {len(external)} 條' if check_external else '')
+          + (f'；時程已過 {len(warnings)} 處、{UPCOMING_DAYS} 天內到期 {len(notices)} 處'
+             if check_dates else ''))
     return 1 if errors else 0
+
+
+def check_stale(paths):
+    """列出「預定／將於／目標 YYYY-MM-DD」而日期已過或將近的敘述；僅為提醒，不列為錯誤。"""
+    today = datetime.date.today()
+    soon = today + datetime.timedelta(days=UPCOMING_DAYS)
+    for path in paths:
+        with open(os.path.join(ROOT, path), encoding='utf-8') as fh:
+            text = fh.read()
+        line, pos = 1, 0
+        for m in SENTENCE_END.finditer(text + '\n'):
+            # 儲存格以 | 分隔，與 Markdown 表格一致，日期不會跨格配對
+            chunk = re.sub(r'</t[dh]>', ' | ', text[pos:m.start()])
+            sentence = html.unescape(re.sub(r'<[^>]+>', '', chunk)).strip()
+            start = line
+            line += text.count('\n', pos, m.end())
+            pos = m.end()
+            if SETTLED.search(sentence):
+                continue
+            for y, mo, d in FUTURE_DATE.findall(sentence):
+                try:
+                    when = datetime.date(int(y), int(mo), int(d or 28))
+                except ValueError:
+                    continue
+                label = f'{y}-{mo}' + (f'-{d}' if d else '')
+                short = sentence if len(sentence) <= 120 else sentence[:120] + '…'
+                if when < today:
+                    warnings.append(f'{path}:{start}: 時程 {label} 已過，請確認後改寫：{short}')
+                    break
+                if when <= soon:
+                    notices.append(f'{path}:{start}: 時程 {label} 將於 {UPCOMING_DAYS} 天內到期：{short}')
+                    break
 
 
 def check_links(external):
